@@ -1,17 +1,17 @@
 xdim=4
 ydim=5
 #max_count=None
-max_count=80
-with_counter=max_count is None
+max_count=None
+with_counter=max_count is not None
 
 def removed_added_on_move(tile, dx, dy):
     trans = {(x+dx,y+dy) for (x,y) in tile}
     return tile - trans, trans-tile
 
 
-squ = { (1,1), (1,2), (2,1), (2,2) }
-v2 = { (1,1), (1,2) }
-h2 = { (1,1), (2,1) }
+q = {(1, 1), (1, 2), (2, 1), (2, 2)}
+v = {(1, 1), (1, 2)}
+h = {(1, 1), (2, 1)}
 o = { (1,1) }
 
 
@@ -58,22 +58,22 @@ domain = f"""(define (domain khunpan)
                (at ?t ?h ?v) (empty ?h ?v) (type_h2 ?t) (type_o ?t) (type_v2 ?t) (type_sq ?t)
                {"(counter ?n) (succ ?n ?n2)" if with_counter else ""}
                )
-{action('sq',squ,'s')}
-{action('sq',squ,'n')}
-{action('sq',squ,'e')}
-{action('sq',squ,'w')}
-{action('v2',v2,'s')}
-{action('v2',v2,'n')}
-{action('v2',v2,'w')}
-{action('v2',v2,'e')}
-{action('h2',h2,'e')}
-{action('h2',h2,'w')}
-{action('h2',h2,'n')}
-{action('h2',h2,'s')}
-{action('o',o,'e')}
-{action('o',o,'w')}
-{action('o',o,'n')}
-{action('o',o,'s')}
+{action('q', q, 's')}
+{action('q', q, 'n')}
+{action('q', q, 'e')}
+{action('q', q, 'w')}
+{action('v', v, 's')}
+{action('v', v, 'n')}
+{action('v', v, 'w')}
+{action('v', v, 'e')}
+{action('h', h, 'e')}
+{action('h', h, 'w')}
+{action('h', h, 'n')}
+{action('h', h, 's')}
+{action('o', o, 'e')}
+{action('o', o, 'w')}
+{action('o', o, 'n')}
+{action('o', o, 's')}
 )
 """
 
@@ -94,9 +94,9 @@ problem = f"""
            {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)]) if with_counter else ""}
            
            (type_o to1) (type_o to2) (type_o to3) (type_o to4)
-           (type_v2 tv1) (type_v2 tv2) (type_v2 tv3) (type_v2 tv4)
-           (type_h2 th)
-           (type_sq tsq)
+           (type_v tv1) (type_v tv2) (type_v tv3) (type_v tv4)
+           (type_h th)
+           (type_q tsq)
            
            (at tv1 h1 v1) (at tsq h2 v1) (at tsq h3 v1) (at tv2 h4 v1)
            (at tv1 h1 v2) (at tsq h2 v2) (at tsq h3 v2) (at tv2 h4 v2)
