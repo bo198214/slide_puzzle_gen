@@ -15,8 +15,9 @@ target_state = {
 }
 #target_state = {(4,4):"t01"}
 
-domain,problem=khunpan_gen.domain_problem(init_state,target_state)
+domain_name="n15puzzle"
+problem_name="n15puzzle1"
+domain,problem=khunpan_gen.domain_problem(domain_name,problem_name,init_state,target_state)
 
-name="15puzzle-gen"
-print(domain, file=open(name + '-domain.pddl', 'w'))
-print(problem, file=open(name + '-problem.pddl', 'w'))
+print(domain, file=open(domain_name + '-domain.pddl', 'w'))
+print(problem, file=open(problem_name + '-problem.pddl', 'w'))
