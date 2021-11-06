@@ -3,7 +3,7 @@ name=$1
 
 DOWNWARD_DIR=$HOME/workspace/planner/downward
 sas_file=$(pwd)/$name.sas
-plan_file=$(pwd)/${name}_plan.txt
+plan_file=$(pwd)/${name}_downward.txt
 domain_file=$(pwd)/${name}-domain.pddl
 problem_file=$(pwd)/${name}-problem.pddl
 cd "$DOWNWARD_DIR"
