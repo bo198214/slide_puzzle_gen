@@ -125,7 +125,9 @@ def domain_problem(init_state,target_state,max_count=None):
 """
 
     def problem():
-        counter_init=f"""
+        counter_init=""
+        if with_counter:
+            counter_init=f"""
         {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
         (counter n0) (prev to1)
 """
@@ -135,7 +137,7 @@ def domain_problem(init_state,target_state,max_count=None):
             init_positions += "        " + " ".join([
                 ("(at "+row[i] if row[i] is not None else "(empty") + " h%d v%d)" % (i+1,n+1) for i in range(len(row))]) + "\n"
 
-        target_positions = " ".join(["(at %s h%d v%d)"%(name,pos[0],pos[1]) for (pos,name) in target_state.items()])
+        target_positions = " ".join([("(at %s"%name if name is not None else "(empty")+" h%d v%d)"%(pos[0],pos[1]) for (pos,name) in target_state.items()])
 
         return f"""
 (define (problem khunpan1)
