@@ -4,6 +4,7 @@ max_count=None
 #max_count=80
 with_counter=max_count is not None
 
+
 def removed_added_on_move(tile, dx, dy):
     trans = {(x+dx,y+dy) for (x,y) in tile}
     return tile - trans, trans-tile
@@ -23,10 +24,25 @@ tiles_type_name = {
 }
 
 tile_types = {
-    'tile_o': { (1,1) },
+    'tile_o': {(1,1)},
     'tile_v': {(1, 1), (1, 2)},
     'tile_h': {(1, 1), (2, 1)},
     'tile_q': {(1, 1), (1, 2), (2, 1), (2, 2)}
+}
+
+init_state = [
+    ["tv1", "tsq", "tsq", "tv2"],
+    ["tv1", "tsq", "tsq", "tv2"],
+    [None,  "th",  "th",   None],
+    ["tv3", "to1", "to2", "tv4"],
+    ["tv3", "to3", "to4", "tv4"]
+]
+
+target_state = {
+    (2,4): "tsq",
+    (3,4): "tsq",
+    (2,5): "tsq",
+    (3,5): "tsq"
 }
 
 
@@ -97,6 +113,14 @@ def problem():
            {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
            (counter n0)
 """
+    init_positions=""
+    for n in range(len(init_state)):
+        row = init_state[n]
+        init_positions += "        " + " ".join([
+            ("(at "+row[i] if row[i] is not None else "(empty") + " h%d v%d)" % (i+1,n+1) for i in range(len(row))]) + "\n"
+
+    target_positions = " ".join(["(at %s h%d v%d)"%(name,pos[0],pos[1]) for (pos,name) in target_state.items()])
+
     return f"""
 (define (problem khunpan1)
     (:domain khunpan)
@@ -105,17 +129,14 @@ def problem():
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
         {" ".join([tile_name for tile_name in tile_names()])}
 {" ".join(["        n%d"%i for i in range(max_count+1)]) if with_counter else ""}    )
-    (:init {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
-           {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
-           {" ".join(["(%s %s)" % (tiles_type_name[tile_name], tile_name) for tile_name in tile_names()])}
-           
-           (at tv1 h1 v1) (at tsq h2 v1) (at tsq h3 v1) (at tv2 h4 v1)
-           (at tv1 h1 v2) (at tsq h2 v2) (at tsq h3 v2) (at tv2 h4 v2)
-           (empty  h1 v3) (at th  h2 v3) (at th  h3 v3) (empty  h4 v3)
-           (at tv3 h1 v4) (at to1 h2 v4) (at to2 h3 v4) (at tv4 h4 v4)
-           (at tv3 h1 v5) (at to3 h2 v5) (at to4 h3 v5) (at tv4 h4 v5)        
+    (:init 
+        {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
+        {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
+        {" ".join(["(%s %s)" % (tiles_type_name[tile_name], tile_name) for tile_name in tile_names()])}
+
+{init_positions}
 {counter_init if with_counter else ""}    )
-    (:goal (and (at tsq h2 v5) (at tsq h3 v5) (at tsq h2 v4) (at tsq h3 v4)))
+    (:goal (and {target_positions}))
 )
 """
 print(domain(),file=open(f'khunpan-gen-domain{str(max_count) if with_counter else ""}.pddl','w'))
