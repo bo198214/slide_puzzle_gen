@@ -1,5 +1,5 @@
 
-def domain_problem(init_state,target_state,max_count=None):
+def domain_problem(domain_name,problem_name,init_state,target_state,max_count=None):
     with_counter=max_count is not None
 
     def removed_added_on_move(tile, dx, dy):
@@ -115,7 +115,7 @@ def domain_problem(init_state,target_state,max_count=None):
                                           "",
                                           )
 
-        return f"""(define (domain khunpan)
+        return f"""(define (domain {domain_name})
   (:requirements :strips)
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 
@@ -139,9 +139,8 @@ def domain_problem(init_state,target_state,max_count=None):
 
         target_positions = " ".join([("(at %s"%name if name is not None else "(empty")+" h%d v%d)"%(pos[0],pos[1]) for (pos,name) in target_state.items()])
 
-        return f"""
-(define (problem khunpan1)
-    (:domain khunpan)
+        return f"""(define (problem {problem_name})
+    (:domain {domain_name})
     (:objects 
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
