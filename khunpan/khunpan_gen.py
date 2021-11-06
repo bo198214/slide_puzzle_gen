@@ -13,14 +13,15 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
 
     def types_from_init_state(init_state):
         tile_positions = {}
-        for n in range(len(init_state)):
+        N = len(init_state)
+        for n in range(N):
             row = init_state[n]
             for i in range(len(row)):
                 tile = row[i]
                 if tile is not None:
                     if tile not in tile_positions:
                         tile_positions[tile] = []
-                    tile_positions[tile].append((i+1,n+1))
+                    tile_positions[tile].append((i+1,N-n))
 
         tt_by_tts = {}
         tts_by_tn = {}
@@ -59,9 +60,9 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
 
     def action(name, tile_type_name, tile_type, direction, counter_params=None, counter_condition=None, counter_effect=None):
         if direction == 's':
-            (dx,dy) = (0,1)
-        elif direction == 'n':
             (dx,dy) = (0,-1)
+        elif direction == 'n':
+            (dx,dy) = (0,1)
         elif direction == 'e':
             (dx,dy) = (1,0)
         elif direction == 'w':
@@ -132,10 +133,11 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         (counter n0) (prev to1)
 """
         init_positions=""
-        for n in range(len(init_state)):
+        N = len(init_state)
+        for n in range(N):
             row = init_state[n]
             init_positions += "        " + " ".join([
-                ("(at "+row[i] if row[i] is not None else "(empty") + " h%d v%d)" % (i+1,n+1) for i in range(len(row))]) + "\n"
+                ("(at "+row[i] if row[i] is not None else "(empty") + " h%d v%d)" % (i+1,N-n) for i in range(len(row))]) + "\n"
 
         target_positions = " ".join([("(at %s"%name if name is not None else "(empty")+" h%d v%d)"%(pos[0],pos[1]) for (pos,name) in target_state.items()])
 

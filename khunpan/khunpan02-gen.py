@@ -12,7 +12,7 @@ init_state = [
 ]
 
 target_state = {
-    (2,7): "tsq", (3,7): "tsq", (2,8): "tsq", (3,8): "tsq"
+    (2,2): "tsq", (3,2): "tsq", (2,1): "tsq", (3,1): "tsq"
 }
 
 domain_name="khunpan02-gen"

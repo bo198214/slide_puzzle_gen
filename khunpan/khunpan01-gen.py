@@ -8,7 +8,7 @@ init_state = [
     ["tv3", "to3", "to4", "tv4"]
 ]
 
-target_state = {(2, 4): "tsq", (3, 4): "tsq", (2, 5): "tsq", (3, 5): "tsq"}
+target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 # target_state = { (1,3): "to1"}
 
 domain_name="khunpan01-gen"

@@ -5,19 +5,6 @@
         (type_1 ?t)
   )
   (:action move-type_1-s
-   :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
-    )
-  )
-  (:action move-type_1-n
    :parameters (?t ?x1 ?y0 ?y1)
    :precondition (and (type_1 ?t)
         (at ?t ?x1 ?y1)
@@ -28,6 +15,19 @@
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+    )
+  )
+  (:action move-type_1-n
+   :parameters (?t ?x1 ?y1 ?y2)
+   :precondition (and (type_1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
   (:action move-type_1-e
