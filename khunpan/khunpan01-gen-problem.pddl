@@ -1,6 +1,5 @@
-
-(define (problem khunpan1)
-    (:domain khunpan)
+(define (problem khunpan01-gen)
+    (:domain khunpan01-gen)
     (:objects 
         h1 h2 h3 h4
         v1 v2 v3 v4 v5
@@ -9,7 +8,7 @@
     (:init 
         (adjwe h1 h2) (adjwe h2 h3) (adjwe h3 h4)
         (adjns v1 v2) (adjns v2 v3) (adjns v3 v4) (adjns v4 v5)
-        (tile_h th) (tile_o to1) (tile_o to2) (tile_o to3) (tile_o to4) (tile_q tsq) (tile_v tv1) (tile_v tv2) (tile_v tv3) (tile_v tv4)
+        (type_2 th) (type_1 to1) (type_1 to2) (type_1 to3) (type_1 to4) (type_4 tsq) (type_3 tv1) (type_3 tv2) (type_3 tv3) (type_3 tv4)
 
         (at tv1 h1 v1) (at tsq h2 v1) (at tsq h3 v1) (at tv2 h4 v1)
         (at tv1 h1 v2) (at tsq h2 v2) (at tsq h3 v2) (at tv2 h4 v2)

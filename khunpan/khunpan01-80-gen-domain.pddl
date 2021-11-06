@@ -1,4 +1,4 @@
-(define (domain khunpan)
+(define (domain khunpan01-80-gen)
   (:requirements :strips)
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 

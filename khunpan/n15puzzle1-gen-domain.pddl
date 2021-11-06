@@ -1,4 +1,4 @@
-(define (domain khunpan)
+(define (domain n15puzzle1-gen)
   (:requirements :strips)
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 

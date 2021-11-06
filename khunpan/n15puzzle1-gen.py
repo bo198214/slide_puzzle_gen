@@ -1,5 +1,7 @@
 import khunpan_gen
 
+# A bit more difficult to solve
+
 init_state = [
     ["t15", "t14", "t13", "t12"],
     ["t11", "t10", "t09", "t08"],
@@ -15,8 +17,8 @@ target_state = {
 }
 #target_state = {(4,4):"t01"}
 
-domain_name="n15puzzle"
-problem_name="n15puzzle1"
+domain_name="n15puzzle1-gen"
+problem_name="n15puzzle1-gen"
 domain,problem=khunpan_gen.domain_problem(domain_name,problem_name,init_state,target_state)
 
 print(domain, file=open(domain_name + '-domain.pddl', 'w'))

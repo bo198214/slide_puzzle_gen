@@ -1,6 +1,5 @@
-
-(define (problem khunpan1)
-    (:domain khunpan)
+(define (problem khunpan01-80-gen)
+    (:domain khunpan01-80-gen)
     (:objects 
         h1 h2 h3 h4
         v1 v2 v3 v4 v5

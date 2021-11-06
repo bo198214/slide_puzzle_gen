@@ -32,7 +32,9 @@ target_state = {(2, 4): "tsq", (3, 4): "tsq", (2, 5): "tsq", (3, 5): "tsq"}
 # target_state = { (1,3): "to1"}
 
 max_count=80
-domain,problem=khunpan_gen.domain_problem(init_state,target_state,max_count=max_count)
+domain_name="khunpan01-80-gen"
+problem_name="khunpan01-80-gen"
+domain,problem=khunpan_gen.domain_problem(domain_name,problem_name,init_state,target_state,max_count=max_count)
 
-print(domain, file=open(f'khunpan-gen-domain{str(max_count) if max_count is not None else ""}.pddl', 'w'))
-print(problem, file=open(f'khunpan-gen-problem{str(max_count) if max_count is not None else ""}.pddl', 'w'))
+print(domain, file=open(domain_name+'-domain.pddl', 'w'))
+print(problem, file=open(problem_name+'-problem.pddl', 'w'))
