@@ -1,4 +1,4 @@
-#Slide Puzzle PDDL generator in Python
+# Slide Puzzle PDDL generator in Python
 
 The initial idea for this slide puzzle generator came from dealing with Khun Pan - an ancient one person game from Thailand. 
 This game is very intricate, so really worth solving it with a planner.
