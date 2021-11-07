@@ -1,21 +1,29 @@
 
 def domain_problem(domain_name,problem_name,init_state,target_state,max_count=None):
     """
-    Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem).
-    :param domain_name: The domain name as to appear in the domain PDDL string
-    :param problem_name: The problem name as to appear in the problem PDDL string
-    :param init_state: An array of arrays representing the initial state of the puzzle
+    Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem)
+    from a given init_state and target_state.
+
+    The init_state is an array of arrays representing the initial state of the puzzle.
     The elements - the tile names - can be strings (which are used literally as objects in the pddl files) or numbers.
     In the latter case (as numbers are not allowed as object names) they will be prefixed by 'tile'.
-    :param target_state: This has a different format then the init_state. It is a dictionary mapping positions (x,y)
+
+    The target_state has a different format then the init_state. It is a dictionary mapping positions (x,y)
     to tile names. It means that the final state is reached if the given positions are occupied by the associate tile names.
     The positions x and y are counted starting from 1 (not 0), so (1,1) is the left lower corner.
-    :param max_count: Normally moving a tile by one field is counted as one move (and hence one action/step in the solution) and can possibly restricted by the planner you are using.
+
+    Normally moving a tile by one field is counted as one move (and hence one action/step in the solution) and can possibly restricted by the planner you are using.
     However there is another interpretation of "one move": moving the same tile consecutively one ore several fields.
     If you provide max_count then the solution is only valid if these number of moves is at most max_count.
     For sliding puzzles with only one empty field (15puzzle or 9puzzle) this count is equal to the step count.
     However for khunpan it can be a big difference.
     This quite bloats the PDDL description and makes it much harder for the solver to find a solution.
+
+    :param domain_name: The domain name as to appear in the domain PDDL string
+    :param problem_name: The problem name as to appear in the problem PDDL string
+    :param init_state: The initial state of the slide puzzle.
+    :param target_state: The goal state of the slide puzzle.
+    :param max_count: The maximal value of the counter described in the text.
     :return: The tuple (domain,problem), each element being a strips PDDL string.
     """
     with_counter=max_count is not None
