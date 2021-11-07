@@ -12,7 +12,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -27,7 +27,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -41,7 +41,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -56,7 +56,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -70,7 +70,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -85,7 +85,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -99,7 +99,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -114,7 +114,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -128,7 +128,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -143,7 +143,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -157,7 +157,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -172,7 +172,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -186,7 +186,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -201,7 +201,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -215,7 +215,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -230,7 +230,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -244,7 +244,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -259,7 +259,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -273,7 +273,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -288,7 +288,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -302,7 +302,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -317,7 +317,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -331,7 +331,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -346,7 +346,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -360,7 +360,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -375,7 +375,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -389,7 +389,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -404,7 +404,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -418,7 +418,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -433,7 +433,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -447,7 +447,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -462,7 +462,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -476,7 +476,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -491,7 +491,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -505,7 +505,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -520,7 +520,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -534,7 +534,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -549,7 +549,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -563,7 +563,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -578,7 +578,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -592,7 +592,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -607,7 +607,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -621,7 +621,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -636,7 +636,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -650,7 +650,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -665,7 +665,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -679,7 +679,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -694,7 +694,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -708,7 +708,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -723,7 +723,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -737,7 +737,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -752,7 +752,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -766,7 +766,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -781,7 +781,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -795,7 +795,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -810,7 +810,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -824,7 +824,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -839,7 +839,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -853,7 +853,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -868,7 +868,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -882,7 +882,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -897,7 +897,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -911,7 +911,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -926,7 +926,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -940,7 +940,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -955,7 +955,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -969,7 +969,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -984,7 +984,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -998,7 +998,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1013,7 +1013,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1027,7 +1027,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1042,7 +1042,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1056,7 +1056,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1071,7 +1071,7 @@
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1085,7 +1085,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1100,7 +1100,7 @@
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1114,7 +1114,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1129,7 +1129,7 @@
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1143,7 +1143,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1158,7 +1158,7 @@
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1172,7 +1172,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1187,7 +1187,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1201,7 +1201,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1216,7 +1216,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1230,7 +1230,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1245,7 +1245,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1259,7 +1259,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1274,7 +1274,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1288,7 +1288,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1303,7 +1303,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1317,7 +1317,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1332,7 +1332,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1346,7 +1346,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1361,7 +1361,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1375,7 +1375,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1390,7 +1390,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1404,7 +1404,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1419,7 +1419,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1433,7 +1433,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1448,7 +1448,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1462,7 +1462,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1477,7 +1477,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1491,7 +1491,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1506,7 +1506,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1520,7 +1520,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1535,7 +1535,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1549,7 +1549,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1564,7 +1564,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1578,7 +1578,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1593,7 +1593,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1607,7 +1607,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1622,7 +1622,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1636,7 +1636,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1651,7 +1651,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1665,7 +1665,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1680,7 +1680,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1694,7 +1694,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1709,7 +1709,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1723,7 +1723,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1738,7 +1738,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1752,7 +1752,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1767,7 +1767,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1781,7 +1781,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1796,7 +1796,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1810,7 +1810,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1825,7 +1825,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1839,7 +1839,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1854,7 +1854,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1868,7 +1868,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1883,7 +1883,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1897,7 +1897,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1912,7 +1912,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1926,7 +1926,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1941,7 +1941,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1955,7 +1955,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1970,7 +1970,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1984,7 +1984,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1999,7 +1999,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2013,7 +2013,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2028,7 +2028,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2042,7 +2042,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2057,7 +2057,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2071,7 +2071,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2086,7 +2086,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2100,7 +2100,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2115,7 +2115,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2129,7 +2129,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2144,7 +2144,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2158,7 +2158,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2173,7 +2173,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2187,7 +2187,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2202,7 +2202,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2216,7 +2216,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2231,7 +2231,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2245,7 +2245,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2260,7 +2260,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2274,7 +2274,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2289,7 +2289,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2303,7 +2303,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2318,7 +2318,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2332,7 +2332,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2347,7 +2347,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2361,7 +2361,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2376,7 +2376,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2390,7 +2390,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2405,7 +2405,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2419,7 +2419,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2434,7 +2434,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2448,7 +2448,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2463,7 +2463,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2477,7 +2477,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2492,7 +2492,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2506,7 +2506,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2521,7 +2521,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2535,7 +2535,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2550,7 +2550,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2564,7 +2564,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2579,7 +2579,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2593,7 +2593,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2608,7 +2608,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2622,7 +2622,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2637,7 +2637,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2651,7 +2651,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2666,7 +2666,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2680,7 +2680,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2695,7 +2695,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2709,7 +2709,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2724,7 +2724,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2738,7 +2738,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2753,7 +2753,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2767,7 +2767,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2782,7 +2782,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2796,7 +2796,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2811,7 +2811,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2825,7 +2825,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2840,7 +2840,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2854,7 +2854,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2869,7 +2869,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2883,7 +2883,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2898,7 +2898,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2912,7 +2912,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2927,7 +2927,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2941,7 +2941,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2956,7 +2956,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2970,7 +2970,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2985,7 +2985,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2999,7 +2999,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3014,7 +3014,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3028,7 +3028,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3043,7 +3043,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3057,7 +3057,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3072,7 +3072,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3086,7 +3086,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3101,7 +3101,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3115,7 +3115,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3130,7 +3130,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3144,7 +3144,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3159,7 +3159,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3173,7 +3173,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3188,7 +3188,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3202,7 +3202,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3217,7 +3217,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3231,7 +3231,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3246,7 +3246,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3260,7 +3260,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3275,7 +3275,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3289,7 +3289,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3304,7 +3304,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3318,7 +3318,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3333,7 +3333,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3347,7 +3347,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3362,7 +3362,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3376,7 +3376,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3391,7 +3391,7 @@
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3405,7 +3405,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3420,7 +3420,7 @@
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3434,7 +3434,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3449,7 +3449,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3463,7 +3463,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3478,7 +3478,7 @@
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3492,7 +3492,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3507,7 +3507,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3521,7 +3521,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3536,7 +3536,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3550,7 +3550,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3565,7 +3565,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3579,7 +3579,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev th) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3594,7 +3594,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (prev ?t)
+        (or (prev th) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3608,7 +3608,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3623,7 +3623,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3637,7 +3637,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3652,7 +3652,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3666,7 +3666,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3681,7 +3681,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3695,7 +3695,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3710,7 +3710,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to1) (prev ?t)
+        (or (prev to1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3724,7 +3724,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3739,7 +3739,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3753,7 +3753,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3768,7 +3768,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3782,7 +3782,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3797,7 +3797,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3811,7 +3811,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3826,7 +3826,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to2) (prev ?t)
+        (or (prev to2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3840,7 +3840,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3855,7 +3855,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3869,7 +3869,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3884,7 +3884,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -3898,7 +3898,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3913,7 +3913,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3927,7 +3927,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3942,7 +3942,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to3) (prev ?t)
+        (or (prev to3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3956,7 +3956,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3971,7 +3971,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3985,7 +3985,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4000,7 +4000,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4014,7 +4014,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4029,7 +4029,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4043,7 +4043,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev to4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4058,7 +4058,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to4) (prev ?t)
+        (or (prev to4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4072,7 +4072,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4087,7 +4087,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4101,7 +4101,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4116,7 +4116,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4130,7 +4130,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4145,7 +4145,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4159,7 +4159,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tsq) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tsq) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4174,7 +4174,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tsq) (prev ?t)
+        (or (prev tsq) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4188,7 +4188,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4203,7 +4203,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4217,7 +4217,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4232,7 +4232,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4246,7 +4246,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4261,7 +4261,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4275,7 +4275,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv1) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv1) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4290,7 +4290,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv1) (prev ?t)
+        (or (prev tv1) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4304,7 +4304,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4319,7 +4319,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4333,7 +4333,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4348,7 +4348,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4362,7 +4362,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4377,7 +4377,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4391,7 +4391,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv2) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4406,7 +4406,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (prev ?t)
+        (or (prev tv2) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4420,7 +4420,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4435,7 +4435,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4449,7 +4449,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4464,7 +4464,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4478,7 +4478,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4493,7 +4493,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4507,7 +4507,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv3) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4522,7 +4522,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (prev ?t)
+        (or (prev tv3) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4536,7 +4536,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4551,7 +4551,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0) (empty ?x2 ?y0)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4565,7 +4565,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4580,7 +4580,7 @@
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x2 ?y3) (empty ?x1 ?y3)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -4594,7 +4594,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4609,7 +4609,7 @@
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
         (empty ?x3 ?y1) (empty ?x3 ?y2)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -4623,7 +4623,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv4) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
+        (or (prev tv4) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4638,7 +4638,7 @@
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv4) (prev ?t)
+        (or (prev tv4) (counter n0)) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
