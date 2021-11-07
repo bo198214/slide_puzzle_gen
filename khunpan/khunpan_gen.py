@@ -1,6 +1,29 @@
 
 def domain_problem(domain_name,problem_name,init_state,target_state,max_count=None):
+    """
+    Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem).
+    :param domain_name: The domain name as to appear in the domain PDDL string
+    :param problem_name: The problem name as to appear in the problem PDDL string
+    :param init_state: An array of arrays representing the initial state of the puzzle
+    The elements - the tile names - can be strings (which are used literally as objects in the pddl files) or numbers.
+    In the latter case (as numbers are not allowed as object names) they will be prefixed by 'tile'.
+    :param target_state: This has a different format then the init_state. It is a dictionary mapping positions (x,y)
+    to tile names. It means that the final state is reached if the given positions are occupied by the associate tile names.
+    The positions x and y are counted starting from 1 (not 0), so (1,1) is the left lower corner.
+    :param max_count: Normally moving a tile by one field is counted as one move (and hence one action/step in the solution) and can possibly restricted by the planner you are using.
+    However there is another interpretation of "one move": moving the same tile consecutively one ore several fields.
+    If you provide max_count then the solution is only valid if these number of moves is at most max_count.
+    For sliding puzzles with only one empty field (15puzzle or 9puzzle) this count is equal to the step count.
+    However for khunpan it can be a big difference.
+    This quite bloats the PDDL description and makes it much harder for the solver to find a solution.
+    :return: The tuple (domain,problem), each element being a strips PDDL string.
+    """
     with_counter=max_count is not None
+
+    def pddl_name(t):
+        if isinstance(t,int):
+            return 'tile'+str(t)
+        return t
 
     def removed_added_on_move(tile, dx, dy):
         trans = {(x+dx,y+dy) for (x,y) in tile}
@@ -37,7 +60,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
             positions_list.sort()
             key = str(positions_list)
             tt_by_tts[key] = set(positions_list)
-            tts_by_tn[tile] = key
+            tts_by_tn[pddl_name(tile)] = key
 
         mapping = {}
         c = 1
@@ -48,6 +71,21 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         res1 = { tn:mapping[tts] for (tn,tts) in tts_by_tn.items() }
         res2 = { mapping[tts]:tt for (tts,tt) in tt_by_tts.items() }
         return res1,res2
+
+    def init_positions_string(init_state):
+        init_positions = ""
+        N = len(init_state)
+        for n in range(N):
+            row = init_state[n]
+            init_positions += "        " + " ".join([
+                ("(at " + pddl_name(row[i]) if row[i] is not None else "(empty") + " h%d v%d)" % (i + 1, N - n) for i in
+                range(len(row))]) + "\n"
+        return init_positions
+
+    def target_positions_string(target_state):
+        return " ".join(
+            [("(at %s" % pddl_name(name) if name is not None else "(empty") + " h%d v%d)" % (pos[0], pos[1]) for (pos, name) in
+             target_state.items()])
 
     xdim,ydim=xy_extension(init_state)
     tiles_type_name,tile_types = types_from_init_state(init_state)
@@ -132,15 +170,8 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
         (counter n0) (prev to1)
 """
-        init_positions=""
-        N = len(init_state)
-        for n in range(N):
-            row = init_state[n]
-            init_positions += "        " + " ".join([
-                ("(at "+row[i] if row[i] is not None else "(empty") + " h%d v%d)" % (i+1,N-n) for i in range(len(row))]) + "\n"
-
-        target_positions = " ".join([("(at %s"%name if name is not None else "(empty")+" h%d v%d)"%(pos[0],pos[1]) for (pos,name) in target_state.items()])
-
+        init_positions=init_positions_string(init_state)
+        target_positions = target_positions_string(target_state)
         return f"""(define (problem {problem_name})
     (:domain {domain_name})
     (:objects 
