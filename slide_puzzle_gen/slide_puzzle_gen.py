@@ -145,12 +145,12 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
                         name = tile_name+"-"+tile_type_name
                         actions += action("C"+name, tile_type_name, tile_types[tile_type_name], direction,
                                           " ?n ?n2",
-                                          "        (prev %s) (not (prev ?t)) (counter ?n) (succ ?n ?n2)\n" % tile_name,
+                                          "        (or (prev %s) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)\n" % tile_name,
                                           "        (not (prev %s)) (prev ?t) (not (counter ?n)) (counter ?n2)\n" % tile_name,
                                           )
                         actions += action("D"+name, tile_type_name, tile_types[tile_type_name], direction,
                                           "",
-                                          "        (prev %s) (prev ?t)\n" % tile_name,
+                                          "        (or (prev %s) (counter n0)) (prev ?t)\n" % tile_name,
                                           "",
                                           )
 
@@ -168,7 +168,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         if with_counter:
             counter_init=f"""
         {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
-        (counter n0) (prev to1)
+        (counter n0)
 """
         init_positions=init_positions_string(init_state)
         target_positions = target_positions_string(target_state)
