@@ -1,4 +1,4 @@
-import khunpan_gen
+import slide_puzzle_gen
 
 init_state = [
     [ None, 8, 7],
@@ -14,7 +14,7 @@ target_state = {
 
 domain_name="n8puzzle01-gen"
 problem_name="n8puzzle01-gen"
-domain,problem=khunpan_gen.domain_problem(domain_name,problem_name,init_state,target_state)
+domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state)
 
 print(domain, file=open(domain_name + '-domain.pddl', 'w'))
 print(problem, file=open(problem_name + '-problem.pddl', 'w'))

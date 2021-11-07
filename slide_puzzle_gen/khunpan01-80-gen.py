@@ -1,4 +1,4 @@
-import khunpan_gen
+import slide_puzzle_gen
 
 # tile_types = {
 #     'tile_o': {(1,1)},
@@ -34,7 +34,7 @@ target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 max_count=80
 domain_name="khunpan01-80-gen"
 problem_name="khunpan01-80-gen"
-domain,problem=khunpan_gen.domain_problem(domain_name,problem_name,init_state,target_state,max_count=max_count)
+domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state,max_count=max_count)
 
 print(domain, file=open(domain_name+'-domain.pddl', 'w'))
 print(problem, file=open(problem_name+'-problem.pddl', 'w'))
