@@ -1,4 +1,6 @@
 #!/bin/bash
+#For installing fast-downward on your computer see https://www.fast-downward.org/ObtainingAndRunningFastDownward
+
 name=$1
 
 DOWNWARD_DIR=$HOME/workspace/planner/downward
