@@ -30,7 +30,7 @@ print(problem, file=open(problem_name + '-problem.pddl', 'w'))
 ```
 
 The elements of the init_state are the tiles. As some PDDL parsers do not allow numbers to be object names,
-the generator would automatically translate it into tile<number>.
+the generator would automatically translate it into tile\<number\>.
 But you can also specify strings for your tile names directly.
 
 The target state has a different format and defines for each position which tile is to be exepected.
