@@ -152,22 +152,24 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
                     for direction in ['s','n','e','w']:
                         name = tile_name+"-"+tile_type_name
                         actions += action("C"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          " ?n ?n2",
-                                          "        (or (prev %s) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)\n" % tile_name,
-                                          "        (not (prev %s)) (prev ?t) (not (counter ?n)) (counter ?n2)\n" % tile_name,
+                                          "",
+                                          "        (prev %s) (not (prev ?t))\n" % tile_name,
+                                          "        (not (prev %s)) (prev ?t) (increase (total-cost) 1)\n" % tile_name,
                                           )
                         actions += action("D"+name, tile_type_name, tile_types[tile_type_name], direction,
                                           "",
-                                          "        (or (prev %s) (counter n0)) (prev ?t)\n" % tile_name,
+                                          "        (prev %s) (prev ?t)\n" % tile_name,
                                           "",
                                           )
 
         return f"""(define (domain {domain_name})
-  (:requirements :strips)
+  (:requirements :strips{" :action-costs"})
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 
         {" ".join(["(%s ?t)"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}
-{"        (counter ?n) (succ ?n ?n2) (prev ?t)"+chr(10) if with_counter else ""}  )
+{"        (prev ?t)"+chr(10) if with_counter else ""}  )
+{"  (:functions (total-cost))"+chr(10) if with_counter else ""}
+
 {actions})
 """
 
@@ -175,8 +177,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         counter_init=""
         if with_counter:
             counter_init=f"""
-        {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
-        (counter n0)
+        (= (total-cost) 0)
 """
         init_positions=init_positions_string(init_state)
         target_positions = target_positions_string(target_state)
@@ -186,7 +187,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
         {" ".join([tile_name for tile_name in tile_names()])}
-{"        " + " ".join(["n%d"%i for i in range(max_count+1)])+chr(10) if with_counter else ""}    )
+	)
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
@@ -195,6 +196,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
 {init_positions}
 {counter_init if with_counter else ""}    )
     (:goal (and {target_positions}))
+{"    (:metric minimize (total-cost))" if with_counter else ""}
 )
 """
 
