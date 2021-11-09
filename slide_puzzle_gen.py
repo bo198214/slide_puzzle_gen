@@ -152,7 +152,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state, adapted_
                         name = "prev_"+tile_name+"-"+tile_type_name
                         actions += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
                                           f"""        {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}\n""" % tile_name,
-                                          "        (not (prev %s)) (prev ?t) (increase (total-cost) 1)\n" % tile_name,
+                                          "        (not (prev init)) (not (prev %s)) (prev ?t) (increase (total-cost) 1)\n" % tile_name,
                                           )
                         actions += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
                                           "        (prev %s) (prev ?t)\n" % tile_name,
