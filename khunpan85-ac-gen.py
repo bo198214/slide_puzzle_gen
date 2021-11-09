@@ -12,7 +12,7 @@ target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 
 domain_name="khunpan85-ac-gen"
 problem_name="khunpan85-ac-gen"
-domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state,adapted_counter=True)
+domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state,adapted_counter=True,initial_tile="to1")
 
 print(domain, file=open(domain_name+'-domain.pddl', 'w'))
 print(problem, file=open(problem_name+'-problem.pddl', 'w'))
