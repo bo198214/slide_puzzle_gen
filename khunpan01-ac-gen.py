@@ -31,10 +31,9 @@ init_state = [
 target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 # target_state = { (1,3): "to1"}
 
-max_count=100
-domain_name="khunpan01-%d-gen"%max_count
-problem_name="khunpan01-%d-gen"%max_count
-domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state,max_count=max_count)
+domain_name="khunpan01-ac-gen"
+problem_name="khunpan01-ac-gen"
+domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state,adapted_counter=True)
 
 print(domain, file=open(domain_name+'-domain.pddl', 'w'))
 print(problem, file=open(problem_name+'-problem.pddl', 'w'))
