@@ -1,5 +1,5 @@
 
-def domain_problem(domain_name, problem_name, init_state, target_state, adapted_counter=False):
+def domain_problem(domain_name, problem_name, init_state, target_state, adapted_counter=False, initial_tile=None):
     """
     Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem)
     from a given init_state and target_state.
@@ -151,7 +151,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state, adapted_
                     for direction in ['s','n','e','w']:
                         name = "prev_"+tile_name+"-"+tile_type_name
                         actions += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          "        (or (prev init) (and (prev %s) (not (prev ?t))))\n" % tile_name,
+                                          f"""        {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}\n""" % tile_name,
                                           "        (not (prev %s)) (prev ?t) (increase (total-cost) 1)\n" % tile_name,
                                           )
                         actions += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
@@ -173,7 +173,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state, adapted_
     def problem():
         counter_init=""
         if adapted_counter:
-            counter_init=f"""        (= (total-cost) 0) (prev init)
+            counter_init=f"""        (= (total-cost) 0) (prev {"init" if initial_tile is None else initial_tile})
 """
         init_positions=init_positions_string(init_state)
         target_positions = target_positions_string(target_state)
@@ -183,7 +183,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state, adapted_
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
         {" ".join([tile_name for tile_name in tile_names()])}{chr(10)+
-"        init" if adapted_counter else ""}
+"        init" if initial_tile is None else ""}
 	)
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
