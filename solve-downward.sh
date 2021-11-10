@@ -7,8 +7,8 @@ shift
 PLANNER_DIR=$HOME/workspace/planner/downward
 mkdir -p solve-downward
 sas_file=$(pwd)/solve-downward/$name.sas
-plan_file=$(pwd)/solve-downward/${name}_downward.txt
-log_file=$(pwd)/solve-downward/${name}_downward.log
+plan_file=$(pwd)/solve-downward/${name}.txt
+log_file=$(pwd)/solve-downward/${name}.log
 domain_file=$(pwd)/${name}-domain.pddl
 problem_file=$(pwd)/${name}-problem.pddl
 cd "$PLANNER_DIR"
