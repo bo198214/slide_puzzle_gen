@@ -12,9 +12,8 @@ target_state = {
     (1,1): 7, (2,1): 8, (3,1): None
 }
 
-domain_name="n8puzzle01-gen"
-problem_name="n8puzzle01-gen"
-domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state)
+name="n8puzzle01-gen"
+domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state,hddl=True)
 
-print(domain, file=open(domain_name + '-domain.pddl', 'w'))
-print(problem, file=open(problem_name + '-problem.pddl', 'w'))
+print(domain, file=open(name + '-domain.pddl', 'w'))
+print(problem, file=open(name + '-problem.pddl', 'w'))

@@ -5,6 +5,9 @@
         v1 - yloc v2 - yloc v3 - yloc
         tile1 - type_1 tile2 - type_1 tile3 - type_1 tile4 - type_1 tile5 - type_1 tile6 - type_1 tile7 - type_1 tile8 - type_1
     )
+    (:htn
+     :tasks (decompose)
+    )
     (:init 
         (adjwe h1 h2) (adjwe h2 h3)
         (adjns v1 v2) (adjns v2 v3)

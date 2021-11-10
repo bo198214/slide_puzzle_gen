@@ -1,5 +1,5 @@
 
-def domain_problem(domain_name,problem_name,init_state,target_state,max_count=None, with_types=False):
+def domain_problem(domain_name,problem_name,init_state,target_state,max_count=None, hddl=False):
     """
     Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem)
     from a given init_state and target_state.
@@ -125,7 +125,19 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
 
         adjix = [i for i in range(len(xca)-1) if xca[i]-xca[i+1] == -1]
         adjiy = [i for i in range(len(yca)-1) if yca[i]-yca[i+1] == -1]
-        return f"""  (:action move-{name}-{direction}
+        block =  ""
+        if hddl:
+            block += f"""
+  (:method m_move-{name}-{direction}
+   :task 
+   :parameters (?t - {tile_type_name} {" ".join("?x%d - xloc" % n for n in xca)} {" ".join("?y%d - yloc" % n for n in yca)})
+   :task (decompose)
+   :subtasks 
+       (move-{name}-{direction} ?t {" ".join("?x%d" % n for n in xca)} {" ".join("?y%d" % n for n in yca)})
+       (decompose)
+   )"""
+        block +=  f"""
+  (:action move-{name}-{direction}
    :parameters (?t - {tile_type_name} {" ".join("?x%d - xloc"%n for n in xca)} {" ".join("?y%d - yloc"%n for n in yca)}{counter_params if with_counter else ""})
    :precondition (and
         {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in tile_type])}
@@ -137,8 +149,8 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         {" ".join(["(not (at ?t ?x%d ?y%d)) (empty ?x%d ?y%d)"%(x,y,x,y) for (x,y) in removed])}
         {" ".join(["(at ?t ?x%d ?y%d) (not (empty ?x%d ?y%d))"%(x,y,x,y) for (x,y) in added])}
 {counter_effect if with_counter else ""}    )
-  )
-"""
+  )"""
+        return block
 
     def domain():
         actions = ""
@@ -162,7 +174,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
                                           "",
                                           )
 
-        return f"""(define (domain {domain_name})
+        domain =  f"""(define (domain {domain_name})
   (:requirements :strips :typing)
   (:types 
          xloc yloc{" count" if with_counter else ""} tile - object
@@ -170,34 +182,58 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
   )
   (:predicates (adjwe ?h1 - xloc ?h2 - xloc) (adjns ?v1 - yloc ?v2 - yloc) 
         (at ?t - tile ?h - xloc ?v - yloc) (empty ?h - xloc ?v - yloc) 
-{"        (counter ?n - count) (succ ?n - count ?n2 - count) (prev ?t - tile)"+chr(10) if with_counter else ""}  )
-{actions})
+{"        (counter ?n - count) (succ ?n - count ?n2 - count) (prev ?t - tile)"+chr(10) if with_counter else ""}  )"""
+
+        if hddl:
+            domain += """
+  (:task decompose
+   :parameters ()
+  )
+  (:method m_stop
+   :task (decompose)
+  )    
 """
+        domain += actions
+        domain += """
+)"""
+        return domain
 
     def problem():
-        counter_init=""
-        if with_counter:
-            counter_init=f"""
-        {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
-        (counter n0)
-"""
-        init_positions=init_positions_string(init_state)
-        target_positions = target_positions_string(target_state)
-        return f"""(define (problem {problem_name})
+        res = f"""(define (problem {problem_name})
     (:domain {domain_name})
     (:objects 
         {" ".join(["h%d - xloc"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d - yloc"%i for i in range(1,ydim+1)])}
-        {" ".join(["%s - %s"%(tile_name,tiles_type_name[tile_name]) for tile_name in tile_names()])}
-{"        " + " ".join(["n%d - count"%i for i in range(max_count+1)])+chr(10) if with_counter else ""}    )
+        {" ".join(["%s - %s"%(tile_name,tiles_type_name[tile_name]) for tile_name in tile_names()])}"""
+        if with_counter:
+            res += f"""
+        {" ".join(["n%d - count"%i for i in range(max_count+1)])+chr(10) if with_counter else ""}"""
+        res += f"""
+    )"""
+        if hddl:
+            res += """
+    (:htn
+     :tasks (decompose)
+    )"""
+        res += f"""
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
 
-{init_positions}
-{counter_init if with_counter else ""}    )
-    (:goal (and {target_positions}))
+"""
+        res += init_positions_string(init_state)
+        if with_counter:
+            res += f"""
+
+        {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
+        (counter n0)"""
+        res += """
+    )"""
+        res += """
+    (:goal (and %s))""" % target_positions_string(target_state)
+        res += """
 )
 """
+        return res
 
     return domain(),problem()
