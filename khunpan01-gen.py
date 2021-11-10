@@ -1,5 +1,7 @@
 import slide_puzzle_gen
 
+# Khunpan standard constellation, best solution in normal counting is 112 moves
+# Also level 1 in KhunPhanDroid app
 
 init_state = [
     ["tv1", "tsq", "tsq", "tv2"],
@@ -10,11 +12,9 @@ init_state = [
 ]
 
 target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
-# target_state = { (1,3): "to1"}
 
-domain_name="khunpan01-gen"
-problem_name="khunpan01-gen"
-domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state)
+name="khunpan01-gen"
+domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state)
 
-print(domain, file=open(domain_name+'-domain.pddl', 'w'))
-print(problem, file=open(problem_name+'-problem.pddl', 'w'))
+print(domain, file=open(name+'-domain.pddl', 'w'))
+print(problem, file=open(name+'-problem.pddl', 'w'))

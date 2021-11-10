@@ -1,137 +1,369 @@
-(define (domain khunpan01-100-gen)
+(define (domain khunpan02-ac-gen)
   (:requirements :strips :action-costs)
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 
-        (type_1 ?t) (type_2 ?t) (type_3 ?t) (type_4 ?t)
+        (type1 ?t) (type2 ?t) (type3 ?t) (type4 ?t)
         (prev ?t)
   )
   (:functions (total-cost))
 
 
-  (:action move-Cth-type_1-s
+  (:action move-count1-prev_th1-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_1-s
+  (:action move-count0-prev_th1-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cth-type_1-n
+  (:action move-count1-prev_th1-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_1-n
+  (:action move-count0-prev_th1-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Cth-type_1-e
+  (:action move-count1-prev_th1-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_1-e
+  (:action move-count0-prev_th1-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Cth-type_1-w
+  (:action move-count1-prev_th1-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_1-w
+  (:action move-count0-prev_th1-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto1-type_1-s
+  (:action move-count1-prev_th2-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type1-s
+   :parameters (?t ?x1 ?y0 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+    )
+  )
+  (:action move-count1-prev_th2-type1-n
+   :parameters (?t ?x1 ?y1 ?y2)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type1-n
+   :parameters (?t ?x1 ?y1 ?y2)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
+    )
+  )
+  (:action move-count1-prev_th2-type1-e
+   :parameters (?t ?x1 ?x2 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x1 ?x2)
+        
+        (empty ?x2 ?y1)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type1-e
+   :parameters (?t ?x1 ?x2 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x1 ?x2)
+        
+        (empty ?x2 ?y1)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
+    )
+  )
+  (:action move-count1-prev_th2-type1-w
+   :parameters (?t ?x0 ?x1 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x0 ?x1)
+        
+        (empty ?x0 ?y1)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type1-w
+   :parameters (?t ?x0 ?x1 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x0 ?x1)
+        
+        (empty ?x0 ?y1)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+    )
+  )
+  (:action move-count1-prev_th3-type1-s
+   :parameters (?t ?x1 ?y0 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type1-s
+   :parameters (?t ?x1 ?y0 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+    )
+  )
+  (:action move-count1-prev_th3-type1-n
+   :parameters (?t ?x1 ?y1 ?y2)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type1-n
+   :parameters (?t ?x1 ?y1 ?y2)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
+    )
+  )
+  (:action move-count1-prev_th3-type1-e
+   :parameters (?t ?x1 ?x2 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x1 ?x2)
+        
+        (empty ?x2 ?y1)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type1-e
+   :parameters (?t ?x1 ?x2 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x1 ?x2)
+        
+        (empty ?x2 ?y1)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
+    )
+  )
+  (:action move-count1-prev_th3-type1-w
+   :parameters (?t ?x0 ?x1 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x0 ?x1)
+        
+        (empty ?x0 ?y1)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type1-w
+   :parameters (?t ?x0 ?x1 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        (adjwe ?x0 ?x1)
+        
+        (empty ?x0 ?y1)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+    )
+  )
+  (:action move-count1-prev_to1-type1-s
+   :parameters (?t ?x1 ?y0 ?y1)
+   :precondition (and (type1 ?t)
+        (at ?t ?x1 ?y1)
+        
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0)
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -139,9 +371,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_1-s
+  (:action move-count0-prev_to1-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -153,14 +385,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto1-type_1-n
+  (:action move-count1-prev_to1-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -168,9 +400,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_1-n
+  (:action move-count0-prev_to1-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -182,14 +414,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Cto1-type_1-e
+  (:action move-count1-prev_to1-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -197,9 +429,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_1-e
+  (:action move-count0-prev_to1-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -211,14 +443,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Cto1-type_1-w
+  (:action move-count1-prev_to1-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -226,9 +458,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_1-w
+  (:action move-count0-prev_to1-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -240,14 +472,14 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto2-type_1-s
+  (:action move-count1-prev_to2-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -255,9 +487,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_1-s
+  (:action move-count0-prev_to2-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -269,14 +501,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto2-type_1-n
+  (:action move-count1-prev_to2-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -284,9 +516,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_1-n
+  (:action move-count0-prev_to2-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -298,14 +530,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Cto2-type_1-e
+  (:action move-count1-prev_to2-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -313,9 +545,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_1-e
+  (:action move-count0-prev_to2-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -327,14 +559,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Cto2-type_1-w
+  (:action move-count1-prev_to2-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -342,9 +574,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_1-w
+  (:action move-count0-prev_to2-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -356,14 +588,14 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto3-type_1-s
+  (:action move-count1-prev_to3-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -371,9 +603,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_1-s
+  (:action move-count0-prev_to3-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -385,14 +617,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto3-type_1-n
+  (:action move-count1-prev_to3-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -400,9 +632,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_1-n
+  (:action move-count0-prev_to3-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -414,14 +646,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Cto3-type_1-e
+  (:action move-count1-prev_to3-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -429,9 +661,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_1-e
+  (:action move-count0-prev_to3-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -443,14 +675,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Cto3-type_1-w
+  (:action move-count1-prev_to3-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -458,9 +690,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_1-w
+  (:action move-count0-prev_to3-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -472,14 +704,14 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto4-type_1-s
+  (:action move-count1-prev_to4-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -487,9 +719,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_1-s
+  (:action move-count0-prev_to4-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -501,14 +733,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto4-type_1-n
+  (:action move-count1-prev_to4-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -516,9 +748,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_1-n
+  (:action move-count0-prev_to4-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -530,14 +762,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Cto4-type_1-e
+  (:action move-count1-prev_to4-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -545,9 +777,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_1-e
+  (:action move-count0-prev_to4-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -559,14 +791,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Cto4-type_1-w
+  (:action move-count1-prev_to4-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -574,9 +806,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_1-w
+  (:action move-count0-prev_to4-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -588,14 +820,14 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Ctsq-type_1-s
+  (:action move-count1-prev_tsq-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -603,9 +835,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_1-s
+  (:action move-count0-prev_tsq-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -617,14 +849,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Ctsq-type_1-n
+  (:action move-count1-prev_tsq-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -632,9 +864,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_1-n
+  (:action move-count0-prev_tsq-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -646,14 +878,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Ctsq-type_1-e
+  (:action move-count1-prev_tsq-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -661,9 +893,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_1-e
+  (:action move-count0-prev_tsq-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -675,14 +907,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Ctsq-type_1-w
+  (:action move-count1-prev_tsq-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -690,9 +922,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_1-w
+  (:action move-count0-prev_tsq-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -704,14 +936,14 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Ctv1-type_1-s
+  (:action move-count1-prev_tv1-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -719,9 +951,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_1-s
+  (:action move-count0-prev_tv1-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -733,14 +965,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Ctv1-type_1-n
+  (:action move-count1-prev_tv1-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -748,9 +980,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_1-n
+  (:action move-count0-prev_tv1-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -762,14 +994,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Ctv1-type_1-e
+  (:action move-count1-prev_tv1-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -777,9 +1009,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_1-e
+  (:action move-count0-prev_tv1-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -791,14 +1023,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Ctv1-type_1-w
+  (:action move-count1-prev_tv1-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -806,9 +1038,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_1-w
+  (:action move-count0-prev_tv1-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -820,246 +1052,14 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Ctv2-type_1-s
+  (:action move-count1-prev_tv4-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
         (empty ?x1 ?y0)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_1-s
-   :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1)
-        (empty ?x1 ?y0)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv2-type_1-n
-   :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_1-n
-   :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
-    )
-  )
-  (:action move-Ctv2-type_1-e
-   :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        
-        (empty ?x2 ?y1)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_1-e
-   :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        
-        (empty ?x2 ?y1)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
-    )
-  )
-  (:action move-Ctv2-type_1-w
-   :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        
-        (empty ?x0 ?y1)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_1-w
-   :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        
-        (empty ?x0 ?y1)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-    )
-  )
-  (:action move-Ctv3-type_1-s
-   :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1)
-        (empty ?x1 ?y0)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_1-s
-   :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1)
-        (empty ?x1 ?y0)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv3-type_1-n
-   :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_1-n
-   :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
-    )
-  )
-  (:action move-Ctv3-type_1-e
-   :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        
-        (empty ?x2 ?y1)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_1-e
-   :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        
-        (empty ?x2 ?y1)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
-    )
-  )
-  (:action move-Ctv3-type_1-w
-   :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        
-        (empty ?x0 ?y1)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_1-w
-   :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        
-        (empty ?x0 ?y1)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-    )
-  )
-  (:action move-Ctv4-type_1-s
-   :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
-        (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1)
-        (empty ?x1 ?y0)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1067,9 +1067,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_1-s
+  (:action move-count0-prev_tv4-type1-s
    :parameters (?t ?x1 ?y0 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1)
@@ -1081,14 +1081,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Ctv4-type_1-n
+  (:action move-count1-prev_tv4-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1096,9 +1096,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_1-n
+  (:action move-count0-prev_tv4-type1-n
    :parameters (?t ?x1 ?y1 ?y2)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2)
@@ -1110,14 +1110,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2))
     )
   )
-  (:action move-Ctv4-type_1-e
+  (:action move-count1-prev_tv4-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
         (empty ?x2 ?y1)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1125,9 +1125,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_1-e
+  (:action move-count0-prev_tv4-type1-e
    :parameters (?t ?x1 ?x2 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         
@@ -1139,14 +1139,14 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1))
     )
   )
-  (:action move-Ctv4-type_1-w
+  (:action move-count1-prev_tv4-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
         (empty ?x0 ?y1)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1154,9 +1154,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_1-w
+  (:action move-count0-prev_tv4-type1-w
    :parameters (?t ?x0 ?x1 ?y1)
-   :precondition (and (type_1 ?t)
+   :precondition (and (type1 ?t)
         (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         
@@ -1168,159 +1168,391 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cth-type_2-s
+  (:action move-count1-prev_th1-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev th) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_2-s
+  (:action move-count0-prev_th1-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev th) (prev ?t)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cth-type_2-n
+  (:action move-count1-prev_th1-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_2-n
+  (:action move-count0-prev_th1-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cth-type_2-e
+  (:action move-count1-prev_th1-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_2-e
+  (:action move-count0-prev_th1-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Cth-type_2-w
+  (:action move-count1-prev_th1-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_2-w
+  (:action move-count0-prev_th1-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto1-type_2-s
+  (:action move-count1-prev_th2-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to1) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type2-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+    )
+  )
+  (:action move-count1-prev_th2-type2-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2) (empty ?x2 ?y2)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type2-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2) (empty ?x2 ?y2)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+    )
+  )
+  (:action move-count1-prev_th2-type2-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        
+        (empty ?x3 ?y1)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type2-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        
+        (empty ?x3 ?y1)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+    )
+  )
+  (:action move-count1-prev_th2-type2-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        
+        (empty ?x0 ?y1)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type2-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        
+        (empty ?x0 ?y1)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+    )
+  )
+  (:action move-count1-prev_th3-type2-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type2-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+    )
+  )
+  (:action move-count1-prev_th3-type2-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2) (empty ?x2 ?y2)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type2-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x1 ?y2) (empty ?x2 ?y2)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+    )
+  )
+  (:action move-count1-prev_th3-type2-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        
+        (empty ?x3 ?y1)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type2-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        
+        (empty ?x3 ?y1)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+    )
+  )
+  (:action move-count1-prev_th3-type2-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        
+        (empty ?x0 ?y1)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type2-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        
+        (empty ?x0 ?y1)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
+    )
+  )
+  (:action move-count1-prev_to1-type2-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1)
+   :precondition (and (type2 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to1) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_2-s
+  (:action move-count0-prev_to1-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto1-type_2-n
+  (:action move-count1-prev_to1-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1328,9 +1560,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_2-n
+  (:action move-count0-prev_to1-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -1342,14 +1574,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto1-type_2-e
+  (:action move-count1-prev_to1-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1357,9 +1589,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_2-e
+  (:action move-count0-prev_to1-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -1371,14 +1603,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Cto1-type_2-w
+  (:action move-count1-prev_to1-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1386,9 +1618,9 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_2-w
+  (:action move-count0-prev_to1-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -1400,43 +1632,43 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto2-type_2-s
+  (:action move-count1-prev_to2-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to2) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_2-s
+  (:action move-count0-prev_to2-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to2) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto2-type_2-n
+  (:action move-count1-prev_to2-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1444,9 +1676,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_2-n
+  (:action move-count0-prev_to2-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -1458,14 +1690,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto2-type_2-e
+  (:action move-count1-prev_to2-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1473,9 +1705,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_2-e
+  (:action move-count0-prev_to2-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -1487,14 +1719,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Cto2-type_2-w
+  (:action move-count1-prev_to2-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1502,9 +1734,9 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_2-w
+  (:action move-count0-prev_to2-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -1516,43 +1748,43 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto3-type_2-s
+  (:action move-count1-prev_to3-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to3) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_2-s
+  (:action move-count0-prev_to3-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to3) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto3-type_2-n
+  (:action move-count1-prev_to3-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1560,9 +1792,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_2-n
+  (:action move-count0-prev_to3-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -1574,14 +1806,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto3-type_2-e
+  (:action move-count1-prev_to3-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1589,9 +1821,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_2-e
+  (:action move-count0-prev_to3-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -1603,14 +1835,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Cto3-type_2-w
+  (:action move-count1-prev_to3-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1618,9 +1850,9 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_2-w
+  (:action move-count0-prev_to3-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -1632,43 +1864,43 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cto4-type_2-s
+  (:action move-count1-prev_to4-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to4) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_2-s
+  (:action move-count0-prev_to4-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to4) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto4-type_2-n
+  (:action move-count1-prev_to4-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1676,9 +1908,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_2-n
+  (:action move-count0-prev_to4-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -1690,14 +1922,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto4-type_2-e
+  (:action move-count1-prev_to4-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1705,9 +1937,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_2-e
+  (:action move-count0-prev_to4-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -1719,14 +1951,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Cto4-type_2-w
+  (:action move-count1-prev_to4-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1734,9 +1966,9 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_2-w
+  (:action move-count0-prev_to4-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -1748,43 +1980,43 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Ctsq-type_2-s
+  (:action move-count1-prev_tsq-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tsq) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_2-s
+  (:action move-count0-prev_tsq-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tsq) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Ctsq-type_2-n
+  (:action move-count1-prev_tsq-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1792,9 +2024,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_2-n
+  (:action move-count0-prev_tsq-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -1806,14 +2038,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Ctsq-type_2-e
+  (:action move-count1-prev_tsq-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1821,9 +2053,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_2-e
+  (:action move-count0-prev_tsq-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -1835,14 +2067,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Ctsq-type_2-w
+  (:action move-count1-prev_tsq-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1850,9 +2082,9 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_2-w
+  (:action move-count0-prev_tsq-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -1864,43 +2096,43 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Ctv1-type_2-s
+  (:action move-count1-prev_tv1-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv1) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_2-s
+  (:action move-count0-prev_tv1-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Ctv1-type_2-n
+  (:action move-count1-prev_tv1-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1908,9 +2140,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_2-n
+  (:action move-count0-prev_tv1-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -1922,14 +2154,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Ctv1-type_2-e
+  (:action move-count1-prev_tv1-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -1937,9 +2169,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_2-e
+  (:action move-count0-prev_tv1-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -1951,14 +2183,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Ctv1-type_2-w
+  (:action move-count1-prev_tv1-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -1966,9 +2198,9 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_2-w
+  (:action move-count0-prev_tv1-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -1980,275 +2212,43 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Ctv2-type_2-s
+  (:action move-count1-prev_tv4-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv2) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_2-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv2-type_2-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_2-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-    )
-  )
-  (:action move-Ctv2-type_2-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        
-        (empty ?x3 ?y1)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_2-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        
-        (empty ?x3 ?y1)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-    )
-  )
-  (:action move-Ctv2-type_2-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        
-        (empty ?x0 ?y1)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_2-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        
-        (empty ?x0 ?y1)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-    )
-  )
-  (:action move-Ctv3-type_2-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_2-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv3-type_2-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_2-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-    )
-  )
-  (:action move-Ctv3-type_2-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        
-        (empty ?x3 ?y1)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_2-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        
-        (empty ?x3 ?y1)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-    )
-  )
-  (:action move-Ctv3-type_2-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        
-        (empty ?x0 ?y1)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_2-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        
-        (empty ?x0 ?y1)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-    )
-  )
-  (:action move-Ctv4-type_2-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv4) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_2-s
+  (:action move-count0-prev_tv4-type2-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv4) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Ctv4-type_2-n
+  (:action move-count1-prev_tv4-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x1 ?y2) (empty ?x2 ?y2)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2256,9 +2256,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_2-n
+  (:action move-count0-prev_tv4-type2-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -2270,14 +2270,14 @@
         (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Ctv4-type_2-e
+  (:action move-count1-prev_tv4-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
         (empty ?x3 ?y1)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2285,9 +2285,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_2-e
+  (:action move-count0-prev_tv4-type2-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         
@@ -2299,14 +2299,14 @@
         (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-Ctv4-type_2-w
+  (:action move-count1-prev_tv4-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
         (empty ?x0 ?y1)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
@@ -2314,9 +2314,9 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_2-w
+  (:action move-count0-prev_tv4-type2-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type_2 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         
@@ -2328,130 +2328,362 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
     )
   )
-  (:action move-Cth-type_3-s
+  (:action move-count1-prev_th1-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_3-s
+  (:action move-count0-prev_th1-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cth-type_3-n
+  (:action move-count1-prev_th1-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_3-n
+  (:action move-count0-prev_th1-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cth-type_3-e
+  (:action move-count1-prev_th1-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_3-e
+  (:action move-count0-prev_th1-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cth-type_3-w
+  (:action move-count1-prev_th1-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_3-w
+  (:action move-count0-prev_th1-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto1-type_3-s
+  (:action move-count1-prev_th2-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type3-s
+   :parameters (?t ?x1 ?y0 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+    )
+  )
+  (:action move-count1-prev_th2-type3-n
+   :parameters (?t ?x1 ?y1 ?y2 ?y3)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x1 ?y3)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type3-n
+   :parameters (?t ?x1 ?y1 ?y2 ?y3)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x1 ?y3)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+    )
+  )
+  (:action move-count1-prev_th2-type3-e
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x2 ?y1) (empty ?x2 ?y2)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type3-e
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x2 ?y1) (empty ?x2 ?y2)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+    )
+  )
+  (:action move-count1-prev_th2-type3-w
+   :parameters (?t ?x0 ?x1 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x0 ?x1)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type3-w
+   :parameters (?t ?x0 ?x1 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x0 ?x1)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+    )
+  )
+  (:action move-count1-prev_th3-type3-s
+   :parameters (?t ?x1 ?y0 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type3-s
+   :parameters (?t ?x1 ?y0 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+    )
+  )
+  (:action move-count1-prev_th3-type3-n
+   :parameters (?t ?x1 ?y1 ?y2 ?y3)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x1 ?y3)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type3-n
+   :parameters (?t ?x1 ?y1 ?y2 ?y3)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x1 ?y3)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+    )
+  )
+  (:action move-count1-prev_th3-type3-e
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x2 ?y1) (empty ?x2 ?y2)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type3-e
+   :parameters (?t ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x2 ?y1) (empty ?x2 ?y2)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
+    )
+  )
+  (:action move-count1-prev_th3-type3-w
+   :parameters (?t ?x0 ?x1 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x0 ?x1)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type3-w
+   :parameters (?t ?x0 ?x1 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        (adjwe ?x0 ?x1)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+    )
+  )
+  (:action move-count1-prev_to1-type3-s
+   :parameters (?t ?x1 ?y0 ?y1 ?y2)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
+        
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0)
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2459,10 +2691,10 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_3-s
+  (:action move-count0-prev_to1-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -2473,14 +2705,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto1-type_3-n
+  (:action move-count1-prev_to1-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2488,10 +2720,10 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_3-n
+  (:action move-count0-prev_to1-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -2502,72 +2734,72 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto1-type_3-e
+  (:action move-count1-prev_to1-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_3-e
+  (:action move-count0-prev_to1-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev to1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto1-type_3-w
+  (:action move-count1-prev_to1-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_3-w
+  (:action move-count0-prev_to1-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev to1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto2-type_3-s
+  (:action move-count1-prev_to2-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2575,10 +2807,10 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_3-s
+  (:action move-count0-prev_to2-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -2589,14 +2821,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto2-type_3-n
+  (:action move-count1-prev_to2-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2604,10 +2836,10 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_3-n
+  (:action move-count0-prev_to2-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -2618,72 +2850,72 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto2-type_3-e
+  (:action move-count1-prev_to2-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_3-e
+  (:action move-count0-prev_to2-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev to2) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto2-type_3-w
+  (:action move-count1-prev_to2-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_3-w
+  (:action move-count0-prev_to2-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev to2) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto3-type_3-s
+  (:action move-count1-prev_to3-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2691,10 +2923,10 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_3-s
+  (:action move-count0-prev_to3-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -2705,14 +2937,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto3-type_3-n
+  (:action move-count1-prev_to3-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2720,10 +2952,10 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_3-n
+  (:action move-count0-prev_to3-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -2734,72 +2966,72 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto3-type_3-e
+  (:action move-count1-prev_to3-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_3-e
+  (:action move-count0-prev_to3-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev to3) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto3-type_3-w
+  (:action move-count1-prev_to3-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_3-w
+  (:action move-count0-prev_to3-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev to3) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto4-type_3-s
+  (:action move-count1-prev_to4-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2807,10 +3039,10 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_3-s
+  (:action move-count0-prev_to4-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -2821,14 +3053,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Cto4-type_3-n
+  (:action move-count1-prev_to4-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2836,10 +3068,10 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_3-n
+  (:action move-count0-prev_to4-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -2850,72 +3082,72 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto4-type_3-e
+  (:action move-count1-prev_to4-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_3-e
+  (:action move-count0-prev_to4-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev to4) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Cto4-type_3-w
+  (:action move-count1-prev_to4-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_3-w
+  (:action move-count0-prev_to4-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev to4) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Ctsq-type_3-s
+  (:action move-count1-prev_tsq-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -2923,10 +3155,10 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_3-s
+  (:action move-count0-prev_tsq-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -2937,14 +3169,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Ctsq-type_3-n
+  (:action move-count1-prev_tsq-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -2952,10 +3184,10 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_3-n
+  (:action move-count0-prev_tsq-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -2966,72 +3198,72 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Ctsq-type_3-e
+  (:action move-count1-prev_tsq-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_3-e
+  (:action move-count0-prev_tsq-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev tsq) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Ctsq-type_3-w
+  (:action move-count1-prev_tsq-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_3-w
+  (:action move-count0-prev_tsq-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev tsq) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Ctv1-type_3-s
+  (:action move-count1-prev_tv1-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3039,10 +3271,10 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_3-s
+  (:action move-count0-prev_tv1-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -3053,14 +3285,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Ctv1-type_3-n
+  (:action move-count1-prev_tv1-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3068,10 +3300,10 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_3-n
+  (:action move-count0-prev_tv1-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -3082,304 +3314,72 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Ctv1-type_3-e
+  (:action move-count1-prev_tv1-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_3-e
+  (:action move-count0-prev_tv1-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev tv1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Ctv1-type_3-w
+  (:action move-count1-prev_tv1-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_3-w
+  (:action move-count0-prev_tv1-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev tv1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Ctv2-type_3-s
+  (:action move-count1-prev_tv4-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_3-s
-   :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x1 ?y0)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv2-type_3-n
-   :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_3-n
-   :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
-    )
-  )
-  (:action move-Ctv2-type_3-e
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_3-e
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-    )
-  )
-  (:action move-Ctv2-type_3-w
-   :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_3-w
-   :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-    )
-  )
-  (:action move-Ctv3-type_3-s
-   :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x1 ?y0)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_3-s
-   :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x1 ?y0)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
-        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv3-type_3-n
-   :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_3-n
-   :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
-    )
-  )
-  (:action move-Ctv3-type_3-e
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_3-e
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-    )
-  )
-  (:action move-Ctv3-type_3-w
-   :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_3-w
-   :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        (adjwe ?x0 ?x1)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-    )
-  )
-  (:action move-Ctv4-type_3-s
-   :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
-        
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x1 ?y0)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
@@ -3387,10 +3387,10 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_3-s
+  (:action move-count0-prev_tv4-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
         (empty ?x1 ?y0)
@@ -3401,14 +3401,14 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-Ctv4-type_3-n
+  (:action move-count1-prev_tv4-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
@@ -3416,10 +3416,10 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_3-n
+  (:action move-count0-prev_tv4-type3-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
         (empty ?x1 ?y3)
@@ -3430,275 +3430,507 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Ctv4-type_3-e
+  (:action move-count1-prev_tv4-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_3-e
+  (:action move-count0-prev_tv4-type3-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x2 ?y1) (empty ?x2 ?y2)
         (prev tv4) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-Ctv4-type_3-w
+  (:action move-count1-prev_tv4-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_3-w
+  (:action move-count0-prev_tv4-type3-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type_3 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
+   :precondition (and (type3 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
         (prev tv4) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cth-type_4-s
+  (:action move-count1-prev_th1-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev th) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_4-s
+  (:action move-count0-prev_th1-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev th) (prev ?t)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cth-type_4-n
+  (:action move-count1-prev_th1-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev th) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_4-n
+  (:action move-count0-prev_th1-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev th) (prev ?t)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cth-type_4-e
+  (:action move-count1-prev_th1-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev th) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_4-e
+  (:action move-count0-prev_th1-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev th) (prev ?t)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (prev th1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Cth-type_4-w
+  (:action move-count1-prev_th1-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (not (prev ?t))
+        (or (prev init) (and (prev th1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-        (not (prev th)) (prev ?t) (increase (total-cost) 1)
+        (not (prev th1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dth-type_4-w
+  (:action move-count0-prev_th1-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev th) (prev ?t)
+        (prev th1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto1-type_4-s
+  (:action move-count1-prev_th2-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to1) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type4-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+    )
+  )
+  (:action move-count1-prev_th2-type4-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type4-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+    )
+  )
+  (:action move-count1-prev_th2-type4-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        (adjns ?y1 ?y2)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type4-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        (adjns ?y1 ?y2)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
+    )
+  )
+  (:action move-count1-prev_th2-type4-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (or (prev init) (and (prev th2) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+        (not (prev th2)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th2-type4-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (prev th2) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+    )
+  )
+  (:action move-count1-prev_th3-type4-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type4-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
+    )
+  )
+  (:action move-count1-prev_th3-type4-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type4-n
+   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
+    )
+  )
+  (:action move-count1-prev_th3-type4-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        (adjns ?y1 ?y2)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type4-e
+   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
+        (adjns ?y1 ?y2)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
+    )
+  )
+  (:action move-count1-prev_th3-type4-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (or (prev init) (and (prev th3) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+        (not (prev th3)) (prev ?t) (increase (total-cost) 1)
+    )
+  )
+  (:action move-count0-prev_th3-type4-w
+   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
+        (adjns ?y1 ?y2)
+        (empty ?x0 ?y1) (empty ?x0 ?y2)
+        (prev th3) (prev ?t)
+    )
+   :effect (and 
+        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
+    )
+  )
+  (:action move-count1-prev_to1-type4-s
+   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+        (adjwe ?x1 ?x2)
+        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to1) (not (prev ?t))))
+    )
+   :effect (and 
+        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_4-s
+  (:action move-count0-prev_to1-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto1-type_4-n
+  (:action move-count1-prev_to1-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev to1) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_4-n
+  (:action move-count0-prev_to1-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev to1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto1-type_4-e
+  (:action move-count1-prev_to1-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev to1) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_4-e
+  (:action move-count0-prev_to1-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Cto1-type_4-w
+  (:action move-count1-prev_to1-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to1) (not (prev ?t))
+        (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3706,10 +3938,10 @@
         (not (prev to1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto1-type_4-w
+  (:action move-count0-prev_to1-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
@@ -3720,101 +3952,101 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto2-type_4-s
+  (:action move-count1-prev_to2-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to2) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_4-s
+  (:action move-count0-prev_to2-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to2) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto2-type_4-n
+  (:action move-count1-prev_to2-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev to2) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_4-n
+  (:action move-count0-prev_to2-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev to2) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto2-type_4-e
+  (:action move-count1-prev_to2-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev to2) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_4-e
+  (:action move-count0-prev_to2-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to2) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Cto2-type_4-w
+  (:action move-count1-prev_to2-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to2) (not (prev ?t))
+        (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3822,10 +4054,10 @@
         (not (prev to2)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto2-type_4-w
+  (:action move-count0-prev_to2-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
@@ -3836,101 +4068,101 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto3-type_4-s
+  (:action move-count1-prev_to3-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to3) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_4-s
+  (:action move-count0-prev_to3-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to3) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto3-type_4-n
+  (:action move-count1-prev_to3-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev to3) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_4-n
+  (:action move-count0-prev_to3-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev to3) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto3-type_4-e
+  (:action move-count1-prev_to3-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev to3) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_4-e
+  (:action move-count0-prev_to3-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to3) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Cto3-type_4-w
+  (:action move-count1-prev_to3-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to3) (not (prev ?t))
+        (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -3938,10 +4170,10 @@
         (not (prev to3)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto3-type_4-w
+  (:action move-count0-prev_to3-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
@@ -3952,101 +4184,101 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Cto4-type_4-s
+  (:action move-count1-prev_to4-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev to4) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_4-s
+  (:action move-count0-prev_to4-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to4) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Cto4-type_4-n
+  (:action move-count1-prev_to4-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev to4) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_4-n
+  (:action move-count0-prev_to4-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev to4) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Cto4-type_4-e
+  (:action move-count1-prev_to4-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev to4) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_4-e
+  (:action move-count0-prev_to4-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to4) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Cto4-type_4-w
+  (:action move-count1-prev_to4-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev to4) (not (prev ?t))
+        (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4054,10 +4286,10 @@
         (not (prev to4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dto4-type_4-w
+  (:action move-count0-prev_to4-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
@@ -4068,101 +4300,101 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Ctsq-type_4-s
+  (:action move-count1-prev_tsq-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tsq) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_4-s
+  (:action move-count0-prev_tsq-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tsq) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Ctsq-type_4-n
+  (:action move-count1-prev_tsq-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tsq) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_4-n
+  (:action move-count0-prev_tsq-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev tsq) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Ctsq-type_4-e
+  (:action move-count1-prev_tsq-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tsq) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_4-e
+  (:action move-count0-prev_tsq-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tsq) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Ctsq-type_4-w
+  (:action move-count1-prev_tsq-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tsq) (not (prev ?t))
+        (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4170,10 +4402,10 @@
         (not (prev tsq)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtsq-type_4-w
+  (:action move-count0-prev_tsq-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
@@ -4184,101 +4416,101 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Ctv1-type_4-s
+  (:action move-count1-prev_tv1-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv1) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_4-s
+  (:action move-count0-prev_tv1-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Ctv1-type_4-n
+  (:action move-count1-prev_tv1-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tv1) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_4-n
+  (:action move-count0-prev_tv1-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev tv1) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Ctv1-type_4-e
+  (:action move-count1-prev_tv1-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tv1) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_4-e
+  (:action move-count0-prev_tv1-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv1) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Ctv1-type_4-w
+  (:action move-count1-prev_tv1-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv1) (not (prev ?t))
+        (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4286,10 +4518,10 @@
         (not (prev tv1)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv1-type_4-w
+  (:action move-count0-prev_tv1-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
@@ -4300,333 +4532,101 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-Ctv2-type_4-s
+  (:action move-count1-prev_tv4-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv2) (not (prev ?t))
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_4-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv2-type_4-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_4-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
-    )
-  )
-  (:action move-Ctv2-type_4-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_4-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-    )
-  )
-  (:action move-Ctv2-type_4-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-        (not (prev tv2)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv2-type_4-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv2) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-    )
-  )
-  (:action move-Ctv3-type_4-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_4-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-Ctv3-type_4-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_4-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
-    )
-  )
-  (:action move-Ctv3-type_4-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_4-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-    )
-  )
-  (:action move-Ctv3-type_4-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-        (not (prev tv3)) (prev ?t) (increase (total-cost) 1)
-    )
-  )
-  (:action move-Dtv3-type_4-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv3) (prev ?t)
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
-    )
-  )
-  (:action move-Ctv4-type_4-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-        (prev tv4) (not (prev ?t))
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_4-s
+  (:action move-count0-prev_tv4-type4-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv4) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
+        (at ?t ?x1 ?y0) (not (empty ?x1 ?y0)) (at ?t ?x2 ?y0) (not (empty ?x2 ?y0))
     )
   )
-  (:action move-Ctv4-type_4-n
+  (:action move-count1-prev_tv4-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
-        (prev tv4) (not (prev ?t))
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_4-n
+  (:action move-count0-prev_tv4-type4-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
-        (empty ?x1 ?y3) (empty ?x2 ?y3)
+        (empty ?x2 ?y3) (empty ?x1 ?y3)
         (prev tv4) (prev ?t)
     )
    :effect (and 
         (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
+        (at ?t ?x2 ?y3) (not (empty ?x2 ?y3)) (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-Ctv4-type_4-e
+  (:action move-count1-prev_tv4-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
-        (prev tv4) (not (prev ?t))
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_4-e
+  (:action move-count0-prev_tv4-type4-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv4) (prev ?t)
     )
    :effect (and 
-        (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2) (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
+        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x1 ?y2)) (empty ?x1 ?y2)
+        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1)) (at ?t ?x3 ?y2) (not (empty ?x3 ?y2))
     )
   )
-  (:action move-Ctv4-type_4-w
+  (:action move-count1-prev_tv4-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
-        (prev tv4) (not (prev ?t))
+        (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
         (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1) (not (at ?t ?x2 ?y2)) (empty ?x2 ?y2)
@@ -4634,10 +4634,10 @@
         (not (prev tv4)) (prev ?t) (increase (total-cost) 1)
     )
   )
-  (:action move-Dtv4-type_4-w
+  (:action move-count0-prev_tv4-type4-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type_4 ?t)
-        (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
+   :precondition (and (type4 ?t)
+        (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
         (empty ?x0 ?y1) (empty ?x0 ?y2)
