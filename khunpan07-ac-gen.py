@@ -1,5 +1,7 @@
 import slide_puzzle_gen
 
+# Puzzle according to http://khunpan.de/khunpan-u.htm
+
 init_state = [
     ["tv1",  None, "tv2", "tv3"],
     ["tv1",  None, "tv2", "tv3"],
@@ -10,9 +12,8 @@ init_state = [
 
 target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 
-domain_name="khunpan07-ac-gen"
-problem_name="khunpan07-ac-gen"
-domain,problem=slide_puzzle_gen.domain_problem(domain_name,problem_name,init_state,target_state,adapted_counter=True)
+name="khunpan07-ac-gen"
+domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state,adapted_counter=True)
 
-print(domain, file=open(domain_name+'-domain.pddl', 'w'))
-print(problem, file=open(problem_name+'-problem.pddl', 'w'))
+print(domain, file=open(name+'-domain.pddl', 'w'))
+print(problem, file=open(name+'-problem.pddl', 'w'))

@@ -1,5 +1,7 @@
 import slide_puzzle_gen
 
+# Puzzle according to http://khunpan.de/khunpan-u.htm
+
 init_state = [
     ["to1", "tsq", "tsq", "to2"],
     ["to3", "tsq", "tsq", "to4"],
