@@ -13,7 +13,7 @@ target_state = {
 }
 
 name="n8puzzle01-gen"
-domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state,hddl=True)
+domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state)
 
 print(domain, file=open(name + '-domain.pddl', 'w'))
 print(problem, file=open(name + '-problem.pddl', 'w'))

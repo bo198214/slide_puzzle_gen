@@ -129,12 +129,12 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         if hddl:
             block += f"""
   (:method m_move-{name}-{direction}
-   :task 
    :parameters (?t - {tile_type_name} {" ".join("?x%d - xloc" % n for n in xca)} {" ".join("?y%d - yloc" % n for n in yca)})
    :task (decompose)
-   :subtasks 
+   :subtasks (and
        (move-{name}-{direction} ?t {" ".join("?x%d" % n for n in xca)} {" ".join("?y%d" % n for n in yca)})
        (decompose)
+    )
    )"""
         block +=  f"""
   (:action move-{name}-{direction}
