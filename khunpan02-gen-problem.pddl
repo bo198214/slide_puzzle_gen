@@ -4,11 +4,12 @@
         h1 h2 h3 h4
         v1 v2 v3 v4 v5 v6 v7 v8
         th1 th2 th3 th4 th5 to1 to2 to3 to4 tsq tv1 tv2 tv3 tv4 tv5 tv6
-    )
+        init
+	)
     (:init 
         (adjwe h1 h2) (adjwe h2 h3) (adjwe h3 h4)
         (adjns v1 v2) (adjns v2 v3) (adjns v3 v4) (adjns v4 v5) (adjns v5 v6) (adjns v6 v7) (adjns v7 v8)
-        (type_2 th1) (type_2 th2) (type_2 th3) (type_2 th4) (type_2 th5) (type_1 to1) (type_1 to2) (type_1 to3) (type_1 to4) (type_4 tsq) (type_3 tv1) (type_3 tv2) (type_3 tv3) (type_3 tv4) (type_3 tv5) (type_3 tv6)
+        (type2 th1) (type2 th2) (type2 th3) (type2 th4) (type2 th5) (type1 to1) (type1 to2) (type1 to3) (type1 to4) (type4 tsq) (type3 tv1) (type3 tv2) (type3 tv3) (type3 tv4) (type3 tv5) (type3 tv6)
 
         (at tv1 h1 v8) (at tsq h2 v8) (at tsq h3 v8) (at tv2 h4 v8)
         (at tv1 h1 v7) (at tsq h2 v7) (at tsq h3 v7) (at tv2 h4 v7)

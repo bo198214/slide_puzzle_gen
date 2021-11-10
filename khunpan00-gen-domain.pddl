@@ -1,8 +1,8 @@
-(define (domain khunpan02-gen)
+(define (domain khunpan00-gen)
   (:requirements :strips :action-costs)
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 
-        (type1 ?t) (type2 ?t) (type3 ?t) (type4 ?t)
+        (type1 ?t) (type2 ?t) (type3 ?t)
   )
 
 
@@ -59,60 +59,8 @@
     )
   )
   (:action move-type2-s
-   :parameters (?t ?x1 ?x2 ?y0 ?y1)
-   :precondition (and (type2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y0 ?y1)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
-    )
-  )
-  (:action move-type2-n
-   :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2)
-        (adjns ?y1 ?y2)
-        (empty ?x1 ?y2) (empty ?x2 ?y2)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1) (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x1 ?y2) (not (empty ?x1 ?y2)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
-    )
-  )
-  (:action move-type2-e
-   :parameters (?t ?x1 ?x2 ?x3 ?y1)
-   :precondition (and (type2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
-        
-        (empty ?x3 ?y1)
-    )
-   :effect (and 
-        (not (at ?t ?x1 ?y1)) (empty ?x1 ?y1)
-        (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
-    )
-  )
-  (:action move-type2-w
-   :parameters (?t ?x0 ?x1 ?x2 ?y1)
-   :precondition (and (type2 ?t)
-        (at ?t ?x1 ?y1) (at ?t ?x2 ?y1)
-        (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
-        
-        (empty ?x0 ?y1)
-    )
-   :effect (and 
-        (not (at ?t ?x2 ?y1)) (empty ?x2 ?y1)
-        (at ?t ?x0 ?y1) (not (empty ?x0 ?y1))
-    )
-  )
-  (:action move-type3-s
    :parameters (?t ?x1 ?y0 ?y1 ?y2)
-   :precondition (and (type3 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
         
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
@@ -123,9 +71,9 @@
         (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-type3-n
+  (:action move-type2-n
    :parameters (?t ?x1 ?y1 ?y2 ?y3)
-   :precondition (and (type3 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
         
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
@@ -136,9 +84,9 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3))
     )
   )
-  (:action move-type3-e
+  (:action move-type2-e
    :parameters (?t ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type3 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
@@ -149,9 +97,9 @@
         (at ?t ?x2 ?y1) (not (empty ?x2 ?y1)) (at ?t ?x2 ?y2) (not (empty ?x2 ?y2))
     )
   )
-  (:action move-type3-w
+  (:action move-type2-w
    :parameters (?t ?x0 ?x1 ?y1 ?y2)
-   :precondition (and (type3 ?t)
+   :precondition (and (type2 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1)
         (adjwe ?x0 ?x1)
         (adjns ?y1 ?y2)
@@ -162,9 +110,9 @@
         (at ?t ?x0 ?y1) (not (empty ?x0 ?y1)) (at ?t ?x0 ?y2) (not (empty ?x0 ?y2))
     )
   )
-  (:action move-type4-s
+  (:action move-type3-s
    :parameters (?t ?x1 ?x2 ?y0 ?y1 ?y2)
-   :precondition (and (type4 ?t)
+   :precondition (and (type3 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y0 ?y1) (adjns ?y1 ?y2)
@@ -175,9 +123,9 @@
         (at ?t ?x2 ?y0) (not (empty ?x2 ?y0)) (at ?t ?x1 ?y0) (not (empty ?x1 ?y0))
     )
   )
-  (:action move-type4-n
+  (:action move-type3-n
    :parameters (?t ?x1 ?x2 ?y1 ?y2 ?y3)
-   :precondition (and (type4 ?t)
+   :precondition (and (type3 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2) (adjns ?y2 ?y3)
@@ -188,9 +136,9 @@
         (at ?t ?x1 ?y3) (not (empty ?x1 ?y3)) (at ?t ?x2 ?y3) (not (empty ?x2 ?y3))
     )
   )
-  (:action move-type4-e
+  (:action move-type3-e
    :parameters (?t ?x1 ?x2 ?x3 ?y1 ?y2)
-   :precondition (and (type4 ?t)
+   :precondition (and (type3 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjns ?y1 ?y2)
@@ -201,9 +149,9 @@
         (at ?t ?x3 ?y2) (not (empty ?x3 ?y2)) (at ?t ?x3 ?y1) (not (empty ?x3 ?y1))
     )
   )
-  (:action move-type4-w
+  (:action move-type3-w
    :parameters (?t ?x0 ?x1 ?x2 ?y1 ?y2)
-   :precondition (and (type4 ?t)
+   :precondition (and (type3 ?t)
         (at ?t ?x1 ?y2) (at ?t ?x1 ?y1) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x0 ?x1) (adjwe ?x1 ?x2)
         (adjns ?y1 ?y2)
