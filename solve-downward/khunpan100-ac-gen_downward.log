@@ -1,0 +1,1912 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /home/bo198214/workspace/planner/downward/builds/release/bin/translate/translate.py /home/bo198214/workspace/slide_puzzle_gen/khunpan100-ac-gen-domain.pddl /home/bo198214/workspace/slide_puzzle_gen/khunpan100-ac-gen-problem.pddl --sas-file /home/bo198214/workspace/slide_puzzle_gen/khunpan100-ac-gen.sas
+Parsing...
+Parsing: [0.100s CPU, 0.098s wall-clock]
+Normalizing task... [0.000s CPU, 0.008s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.011s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.330s CPU, 0.322s wall-clock]
+Preparing model... [0.100s CPU, 0.092s wall-clock]
+Generated 5041 rules.
+Computing model... [3.000s CPU, 2.997s wall-clock]
+10566 relevant atoms
+195100 auxiliary atoms
+205666 final queue length
+237317 total queue pushes
+Completing instantiation... [0.900s CPU, 0.923s wall-clock]
+Instantiating: [4.420s CPU, 4.418s wall-clock]
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Finding invariants: [0.460s CPU, 0.454s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.460s CPU, 0.456s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.040s CPU, 0.039s wall-clock]
+Translating task: [0.360s CPU, 0.352s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+21 propositions removed
+Detecting unreachable propositions: [0.200s CPU, 0.197s wall-clock]
+Reordering and filtering variables...
+21 of 21 variables necessary.
+0 of 21 mutex groups necessary.
+5140 of 5140 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.030s CPU, 0.043s wall-clock]
+Translator variables: 21
+Translator derived variables: 0
+Translator facts: 230
+Translator goal facts: 4
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 5140
+Translator axioms: 0
+Translator task size: 43681
+Translator peak memory: 0 KB
+Writing output... [0.060s CPU, 0.066s wall-clock]
+Done! [5.660s CPU, 5.666s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: /home/bo198214/workspace/slide_puzzle_gen/khunpan100-ac-gen.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/bo198214/workspace/planner/downward/builds/release/bin/downward --if-unit-cost --evaluator 'hlm=lmcount(lm_reasonable_orders_hps(lm_rhw()),pref=true)' --evaluator 'hff=ff()' --search 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)' --if-non-unit-cost --evaluator 'hlm1=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one),pref=true)' --evaluator 'hff1=ff(transform=adapt_costs(one))' --evaluator 'hlm2=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(plusone),pref=true)' --evaluator 'hff2=ff(transform=adapt_costs(plusone))' --search 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)' --always --internal-plan-file /home/bo198214/workspace/slide_puzzle_gen/khunpan100-ac-gen_downward.txt < /home/bo198214/workspace/slide_puzzle_gen/khunpan100-ac-gen.sas
+[t=0s, 0 KB] reading input...
+[t=0.046875s, 0 KB] done reading input!
+[t=0.0625s, 0 KB] Initializing landmark count heuristic...
+[t=0.0625s, 0 KB] Generating landmark graph...
+[t=0.0625s, 0 KB] Building a landmark graph with reasonable orders.
+[t=0.0625s, 0 KB] Initializing Exploration...
+[t=0.078125s, 0 KB] Generating landmarks using the RPG/SAS+ approach
+Removed 0 reasonable or obedient reasonable orders
+[t=0.109375s, 0 KB] Landmarks generation time: 0.046875s
+[t=0.109375s, 0 KB] Discovered 11 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.109375s, 0 KB] 11 edges
+[t=0.109375s, 0 KB] approx. reasonable orders
+[t=0.109375s, 0 KB] approx. obedient reasonable orders
+[t=0.109375s, 0 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.109375s, 0 KB] Landmarks generation time: 0.046875s
+[t=0.109375s, 0 KB] Discovered 11 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.109375s, 0 KB] 11 edges
+[t=0.109375s, 0 KB] Landmark graph generation time: 0.046875s
+[t=0.109375s, 0 KB] Landmark graph contains 11 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.109375s, 0 KB] Landmark graph contains 11 orderings.
+[t=0.109375s, 0 KB] Simplifying 17986 unary operators... done! [17986 unary operators]
+[t=0.15625s, 0 KB] time to simplify: 0.046875s
+[t=0.15625s, 0 KB] Initializing additive heuristic...
+[t=0.15625s, 0 KB] Initializing FF heuristic...
+[t=0.15625s, 0 KB] Initializing landmark count heuristic...
+[t=0.15625s, 0 KB] Generating landmark graph...
+[t=0.15625s, 0 KB] Building a landmark graph with reasonable orders.
+[t=0.15625s, 0 KB] Initializing Exploration...
+[t=0.171875s, 0 KB] Generating landmarks using the RPG/SAS+ approach
+Removed 0 reasonable or obedient reasonable orders
+[t=0.1875s, 0 KB] Landmarks generation time: 0.03125s
+[t=0.1875s, 0 KB] Discovered 11 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.1875s, 0 KB] 11 edges
+[t=0.1875s, 0 KB] approx. reasonable orders
+[t=0.1875s, 0 KB] approx. obedient reasonable orders
+[t=0.1875s, 0 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.1875s, 0 KB] Landmarks generation time: 0.03125s
+[t=0.1875s, 0 KB] Discovered 11 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.1875s, 0 KB] 11 edges
+[t=0.1875s, 0 KB] Landmark graph generation time: 0.03125s
+[t=0.1875s, 0 KB] Landmark graph contains 11 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.1875s, 0 KB] Landmark graph contains 11 orderings.
+[t=0.203125s, 0 KB] Simplifying 17986 unary operators... done! [17986 unary operators]
+[t=0.21875s, 0 KB] time to simplify: 0.015625s
+[t=0.21875s, 0 KB] Initializing additive heuristic...
+[t=0.21875s, 0 KB] Initializing FF heuristic...
+[t=0.21875s, 0 KB] Building successor generator...done!
+[t=0.234375s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.234375s, 0 KB] time for successor generation creation: 0.015625s
+[t=0.234375s, 0 KB] Variables: 21
+[t=0.234375s, 0 KB] FactPairs: 230
+[t=0.234375s, 0 KB] Bytes per state: 12
+[t=0.234375s, 0 KB] Building successor generator...done!
+[t=0.234375s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.234375s, 0 KB] time for successor generation creation: 0s
+[t=0.234375s, 0 KB] Variables: 21
+[t=0.234375s, 0 KB] FactPairs: 230
+[t=0.234375s, 0 KB] Bytes per state: 12
+[t=0.234375s, 0 KB] Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+[t=0.234375s, 0 KB] Conducting lazy best first search, (real) bound = 2147483647
+[t=0.234375s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=0.234375s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 7
+[t=0.234375s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 8
+[t=0.234375s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=0.234375s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 7
+[t=0.234375s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(one)): 8
+[t=0.328125s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 6
+[t=0.328125s, 0 KB] g=19, 193 evaluated, 192 expanded
+[t=1.1875s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 7
+[t=1.1875s, 0 KB] g=53, 2404 evaluated, 2403 expanded
+[t=1.34375s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 5
+[t=1.34375s, 0 KB] g=54, 2991 evaluated, 2990 expanded
+[t=8.90625s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 4
+[t=8.90625s, 0 KB] g=73, 26486 evaluated, 26485 expanded
+[t=8.90625s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 3
+[t=8.90625s, 0 KB] g=85, 26509 evaluated, 26508 expanded
+[t=8.90625s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 4
+[t=8.90625s, 0 KB] g=89, 26517 evaluated, 26516 expanded
+[t=9.29688s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 3
+[t=9.29688s, 0 KB] g=92, 27891 evaluated, 27890 expanded
+[t=9.29688s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 2
+[t=9.29688s, 0 KB] g=93, 27892 evaluated, 27891 expanded
+[t=9.29688s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 2
+[t=9.29688s, 0 KB] g=94, 27893 evaluated, 27892 expanded
+[t=4052.41s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 1
+[t=4052.41s, 0 KB] g=356, 12721791 evaluated, 12721790 expanded
+[t=4052.41s, 0 KB] Solution found!
+[t=4052.41s, 0 KB] Actual search time: 4052.17s
+move-count1-prev_tsq-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h4 v1 v2 (1)
+move-count1-prev_to4-type3-s tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-s to2 h4 v3 v4 (1)
+move-count1-prev_to2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-s to1 h2 v4 v5 (1)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-n to2 h4 v3 v4 (1)
+move-count1-prev_to2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-n to2 h4 v4 v5 (1)
+move-count1-prev_to2-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-n to4 h4 v1 v2 (1)
+move-count1-prev_to4-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v2 (0)
+move-count1-prev_to1-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type3-s tv3 h2 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-n to1 h1 v2 v3 (1)
+move-count1-prev_to1-type3-w tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-s to3 h2 v2 v3 (1)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-s to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type2-w th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type3-s tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count1-prev_to2-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-n to2 h4 v4 v5 (1)
+move-count1-prev_to2-type1-n to4 h4 v3 v4 (1)
+move-count1-prev_to4-type1-e to1 h3 h4 v3 (1)
+move-count1-prev_to1-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type1-n to4 h4 v4 v5 (1)
+move-count1-prev_to4-type1-n to1 h4 v3 v4 (1)
+move-count1-prev_to1-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v5 (1)
+move-count1-prev_to4-type1-n to1 h4 v4 v5 (1)
+move-count1-prev_to1-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type1-e to3 h1 h2 v1 (1)
+move-count0-prev_to3-type1-n to3 h2 v1 v2 (0)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v1 (0)
+move-count1-prev_th1-type2-s th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-e to3 h2 h3 v2 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v2 (0)
+move-count1-prev_to3-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v4 (0)
+move-count1-prev_to2-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-w to3 h3 h4 v2 (1)
+move-count0-prev_to3-type1-n to3 h3 v2 v3 (0)
+move-count1-prev_to3-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv1 h2 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to4 h2 h3 v5 (1)
+move-count1-prev_to4-type1-w to1 h3 h4 v5 (1)
+move-count1-prev_to1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type3-s tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v5 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v5 (1)
+move-count1-prev_to1-type1-n to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-n to3 h3 v3 v4 (1)
+move-count1-prev_to3-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to2 h3 h4 v5 (1)
+move-count1-prev_to2-type1-n to3 h3 v4 v5 (1)
+move-count1-prev_to3-type3-e tv1 h2 h3 v3 v4 (1)
+move-count1-prev_tv1-type3-e tv3 h1 h2 v3 v4 (1)
+move-count1-prev_tv3-type1-s to4 h1 v4 v5 (1)
+move-count1-prev_to4-type1-w to1 h1 h2 v5 (1)
+move-count1-prev_to1-type3-n tv3 h2 v3 v4 v5 (1)
+move-count1-prev_tv3-type4-n tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-w th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v1 (0)
+move-count1-prev_th1-type2-s th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type3-s tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count1-prev_to2-type1-e to3 h3 h4 v5 (1)
+move-count1-prev_to3-type3-n tv1 h3 v3 v4 v5 (1)
+move-count1-prev_tv1-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to4 h1 v3 v4 (1)
+move-count1-prev_to4-type1-s to1 h1 v4 v5 (1)
+move-count1-prev_to1-type1-s to4 h1 v2 v3 (1)
+move-count1-prev_to4-type1-s to1 h1 v3 v4 (1)
+move-count1-prev_to1-type3-w tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-w tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to2 h3 h4 v4 (1)
+move-count1-prev_to2-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-w to3 h3 h4 v5 (1)
+move-count1-prev_to3-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v2 (1)
+move-count0-prev_to4-type1-n to4 h2 v2 v3 (0)
+move-count1-prev_to4-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to3 h3 h4 v5 (1)
+move-count1-prev_to3-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type3-e tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type1-n to4 h2 v3 v4 (1)
+move-count0-prev_to4-type1-n to4 h2 v4 v5 (0)
+move-count1-prev_to4-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-n to1 h2 v3 v4 (0)
+move-count1-prev_to1-type3-s tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v5 (1)
+move-count1-prev_to4-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type3-s tv1 h3 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to3 h3 h4 v5 (1)
+move-count1-prev_to3-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-w to3 h2 h3 v5 (1)
+move-count1-prev_to3-type3-n tv1 h3 v3 v4 v5 (1)
+move-count1-prev_tv1-type4-n tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-e th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to2 h2 v2 v3 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v2 (0)
+move-count1-prev_to2-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type3-e tv1 h3 h4 v4 v5 (1)
+move-count1-prev_tv1-type1-e to1 h2 h3 v4 (1)
+move-count0-prev_to1-type1-n to1 h3 v4 v5 (0)
+move-count1-prev_to1-type4-n tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-e to2 h1 h2 v2 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v2 (0)
+move-count1-prev_to2-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to2 h3 v1 v2 (1)
+move-count1-prev_to2-type2-e th1 h1 h2 h3 v2 (1)
+move-count1-prev_th1-type3-s tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type1-e to2 h3 h4 v1 (1)
+move-count1-prev_to2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v3 v4 (1)
+move-count1-prev_tsq-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-e to3 h2 h3 v5 (1)
+move-count1-prev_to3-type1-e to4 h1 h2 v5 (1)
+move-count1-prev_to4-type1-s to1 h3 v3 v4 (1)
+move-count1-prev_to1-type1-s to3 h3 v4 v5 (1)
+move-count1-prev_to3-type1-e to4 h2 h3 v5 (1)
+move-count1-prev_to4-type4-n tsq h1 h2 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-s to4 h3 v4 v5 (1)
+move-count1-prev_to4-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-s to4 h3 v3 v4 (1)
+move-count1-prev_to4-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-n to1 h1 v3 v4 (1)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-w to4 h2 h3 v3 (1)
+move-count1-prev_to4-type1-n to1 h1 v4 v5 (1)
+move-count1-prev_to1-type1-n to3 h1 v3 v4 (1)
+move-count1-prev_to3-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-w to2 h3 h4 v1 (1)
+move-count1-prev_to2-type1-e to4 h2 h3 v3 (1)
+move-count1-prev_to4-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type2-n th1 h2 h3 v2 v3 (1)
+move-count1-prev_th1-type1-n to2 h3 v1 v2 (1)
+move-count1-prev_to2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th1 h1 h2 h3 v3 (1)
+move-count1-prev_th1-type1-w to4 h3 h4 v3 (1)
+move-count1-prev_to4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-w to2 h2 h3 v2 (1)
+move-count1-prev_to2-type1-s to4 h3 v2 v3 (1)
+move-count1-prev_to4-type1-s to2 h2 v1 v2 (1)
+move-count1-prev_to2-type1-w to4 h2 h3 v2 (1)
+move-count1-prev_to4-type3-w tv2 h3 h4 v2 v3 (1)
+move-count1-prev_tv2-type3-s tv1 h4 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h4 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h1 h2 v4 (1)
+move-count0-prev_to3-type1-n to3 h2 v4 v5 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v3 v4 (1)
+move-count1-prev_th1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-n to4 h2 v2 v3 (1)
+move-count1-prev_to4-type1-n to2 h2 v1 v2 (1)
+move-count1-prev_to2-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type3-s tv1 h4 v1 v2 v3 (1)
+move-count1-prev_tv1-type3-s tv2 h3 v1 v2 v3 (1)
+move-count1-prev_tv2-type4-s tsq h3 h4 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h2 h3 v5 (1)
+move-count1-prev_to3-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type1-e to3 h3 h4 v5 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v5 (1)
+move-count1-prev_to1-type2-n th1 h1 h2 v4 v5 (1)
+move-count1-prev_th1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type1-n to4 h2 v3 v4 (1)
+move-count1-prev_to4-type1-n to2 h2 v2 v3 (1)
+move-count1-prev_to2-type3-s tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v4 (1)
+move-count1-prev_to4-type1-s to2 h2 v2 v3 (1)
+move-count1-prev_to2-type4-w tsq h2 h3 h4 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv1 h4 v1 v2 v3 (1)
+move-count0-prev_tv1-type3-n tv1 h4 v2 v3 v4 (0)
+move-count1-prev_tv1-type3-e tv2 h3 h4 v1 v2 (1)
+move-count1-prev_tv2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-e to2 h2 h3 v2 (1)
+move-count1-prev_to2-type2-w th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-s to2 h3 v1 v2 (1)
+move-count1-prev_to2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v4 (1)
+move-count1-prev_to4-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-w to3 h3 h4 v5 (1)
+move-count1-prev_to3-type3-n tv1 h4 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-w to4 h1 h2 v4 (1)
+move-count1-prev_to4-type1-e to2 h3 h4 v1 (1)
+move-count1-prev_to2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-s to4 h1 v3 v4 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v4 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v4 (0)
+move-count1-prev_to1-type4-n tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type2-n th2 h2 h3 v1 v2 (1)
+move-count1-prev_th2-type1-w to2 h3 h4 v1 (1)
+move-count1-prev_to2-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type3-s tv1 h4 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-e to3 h3 h4 v5 (1)
+move-count1-prev_to3-type2-e th1 h1 h2 h3 v5 (1)
+move-count1-prev_th1-type1-n to1 h1 v4 v5 (1)
+move-count1-prev_to1-type1-n to4 h1 v3 v4 (1)
+move-count1-prev_to4-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to2 h2 h3 v1 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v1 (0)
+move-count1-prev_to2-type2-s th2 h2 h3 v1 v2 (1)
+move-count1-prev_th2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type2-s th1 h2 h3 v4 v5 (1)
+move-count1-prev_th1-type1-w to3 h3 h4 v5 (1)
+move-count1-prev_to3-type3-n tv1 h4 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-e to2 h1 h2 v1 (1)
+move-count1-prev_to2-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-s to4 h1 v3 v4 (1)
+move-count1-prev_to4-type2-w th1 h1 h2 h3 v4 (1)
+move-count1-prev_th1-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type1-s to3 h3 v4 v5 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v5 (1)
+move-count1-prev_to1-type2-n th1 h1 h2 v4 v5 (1)
+move-count1-prev_th1-type1-w to3 h2 h3 v4 (1)
+move-count1-prev_to3-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-w to3 h1 h2 v4 (1)
+move-count1-prev_to3-type1-w to1 h2 h3 v4 (1)
+move-count1-prev_to1-type3-w tv1 h3 h4 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v3 (1)
+move-count1-prev_to4-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-n to2 h2 v1 v2 (1)
+move-count1-prev_to2-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h2 h3 v3 (1)
+move-count1-prev_to4-type1-n to2 h2 v2 v3 (1)
+move-count1-prev_to2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-e to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type1-e to3 h1 h2 v4 (1)
+move-count1-prev_to3-type3-n tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type1-s to1 h2 v2 v3 (1)
+move-count1-prev_to1-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-w to1 h1 h2 v2 (1)
+move-count1-prev_to1-type1-s to2 h2 v2 v3 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v3 (0)
+move-count1-prev_to4-type4-n tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-e th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type1-s to2 h2 v1 v2 (1)
+move-count1-prev_to2-type1-s to4 h2 v2 v3 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v1 (1)
+move-count1-prev_to2-type1-s to4 h2 v1 v2 (1)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type3-e tv1 h3 h4 v4 v5 (1)
+move-count1-prev_tv1-type1-e to3 h2 h3 v4 (1)
+move-count0-prev_to3-type1-n to3 h3 v4 v5 (0)
+move-count1-prev_to3-type4-n tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-n to4 h2 v1 v2 (1)
+move-count1-prev_to4-type1-e to2 h1 h2 v1 (1)
+move-count1-prev_to2-type1-e to4 h2 h3 v2 (1)
+move-count1-prev_to4-type1-n to2 h2 v1 v2 (1)
+move-count1-prev_to2-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h3 v1 v2 (1)
+move-count1-prev_to4-type1-e to2 h2 h3 v2 (1)
+move-count1-prev_to2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-s to2 h3 v1 v2 (1)
+move-count1-prev_to2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to3 h3 v4 v5 (1)
+move-count0-prev_to3-type1-w to3 h2 h3 v4 (0)
+move-count1-prev_to3-type3-w tv1 h3 h4 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v2 (1)
+move-count0-prev_to1-type1-n to1 h2 v2 v3 (0)
+move-count1-prev_to1-type2-n th2 h1 h2 v1 v2 (1)
+move-count1-prev_th2-type1-w to2 h2 h3 v1 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v1 (1)
+move-count1-prev_to2-type1-w to4 h2 h3 v1 (1)
+move-count1-prev_to4-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-s to3 h2 v3 v4 (1)
+move-count1-prev_to3-type1-e to1 h3 h4 v3 (1)
+move-count1-prev_to1-type3-s tv1 h3 v3 v4 v5 (1)
+move-count1-prev_tv1-type2-e th1 h1 h2 h3 v5 (1)
+move-count1-prev_th1-type3-n tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-n to3 h2 v3 v4 (1)
+move-count1-prev_to3-type2-n th2 h1 h2 v2 v3 (1)
+move-count1-prev_th2-type1-n to2 h1 v1 v2 (1)
+move-count1-prev_to2-type1-w to4 h1 h2 v1 (1)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=4052.42s, 0 KB] Plan length: 357 step(s).
+[t=4052.42s, 0 KB] Plan cost: 317
+[t=4052.42s, 0 KB] Expanded 12721791 state(s).
+[t=4052.42s, 0 KB] Reopened 0 state(s).
+[t=4052.42s, 0 KB] Evaluated 12721792 state(s).
+[t=4052.42s, 0 KB] Evaluations: 25443584
+[t=4052.42s, 0 KB] Generated 44133619 state(s).
+[t=4052.42s, 0 KB] Dead ends: 0 state(s).
+[t=4052.42s, 0 KB] Number of registered states: 12721792
+[t=4052.42s, 0 KB] Int hash set load factor: 12721792/16777216 = 0.758278
+[t=4052.42s, 0 KB] Int hash set resizes: 24
+[t=4052.42s, 0 KB] Best solution cost so far: 317
+[t=4052.42s, 0 KB] Solution found - keep searching
+[t=4052.61s, 0 KB] Building successor generator...done!
+[t=4052.61s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=4052.61s, 0 KB] time for successor generation creation: 0s
+[t=4052.61s, 0 KB] Variables: 21
+[t=4052.61s, 0 KB] FactPairs: 230
+[t=4052.61s, 0 KB] Bytes per state: 12
+[t=4052.61s, 0 KB] Starting search: lazy_greedy(list(hff2, hlm2), preferred = list(hff2, hlm2), reopen_closed = false)
+[t=4052.61s, 0 KB] Conducting lazy best first search, (real) bound = 317
+[t=4052.61s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=4052.61s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=4052.61s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=4052.61s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=4052.61s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=4052.61s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=4052.69s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=4052.69s, 0 KB] g=19, 199 evaluated, 198 expanded
+[t=4054.5s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=4054.5s, 0 KB] g=50, 5877 evaluated, 5876 expanded
+[t=4064.72s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=4064.72s, 0 KB] g=122, 37072 evaluated, 37071 expanded
+[t=4064.72s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=4064.72s, 0 KB] g=130, 37101 evaluated, 37100 expanded
+[t=4065.19s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=4065.19s, 0 KB] g=134, 38198 evaluated, 38197 expanded
+[t=4065.19s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=4065.19s, 0 KB] g=135, 38200 evaluated, 38199 expanded
+[t=4065.19s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=4065.19s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=4065.19s, 0 KB] g=136, 38201 evaluated, 38200 expanded
+[t=6777s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=6777s, 0 KB] g=316, 8150669 evaluated, 8150668 expanded
+[t=6777.28s, 0 KB] Solution found!
+[t=6777.28s, 0 KB] Actual search time: 2724.67s
+move-count1-prev_tsq-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h4 v1 v2 (1)
+move-count1-prev_to4-type3-s tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-s to2 h4 v3 v4 (1)
+move-count1-prev_to2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-s to1 h2 v4 v5 (1)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-n to2 h4 v3 v4 (1)
+move-count1-prev_to2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-n to2 h4 v4 v5 (1)
+move-count1-prev_to2-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-n to4 h4 v1 v2 (1)
+move-count1-prev_to4-type2-w th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h1 h2 h3 v1 (0)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v2 (0)
+move-count1-prev_to1-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type3-s tv3 h2 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-n to1 h1 v2 v3 (1)
+move-count1-prev_to1-type3-w tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-s to3 h2 v2 v3 (1)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-s to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type2-w th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type3-s tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-n to4 h4 v3 v4 (1)
+move-count1-prev_to4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-w to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-e to3 h1 h2 v1 (1)
+move-count1-prev_to3-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type2-n th2 h2 h3 v2 v3 (1)
+move-count1-prev_th2-type1-n to3 h2 v1 v2 (1)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v3 (1)
+move-count1-prev_th2-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type1-e to3 h2 h3 v2 (1)
+move-count1-prev_to3-type1-s to1 h2 v2 v3 (1)
+move-count1-prev_to1-type2-w th2 h2 h3 h4 v3 (1)
+move-count1-prev_th2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-s to1 h2 v1 v2 (1)
+move-count1-prev_to1-type2-w th2 h1 h2 h3 v3 (1)
+move-count1-prev_th2-type1-n to3 h3 v2 v3 (1)
+move-count1-prev_to3-type1-n to1 h2 v1 v2 (1)
+move-count1-prev_to1-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to1 h2 h3 v2 (1)
+move-count1-prev_to1-type1-s to4 h4 v3 v4 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v2 (1)
+move-count1-prev_to1-type1-s to3 h3 v2 v3 (1)
+move-count1-prev_to3-type1-w to4 h3 h4 v3 (1)
+move-count1-prev_to4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-s to1 h2 v1 v2 (1)
+move-count1-prev_to1-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-n to1 h2 v1 v2 (1)
+move-count1-prev_to1-type1-e to3 h3 h4 v2 (1)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-s to3 h4 v1 v2 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v2 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v2 (0)
+move-count1-prev_to1-type2-n th1 h2 h3 v1 v2 (1)
+move-count1-prev_th1-type1-w to3 h3 h4 v1 (1)
+move-count1-prev_to3-type1-s to1 h4 v1 v2 (1)
+move-count1-prev_to1-type2-e th1 h2 h3 h4 v2 (1)
+move-count1-prev_th1-type1-w to3 h2 h3 v1 (1)
+move-count1-prev_to3-type1-w to1 h3 h4 v1 (1)
+move-count1-prev_to1-type2-w th1 h2 h3 h4 v2 (1)
+move-count1-prev_th1-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v3 (1)
+move-count1-prev_th2-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to3 h1 h2 v1 (1)
+move-count1-prev_to3-type1-n to4 h4 v3 v4 (1)
+move-count1-prev_to4-type2-e th2 h2 h3 h4 v3 (1)
+move-count0-prev_th2-type2-w th2 h2 h3 h4 v3 (0)
+move-count1-prev_th2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to1 h3 h4 v1 (1)
+move-count1-prev_to1-type2-s th1 h2 h3 v1 v2 (1)
+move-count1-prev_th1-type2-s th2 h2 h3 v2 v3 (1)
+move-count1-prev_th2-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type1-n to4 h4 v4 v5 (1)
+move-count1-prev_to4-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-n to1 h4 v1 v2 (1)
+move-count1-prev_to1-type2-e th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-w to4 h3 h4 v5 (1)
+move-count1-prev_to4-type1-s to1 h4 v1 v2 (1)
+move-count0-prev_to1-type1-n to1 h4 v1 v2 (0)
+move-count1-prev_to1-type2-e th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-n to1 h4 v2 v3 (1)
+move-count1-prev_to1-type1-e to3 h1 h2 v1 (1)
+move-count1-prev_to3-type2-e th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type1-n to3 h2 v1 v2 (1)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v1 (0)
+move-count1-prev_th1-type2-s th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-e to3 h2 h3 v2 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v2 (0)
+move-count1-prev_to3-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v4 (0)
+move-count1-prev_to2-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-w to3 h3 h4 v2 (1)
+move-count0-prev_to3-type1-n to3 h3 v2 v3 (0)
+move-count1-prev_to3-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv1 h2 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to4 h2 h3 v5 (1)
+move-count1-prev_to4-type1-n to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-n to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-w to1 h3 h4 v3 (1)
+move-count1-prev_to1-type3-s tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-e to1 h3 h4 v3 (1)
+move-count1-prev_to1-type1-w to4 h1 h2 v5 (1)
+move-count1-prev_to4-type1-w to1 h3 h4 v3 (1)
+move-count1-prev_to1-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type1-e to1 h3 h4 v3 (1)
+move-count1-prev_to1-type1-n to3 h3 v4 v5 (1)
+move-count1-prev_to3-type1-w to1 h3 h4 v3 (1)
+move-count0-prev_to1-type1-n to1 h3 v3 v4 (0)
+move-count1-prev_to1-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to3 h3 h4 v5 (1)
+move-count1-prev_to3-type1-n to1 h3 v4 v5 (1)
+move-count1-prev_to1-type3-w tv2 h3 h4 v3 v4 (1)
+move-count0-prev_tv2-type3-e tv2 h3 h4 v3 v4 (0)
+move-count1-prev_tv2-type3-e tv1 h2 h3 v3 v4 (1)
+move-count1-prev_tv1-type3-e tv3 h1 h2 v3 v4 (1)
+move-count1-prev_tv3-type1-s to4 h1 v4 v5 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v5 (1)
+move-count1-prev_to2-type3-n tv3 h2 v3 v4 v5 (1)
+move-count1-prev_tv3-type4-n tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-w th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v1 (0)
+move-count1-prev_th1-type2-s th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type3-s tv1 h3 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h3 v2 v3 v4 (0)
+move-count1-prev_tv1-type3-s tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-s to3 h4 v4 v5 (1)
+move-count1-prev_to3-type1-e to1 h3 h4 v5 (1)
+move-count1-prev_to1-type3-n tv1 h3 v3 v4 v5 (1)
+move-count1-prev_tv1-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to4 h1 v3 v4 (1)
+move-count1-prev_to4-type1-s to2 h1 v4 v5 (1)
+move-count1-prev_to2-type1-s to4 h1 v2 v3 (1)
+move-count1-prev_to4-type1-s to2 h1 v3 v4 (1)
+move-count1-prev_to2-type3-w tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-w tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to3 h3 h4 v4 (1)
+move-count0-prev_to3-type1-n to3 h3 v4 v5 (0)
+move-count1-prev_to3-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-s to3 h3 v4 v5 (1)
+move-count1-prev_to3-type1-w to1 h3 h4 v5 (1)
+move-count1-prev_to1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v2 (1)
+move-count0-prev_to4-type1-n to4 h2 v2 v3 (0)
+move-count1-prev_to4-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h2 h3 v3 (1)
+move-count1-prev_to4-type3-s tv1 h2 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to1 h2 h3 v5 (1)
+move-count1-prev_to1-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-n to3 h3 v4 v5 (1)
+move-count1-prev_to3-type3-e tv1 h2 h3 v3 v4 (1)
+move-count1-prev_tv1-type1-e to2 h1 h2 v3 (1)
+move-count0-prev_to2-type1-n to2 h2 v3 v4 (0)
+move-count1-prev_to2-type3-s tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-w to1 h1 h2 v5 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v5 (1)
+move-count1-prev_to3-type3-n tv1 h3 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v3 (0)
+move-count1-prev_to4-type4-n tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-e th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to4 h2 v2 v3 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v2 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type3-e tv1 h3 h4 v4 v5 (1)
+move-count1-prev_tv1-type1-e to2 h2 h3 v4 (1)
+move-count0-prev_to2-type1-n to2 h3 v4 v5 (0)
+move-count1-prev_to2-type4-n tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v2 (1)
+move-count0-prev_to4-type1-e to4 h2 h3 v2 (0)
+move-count1-prev_to4-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v1 (0)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v2 (1)
+move-count1-prev_th1-type3-s tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type2-w th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-e to3 h2 h3 v5 (1)
+move-count1-prev_to3-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type1-s to3 h3 v4 v5 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v5 (1)
+move-count1-prev_to1-type4-n tsq h1 h2 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-w to2 h1 h2 v3 (1)
+move-count1-prev_to2-type1-w to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-s to1 h3 v3 v4 (1)
+move-count1-prev_to1-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-n to2 h1 v3 v4 (1)
+move-count1-prev_to2-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-w to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-n to2 h1 v4 v5 (1)
+move-count1-prev_to2-type1-n to3 h1 v3 v4 (1)
+move-count1-prev_to3-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to1 h3 h4 v3 (1)
+move-count1-prev_to1-type2-n th1 h2 h3 v2 v3 (1)
+move-count1-prev_th1-type1-n to4 h3 v1 v2 (1)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th1 h1 h2 h3 v3 (1)
+move-count1-prev_th1-type1-w to1 h3 h4 v3 (1)
+move-count1-prev_to1-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-w to4 h2 h3 v2 (1)
+move-count1-prev_to4-type1-s to1 h3 v2 v3 (1)
+move-count1-prev_to1-type1-s to4 h2 v1 v2 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v2 (1)
+move-count1-prev_to1-type2-e th1 h1 h2 h3 v3 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v3 (0)
+move-count1-prev_th1-type3-w tv2 h3 h4 v2 v3 (1)
+move-count1-prev_tv2-type3-s tv1 h4 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h4 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h1 h2 v4 (1)
+move-count0-prev_to3-type1-n to3 h2 v4 v5 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v3 v4 (1)
+move-count1-prev_th1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-n to1 h2 v2 v3 (1)
+move-count1-prev_to1-type1-n to4 h2 v1 v2 (1)
+move-count1-prev_to4-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type3-s tv1 h4 v1 v2 v3 (1)
+move-count1-prev_tv1-type3-s tv2 h3 v1 v2 v3 (1)
+move-count1-prev_tv2-type4-s tsq h3 h4 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h2 h3 v5 (1)
+move-count1-prev_to3-type1-e to2 h1 h2 v5 (1)
+move-count1-prev_to2-type1-e to3 h3 h4 v5 (1)
+move-count1-prev_to3-type1-e to2 h2 h3 v5 (1)
+move-count1-prev_to2-type2-n th1 h1 h2 v4 v5 (1)
+move-count1-prev_th1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v2 (1)
+move-count1-prev_to4-type1-s to1 h2 v2 v3 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv1 h4 v1 v2 v3 (1)
+move-count0-prev_tv1-type3-n tv1 h4 v2 v3 v4 (0)
+move-count1-prev_tv1-type3-e tv2 h3 h4 v1 v2 (1)
+move-count1-prev_tv2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-s to4 h1 v1 v2 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v2 (1)
+move-count0-prev_to1-type1-w to1 h2 h3 v2 (0)
+move-count0-prev_to1-type1-w to1 h1 h2 v2 (0)
+move-count1-prev_to1-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-w to3 h3 h4 v5 (1)
+move-count1-prev_to3-type3-n tv1 h4 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-w to2 h2 h3 v4 (1)
+move-count1-prev_to2-type1-e to4 h1 h2 v1 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v1 (0)
+move-count1-prev_to4-type2-w th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-s to3 h3 v4 v5 (1)
+move-count1-prev_to3-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v5 (1)
+move-count1-prev_th1-type1-e to4 h1 h2 v1 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v1 (0)
+move-count1-prev_to4-type2-w th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type3-n tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-e to4 h1 h2 v1 (1)
+move-count1-prev_to4-type1-s to1 h1 v1 v2 (1)
+move-count1-prev_to1-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type3-w tv2 h3 h4 v2 v3 (1)
+move-count1-prev_tv2-type3-s tv1 h4 v3 v4 v5 (1)
+move-count1-prev_tv1-type2-e th1 h2 h3 h4 v5 (1)
+move-count1-prev_th1-type1-n to2 h2 v4 v5 (1)
+move-count1-prev_to2-type1-w to3 h2 h3 v4 (1)
+move-count1-prev_to3-type3-n tv2 h3 v2 v3 v4 (1)
+move-count1-prev_tv2-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-e to4 h2 h3 v1 (1)
+move-count1-prev_to4-type1-e to1 h1 h2 v1 (1)
+move-count1-prev_to1-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v1 (1)
+move-count1-prev_to1-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-s to3 h2 v3 v4 (1)
+move-count1-prev_to3-type1-s to2 h2 v4 v5 (1)
+move-count1-prev_to2-type2-w th1 h2 h3 h4 v5 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v5 (0)
+move-count1-prev_th1-type3-n tv1 h4 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h3 v3 v4 v5 (1)
+move-count1-prev_tv2-type2-n th2 h3 h4 v2 v3 (1)
+move-count1-prev_th2-type1-n to1 h3 v1 v2 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v2 (0)
+move-count1-prev_to1-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=6777.3s, 0 KB] Plan length: 360 step(s).
+[t=6777.3s, 0 KB] Plan cost: 312
+[t=6777.3s, 0 KB] Expanded 8151751 state(s).
+[t=6777.3s, 0 KB] Reopened 0 state(s).
+[t=6777.3s, 0 KB] Evaluated 8151752 state(s).
+[t=6777.3s, 0 KB] Evaluations: 16303504
+[t=6777.3s, 0 KB] Generated 28680603 state(s).
+[t=6777.3s, 0 KB] Dead ends: 0 state(s).
+[t=6777.3s, 0 KB] Number of registered states: 8151752
+[t=6777.3s, 0 KB] Int hash set load factor: 8151752/16777216 = 0.485882
+[t=6777.3s, 0 KB] Int hash set resizes: 24
+[t=6777.3s, 0 KB] Best solution cost so far: 312
+[t=6777.3s, 0 KB] Solution found - keep searching
+[t=6777.39s, 0 KB] Building successor generator...done!
+[t=6777.39s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=6777.39s, 0 KB] time for successor generation creation: 0s
+[t=6777.39s, 0 KB] Variables: 21
+[t=6777.39s, 0 KB] FactPairs: 230
+[t=6777.39s, 0 KB] Bytes per state: 12
+[t=6777.39s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 5)
+[t=6777.39s, 0 KB] Conducting lazy best first search, (real) bound = 312
+[t=6777.39s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=6777.39s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=6777.39s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=6777.39s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=6777.39s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=6777.39s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=6777.48s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=6777.48s, 0 KB] g=15, 288 evaluated, 287 expanded, 52 reopened
+[t=6780.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=6780.2s, 0 KB] g=39, 11679 evaluated, 11678 expanded, 4582 reopened
+[t=6782.39s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=6782.39s, 0 KB] g=56, 22384 evaluated, 22383 expanded, 9059 reopened
+[t=6782.39s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=6782.39s, 0 KB] g=64, 22450 evaluated, 22449 expanded, 9077 reopened
+[t=6812.47s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=6812.47s, 0 KB] g=63, 163205 evaluated, 163204 expanded, 60429 reopened
+[t=6812.47s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=6812.47s, 0 KB] g=64, 163206 evaluated, 163205 expanded, 60429 reopened
+[t=6812.47s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=6812.47s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=6812.47s, 0 KB] g=65, 163207 evaluated, 163206 expanded, 60429 reopened
+[t=8882.09s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=8882.09s, 0 KB] g=117, 12068385 evaluated, 12068384 expanded, 5749434 reopened
+[t=8882.09s, 0 KB] Solution found!
+[t=8882.09s, 0 KB] Actual search time: 2104.7s
+move-count1-prev_tsq-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h4 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h3 h4 v1 (0)
+move-count1-prev_to4-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h4 v3 v4 (0)
+move-count1-prev_to2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v5 (1)
+move-count0-prev_to1-type1-s to1 h2 v4 v5 (0)
+move-count1-prev_to1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-n to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-n to2 h4 v4 v5 (0)
+move-count1-prev_to2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-n to4 h4 v1 v2 (0)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v2 (0)
+move-count1-prev_to1-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to1 h1 v1 v2 (1)
+move-count0-prev_to1-type1-e to1 h1 h2 v1 (0)
+move-count1-prev_to1-type1-s to3 h1 v2 v3 (1)
+move-count0-prev_to3-type1-s to3 h1 v1 v2 (0)
+move-count1-prev_to3-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to1 h2 v1 v2 (1)
+move-count0-prev_to1-type1-n to1 h2 v2 v3 (0)
+move-count1-prev_to1-type2-w th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-n to4 h4 v3 v4 (0)
+move-count1-prev_to4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-e to3 h1 h2 v1 (1)
+move-count1-prev_to3-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type2-n th2 h2 h3 v2 v3 (1)
+move-count1-prev_th2-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v2 (0)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v3 (1)
+move-count1-prev_th2-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type1-s to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v2 (0)
+move-count1-prev_to1-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to4 h3 h4 v4 (1)
+move-count0-prev_to4-type1-n to4 h3 v4 v5 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v3 v4 (1)
+move-count1-prev_th2-type1-n to1 h3 v2 v3 (1)
+move-count1-prev_to1-type1-n to3 h3 v1 v2 (1)
+move-count1-prev_to3-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type3-s tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type3-s tv3 h2 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-s tsq h1 h2 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to4 h2 h3 v5 (1)
+move-count1-prev_to4-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type1-w to4 h1 h2 v5 (1)
+move-count1-prev_to4-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type2-n th2 h3 h4 v4 v5 (1)
+move-count1-prev_th2-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-e to3 h3 h4 v2 (1)
+move-count1-prev_to3-type1-s to1 h3 v2 v3 (1)
+move-count1-prev_to1-type4-e tsq h1 h2 h3 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v1 v2 v3 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-w to1 h2 h3 v2 (1)
+move-count1-prev_to1-type1-w to3 h3 h4 v2 (1)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v3 v4 (1)
+move-count1-prev_tsq-type3-e tv1 h1 h2 v3 v4 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type1-s to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-s to4 h1 v4 v5 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v2 (1)
+move-count1-prev_to1-type3-s tv1 h2 v2 v3 v4 (1)
+move-count1-prev_tv1-type1-e to4 h1 h2 v4 (1)
+move-count1-prev_to4-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v2 v3 (1)
+move-count1-prev_tv1-type1-s to4 h2 v3 v4 (1)
+move-count0-prev_to4-type1-s to4 h2 v2 v3 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv2 h4 v1 v2 v3 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type1-e to1 h3 h4 v2 (1)
+move-count1-prev_to1-type1-e to3 h3 h4 v1 (1)
+move-count0-prev_to3-type1-w to3 h3 h4 v1 (0)
+move-count0-prev_to3-type1-n to3 h3 v1 v2 (0)
+move-count1-prev_to3-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to4 h2 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v1 (0)
+move-count1-prev_to4-type1-w to3 h2 h3 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v4 (0)
+move-count1-prev_to2-type3-e tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-w to1 h3 h4 v2 (1)
+move-count0-prev_to1-type1-n to1 h3 v2 v3 (0)
+move-count1-prev_to1-type2-n th1 h3 h4 v1 v2 (1)
+move-count1-prev_th1-type1-e to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v1 (0)
+move-count1-prev_to3-type1-e to4 h1 h2 v1 (1)
+move-count0-prev_to4-type1-e to4 h2 h3 v1 (0)
+move-count1-prev_to4-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-s tv3 h2 v3 v4 v5 (1)
+move-count1-prev_tv3-type2-w th2 h2 h3 h4 v5 (1)
+move-count1-prev_th2-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to1 h3 h4 v3 (1)
+move-count1-prev_to1-type2-w th2 h1 h2 h3 v5 (1)
+move-count1-prev_th2-type1-w to1 h3 h4 v3 (1)
+move-count1-prev_to1-type1-n to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-n to1 h3 v3 v4 (1)
+move-count1-prev_to1-type2-n th1 h3 h4 v2 v3 (1)
+move-count1-prev_th1-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v2 (0)
+move-count1-prev_to4-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=8882.09s, 0 KB] Plan length: 152 step(s).
+[t=8882.09s, 0 KB] Plan cost: 113
+[t=8882.09s, 0 KB] Expanded 12068385 state(s).
+[t=8882.09s, 0 KB] Reopened 5749434 state(s).
+[t=8882.09s, 0 KB] Evaluated 12068386 state(s).
+[t=8882.09s, 0 KB] Evaluations: 18387338
+[t=8882.09s, 0 KB] Generated 43767138 state(s).
+[t=8882.09s, 0 KB] Dead ends: 0 state(s).
+[t=8882.09s, 0 KB] Number of registered states: 6318952
+[t=8882.09s, 0 KB] Int hash set load factor: 6318952/8388608 = 0.753278
+[t=8882.09s, 0 KB] Int hash set resizes: 23
+[t=8882.09s, 0 KB] Best solution cost so far: 113
+[t=8882.09s, 0 KB] Solution found - keep searching
+[t=8882.39s, 0 KB] Building successor generator...done!
+[t=8882.39s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=8882.39s, 0 KB] time for successor generation creation: 0s
+[t=8882.39s, 0 KB] Variables: 21
+[t=8882.39s, 0 KB] FactPairs: 230
+[t=8882.39s, 0 KB] Bytes per state: 12
+[t=8882.39s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 3)
+[t=8882.39s, 0 KB] Conducting lazy best first search, (real) bound = 113
+[t=8882.39s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=8882.39s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=8882.39s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=8882.39s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=8882.39s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=8882.39s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=8882.47s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=8882.47s, 0 KB] g=14, 287 evaluated, 286 expanded, 50 reopened
+[t=8884.33s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=8884.33s, 0 KB] g=35, 9445 evaluated, 9444 expanded, 3563 reopened
+[t=8900.77s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=8900.77s, 0 KB] g=48, 83847 evaluated, 83846 expanded, 27941 reopened
+[t=8912.94s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=8912.94s, 0 KB] g=56, 138381 evaluated, 138380 expanded, 47708 reopened
+[t=8921.47s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=8921.47s, 0 KB] g=62, 181670 evaluated, 181669 expanded, 64608 reopened
+[t=8921.47s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=8921.47s, 0 KB] g=63, 181672 evaluated, 181671 expanded, 64609 reopened
+[t=8921.47s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=8921.47s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=8921.47s, 0 KB] g=64, 181673 evaluated, 181672 expanded, 64609 reopened
+[t=13550.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=13550.2s, 0 KB] g=101, 27041750 evaluated, 27041749 expanded, 13329995 reopened
+[t=13550.2s, 0 KB] Solution found!
+[t=13550.2s, 0 KB] Actual search time: 4667.86s
+move-count1-prev_tsq-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h4 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h3 h4 v1 (0)
+move-count1-prev_to4-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h4 v3 v4 (0)
+move-count1-prev_to2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v5 (1)
+move-count0-prev_to1-type1-s to1 h2 v4 v5 (0)
+move-count1-prev_to1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-n to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-n to2 h4 v4 v5 (0)
+move-count1-prev_to2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-n to4 h4 v1 v2 (0)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v2 (0)
+move-count1-prev_to1-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to1 h1 v1 v2 (1)
+move-count0-prev_to1-type1-e to1 h1 h2 v1 (0)
+move-count1-prev_to1-type1-s to3 h1 v2 v3 (1)
+move-count0-prev_to3-type1-s to3 h1 v1 v2 (0)
+move-count1-prev_to3-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to1 h2 v1 v2 (1)
+move-count0-prev_to1-type1-n to1 h2 v2 v3 (0)
+move-count1-prev_to1-type2-w th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-n to4 h4 v3 v4 (0)
+move-count1-prev_to4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-e to3 h1 h2 v1 (1)
+move-count1-prev_to3-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type2-n th2 h2 h3 v2 v3 (1)
+move-count1-prev_th2-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v2 (0)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v3 (1)
+move-count1-prev_th2-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-s to1 h2 v2 v3 (0)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type1-s to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v2 (1)
+move-count1-prev_to1-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to4 h3 h4 v4 (1)
+move-count0-prev_to4-type1-n to4 h3 v4 v5 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v3 v4 (1)
+move-count1-prev_th2-type1-n to1 h3 v2 v3 (1)
+move-count1-prev_to1-type1-n to3 h3 v1 v2 (1)
+move-count1-prev_to3-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type3-s tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type3-s tv3 h2 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-s tsq h1 h2 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to4 h2 h3 v5 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v5 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v5 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v5 (0)
+move-count1-prev_to2-type2-n th2 h3 h4 v4 v5 (1)
+move-count1-prev_th2-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-e to3 h3 h4 v2 (1)
+move-count1-prev_to3-type1-s to1 h3 v2 v3 (1)
+move-count1-prev_to1-type4-e tsq h1 h2 h3 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v1 v2 v3 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type1-s to3 h4 v1 v2 (1)
+move-count1-prev_to3-type1-e to1 h3 h4 v2 (1)
+move-count1-prev_to1-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v4 (0)
+move-count1-prev_to2-type1-e to4 h1 h2 v5 (1)
+move-count0-prev_to4-type1-s to4 h2 v4 v5 (0)
+move-count1-prev_to4-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th2 h2 h3 h4 v5 (1)
+move-count1-prev_th2-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-w to3 h3 h4 v1 (1)
+move-count1-prev_to3-type1-s to1 h4 v1 v2 (1)
+move-count1-prev_to1-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type2-w th2 h1 h2 h3 v5 (1)
+move-count1-prev_th2-type1-n to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-e to4 h2 h3 v4 (1)
+move-count1-prev_to4-type3-n tv3 h2 v2 v3 v4 (1)
+move-count1-prev_tv3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-w to3 h2 h3 v1 (1)
+move-count1-prev_to3-type1-w to1 h3 h4 v1 (1)
+move-count1-prev_to1-type1-w to3 h1 h2 v1 (1)
+move-count1-prev_to3-type1-e to1 h3 h4 v1 (1)
+move-count0-prev_to1-type1-w to1 h3 h4 v1 (0)
+move-count0-prev_to1-type1-w to1 h2 h3 v1 (0)
+move-count1-prev_to1-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-s to4 h3 v3 v4 (1)
+move-count1-prev_to4-type1-s to2 h3 v4 v5 (1)
+move-count1-prev_to2-type2-e th2 h1 h2 h3 v5 (1)
+move-count1-prev_th2-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type2-e th2 h2 h3 h4 v5 (1)
+move-count1-prev_th2-type3-n tv3 h2 v3 v4 v5 (1)
+move-count1-prev_tv3-type2-n th1 h1 h2 v2 v3 (1)
+move-count1-prev_th1-type1-n to1 h2 v1 v2 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v2 (0)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=13550.3s, 0 KB] Plan length: 133 step(s).
+[t=13550.3s, 0 KB] Plan cost: 102
+[t=13550.3s, 0 KB] Expanded 27041750 state(s).
+[t=13550.3s, 0 KB] Reopened 13329995 state(s).
+[t=13550.3s, 0 KB] Evaluated 27041751 state(s).
+[t=13550.3s, 0 KB] Evaluations: 40753507
+[t=13550.3s, 0 KB] Generated 97065657 state(s).
+[t=13550.3s, 0 KB] Dead ends: 0 state(s).
+[t=13550.3s, 0 KB] Number of registered states: 13711756
+[t=13550.3s, 0 KB] Int hash set load factor: 13711756/33554432 = 0.408642
+[t=13550.3s, 0 KB] Int hash set resizes: 25
+[t=13550.3s, 0 KB] Best solution cost so far: 102
+[t=13550.3s, 0 KB] Solution found - keep searching
+[t=13550.9s, 0 KB] Building successor generator...done!
+[t=13550.9s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=13550.9s, 0 KB] time for successor generation creation: 0s
+[t=13550.9s, 0 KB] Variables: 21
+[t=13550.9s, 0 KB] FactPairs: 230
+[t=13550.9s, 0 KB] Bytes per state: 12
+[t=13550.9s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 2)
+[t=13550.9s, 0 KB] Conducting lazy best first search, (real) bound = 102
+[t=13550.9s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=13550.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=13550.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=13550.9s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=13550.9s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=13550.9s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=13550.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=13550.9s, 0 KB] g=14, 292 evaluated, 291 expanded, 54 reopened
+[t=13552.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=13552.4s, 0 KB] g=35, 7277 evaluated, 7276 expanded, 2589 reopened
+[t=13567.2s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=13567.2s, 0 KB] g=48, 75939 evaluated, 75938 expanded, 25803 reopened
+[t=13598.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=13598.8s, 0 KB] g=51, 233184 evaluated, 233183 expanded, 86333 reopened
+[t=13626.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=13626.8s, 0 KB] g=59, 377188 evaluated, 377187 expanded, 143959 reopened
+[t=13626.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=13626.8s, 0 KB] g=60, 377189 evaluated, 377188 expanded, 143959 reopened
+[t=13626.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=13626.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=13626.8s, 0 KB] g=61, 377190 evaluated, 377189 expanded, 143959 reopened
+[t=18638.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=18638.4s, 0 KB] g=101, 29434868 evaluated, 29434867 expanded, 14235097 reopened
+[t=18961.4s, 0 KB] Solution found!
+[t=18961.4s, 0 KB] Actual search time: 5410.55s
+move-count1-prev_tsq-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to3 h1 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h1 h2 v1 (0)
+move-count1-prev_to3-type3-s tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v1 v2 v3 (0)
+move-count1-prev_tv1-type1-s to1 h1 v4 v5 (1)
+move-count0-prev_to1-type1-s to1 h1 v3 v4 (0)
+move-count1-prev_to1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v5 (1)
+move-count0-prev_to2-type1-s to2 h3 v4 v5 (0)
+move-count1-prev_to2-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-n to1 h1 v3 v4 (1)
+move-count0-prev_to1-type1-n to1 h1 v4 v5 (0)
+move-count1-prev_to1-type3-n tv1 h1 v1 v2 v3 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type1-w to3 h1 h2 v1 (1)
+move-count0-prev_to3-type1-n to3 h1 v1 v2 (0)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v1 (0)
+move-count1-prev_th1-type2-s th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-s to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v2 (0)
+move-count1-prev_to2-type3-e tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to2 h4 v1 v2 (1)
+move-count0-prev_to2-type1-w to2 h3 h4 v1 (0)
+move-count1-prev_to2-type1-s to4 h4 v2 v3 (1)
+move-count0-prev_to4-type1-s to4 h4 v1 v2 (0)
+move-count1-prev_to4-type3-e tv3 h3 h4 v2 v3 (1)
+move-count1-prev_tv3-type1-n to2 h3 v1 v2 (1)
+move-count0-prev_to2-type1-n to2 h3 v2 v3 (0)
+move-count1-prev_to2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v2 (1)
+move-count1-prev_th1-type3-s tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v1 v2 v3 (0)
+move-count1-prev_tv1-type1-w to3 h1 h2 v3 (1)
+move-count0-prev_to3-type1-n to3 h1 v3 v4 (0)
+move-count1-prev_to3-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type2-n th1 h2 h3 v2 v3 (1)
+move-count1-prev_th1-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v2 (0)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type3-s tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th1 h1 h2 h3 v3 (1)
+move-count1-prev_th1-type1-w to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-s to2 h3 v2 v3 (0)
+move-count1-prev_to2-type3-n tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-s to4 h2 v1 v2 (1)
+move-count1-prev_to4-type1-w to2 h2 h3 v2 (1)
+move-count1-prev_to2-type3-w tv3 h3 h4 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h1 h2 v4 (1)
+move-count0-prev_to3-type1-n to3 h2 v4 v5 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v3 v4 (1)
+move-count1-prev_th1-type1-n to2 h2 v2 v3 (1)
+move-count1-prev_to2-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-n to4 h2 v1 v2 (1)
+move-count1-prev_to4-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type3-s tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-s tsq h3 h4 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h2 h3 v5 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v5 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v5 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v5 (0)
+move-count1-prev_to1-type2-n th1 h1 h2 v4 v5 (1)
+move-count1-prev_th1-type3-n tv1 h1 v2 v3 v4 (1)
+move-count1-prev_tv1-type1-w to4 h1 h2 v2 (1)
+move-count1-prev_to4-type1-s to2 h2 v2 v3 (1)
+move-count1-prev_to2-type4-w tsq h2 h3 h4 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv2 h4 v1 v2 v3 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type3-e tv3 h3 h4 v1 v2 (1)
+move-count1-prev_tv3-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-s to4 h1 v1 v2 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v2 (1)
+move-count1-prev_to2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to1 h3 v4 v5 (1)
+move-count0-prev_to1-type1-w to1 h2 h3 v4 (0)
+move-count1-prev_to1-type1-w to3 h3 h4 v5 (1)
+move-count0-prev_to3-type1-s to3 h3 v4 v5 (0)
+move-count1-prev_to3-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-e th1 h1 h2 h3 v5 (1)
+move-count1-prev_th1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-e to4 h1 h2 v1 (1)
+move-count1-prev_to4-type1-s to2 h1 v1 v2 (1)
+move-count1-prev_to2-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type3-w tv3 h3 h4 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v5 (1)
+move-count1-prev_th1-type1-n to1 h2 v4 v5 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v4 (1)
+move-count1-prev_to3-type3-n tv3 h3 v2 v3 v4 (1)
+move-count1-prev_tv3-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-e to4 h2 h3 v1 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v1 (0)
+move-count1-prev_to4-type1-e to2 h1 h2 v1 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v1 (0)
+move-count1-prev_to2-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-s to3 h2 v3 v4 (1)
+move-count1-prev_to3-type1-s to1 h2 v4 v5 (1)
+move-count1-prev_to1-type2-w th1 h2 h3 h4 v5 (1)
+move-count1-prev_th1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type3-s tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type2-w th1 h1 h2 h3 v5 (1)
+move-count1-prev_th1-type3-n tv3 h3 v3 v4 v5 (1)
+move-count1-prev_tv3-type2-n th2 h3 h4 v2 v3 (1)
+move-count1-prev_th2-type1-n to2 h3 v1 v2 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v2 (0)
+move-count1-prev_to2-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=18961.4s, 0 KB] Plan length: 132 step(s).
+[t=18961.4s, 0 KB] Plan cost: 101
+[t=18961.4s, 0 KB] Expanded 31566079 state(s).
+[t=18961.4s, 0 KB] Reopened 15382365 state(s).
+[t=18961.4s, 0 KB] Evaluated 31566080 state(s).
+[t=18961.4s, 0 KB] Evaluations: 47749795
+[t=18961.4s, 0 KB] Generated 112815123 state(s).
+[t=18961.4s, 0 KB] Dead ends: 0 state(s).
+[t=18961.4s, 0 KB] Number of registered states: 16183715
+[t=18961.4s, 0 KB] Int hash set load factor: 16183715/33554432 = 0.482312
+[t=18961.4s, 0 KB] Int hash set resizes: 25
+[t=18961.4s, 0 KB] Best solution cost so far: 101
+[t=18961.4s, 0 KB] Solution found - keep searching
+[t=18962.1s, 0 KB] Building successor generator...done!
+[t=18962.1s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=18962.1s, 0 KB] time for successor generation creation: 0s
+[t=18962.1s, 0 KB] Variables: 21
+[t=18962.1s, 0 KB] FactPairs: 230
+[t=18962.1s, 0 KB] Bytes per state: 12
+[t=18962.1s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=18962.1s, 0 KB] Conducting lazy best first search, (real) bound = 101
+[t=18962.1s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=18962.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=18962.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=18962.1s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=18962.1s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=18962.1s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=18962.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=18962.1s, 0 KB] g=14, 273 evaluated, 272 expanded, 20 reopened
+[t=18963.5s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=18963.5s, 0 KB] g=34, 6745 evaluated, 6744 expanded, 2064 reopened
+[t=18972.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=18972.9s, 0 KB] g=47, 48694 evaluated, 48693 expanded, 13885 reopened
+[t=18995.7s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=18995.7s, 0 KB] g=51, 151631 evaluated, 151630 expanded, 43867 reopened
+[t=19139.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=19139.8s, 0 KB] g=59, 803671 evaluated, 803670 expanded, 242107 reopened
+[t=19139.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=19139.8s, 0 KB] g=60, 803672 evaluated, 803671 expanded, 242107 reopened
+[t=19139.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=19139.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=19139.8s, 0 KB] g=61, 803673 evaluated, 803672 expanded, 242107 reopened
+[t=25659.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=25659.1s, 0 KB] g=100, 39519852 evaluated, 39519851 expanded, 18355902 reopened
+[t=25659.1s, 0 KB] Solution found!
+[t=25659.1s, 0 KB] Actual search time: 6697.05s
+move-count1-prev_tsq-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to3 h1 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h1 h2 v1 (0)
+move-count1-prev_to3-type3-s tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v1 v2 v3 (0)
+move-count1-prev_tv1-type1-s to1 h1 v4 v5 (1)
+move-count0-prev_to1-type1-s to1 h1 v3 v4 (0)
+move-count1-prev_to1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v5 (1)
+move-count0-prev_to2-type1-s to2 h3 v4 v5 (0)
+move-count1-prev_to2-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-n to1 h1 v3 v4 (1)
+move-count0-prev_to1-type1-n to1 h1 v4 v5 (0)
+move-count1-prev_to1-type3-n tv1 h1 v1 v2 v3 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type1-w to3 h1 h2 v1 (1)
+move-count0-prev_to3-type1-n to3 h1 v1 v2 (0)
+move-count1-prev_to3-type2-w th1 h2 h3 h4 v1 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v1 (0)
+move-count1-prev_th1-type2-s th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-s to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v2 (0)
+move-count1-prev_to2-type3-e tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to2 h4 v1 v2 (1)
+move-count0-prev_to2-type1-w to2 h3 h4 v1 (0)
+move-count1-prev_to2-type1-s to4 h4 v2 v3 (1)
+move-count0-prev_to4-type1-s to4 h4 v1 v2 (0)
+move-count1-prev_to4-type3-e tv3 h3 h4 v2 v3 (1)
+move-count1-prev_tv3-type1-n to2 h3 v1 v2 (1)
+move-count0-prev_to2-type1-n to2 h3 v2 v3 (0)
+move-count1-prev_to2-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v2 (1)
+move-count1-prev_th1-type3-s tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v1 v2 v3 (0)
+move-count1-prev_tv1-type1-w to3 h1 h2 v3 (1)
+move-count0-prev_to3-type1-n to3 h1 v3 v4 (0)
+move-count1-prev_to3-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type2-n th1 h2 h3 v2 v3 (1)
+move-count1-prev_th1-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v2 (0)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type3-s tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th1 h1 h2 h3 v3 (1)
+move-count1-prev_th1-type1-w to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-s to2 h3 v2 v3 (0)
+move-count1-prev_to2-type3-n tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-s to4 h2 v1 v2 (1)
+move-count1-prev_to4-type1-w to2 h2 h3 v2 (1)
+move-count1-prev_to2-type3-w tv3 h3 h4 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h1 h2 v4 (1)
+move-count0-prev_to3-type1-n to3 h2 v4 v5 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v3 v4 (1)
+move-count1-prev_th1-type1-n to2 h2 v2 v3 (1)
+move-count1-prev_to2-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-n to4 h2 v1 v2 (1)
+move-count1-prev_to4-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type3-s tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-s tsq h3 h4 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to3 h2 h3 v5 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v5 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v5 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v5 (0)
+move-count1-prev_to1-type2-n th1 h1 h2 v4 v5 (1)
+move-count1-prev_th1-type3-n tv1 h1 v2 v3 v4 (1)
+move-count1-prev_tv1-type1-w to4 h1 h2 v2 (1)
+move-count1-prev_to4-type1-s to2 h2 v2 v3 (1)
+move-count1-prev_to2-type4-w tsq h2 h3 h4 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv2 h4 v1 v2 v3 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type3-e tv3 h3 h4 v1 v2 (1)
+move-count1-prev_tv3-type2-e th2 h1 h2 h3 v1 (1)
+move-count1-prev_th2-type1-s to4 h1 v1 v2 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v2 (1)
+move-count1-prev_to2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to1 h3 v4 v5 (1)
+move-count0-prev_to1-type1-w to1 h2 h3 v4 (0)
+move-count1-prev_to1-type1-w to3 h3 h4 v5 (1)
+move-count0-prev_to3-type1-s to3 h3 v4 v5 (0)
+move-count1-prev_to3-type2-e th1 h1 h2 h3 v5 (1)
+move-count1-prev_th1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-e th2 h2 h3 h4 v1 (1)
+move-count1-prev_th2-type1-e to4 h1 h2 v1 (1)
+move-count1-prev_to4-type1-s to2 h1 v1 v2 (1)
+move-count1-prev_to2-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type3-w tv3 h3 h4 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type2-e th1 h2 h3 h4 v5 (1)
+move-count1-prev_th1-type1-n to1 h2 v4 v5 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v4 (1)
+move-count1-prev_to3-type3-n tv3 h3 v2 v3 v4 (1)
+move-count1-prev_tv3-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type1-e to4 h2 h3 v1 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v1 (0)
+move-count1-prev_to4-type1-e to2 h1 h2 v1 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v1 (0)
+move-count1-prev_to2-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-s to3 h2 v3 v4 (1)
+move-count1-prev_to3-type1-s to1 h2 v4 v5 (1)
+move-count1-prev_to1-type2-w th1 h2 h3 h4 v5 (1)
+move-count0-prev_th1-type2-w th1 h1 h2 h3 v5 (0)
+move-count1-prev_th1-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv3 h3 v3 v4 v5 (1)
+move-count1-prev_tv3-type2-n th2 h3 h4 v2 v3 (1)
+move-count1-prev_th2-type1-n to2 h3 v1 v2 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v2 (0)
+move-count1-prev_to2-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=25659.1s, 0 KB] Plan length: 132 step(s).
+[t=25659.1s, 0 KB] Plan cost: 100
+[t=25659.1s, 0 KB] Expanded 39519857 state(s).
+[t=25659.1s, 0 KB] Reopened 18355902 state(s).
+[t=25659.1s, 0 KB] Evaluated 39519858 state(s).
+[t=25659.1s, 0 KB] Evaluations: 60683814
+[t=25659.1s, 0 KB] Generated 139683413 state(s).
+[t=25659.1s, 0 KB] Dead ends: 0 state(s).
+[t=25659.1s, 0 KB] Number of registered states: 21163956
+[t=25659.1s, 0 KB] Int hash set load factor: 21163956/33554432 = 0.630735
+[t=25659.1s, 0 KB] Int hash set resizes: 25
+[t=25659.1s, 0 KB] Best solution cost so far: 100
+[t=25659.1s, 0 KB] Solution found - keep searching
+[t=25659.6s, 0 KB] Building successor generator...done!
+[t=25659.6s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=25659.6s, 0 KB] time for successor generation creation: 0s
+[t=25659.6s, 0 KB] Variables: 21
+[t=25659.6s, 0 KB] FactPairs: 230
+[t=25659.6s, 0 KB] Bytes per state: 12
+[t=25659.6s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=25659.6s, 0 KB] Conducting lazy best first search, (real) bound = 100
+[t=25659.6s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=25659.6s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=25659.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=25659.6s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=25659.6s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=25659.6s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=25659.7s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=25659.7s, 0 KB] g=14, 273 evaluated, 272 expanded, 20 reopened
+[t=25661s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=25661s, 0 KB] g=34, 6745 evaluated, 6744 expanded, 2064 reopened
+[t=25670.2s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=25670.2s, 0 KB] g=47, 48694 evaluated, 48693 expanded, 13885 reopened
+[t=25692.7s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=25692.7s, 0 KB] g=51, 151631 evaluated, 151630 expanded, 43867 reopened
+[t=25832.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=25832.8s, 0 KB] g=59, 803671 evaluated, 803670 expanded, 242107 reopened
+[t=25832.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=25832.8s, 0 KB] g=60, 803672 evaluated, 803671 expanded, 242107 reopened
+[t=25832.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=25832.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=25832.8s, 0 KB] g=61, 803673 evaluated, 803672 expanded, 242107 reopened
+[t=32241.7s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=32241.7s, 0 KB] g=99, 39403077 evaluated, 39403076 expanded, 18329654 reopened
+[t=32857.7s, 0 KB] Solution found!
+[t=32857.7s, 0 KB] Actual search time: 7198.17s
+move-count1-prev_tsq-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type2-w th2 h2 h3 h4 v1 (1)
+move-count0-prev_th2-type2-w th2 h1 h2 h3 v1 (0)
+move-count1-prev_th2-type1-s to4 h4 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h3 h4 v1 (0)
+move-count1-prev_to4-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-s to2 h4 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h4 v3 v4 (0)
+move-count1-prev_to2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v5 (1)
+move-count0-prev_to1-type1-s to1 h2 v4 v5 (0)
+move-count1-prev_to1-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type1-n to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-n to2 h4 v4 v5 (0)
+move-count1-prev_to2-type3-n tv2 h4 v1 v2 v3 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-n to4 h4 v1 v2 (0)
+move-count1-prev_to4-type2-e th2 h1 h2 h3 v1 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v1 (0)
+move-count1-prev_th2-type2-s th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-s to3 h1 v2 v3 (1)
+move-count0-prev_to3-type1-e to3 h1 h2 v2 (0)
+move-count1-prev_to3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv3 h3 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h3 v3 v4 v5 (0)
+move-count1-prev_tv3-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v1 v2 (1)
+move-count1-prev_th2-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type2-w th2 h2 h3 h4 v2 (1)
+move-count1-prev_th2-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-n to4 h4 v3 v4 (0)
+move-count1-prev_to4-type3-s tv3 h3 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type1-n to4 h4 v4 v5 (1)
+move-count1-prev_to4-type3-e tv3 h3 h4 v3 v4 (1)
+move-count1-prev_tv3-type1-s to2 h3 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h3 v3 v4 (0)
+move-count1-prev_to2-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type2-w th2 h1 h2 h3 v2 (1)
+move-count1-prev_th2-type1-s to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type2-n th2 h1 h2 v2 v3 (1)
+move-count1-prev_th2-type1-w to2 h2 h3 v2 (1)
+move-count1-prev_to2-type1-n to3 h1 v1 v2 (1)
+move-count1-prev_to3-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type3-w tv2 h3 h4 v1 v2 (1)
+move-count1-prev_tv2-type3-s tv3 h4 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-s tv3 h4 v1 v2 v3 (0)
+move-count1-prev_tv3-type1-e to1 h3 h4 v3 (1)
+move-count0-prev_to1-type1-n to1 h4 v3 v4 (0)
+move-count1-prev_to1-type2-e th2 h1 h2 h3 v3 (1)
+move-count0-prev_th2-type2-e th2 h2 h3 h4 v3 (0)
+move-count1-prev_th2-type1-n to3 h1 v2 v3 (1)
+move-count0-prev_to3-type1-e to3 h1 h2 v3 (0)
+move-count1-prev_to3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to1 h3 h4 v4 (1)
+move-count0-prev_to1-type1-n to1 h3 v4 v5 (0)
+move-count1-prev_to1-type2-n th2 h3 h4 v3 v4 (1)
+move-count1-prev_th2-type3-n tv2 h3 v1 v2 v3 (1)
+move-count1-prev_tv2-type3-n tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-e th1 h1 h2 h3 v1 (1)
+move-count0-prev_th1-type2-e th1 h2 h3 h4 v1 (0)
+move-count1-prev_th1-type1-s to2 h2 v1 v2 (1)
+move-count1-prev_to2-type3-s tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-s to3 h2 v2 v3 (1)
+move-count1-prev_to3-type4-s tsq h1 h2 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to1 h2 h3 v5 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v5 (0)
+move-count1-prev_to1-type1-w to4 h3 h4 v5 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v5 (0)
+move-count1-prev_to4-type2-n th2 h3 h4 v4 v5 (1)
+move-count1-prev_th2-type3-n tv2 h3 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-e to3 h2 h3 v2 (1)
+move-count1-prev_to3-type1-n to2 h2 v1 v2 (1)
+move-count1-prev_to2-type2-w th1 h2 h3 h4 v1 (1)
+move-count1-prev_th1-type3-s tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-e tv2 h3 h4 v3 v4 (1)
+move-count1-prev_tv2-type4-e tsq h1 h2 h3 v3 v4 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th1 h1 h2 h3 v1 (1)
+move-count1-prev_th1-type1-s to1 h1 v4 v5 (1)
+move-count1-prev_to1-type1-w to4 h1 h2 v5 (1)
+move-count1-prev_to4-type2-w th2 h2 h3 h4 v5 (1)
+move-count1-prev_th2-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv3 h4 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-s to3 h3 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v1 (0)
+move-count1-prev_to3-type1-e to2 h2 h3 v2 (1)
+move-count0-prev_to2-type1-s to2 h3 v1 v2 (0)
+move-count1-prev_to2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v4 (1)
+move-count1-prev_to1-type1-s to4 h1 v4 v5 (1)
+move-count1-prev_to4-type2-w th2 h1 h2 h3 v5 (1)
+move-count1-prev_th2-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv3 h4 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h4 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to1 h2 v3 v4 (1)
+move-count1-prev_to1-type1-e to4 h1 h2 v4 (1)
+move-count1-prev_to4-type3-n tv1 h1 v2 v3 v4 (1)
+move-count1-prev_tv1-type2-n th1 h1 h2 v1 v2 (1)
+move-count1-prev_th1-type1-w to2 h2 h3 v1 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v1 (0)
+move-count1-prev_to2-type1-w to3 h3 h4 v1 (1)
+move-count0-prev_to3-type1-w to3 h2 h3 v1 (0)
+move-count1-prev_to3-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to1 h2 h3 v3 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v3 (0)
+move-count1-prev_to1-type3-s tv2 h3 v3 v4 v5 (1)
+move-count1-prev_tv2-type2-e th2 h1 h2 h3 v5 (1)
+move-count1-prev_th2-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type2-n th1 h1 h2 v2 v3 (1)
+move-count1-prev_th1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v2 (0)
+move-count1-prev_to3-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=32857.8s, 0 KB] Plan length: 135 step(s).
+[t=32857.8s, 0 KB] Plan cost: 99
+[t=32857.8s, 0 KB] Expanded 45535491 state(s).
+[t=32857.8s, 0 KB] Reopened 22350900 state(s).
+[t=32857.8s, 0 KB] Evaluated 45535492 state(s).
+[t=32857.8s, 0 KB] Evaluations: 68720084
+[t=32857.8s, 0 KB] Generated 160406393 state(s).
+[t=32857.8s, 0 KB] Dead ends: 0 state(s).
+[t=32857.8s, 0 KB] Number of registered states: 23184592
+[t=32857.8s, 0 KB] Int hash set load factor: 23184592/33554432 = 0.690955
+[t=32857.8s, 0 KB] Int hash set resizes: 25
+[t=32857.8s, 0 KB] Best solution cost so far: 99
+[t=32857.8s, 0 KB] Solution found - keep searching
+[t=32858.1s, 0 KB] Building successor generator...done!
+[t=32858.1s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=32858.1s, 0 KB] time for successor generation creation: 0s
+[t=32858.1s, 0 KB] Variables: 21
+[t=32858.1s, 0 KB] FactPairs: 230
+[t=32858.1s, 0 KB] Bytes per state: 12
+[t=32858.1s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=32858.1s, 0 KB] Conducting lazy best first search, (real) bound = 99
+[t=32858.1s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=32858.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=32858.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=32858.1s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=32858.1s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 7
+[t=32858.1s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 13
+[t=32858.2s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=32858.2s, 0 KB] g=14, 273 evaluated, 272 expanded, 20 reopened
+[t=32859.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=32859.6s, 0 KB] g=34, 6745 evaluated, 6744 expanded, 2064 reopened
+[t=32868.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=32868.9s, 0 KB] g=47, 48694 evaluated, 48693 expanded, 13885 reopened
+[t=32891.5s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=32891.5s, 0 KB] g=51, 151631 evaluated, 151630 expanded, 43867 reopened
+[t=33032.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=33032.1s, 0 KB] g=59, 803671 evaluated, 803670 expanded, 242107 reopened
+[t=33032.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=33032.1s, 0 KB] g=60, 803672 evaluated, 803671 expanded, 242107 reopened
+[t=33032.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=33032.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=33032.1s, 0 KB] g=61, 803673 evaluated, 803672 expanded, 242107 reopened
+[t=40030.3s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=40030.3s, 0 KB] g=98, 45288434 evaluated, 45288433 expanded, 22272367 reopened
+[t=41167.8s, 0 KB] Completely explored state space -- no solution!
+[t=41167.8s, 0 KB] Actual search time: 8309.7s
+[t=41167.8s, 0 KB] Expanded 54593068 state(s).
+[t=41167.8s, 0 KB] Reopened 27962009 state(s).
+[t=41167.8s, 0 KB] Evaluated 54593068 state(s).
+[t=41167.8s, 0 KB] Evaluations: 81224127
+[t=41167.8s, 0 KB] Generated 191477375 state(s).
+[t=41167.8s, 0 KB] Dead ends: 0 state(s).
+[t=41167.8s, 0 KB] Number of registered states: 26631059
+[t=41167.8s, 0 KB] Int hash set load factor: 26631059/67108864 = 0.396834
+[t=41167.8s, 0 KB] Int hash set resizes: 26
+[t=41167.8s, 0 KB] Best solution cost so far: 99
+[t=41167.8s, 0 KB] No solution found - keep searching
+[t=41167.9s, 0 KB] Actual search time: 41167.7s
+[t=41167.9s, 0 KB] Cumulative statistics:
+[t=41167.9s, 0 KB] Expanded 231198172 state(s).
+[t=41167.9s, 0 KB] Reopened 103130605 state(s).
+[t=41167.9s, 0 KB] Evaluated 231198179 state(s).
+[t=41167.9s, 0 KB] Evaluations: 359265753
+[t=41167.9s, 0 KB] Generated 818029321 state(s).
+[t=41167.9s, 0 KB] Dead ends: 0 state(s).
+[t=41167.9s, 0 KB] Search time: 41167.7s
+[t=41167.9s, 0 KB] Total time: 41167.9s
+Solution found.
+Peak memory: 0 KB
+search exit code: 0
+

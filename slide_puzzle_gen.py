@@ -1,5 +1,5 @@
 
-def domain_problem(domain_name,problem_name,init_state,target_state,max_count=None):
+def domain_problem(domain_name, problem_name, init_state, target_state, adapted_counter=False, initial_tile=None):
     """
     Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem)
     from a given init_state and target_state.
@@ -14,19 +14,18 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
 
     Normally moving a tile by one field is counted as one move (and hence one action/step in the solution) and can possibly restricted by the planner you are using.
     However there is another interpretation of "one move": moving the same tile consecutively one ore several fields.
-    If you provide max_count then the solution is only valid if these number of moves is at most max_count.
+    If you set with_counter then it calculates total-costs in the latter way.
     For sliding puzzles with only one empty field (15puzzle or 9puzzle) this count is equal to the step count.
     However for khunpan it can be a big difference.
-    This quite bloats the PDDL description and makes it much harder for the solver to find a solution.
+    This though bloats the PDDL description and makes it harder for the solver to find a solution.
 
     :param domain_name: The domain name as to appear in the domain PDDL string
     :param problem_name: The problem name as to appear in the problem PDDL string
     :param init_state: The initial state of the slide puzzle.
     :param target_state: The goal state of the slide puzzle.
-    :param max_count: The maximal value of the counter described in the text.
+    :param adapted_counter: Calculate the total-costs in the adapted way.
     :return: The tuple (domain,problem), each element being a strips PDDL string.
     """
-    with_counter=max_count is not None
 
     def pddl_name(t):
         if isinstance(t,int):
@@ -73,7 +72,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         mapping = {}
         c = 1
         for k in sorted(tt_by_tts.keys(),reverse=True):
-            mapping[k] = "type_%i"%c
+            mapping[k] = "type%i"%c
             c += 1
 
         res1 = { tn:mapping[tts] for (tn,tts) in tts_by_tn.items() }
@@ -104,7 +103,7 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
     def tile_names():
         return sorted(tiles_type_name.keys())
 
-    def action(name, tile_type_name, tile_type, direction, counter_params=None, counter_condition=None, counter_effect=None):
+    def action(name, tile_type_name, tile_type, direction, counter_condition=None, counter_effect=None):
         if direction == 's':
             (dx,dy) = (0,-1)
         elif direction == 'n':
@@ -126,23 +125,23 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
         adjix = [i for i in range(len(xca)-1) if xca[i]-xca[i+1] == -1]
         adjiy = [i for i in range(len(yca)-1) if yca[i]-yca[i+1] == -1]
         return f"""  (:action move-{name}-{direction}
-   :parameters (?t {" ".join("?x%d"%n for n in xca)} {" ".join("?y%d"%n for n in yca)}{counter_params if with_counter else ""})
+   :parameters (?t {" ".join("?x%d"%n for n in xca)} {" ".join("?y%d"%n for n in yca)})
    :precondition (and ({tile_type_name} ?t)
         {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in tile_type])}
         {" ".join(["(adjwe ?x%d ?x%d)"%(xca[i],xca[i]+1) for i in adjix])}
         {" ".join(["(adjns ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
         {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in added])}
-{counter_condition if with_counter else ""}    )
+{counter_condition if adapted_counter else ""}    )
    :effect (and 
         {" ".join(["(not (at ?t ?x%d ?y%d)) (empty ?x%d ?y%d)"%(x,y,x,y) for (x,y) in removed])}
         {" ".join(["(at ?t ?x%d ?y%d) (not (empty ?x%d ?y%d))"%(x,y,x,y) for (x,y) in added])}
-{counter_effect if with_counter else ""}    )
+{counter_effect if adapted_counter else ""}    )
   )
 """
 
     def domain():
         actions = ""
-        if not with_counter:
+        if not adapted_counter:
             for tile_type_name in sorted(tile_types.keys()):
                 for direction in ['s','n','e','w']:
                     actions += action(tile_type_name, tile_type_name, tile_types[tile_type_name], direction)
@@ -150,33 +149,31 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
             for tile_type_name in sorted(tile_types.keys()):
                 for tile_name in tile_names():
                     for direction in ['s','n','e','w']:
-                        name = tile_name+"-"+tile_type_name
-                        actions += action("C"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          " ?n ?n2",
-                                          "        (or (prev %s) (counter n0)) (not (prev ?t)) (counter ?n) (succ ?n ?n2)\n" % tile_name,
-                                          "        (not (prev %s)) (prev ?t) (not (counter ?n)) (counter ?n2)\n" % tile_name,
+                        name = "prev_"+tile_name+"-"+tile_type_name
+                        actions += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
+                                          f"""        {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}\n""" % tile_name,
+                                          f"""        {"(not (prev init)) " if initial_tile is None else ""}(not (prev %s)) (prev ?t) (increase (total-cost) 1)\n""" % tile_name,
                                           )
-                        actions += action("D"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          "",
-                                          "        (or (prev %s) (counter n0)) (prev ?t)\n" % tile_name,
+                        actions += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
+                                          "        (prev %s) (prev ?t)\n" % tile_name,
                                           "",
                                           )
 
         return f"""(define (domain {domain_name})
-  (:requirements :strips)
+  (:requirements :strips{" :action-costs"})
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 
         {" ".join(["(%s ?t)"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}
-{"        (counter ?n) (succ ?n ?n2) (prev ?t)"+chr(10) if with_counter else ""}  )
+{"        (prev ?t)"+chr(10) if adapted_counter else ""}  )
+{"  (:functions (total-cost))"+chr(10) if adapted_counter else ""}
+
 {actions})
 """
 
     def problem():
         counter_init=""
-        if with_counter:
-            counter_init=f"""
-        {" ".join(["(succ n%d n%d)"%(i,i+1) for i in range(max_count)])}
-        (counter n0)
+        if adapted_counter:
+            counter_init=f"""        (= (total-cost) 0) (prev {"init" if initial_tile is None else initial_tile})
 """
         init_positions=init_positions_string(init_state)
         target_positions = target_positions_string(target_state)
@@ -185,16 +182,18 @@ def domain_problem(domain_name,problem_name,init_state,target_state,max_count=No
     (:objects 
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
-        {" ".join([tile_name for tile_name in tile_names()])}
-{"        " + " ".join(["n%d"%i for i in range(max_count+1)])+chr(10) if with_counter else ""}    )
+        {" ".join([tile_name for tile_name in tile_names()])}{chr(10)+
+"        init" if initial_tile is None else ""}
+	)
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
         {" ".join(["(%s %s)" % (tiles_type_name[tile_name], tile_name) for tile_name in tile_names()])}
 
 {init_positions}
-{counter_init if with_counter else ""}    )
-    (:goal (and {target_positions}))
+{counter_init if adapted_counter else ""}    )
+    (:goal (and {target_positions})){chr(10)+
+"    (:metric minimize (total-cost))" if adapted_counter else ""}
 )
 """
 
