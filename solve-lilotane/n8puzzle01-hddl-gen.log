@@ -1,0 +1,312 @@
+[39m    [36m_           _         _
+   [32m\ [94m|         [32m\ [94m|       [32m| [94m|                       
+   [32m| [94m|     [36m__  [32m| [94m|      [36m_[32m| [94m|[36m______                
+   [32m| [94m|     [32m\[94m/  [32m| [94m|     [32m/[93m_   ______[94m\                
+   [32m| [94m|      [36m_  [32m| [94m|   [36m__  [32m| [94m|  [36m___   ___   ___       
+   [32m| [94m|[36m___  [32m| [94m| [32m| [94m|  [32m/ [94m.\ [32m| [94m| [32m/ [94m, | [32m|   [94m\ [32m/ [94m·[93m_[94m\    
+   [32m\[93m_____[94m\ [32m|[93m_[94m| [32m|[93m__[94m\ [32m\[93m__[94m/ [32m|[93m_[94m| [32m\[93m___[94m) [32m|[93m_[94m|[93m_[94m| [32m\[93m___[94m\  
+[39m[34mL i l o t a n e[39m[34m  version rls-glucose4
+[39m[34mby Dominik Schreiber <dominik.schreiber@kit.edu> 2020-2021
+[39m[34musing SAT solver glucose4
+[39m[34m
+[39m[90m0.003 [39m[97mParser finished.
+[39m[90m0.003 [39m[97mStructures extracted.
+[39m[90m0.003 [39m[97m9 operators and 10 methods created.
+[39m[90m0.004 [39m[97mMined 12 new reduction preconditions (+inf%).
+[39m[90m0.004 [39m[97mIteration 0.
+[39m[90m0.004 [39m[97mCreating initial layer of size 2
+[39m[90m0.005 [39m[97mAttempting to solve formula with 21 clauses (30 literals) and 1 assumptions
+[39m[90m0.005 [39m[97mUnsolvable at layer 0 -- expanding.
+[39m[90m0.005 [39m[97mIteration 1.
+[39m[90m0.005 [39m[97mNew layer size: 2
+[39m[90m0.005 [39m[97mInstantiating ...
+[39m[90m0.006 [39m[97mCollected 9 relevant facts at this layer
+[39m[90m0.006 [39m[97mEncoding ...
+[39m[90m0.006 [39m[97mAttempting to solve formula with 62 clauses (134 literals) and 1 assumptions
+[39m[90m0.007 [39m[97mUnsolvable at layer 1 -- expanding.
+[39m[90m0.007 [39m[97mIteration 2.
+[39m[90m0.007 [39m[97mNew layer size: 3
+[39m[90m0.007 [39m[97mInstantiating ...
+[39m[90m0.010 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.010 [39m[97mEncoding ...
+[39m[90m0.012 [39m[97mAttempting to solve formula with 2000 clauses (8153 literals) and 1 assumptions
+[39m[90m0.012 [39m[97mUnsolvable at layer 2 -- expanding.
+[39m[90m0.012 [39m[97mIteration 3.
+[39m[90m0.012 [39m[97mNew layer size: 4
+[39m[90m0.012 [39m[97mInstantiating ...
+[39m[90m0.018 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.018 [39m[97mEncoding ...
+[39m[90m0.022 [39m[97mAttempting to solve formula with 5243 clauses (23239 literals) and 1 assumptions
+[39m[90m0.022 [39m[97mUnsolvable at layer 3 -- expanding.
+[39m[90m0.022 [39m[97mIteration 4.
+[39m[90m0.022 [39m[97mNew layer size: 5
+[39m[90m0.022 [39m[97mInstantiating ...
+[39m[90m0.029 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.029 [39m[97mEncoding ...
+[39m[90m0.033 [39m[97mAttempting to solve formula with 8507 clauses (38368 literals) and 1 assumptions
+[39m[90m0.034 [39m[97mUnsolvable at layer 4 -- expanding.
+[39m[90m0.034 [39m[97mIteration 5.
+[39m[90m0.034 [39m[97mNew layer size: 6
+[39m[90m0.034 [39m[97mInstantiating ...
+[39m[90m0.042 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.042 [39m[97mEncoding ...
+[39m[90m0.047 [39m[97mAttempting to solve formula with 11791 clauses (53537 literals) and 1 assumptions
+[39m[90m0.049 [39m[97mUnsolvable at layer 5 -- expanding.
+[39m[90m0.049 [39m[97mIteration 6.
+[39m[90m0.049 [39m[97mNew layer size: 7
+[39m[90m0.049 [39m[97mInstantiating ...
+[39m[90m0.059 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.059 [39m[97mEncoding ...
+[39m[90m0.064 [39m[97mAttempting to solve formula with 15095 clauses (68746 literals) and 1 assumptions
+[39m[90m0.066 [39m[97mUnsolvable at layer 6 -- expanding.
+[39m[90m0.066 [39m[97mIteration 7.
+[39m[90m0.066 [39m[97mNew layer size: 8
+[39m[90m0.066 [39m[97mInstantiating ...
+[39m[90m0.077 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.077 [39m[97mEncoding ...
+[39m[90m0.083 [39m[97mAttempting to solve formula with 18419 clauses (83995 literals) and 1 assumptions
+[39m[90m0.086 [39m[97mUnsolvable at layer 7 -- expanding.
+[39m[90m0.086 [39m[97mIteration 8.
+[39m[90m0.086 [39m[97mNew layer size: 9
+[39m[90m0.086 [39m[97mInstantiating ...
+[39m[90m0.099 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.099 [39m[97mEncoding ...
+[39m[90m0.105 [39m[97mAttempting to solve formula with 21763 clauses (99284 literals) and 1 assumptions
+[39m[90m0.118 [39m[97mUnsolvable at layer 8 -- expanding.
+[39m[90m0.118 [39m[97mIteration 9.
+[39m[90m0.118 [39m[97mNew layer size: 10
+[39m[90m0.118 [39m[97mInstantiating ...
+[39m[90m0.133 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.133 [39m[97mEncoding ...
+[39m[90m0.143 [39m[97mAttempting to solve formula with 25127 clauses (114613 literals) and 1 assumptions
+[39m[90m0.156 [39m[97mUnsolvable at layer 9 -- expanding.
+[39m[90m0.156 [39m[97mIteration 10.
+[39m[90m0.156 [39m[97mNew layer size: 11
+[39m[90m0.156 [39m[97mInstantiating ...
+[39m[90m0.170 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.170 [39m[97mEncoding ...
+[39m[90m0.181 [39m[97mAttempting to solve formula with 28511 clauses (129982 literals) and 1 assumptions
+[39m[90m0.204 [39m[97mUnsolvable at layer 10 -- expanding.
+[39m[90m0.204 [39m[97mIteration 11.
+[39m[90m0.204 [39m[97mNew layer size: 12
+[39m[90m0.204 [39m[97mInstantiating ...
+[39m[90m0.221 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.221 [39m[97mEncoding ...
+[39m[90m0.231 [39m[97mAttempting to solve formula with 31915 clauses (145391 literals) and 1 assumptions
+[39m[90m0.274 [39m[97mUnsolvable at layer 11 -- expanding.
+[39m[90m0.274 [39m[97mIteration 12.
+[39m[90m0.274 [39m[97mNew layer size: 13
+[39m[90m0.274 [39m[97mInstantiating ...
+[39m[90m0.292 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.292 [39m[97mEncoding ...
+[39m[90m0.305 [39m[97mAttempting to solve formula with 35339 clauses (160840 literals) and 1 assumptions
+[39m[90m0.351 [39m[97mUnsolvable at layer 12 -- expanding.
+[39m[90m0.351 [39m[97mIteration 13.
+[39m[90m0.351 [39m[97mNew layer size: 14
+[39m[90m0.351 [39m[97mInstantiating ...
+[39m[90m0.369 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.369 [39m[97mEncoding ...
+[39m[90m0.381 [39m[97mAttempting to solve formula with 38783 clauses (176329 literals) and 1 assumptions
+[39m[90m0.556 [39m[97mUnsolvable at layer 13 -- expanding.
+[39m[90m0.556 [39m[97mIteration 14.
+[39m[90m0.556 [39m[97mNew layer size: 15
+[39m[90m0.556 [39m[97mInstantiating ...
+[39m[90m0.578 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.578 [39m[97mEncoding ...
+[39m[90m0.591 [39m[97mAttempting to solve formula with 42247 clauses (191858 literals) and 1 assumptions
+[39m[90m0.762 [39m[97mUnsolvable at layer 14 -- expanding.
+[39m[90m0.762 [39m[97mIteration 15.
+[39m[90m0.762 [39m[97mNew layer size: 16
+[39m[90m0.762 [39m[97mInstantiating ...
+[39m[90m0.784 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.784 [39m[97mEncoding ...
+[39m[90m0.797 [39m[97mAttempting to solve formula with 45731 clauses (207427 literals) and 1 assumptions
+[39m[90m0.890 [39m[97mUnsolvable at layer 15 -- expanding.
+[39m[90m0.890 [39m[97mIteration 16.
+[39m[90m0.890 [39m[97mNew layer size: 17
+[39m[90m0.890 [39m[97mInstantiating ...
+[39m[90m0.910 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m0.910 [39m[97mEncoding ...
+[39m[90m0.924 [39m[97mAttempting to solve formula with 49235 clauses (223036 literals) and 1 assumptions
+[39m[90m0.984 [39m[97mUnsolvable at layer 16 -- expanding.
+[39m[90m0.984 [39m[97mIteration 17.
+[39m[90m0.984 [39m[97mNew layer size: 18
+[39m[90m0.984 [39m[97mInstantiating ...
+[39m[90m1.009 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m1.009 [39m[97mEncoding ...
+[39m[90m1.025 [39m[97mAttempting to solve formula with 52759 clauses (238685 literals) and 1 assumptions
+[39m[90m1.183 [39m[97mUnsolvable at layer 17 -- expanding.
+[39m[90m1.183 [39m[97mIteration 18.
+[39m[90m1.183 [39m[97mNew layer size: 19
+[39m[90m1.183 [39m[97mInstantiating ...
+[39m[90m1.208 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m1.208 [39m[97mEncoding ...
+[39m[90m1.224 [39m[97mAttempting to solve formula with 56303 clauses (254374 literals) and 1 assumptions
+[39m[90m1.345 [39m[97mUnsolvable at layer 18 -- expanding.
+[39m[90m1.345 [39m[97mIteration 19.
+[39m[90m1.345 [39m[97mNew layer size: 20
+[39m[90m1.345 [39m[97mInstantiating ...
+[39m[90m1.375 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m1.375 [39m[97mEncoding ...
+[39m[90m1.392 [39m[97mAttempting to solve formula with 59867 clauses (270103 literals) and 1 assumptions
+[39m[90m2.005 [39m[97mUnsolvable at layer 19 -- expanding.
+[39m[90m2.005 [39m[97mIteration 20.
+[39m[90m2.005 [39m[97mNew layer size: 21
+[39m[90m2.005 [39m[97mInstantiating ...
+[39m[90m2.031 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m2.031 [39m[97mEncoding ...
+[39m[90m2.049 [39m[97mAttempting to solve formula with 63451 clauses (285872 literals) and 1 assumptions
+[39m[90m2.165 [39m[97mUnsolvable at layer 20 -- expanding.
+[39m[90m2.165 [39m[97mIteration 21.
+[39m[90m2.165 [39m[97mNew layer size: 22
+[39m[90m2.165 [39m[97mInstantiating ...
+[39m[90m2.196 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m2.196 [39m[97mEncoding ...
+[39m[90m2.215 [39m[97mAttempting to solve formula with 67055 clauses (301681 literals) and 1 assumptions
+[39m[90m3.556 [39m[97mUnsolvable at layer 21 -- expanding.
+[39m[90m3.556 [39m[97mIteration 22.
+[39m[90m3.556 [39m[97mNew layer size: 23
+[39m[90m3.556 [39m[97mInstantiating ...
+[39m[90m3.586 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m3.586 [39m[97mEncoding ...
+[39m[90m3.606 [39m[97mAttempting to solve formula with 70679 clauses (317530 literals) and 1 assumptions
+[39m[90m3.836 [39m[97mUnsolvable at layer 22 -- expanding.
+[39m[90m3.836 [39m[97mIteration 23.
+[39m[90m3.836 [39m[97mNew layer size: 24
+[39m[90m3.836 [39m[97mInstantiating ...
+[39m[90m3.871 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m3.871 [39m[97mEncoding ...
+[39m[90m3.892 [39m[97mAttempting to solve formula with 74323 clauses (333419 literals) and 1 assumptions
+[39m[90m5.206 [39m[97mUnsolvable at layer 23 -- expanding.
+[39m[90m5.206 [39m[97mIteration 24.
+[39m[90m5.206 [39m[97mNew layer size: 25
+[39m[90m5.206 [39m[97mInstantiating ...
+[39m[90m5.239 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m5.239 [39m[97mEncoding ...
+[39m[90m5.259 [39m[97mAttempting to solve formula with 77987 clauses (349348 literals) and 1 assumptions
+[39m[90m6.288 [39m[97mUnsolvable at layer 24 -- expanding.
+[39m[90m6.288 [39m[97mIteration 25.
+[39m[90m6.288 [39m[97mNew layer size: 26
+[39m[90m6.288 [39m[97mInstantiating ...
+[39m[90m6.323 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m6.323 [39m[97mEncoding ...
+[39m[90m6.345 [39m[97mAttempting to solve formula with 81671 clauses (365317 literals) and 1 assumptions
+[39m[90m8.080 [39m[97mUnsolvable at layer 25 -- expanding.
+[39m[90m8.080 [39m[97mIteration 26.
+[39m[90m8.080 [39m[97mNew layer size: 27
+[39m[90m8.080 [39m[97mInstantiating ...
+[39m[90m8.116 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m8.116 [39m[97mEncoding ...
+[39m[90m8.139 [39m[97mAttempting to solve formula with 85375 clauses (381326 literals) and 1 assumptions
+[39mc
+c Try to adapt solver strategies
+c 
+c Nothing extreme in this problem, continue with glucose default strategies.
+c
+[90m11.003 [39m[97mUnsolvable at layer 26 -- expanding.
+[39m[90m11.003 [39m[97mIteration 27.
+[39m[90m11.003 [39m[97mNew layer size: 28
+[39m[90m11.003 [39m[97mInstantiating ...
+[39m[90m11.040 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m11.040 [39m[97mEncoding ...
+[39m[90m11.065 [39m[97mAttempting to solve formula with 89099 clauses (397375 literals) and 1 assumptions
+[39m[90m18.285 [39m[97mUnsolvable at layer 27 -- expanding.
+[39m[90m18.285 [39m[97mIteration 28.
+[39m[90m18.285 [39m[97mNew layer size: 29
+[39m[90m18.285 [39m[97mInstantiating ...
+[39m[90m18.321 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m18.321 [39m[97mEncoding ...
+[39m[90m18.346 [39m[97mAttempting to solve formula with 92843 clauses (413464 literals) and 1 assumptions
+[39m[90m18.525 [39m[97mUnsolvable at layer 28 -- expanding.
+[39m[90m18.525 [39m[97mIteration 29.
+[39m[90m18.525 [39m[97mNew layer size: 30
+[39m[90m18.525 [39m[97mInstantiating ...
+[39m[90m18.564 [39m[97mCollected 81 relevant facts at this layer
+[39m[90m18.564 [39m[97mEncoding ...
+[39m[90m18.588 [39m[97mAttempting to solve formula with 96607 clauses (429593 literals) and 1 assumptions
+[39mc last restart ## conflicts  :  122 535 
+[90m38.264 [39m[97mFound a solution at layer 29.
+[39m[34m==>
+5877 move-type_1-n tile6 h1 v2 v3
+5883 move-type_1-n tile3 h1 v1 v2
+5892 move-type_1-w tile2 h1 h2 v1
+5897 move-type_1-w tile1 h2 h3 v1
+5903 move-type_1-s tile4 h3 v1 v2
+5908 move-type_1-s tile7 h3 v2 v3
+5916 move-type_1-e tile8 h2 h3 v3
+5919 move-type_1-e tile6 h1 h2 v3
+5925 move-type_1-n tile3 h1 v2 v3
+5934 move-type_1-n tile2 h1 v1 v2
+5938 move-type_1-w tile1 h1 h2 v1
+5943 move-type_1-w tile4 h2 h3 v1
+5953 move-type_1-s tile7 h3 v1 v2
+5956 move-type_1-s tile8 h3 v2 v3
+5961 move-type_1-e tile6 h2 h3 v3
+5970 move-type_1-e tile3 h1 h2 v3
+5975 move-type_1-n tile2 h1 v2 v3
+5983 move-type_1-n tile1 h1 v1 v2
+5985 move-type_1-w tile4 h1 h2 v1
+5992 move-type_1-w tile7 h2 h3 v1
+6001 move-type_1-s tile8 h3 v1 v2
+6005 move-type_1-s tile6 h3 v2 v3
+6011 move-type_1-e tile3 h2 h3 v3
+6015 move-type_1-e tile2 h1 h2 v3
+6025 move-type_1-n tile1 h1 v2 v3
+6028 move-type_1-n tile4 h1 v1 v2
+6037 move-type_1-w tile7 h1 h2 v1
+6040 move-type_1-w tile8 h2 h3 v1
+root 27
+27 decompose -> m_move-type_1-n 5877 138
+138 decompose -> m_move-type_1-n 5883 354
+354 decompose -> m_move-type_1-w 5892 499
+499 decompose -> m_move-type_1-w 5897 649
+649 decompose -> m_move-type_1-s 5903 806
+806 decompose -> m_move-type_1-s 5908 971
+971 decompose -> m_move-type_1-e 5916 1140
+1140 decompose -> m_move-type_1-e 5919 1317
+1317 decompose -> m_move-type_1-n 5925 1498
+1498 decompose -> m_move-type_1-n 5934 1682
+1682 decompose -> m_move-type_1-w 5938 1875
+1875 decompose -> m_move-type_1-w 5943 2073
+2073 decompose -> m_move-type_1-s 5953 2278
+2278 decompose -> m_move-type_1-s 5956 2491
+2491 decompose -> m_move-type_1-e 5961 2708
+2708 decompose -> m_move-type_1-e 5970 2933
+2933 decompose -> m_move-type_1-n 5975 3162
+3162 decompose -> m_move-type_1-n 5983 3394
+3394 decompose -> m_move-type_1-w 5985 3635
+3635 decompose -> m_move-type_1-w 5992 3881
+3881 decompose -> m_move-type_1-s 6001 4134
+4134 decompose -> m_move-type_1-s 6005 4395
+4395 decompose -> m_move-type_1-e 6011 4660
+4660 decompose -> m_move-type_1-e 6015 4933
+4933 decompose -> m_move-type_1-n 6025 5210
+5210 decompose -> m_move-type_1-n 6028 5490
+5490 decompose -> m_move-type_1-w 6037 5779
+5779 decompose -> m_move-type_1-w 6040 6076
+6076 decompose -> m_stop
+[39m[34m<==
+[39m[90m38.269 [39m[97mEnd of solution plan. (counted length of 28)
+[39m[90m38.269 [39m[97mTotal amount of clauses encoded: 96607
+[39m[90m38.269 [39m[97m- indirectframeaxioms : 51432 cls
+[39m[90m38.269 [39m[97m- qfactsemantics : 19975 cls
+[39m[90m38.269 [39m[97m- directframeaxioms : 9090 cls
+[39m[90m38.269 [39m[97m- actionconstraints : 4870 cls
+[39m[90m38.269 [39m[97m- atmostoneelement : 4625 cls
+[39m[90m38.269 [39m[97m- expansions : 2280 cls
+[39m[90m38.269 [39m[97m- predecessors : 2259 cls
+[39m[90m38.269 [39m[97m- qconstequality : 1036 cls
+[39m[90m38.269 [39m[97m- actioneffects : 448 cls
+[39m[90m38.269 [39m[97m- substitutionconstraints : 392 cls
+[39m[90m38.269 [39m[97m- reductionconstraints : 117 cls
+[39m[90m38.269 [39m[97m- truefacts : 81 cls
+[39m[90m38.269 [39m[97m- axiomaticops : 2 cls
+[39m[90m38.269 [39m[97m# instantiated positions: 465
+[39m[90m38.269 [39m[97m# instantiated actions: 2114
+[39m[90m38.269 [39m[97m# instantiated reductions: 146
+[39m[90m38.269 [39m[97m# introduced pseudo-constants: 142
+[39m[90m38.269 [39m[97m# retroactive prunings: 0
+[39m[90m38.269 [39m[97m# retroactively pruned operations: 0
+[39m[90m38.269 [39m[97m# dominated operations: 0
+[39m[90m38.269 [39m[97mExiting happily (no cleaning up).
+[39m
