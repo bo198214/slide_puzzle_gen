@@ -1,5 +1,7 @@
 
-def domain_problem(domain_name, problem_name, init_state, target_state, adapted_counter=False, initial_tile=None):
+def domain_problem(domain_name, problem_name, init_state, target_state,
+                   adapted_counter=False, initial_tile=None,
+                   typing=False):
     """
     Creates the domain and the problem PDDL string (pure strips) and returns them as the tuple (domain,problem)
     from a given init_state and target_state.
@@ -160,7 +162,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state, adapted_
                                           )
 
         return f"""(define (domain {domain_name})
-  (:requirements :strips{" :action-costs"})
+  (:requirements :strips{" :action-costs" if adapted_counter else ""})
   (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v) 
         {" ".join(["(%s ?t)"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}
@@ -183,7 +185,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state, adapted_
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
         {" ".join([tile_name for tile_name in tile_names()])}{chr(10)+
-"        init" if initial_tile is None else ""}
+"        init" if adapted_counter and initial_tile is None else ""}
 	)
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
