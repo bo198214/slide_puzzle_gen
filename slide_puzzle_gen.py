@@ -26,6 +26,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     :param init_state: The initial state of the slide puzzle.
     :param target_state: The goal state of the slide puzzle.
     :param adapted_counter: Calculate the total-costs in the adapted way.
+    :param initial_tile: In case of the adapted counter, to lower the difficulty, specify an initial tile that can not be moved on the first move
+    :param typing: The PDDL is created with :typing extension
     :return: The tuple (domain,problem), each element being a strips PDDL string.
     """
 
@@ -109,9 +111,6 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
 
     xdim,ydim=xy_extension(init_state)
     tiles_type_name,tile_types = types_from_init_state(init_state)
-
-    def tile_type(tile_name):
-        return tile_types[tiles_type_name[tile_name]]
 
     def tile_names():
         return sorted(tiles_type_name.keys())
