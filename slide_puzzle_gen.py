@@ -99,14 +99,13 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     def target_position_string(name,x,y):
         if name is None:
             return "(empty h%d v%d)"%(x,y)
-        if isinstance(name,str):
+        if isinstance(name,str) or isinstance(name,int):
             return "(at %s h%d v%d)" % (pddl_name(name),x,y)
         if isinstance(name,list):
             return "(or " + " ".join("(at %s h%d v%d)" % (n,x,y) for n in name) + ")"
 
     def target_positions_string(target_state):
-        return " ".join(
-            [ target_position_string(name,pos[0],pos[1]) for (pos, name) in target_state.items()])
+        return " ".join([ target_position_string(name,pos[0],pos[1]) for (pos, name) in target_state.items()])
 
     xdim,ydim=xy_extension(init_state)
     tiles_type_name,tile_types = types_from_init_state(init_state)
@@ -141,8 +140,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
 
         res = f"""
   (:action move-{name}-{direction}
-   :parameters (?t {" ".join("?x%d"%n for n in xca)} {" ".join("?y%d"%n for n in yca)})
-   :precondition (and ({tile_type_name} ?t)
+   :parameters (?t{f" - {tile_type_name}" if typing else ""} {" ".join("?x%d"%n for n in xca)}{xlocT} {" ".join("?y%d"%n for n in yca)}{ylocT})
+   :precondition (and {f"({tile_type_name} ?t)" if not typing else ""}
         {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in tile_type])}
         {" ".join(["(adjwe ?x%d ?x%d)"%(xca[i],xca[i]+1) for i in adjix])}
         {" ".join(["(adjns ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
@@ -161,15 +160,31 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
   )"""
         return res
 
+    if typing:
+        xlocT = " - xloc"
+        ylocT = " - yloc"
+        tileT = " - tile"
+    else:
+        xlocT = ""
+        ylocT = ""
+        tileT = ""
+
     def domain():
         res = f"""(define (domain {domain_name})
-  (:requirements :strips{" :action-costs" if adapted_counter else ""})
-  (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
-        (at ?t ?h ?v) (empty ?h ?v) 
-        {" ".join(["(%s ?t)"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}"""
+  (:requirements :strips{" :action-costs" if adapted_counter else ""}{" :typing" if typing else ""})"""
+        if typing:
+            res += f"""
+  (:types
+         xloc yloc tile - object
+         {" ".join([tile_type_name for tile_type_name in sorted(tile_types.keys())])} - tile
+  )"""
+        res += f"""
+  (:predicates (adjwe ?h1 ?h2{xlocT}) (adjns ?v1 ?v2{ylocT}) 
+        (at ?t{tileT} ?h{xlocT} ?v{ylocT}) (empty ?h{xlocT} ?v{ylocT}) 
+        {" ".join([f"(%s ?t{tileT})"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}"""
         if adapted_counter:
-            res += """
-        (prev ?t)"""
+            res += f"""
+        (prev ?t{tileT})"""
         res += """
   )"""
         if adapted_counter:
@@ -207,9 +222,9 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         res = f"""(define (problem {problem_name})
     (:domain {domain_name})
     (:objects 
-        {" ".join(["h%d"%i for i in range(1,xdim+1)])}
-        {" ".join(["v%d"%i for i in range(1,ydim+1)])}
-        {" ".join([tile_name for tile_name in tile_names()])}"""
+        {" ".join(["h%d"%i for i in range(1,xdim+1)])}{xlocT}
+        {" ".join(["v%d"%i for i in range(1,ydim+1)])}{ylocT}
+        {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}"""
         if adapted_counter and initial_tile is None:
             res += """
         init"""
