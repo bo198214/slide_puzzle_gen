@@ -226,8 +226,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}{ylocT}
         {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}"""
         if adapted_counter and initial_tile is None:
-            res += """
-        init"""
+            res += f"""
+        init{tileT}"""
         res += f"""
 	)
     (:init 
@@ -238,7 +238,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
 """
         if adapted_counter:
             res += f"""
-        (= (total-cost) 0) (prev {"init" if initial_tile is None else initial_tile})"""
+        (= (total-cost) 0) (prev {"init" if initial_tile is None else pddl_name(initial_tile)})"""
         res += f"""
     )
     (:goal (and {target_positions_string(target_state)}))"""
