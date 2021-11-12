@@ -192,30 +192,35 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         return res
 
     def problem():
-        counter_init=""
-        if adapted_counter:
-            counter_init=f"""        (= (total-cost) 0) (prev {"init" if initial_tile is None else initial_tile})
-"""
-        init_positions=init_positions_string(init_state)
-        target_positions = target_positions_string(target_state)
-        return f"""(define (problem {problem_name})
+        res = f"""(define (problem {problem_name})
     (:domain {domain_name})
     (:objects 
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}
-        {" ".join([tile_name for tile_name in tile_names()])}{chr(10)+
-"        init" if adapted_counter and initial_tile is None else ""}
+        {" ".join([tile_name for tile_name in tile_names()])}"""
+        if adapted_counter and initial_tile is None:
+            res += """
+        init"""
+        res += f"""
 	)
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
         {" ".join(["(%s %s)" % (tiles_type_name[tile_name], tile_name) for tile_name in tile_names()])}
 
-{init_positions}
-{counter_init if adapted_counter else ""}    )
-    (:goal (and {target_positions})){chr(10)+
-"    (:metric minimize (total-cost))" if adapted_counter else ""}
+{init_positions_string(init_state)}"""
+        if adapted_counter:
+            res += f"""
+        (= (total-cost) 0) (prev {"init" if initial_tile is None else initial_tile})"""
+        res += f"""
+    )
+    (:goal (and {target_positions_string(target_state)}))"""
+        if adapted_counter:
+            res += """
+    (:metric minimize (total-cost))"""
+        res += """
 )
 """
+        return res
 
     return domain(),problem()
