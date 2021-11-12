@@ -55,5 +55,5 @@ You can specify arbitrary tile shapes, even non-connected ones.
 You also see that the target state does not to be complete,
 but here we just require the tile "tsq" to occupy the middle of the lowest two rows.
 
-In the moment you can not specify alternatives as target space, i.e. 
-that "to1" *or* "to2" is expected to be on (1,1) for example.
+If you specify an array of tiles instead of a single tile it is considered as "or", i.e.
+`(1,1): [ 'to1' , 'to2' ]` would mean that "to1" *or* "to2" is expected to be on (1,1) for example.

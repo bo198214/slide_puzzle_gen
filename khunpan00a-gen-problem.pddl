@@ -1,5 +1,5 @@
-(define (problem khunpan00-gen)
-    (:domain khunpan00-gen)
+(define (problem khunpan00a-gen)
+    (:domain khunpan00a-gen)
     (:objects 
         h1 h2 h3 h4
         v1 v2 v3 v4 v5
@@ -17,6 +17,6 @@
         (at tv3 h1 v1) (at to3 h2 v1) (at to4 h3 v1) (at tv4 h4 v1)
 
     )
-    (:goal (and (at tsq h2 v2) (at tsq h3 v2) (at tsq h2 v1) (at tsq h3 v1)))
+    (:goal (and (or (at to1 h1 v1) (at to2 h1 v1) (at to3 h1 v1) (at to4 h1 v1) (at to5 h1 v1) (at to6 h1 v1))))
 )
 

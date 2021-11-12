@@ -83,9 +83,9 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
 
     def init_position_string(tile,x,y):
         if tile is not None:
-            return "(at " + pddl_name(tile) + " h%d v%d)"%(x,y)
+            return "(at %s h%d v%d)" % (pddl_name(tile),x,y)
         else:
-            return "(empty h%d v%d)"%(x,y)
+            return "(empty h%d v%d)" % (x,y)
 
     def init_positions_string(init_state):
         init_positions = ""
@@ -93,13 +93,20 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         for n in range(N):
             row = init_state[n]
             init_positions += "\n        " + " ".join([
-                init_position_string(row[i],i + 1,N - n)  for i in range(len(row))])
+                init_position_string(row[i],i + 1,N - n) for i in range(len(row))])
         return init_positions
+
+    def target_position_string(name,x,y):
+        if name is None:
+            return "(empty h%d v%d)"%(x,y)
+        if isinstance(name,str):
+            return "(at %s h%d v%d)" % (pddl_name(name),x,y)
+        if isinstance(name,list):
+            return "(or " + " ".join("(at %s h%d v%d)" % (n,x,y) for n in name) + ")"
 
     def target_positions_string(target_state):
         return " ".join(
-            [("(at %s" % pddl_name(name) if name is not None else "(empty") + " h%d v%d)" % (pos[0], pos[1]) for (pos, name) in
-             target_state.items()])
+            [ target_position_string(name,pos[0],pos[1]) for (pos, name) in target_state.items()])
 
     xdim,ydim=xy_extension(init_state)
     tiles_type_name,tile_types = types_from_init_state(init_state)
