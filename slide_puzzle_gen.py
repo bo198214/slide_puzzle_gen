@@ -81,14 +81,19 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         res2 = { mapping[tts]:tt for (tts,tt) in tt_by_tts.items() }
         return res1,res2
 
+    def init_position_string(tile,x,y):
+        if tile is not None:
+            return "(at " + pddl_name(tile) + " h%d v%d)"%(x,y)
+        else:
+            return "(empty h%d v%d)"%(x,y)
+
     def init_positions_string(init_state):
         init_positions = ""
         N = len(init_state)
         for n in range(N):
             row = init_state[n]
-            init_positions += "        " + " ".join([
-                ("(at " + pddl_name(row[i]) if row[i] is not None else "(empty") + " h%d v%d)" % (i + 1, N - n) for i in
-                range(len(row))]) + "\n"
+            init_positions += "\n        " + " ".join([
+                init_position_string(row[i],i + 1,N - n)  for i in range(len(row))])
         return init_positions
 
     def target_positions_string(target_state):
@@ -207,8 +212,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
         {" ".join(["(%s %s)" % (tiles_type_name[tile_name], tile_name) for tile_name in tile_names()])}
-
-{init_positions_string(init_state)}"""
+{init_positions_string(init_state)}
+"""
         if adapted_counter:
             res += f"""
         (= (total-cost) 0) (prev {"init" if initial_tile is None else initial_tile})"""
