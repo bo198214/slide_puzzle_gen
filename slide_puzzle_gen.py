@@ -126,51 +126,70 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
 
         adjix = [i for i in range(len(xca)-1) if xca[i]-xca[i+1] == -1]
         adjiy = [i for i in range(len(yca)-1) if yca[i]-yca[i+1] == -1]
-        return f"""  (:action move-{name}-{direction}
+
+        res = f"""
+  (:action move-{name}-{direction}
    :parameters (?t {" ".join("?x%d"%n for n in xca)} {" ".join("?y%d"%n for n in yca)})
    :precondition (and ({tile_type_name} ?t)
         {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in tile_type])}
         {" ".join(["(adjwe ?x%d ?x%d)"%(xca[i],xca[i]+1) for i in adjix])}
         {" ".join(["(adjns ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
-        {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in added])}
-{counter_condition if adapted_counter else ""}    )
+        {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in added])}"""
+        if adapted_counter:
+            res += counter_condition
+        res += f"""
+    )
    :effect (and 
         {" ".join(["(not (at ?t ?x%d ?y%d)) (empty ?x%d ?y%d)"%(x,y,x,y) for (x,y) in removed])}
-        {" ".join(["(at ?t ?x%d ?y%d) (not (empty ?x%d ?y%d))"%(x,y,x,y) for (x,y) in added])}
-{counter_effect if adapted_counter else ""}    )
-  )
-"""
+        {" ".join(["(at ?t ?x%d ?y%d) (not (empty ?x%d ?y%d))"%(x,y,x,y) for (x,y) in added])}"""
+        if adapted_counter:
+            res += counter_effect
+        res += """
+    )
+  )"""
+        return res
 
     def domain():
-        actions = ""
+        res = f"""(define (domain {domain_name})
+  (:requirements :strips{" :action-costs" if adapted_counter else ""})
+  (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
+        (at ?t ?h ?v) (empty ?h ?v) 
+        {" ".join(["(%s ?t)"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}"""
+        if adapted_counter:
+            res += """
+        (prev ?t)"""
+        res += """
+  )"""
+        if adapted_counter:
+            res += """
+  (:functions (total-cost))"""
+        res += """
+
+"""
         if not adapted_counter:
             for tile_type_name in sorted(tile_types.keys()):
                 for direction in ['s','n','e','w']:
-                    actions += action(tile_type_name, tile_type_name, tile_types[tile_type_name], direction)
+                    res += action(tile_type_name, tile_type_name, tile_types[tile_type_name], direction)
         else:
             for tile_type_name in sorted(tile_types.keys()):
                 for tile_name in tile_names():
                     for direction in ['s','n','e','w']:
                         name = "prev_"+tile_name+"-"+tile_type_name
-                        actions += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          f"""        {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}\n""" % tile_name,
-                                          f"""        {"(not (prev init)) " if initial_tile is None else ""}(not (prev %s)) (prev ?t) (increase (total-cost) 1)\n""" % tile_name,
+                        res += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
+                                          f"""
+        {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}""" % tile_name,
+                                          f"""
+        {"(not (prev init)) " if initial_tile is None else ""}(not (prev %s)) (prev ?t) (increase (total-cost) 1)""" % tile_name,
                                           )
-                        actions += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          "        (prev %s) (prev ?t)\n" % tile_name,
+                        res += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
+                                          """
+        (prev %s) (prev ?t)""" % tile_name,
                                           "",
                                           )
-
-        return f"""(define (domain {domain_name})
-  (:requirements :strips{" :action-costs" if adapted_counter else ""})
-  (:predicates (adjwe ?h1 ?h2) (adjns ?v1 ?v2) 
-        (at ?t ?h ?v) (empty ?h ?v) 
-        {" ".join(["(%s ?t)"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}
-{"        (prev ?t)"+chr(10) if adapted_counter else ""}  )
-{"  (:functions (total-cost))"+chr(10) if adapted_counter else ""}
-
-{actions})
+        res += """
+)
 """
+        return res
 
     def problem():
         counter_init=""
