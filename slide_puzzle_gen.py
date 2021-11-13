@@ -9,6 +9,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     The init_state is an array of arrays representing the initial state of the puzzle.
     The elements - the tile names - can be strings (which are used literally as objects in the pddl files) or numbers.
     In the latter case (as numbers are not allowed as object names) they will be prefixed by 'tile'.
+    The value None means the field is free. The value -1 means a fixed block.
 
     The target_state has a different format then the init_state. It is a dictionary mapping positions (x,y)
     to tile names. It means that the final state is reached if the given positions are occupied by the associate tile names.
@@ -20,6 +21,9 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     For sliding puzzles with only one empty field (15puzzle or 9puzzle) this count is equal to the step count.
     However for khunpan it can be a big difference.
     This though bloats the PDDL description and makes it harder for the solver to find a solution.
+
+    Sokoban mode means that the tile can only be moved to (x,y) if the opposite field is empty, as if the tile can
+    not be pulled but only pushed.
 
     :param domain_name: The domain name as to appear in the domain PDDL string
     :param problem_name: The problem name as to appear in the problem PDDL string
@@ -52,7 +56,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
             row = init_state[n]
             for i in range(len(row)):
                 tile = row[i]
-                if tile is not None:
+                if tile is not None and tile != -1:
                     if tile not in tile_positions:
                         tile_positions[tile] = []
                     tile_positions[tile].append((i+1,N-n))
@@ -84,10 +88,12 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         return res1,res2
 
     def init_position_string(tile,x,y):
-        if tile is not None:
-            return "(at %s h%d v%d)" % (pddl_name(tile),x,y)
-        else:
+        if tile is None:
             return "(empty h%d v%d)" % (x,y)
+        if tile == -1:
+            return "(fixed h%d v%d)" % (x,y)
+        else:
+            return "(at %s h%d v%d)" % (pddl_name(tile),x,y)
 
     def init_positions_string(init_state):
         init_positions = ""
@@ -143,7 +149,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
    :precondition (and {f"({tile_type_name} ?t)" if not typing else ""}
         {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in tile_type])}
         {" ".join(["(adjwe ?x%d ?x%d)"%(xca[i],xca[i]+1) for i in adjix])}
-        {" ".join(["(adjns ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
+        {" ".join(["(adjsn ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
         {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in added])}"""
         if adapted_counter:
             res += counter_condition
@@ -178,8 +184,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
          {" ".join([tile_type_name for tile_type_name in sorted(tile_types.keys())])} - tile
   )"""
         res += f"""
-  (:predicates (adjwe ?h1 ?h2{xlocT}) (adjns ?v1 ?v2{ylocT}) 
-        (at ?t{tileT} ?h{xlocT} ?v{ylocT}) (empty ?h{xlocT} ?v{ylocT}) 
+  (:predicates (adjwe ?h1 ?h2{xlocT}) (adjsn ?v1 ?v2{ylocT}) 
+        (at ?t{tileT} ?h{xlocT} ?v{ylocT}) (empty ?h{xlocT} ?v{ylocT}) (fixed ?h{xlocT} ?v{ylocT})
         {" ".join([f"(%s ?t{tileT})"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}"""
         if adapted_counter:
             res += f"""
@@ -231,7 +237,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
 	)
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
-        {" ".join(["(adjns v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
+        {" ".join(["(adjsn v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
         {" ".join(["(%s %s)" % (tiles_type_name[tile_name], tile_name) for tile_name in tile_names()])}
 {init_positions_string(init_state)}
 """
@@ -250,3 +256,58 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         return res
 
     return domain(),problem()
+
+
+def problem_sokoban(problem_name: str, desc: str):
+    sokoban = None
+    walls = []
+    crates = []
+    empties = []
+    goals = []
+
+    lines = desc.splitlines()
+    N = len(lines)
+    n = 1
+    for line in lines:
+        if line == "":
+            continue
+        i = 1
+        for c in line:
+            x = i
+            y = N - n + 1
+            if c.lower() == "w":
+                walls.append((x,y))
+            elif c.lower() == "c":
+                crates.append((x,y))
+            elif c.lower() == "x":
+                goals.append((x, y))
+            elif c == " ":
+                empties.append((x, y))
+            elif c.lower() == "s":
+                sokoban = (x,y)
+            i += 1
+        n += 1
+    xvalues = [x for (x,y) in walls+crates+goals+empties]
+    yvalues = [y for (x,y) in walls+crates+goals+empties]
+    xmin=min(xvalues)
+    xmax=max(xvalues)
+    ymin=min(yvalues)
+    ymax=max(yvalues)
+    return f"""(define (problem {problem_name})
+    (:domain sokoban)
+    (:objects
+        {" ".join(["h%d"%i for i in range(xmin,xmax+1)])}
+        {" ".join(["v%d"%i for i in range(ymin,ymax+1)])}
+	)
+    (:init
+        {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(xmin,xmax)])}
+        {" ".join(["(adjsn v%d v%d)"%(i,i+1) for i in range(ymin,ymax)])}
+        
+        {" ".join([f"(wall_at h{x} v{y})" for (x,y) in walls])}
+        {" ".join([f"(crate_at h{x} v{y})" for (x,y) in crates])}
+        (sokoban_at h{sokoban[0]} v{sokoban[1]})
+    )
+    (:goal (and {" ".join([f"(crate_at h{x} v{y})" for (x,y) in goals])}))
+)
+
+"""
