@@ -9,7 +9,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     The init_state is an array of arrays representing the initial state of the puzzle.
     The elements - the tile names - can be strings (which are used literally as objects in the pddl files) or numbers.
     In the latter case (as numbers are not allowed as object names) they will be prefixed by 'tile'.
-    The value None means the field is free. The value -1 means a fixed block.
+    The value None means the field is free. The value -1 means a fixed block or a place where no tile can move to.
 
     The target_state has a different format then the init_state. It is a dictionary mapping positions (x,y)
     to tile names. It means that the final state is reached if the given positions are occupied by the associate tile names.
@@ -91,7 +91,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         if tile is None:
             return "(empty h%d v%d)" % (x,y)
         if tile == -1:
-            return "(fixed h%d v%d)" % (x,y)
+            return ""
         else:
             return "(at %s h%d v%d)" % (pddl_name(tile),x,y)
 
@@ -185,7 +185,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
   )"""
         res += f"""
   (:predicates (adjwe ?h1 ?h2{xlocT}) (adjsn ?v1 ?v2{ylocT}) 
-        (at ?t{tileT} ?h{xlocT} ?v{ylocT}) (empty ?h{xlocT} ?v{ylocT}) (fixed ?h{xlocT} ?v{ylocT})
+        (at ?t{tileT} ?h{xlocT} ?v{ylocT}) (empty ?h{xlocT} ?v{ylocT})
         {" ".join([f"(%s ?t{tileT})"%tile_type_name for tile_type_name in sorted(tile_types.keys())])}"""
         if adapted_counter:
             res += f"""
