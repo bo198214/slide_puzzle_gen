@@ -175,8 +175,20 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         tileT = ""
 
     def domain():
+        typing_req = ""
+        neg_pre_req = ""
+        disj_pre_req = ""
+        action_cost_req = ""
+        if adapted_counter:
+            action_cost_req = " :action-costs"
+            neg_pre_req = " :negative-preconditions"
+            if initial_tile is None:
+                disj_pre_req = " :disjunctive-preconditions"
+        if typing:
+            typing_req = " :typing"
+
         res = f"""(define (domain {domain_name})
-  (:requirements :strips{" :action-costs" if adapted_counter else ""}{" :typing" if typing else ""})"""
+  (:requirements :strips{action_cost_req}{typing_req}{neg_pre_req}{disj_pre_req})"""
         if typing:
             res += f"""
   (:types
@@ -193,7 +205,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         res += """
   )"""
         if adapted_counter:
-            res += """
+            res += f"""
+  (:constants {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}{" init" if initial_tile is None else ""})
   (:functions (total-cost))"""
         res += """
 
@@ -228,11 +241,10 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     (:domain {domain_name})
     (:objects 
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}{xlocT}
-        {" ".join(["v%d"%i for i in range(1,ydim+1)])}{ylocT}
+        {" ".join(["v%d"%i for i in range(1,ydim+1)])}{ylocT}"""
+        if not adapted_counter:
+            res += """
         {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}"""
-        if adapted_counter and initial_tile is None:
-            res += f"""
-        init{tileT}"""
         res += f"""
 	)
     (:init 

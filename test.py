@@ -1,12 +1,24 @@
 import slide_puzzle_gen
 
+from subprocess import check_call
 
 def write_files(name,domain,problem):
-    print(domain, file=open("test/" + name + '-domain.pddl', 'w'))
-    print(problem, file=open("test/" + name + '-problem.pddl', 'w'))
+    domain_file = "test/" + name + '-domain.pddl'
+    problem_file = "test/" + name + '-problem.pddl'
+    print(domain, file=open(domain_file, 'w'))
+    print(problem, file=open(problem_file, 'w'))
+    plan_file = 'solve-downward/test/' + name + '.txt'
+    #"$HOME/workspace/planner/VAL/build/macos64/Release/bin/Validate"
+    try:
+        pass
+        #check_call(["/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin/Parser",
+        #            domain_file,problem_file])
+        #check_call(["/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin/Validate",
+        #            domain_file,problem_file,plan_file])
+    except:
+        pass
 
-
-def battery(title,init_state,target_state):
+def battery(title,init_state,target_state, initial_tile='tsq'):
     name = title
     domain, problem = slide_puzzle_gen.domain_problem(name, name, init_state, target_state)
     write_files(name, domain, problem)
@@ -18,7 +30,7 @@ def battery(title,init_state,target_state):
 
     name = title + "-ac-it"
     domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state,
-                                                   adapted_counter=True,initial_tile="tsq")
+                                                   adapted_counter=True, initial_tile=initial_tile)
     write_files(name,domain,problem)
 
     name = title + "-ac-typing"
@@ -49,7 +61,7 @@ target_state = {
     (1,1): 7, (2,1): 8, (3,1): None
 }
 
-battery("n8puzzle",init_state,target_state)
+battery("n8puzzle",init_state,target_state,initial_tile=1)
 
 init_state = [
     ["tv1",  None, "tv2", "tv3"],

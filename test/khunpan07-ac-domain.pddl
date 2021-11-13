@@ -1,10 +1,11 @@
 (define (domain khunpan07-ac)
-  (:requirements :strips :action-costs)
+  (:requirements :strips :action-costs :negative-preconditions :disjunctive-preconditions)
   (:predicates (adjwe ?h1 ?h2) (adjsn ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v)
         (type1 ?t) (type2 ?t) (type3 ?t)
         (prev ?t)
   )
+  (:constants to1 to2 to3 to4 tsq tv1 tv2 tv3 tv4 tv5 init)
   (:functions (total-cost))
 
 

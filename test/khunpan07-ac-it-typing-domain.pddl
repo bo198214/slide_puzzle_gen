@@ -1,5 +1,5 @@
 (define (domain khunpan07-ac-it-typing)
-  (:requirements :strips :action-costs :typing)
+  (:requirements :strips :action-costs :typing :negative-preconditions)
   (:types
          xloc yloc tile - object
          type1 type2 type3 - tile
@@ -9,6 +9,7 @@
         (type1 ?t - tile) (type2 ?t - tile) (type3 ?t - tile)
         (prev ?t - tile)
   )
+  (:constants to1 - type1 to2 - type1 to3 - type1 to4 - type1 tsq - type3 tv1 - type2 tv2 - type2 tv3 - type2 tv4 - type2 tv5 - type2)
   (:functions (total-cost))
 
 
