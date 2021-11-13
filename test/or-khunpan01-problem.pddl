@@ -3,7 +3,7 @@
     (:objects 
         h1 h2 h3 h4
         v1 v2 v3 v4 v5
-        {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}
+        th to1 to2 to3 to4 tsq tv1 tv2 tv3 tv4
 	)
     (:init 
         (adjwe h1 h2) (adjwe h2 h3) (adjwe h3 h4)

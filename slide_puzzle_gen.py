@@ -115,6 +115,12 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
     def target_positions_string(target_state):
         return " ".join([ target_position_string(name,pos[0],pos[1]) for (pos, name) in target_state.items()])
 
+    or_goals = False
+    for (pos,name) in target_state.items():
+        if isinstance(name,list):
+            or_goals = True
+            break
+
     xdim,ydim=xy_extension(init_state)
     tiles_type_name,tile_types = types_from_init_state(init_state)
 
@@ -186,6 +192,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
                 disj_pre_req = " :disjunctive-preconditions"
         if typing:
             typing_req = " :typing"
+        if or_goals:
+            disj_pre_req = " :disjunctive-preconditions"
 
         res = f"""(define (domain {domain_name})
   (:requirements :strips{action_cost_req}{typing_req}{neg_pre_req}{disj_pre_req})"""
@@ -243,7 +251,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         {" ".join(["h%d"%i for i in range(1,xdim+1)])}{xlocT}
         {" ".join(["v%d"%i for i in range(1,ydim+1)])}{ylocT}"""
         if not adapted_counter:
-            res += """
+            res += f"""
         {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}"""
         res += f"""
 	)

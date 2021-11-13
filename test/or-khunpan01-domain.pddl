@@ -1,5 +1,5 @@
 (define (domain or-khunpan01)
-  (:requirements :strips)
+  (:requirements :strips :disjunctive-preconditions)
   (:predicates (adjwe ?h1 ?h2) (adjsn ?v1 ?v2) 
         (at ?t ?h ?v) (empty ?h ?v)
         (type1 ?t) (type2 ?t) (type3 ?t) (type4 ?t)

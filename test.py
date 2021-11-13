@@ -1,7 +1,8 @@
 import slide_puzzle_gen
 
-from subprocess import check_call
+from subprocess import check_call, check_output
 
+VAL_DIR='/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin'
 def write_files(name,domain,problem):
     domain_file = "test/" + name + '-domain.pddl'
     problem_file = "test/" + name + '-problem.pddl'
@@ -10,13 +11,10 @@ def write_files(name,domain,problem):
     plan_file = 'solve-downward/test/' + name + '.txt'
     #"$HOME/workspace/planner/VAL/build/macos64/Release/bin/Validate"
     try:
-        pass
-        #check_call(["/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin/Parser",
-        #            domain_file,problem_file])
-        #check_call(["/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin/Validate",
-        #            domain_file,problem_file,plan_file])
-    except:
-        pass
+        check_output([VAL_DIR+"/Parser", domain_file,problem_file])
+        check_output([VAL_DIR+"/Validate", domain_file,problem_file,plan_file])
+    except Exception as e:
+        print(e)
 
 def battery(title,init_state,target_state, initial_tile='tsq'):
     name = title
@@ -103,7 +101,10 @@ sokoban_desc = """
 
 name = "field01"
 problem = slide_puzzle_gen.problem_sokoban(name,sokoban_desc)
-print(problem, file=open("test/" + name + '-problem.pddl', 'w'))
+problem_file = "test/" + name + '-problem.pddl'
+plan_file = "solve-downward/test/" + name + '.txt'
+print(problem, file=open(problem_file, 'w'))
+check_output([VAL_DIR + "/Validate", "sokoban-domain.pddl", problem_file, plan_file])
 
 maze = """
  #@############################################################# 
@@ -173,4 +174,7 @@ maze = """
 
 name = "maze01"
 problem = slide_puzzle_gen.problem_sokoban(name,maze)
-print(problem, file=open("test/" + name + '-problem.pddl', 'w'))
+problem_file = "test/" + name + '-problem.pddl'
+plan_file = "solve-downward/test/" + name + '.txt'
+print(problem, file=open(problem_file, 'w'))
+check_output([VAL_DIR + "/Validate", "sokoban-domain.pddl", problem_file, plan_file])
