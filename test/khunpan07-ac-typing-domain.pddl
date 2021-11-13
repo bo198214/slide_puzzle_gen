@@ -9,7 +9,7 @@
         (type1 ?t - tile) (type2 ?t - tile) (type3 ?t - tile)
         (prev ?t - tile)
   )
-  (:constants to1 - type1 to2 - type1 to3 - type1 to4 - type1 tsq - type3 tv1 - type2 tv2 - type2 tv3 - type2 tv4 - type2 tv5 - type2 init)
+  (:constants to1 - type1 to2 - type1 to3 - type1 to4 - type1 tsq - type3 tv1 - type2 tv2 - type2 tv3 - type2 tv4 - type2 tv5 - type2 init - tile)
   (:functions (total-cost))
 
 

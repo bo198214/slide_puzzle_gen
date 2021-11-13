@@ -1,0 +1,2 @@
+(move-type1-e tile1 h1 h2 v1)
+; cost = 1 (unit cost)

@@ -9,7 +9,7 @@
         (type1 ?t - tile)
         (prev ?t - tile)
   )
-  (:constants tile1 - type1 tile2 - type1 tile3 - type1 tile4 - type1 tile5 - type1 tile6 - type1 tile7 - type1 tile8 - type1 init)
+  (:constants tile1 - type1 tile2 - type1 tile3 - type1 tile4 - type1 tile5 - type1 tile6 - type1 tile7 - type1 tile8 - type1 init - tile)
   (:functions (total-cost))
 
 

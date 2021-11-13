@@ -175,10 +175,12 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         xlocT = " - xloc"
         ylocT = " - yloc"
         tileT = " - tile"
+        initT = " - tile"
     else:
         xlocT = ""
         ylocT = ""
         tileT = ""
+        initT = ""
 
     def domain():
         typing_req = ""
@@ -214,7 +216,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
   )"""
         if adapted_counter:
             res += f"""
-  (:constants {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}{" init" if initial_tile is None else ""})
+  (:constants {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}{f" init{initT}" if initial_tile is None else ""})
   (:functions (total-cost))"""
         res += """
 

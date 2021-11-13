@@ -72,6 +72,8 @@ target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 
 battery("khunpan07",init_state,target_state)
 
+battery("trivial01",[[1,None]],{(2,1):1},initial_tile=1)
+
 ### or test
 
 init_state = [

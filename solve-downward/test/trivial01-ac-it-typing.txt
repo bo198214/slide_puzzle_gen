@@ -1,0 +1,2 @@
+(move-count0-prev_tile1-type1-e tile1 h1 h2 v1)
+; cost = 0 (general cost)
