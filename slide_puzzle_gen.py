@@ -277,11 +277,11 @@ def problem_sokoban(problem_name: str, desc: str):
             y = N - n + 1
             if c.lower() == "w" or c == "#":
                 walls.append((x,y))
-            elif c.lower() == "c" or c == "*":
+            elif c.lower() == "c" or c == "*" or c == '$':
                 crates.append((x,y))
             elif c.lower() == "x" or c == '.':
                 goals.append((x, y))
-            elif c == " ":
+            elif c == " " or c == '-':
                 empties.append((x, y))
             elif c.lower() == "s" or c == "@":
                 sokoban = (x,y)
