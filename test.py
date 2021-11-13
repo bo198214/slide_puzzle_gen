@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 import slide_puzzle_gen
 
 from subprocess import check_call, check_output
 
-VAL_DIR='/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin'
+#VAL_DIR='/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin'
 def write_files(name,domain,problem):
     domain_file = "test/" + name + '-domain.pddl'
     problem_file = "test/" + name + '-problem.pddl'
@@ -11,8 +12,8 @@ def write_files(name,domain,problem):
     plan_file = 'solve-downward/test/' + name + '.txt'
     #"$HOME/workspace/planner/VAL/build/macos64/Release/bin/Validate"
     try:
-        check_output([VAL_DIR+"/Parser", domain_file,problem_file])
-        check_output([VAL_DIR+"/Validate", domain_file,problem_file,plan_file])
+        check_output(["Parser", domain_file,problem_file])
+        check_output(["Validate", domain_file,problem_file,plan_file])
     except Exception as e:
         print(e)
 
@@ -106,7 +107,7 @@ problem = slide_puzzle_gen.problem_sokoban(name,sokoban_desc)
 problem_file = "test/" + name + '-problem.pddl'
 plan_file = "solve-downward/test/" + name + '.txt'
 print(problem, file=open(problem_file, 'w'))
-check_output([VAL_DIR + "/Validate", "sokoban-domain.pddl", problem_file, plan_file])
+check_output(["Validate", "sokoban-domain.pddl", problem_file, plan_file])
 
 maze = """
  #@############################################################# 
@@ -179,4 +180,4 @@ problem = slide_puzzle_gen.problem_sokoban(name,maze)
 problem_file = "test/" + name + '-problem.pddl'
 plan_file = "solve-downward/test/" + name + '.txt'
 print(problem, file=open(problem_file, 'w'))
-check_output([VAL_DIR + "/Validate", "sokoban-domain.pddl", problem_file, plan_file])
+check_output(["Validate", "sokoban-domain.pddl", problem_file, plan_file])

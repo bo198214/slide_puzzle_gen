@@ -143,8 +143,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         (removed,added) = removed_added_on_move(tile_type, dx, dy)
         xadded={x for (x,y) in added}
         yadded={y for (x,y) in added}
-        xca = [x for x in xcoords.union(xadded)]
-        yca = [y for y in ycoords.union(yadded)]
+        xca = sorted([x for x in xcoords.union(xadded)])
+        yca = sorted([y for y in ycoords.union(yadded)])
 
         adjix = [i for i in range(len(xca)-1) if xca[i]-xca[i+1] == -1]
         adjiy = [i for i in range(len(yca)-1) if yca[i]-yca[i+1] == -1]
@@ -153,7 +153,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
   (:action move-{name}-{direction}
    :parameters (?t{f" - {tile_type_name}" if typing else ""} {" ".join("?x%d"%n for n in xca)}{xlocT} {" ".join("?y%d"%n for n in yca)}{ylocT})
    :precondition (and {f"({tile_type_name} ?t)" if not typing else ""}
-        {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in tile_type])}
+        {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in sorted(tile_type)])}
         {" ".join(["(adjwe ?x%d ?x%d)"%(xca[i],xca[i]+1) for i in adjix])}
         {" ".join(["(adjsn ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
         {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in added])}"""
@@ -162,8 +162,8 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         res += f"""
     )
    :effect (and 
-        {" ".join(["(not (at ?t ?x%d ?y%d)) (empty ?x%d ?y%d)"%(x,y,x,y) for (x,y) in removed])}
-        {" ".join(["(at ?t ?x%d ?y%d) (not (empty ?x%d ?y%d))"%(x,y,x,y) for (x,y) in added])}"""
+        {" ".join(["(not (at ?t ?x%d ?y%d)) (empty ?x%d ?y%d)"%(x,y,x,y) for (x,y) in sorted(removed)])}
+        {" ".join(["(at ?t ?x%d ?y%d) (not (empty ?x%d ?y%d))"%(x,y,x,y) for (x,y) in sorted(added)])}"""
         if adapted_counter:
             res += counter_effect
         res += """
