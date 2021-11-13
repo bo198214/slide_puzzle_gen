@@ -62,6 +62,16 @@ init_states["042"] = [
     ["to1", "to2", "to3", "to4"]
 ]
 
+# The default/standard khunpan
+
+init_states["079"] = [
+    ["tv1", "tsq", "tsq", "tv2"],
+    ["tv1", "tsq", "tsq", "tv2"],
+    [ None,  "th",  "th",  None],
+    ["tv3", "to1", "to2", "tv4"],
+    ["tv3", "to3", "to4", "tv4"]
+]
+
 # Puzzles according to http://khunpan.de/khunpan-f.htm
 
 init_states["085"] = [

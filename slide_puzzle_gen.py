@@ -264,6 +264,7 @@ def problem_sokoban(problem_name: str, desc: str):
     crates = []
     empties = []
     goals = []
+    sgoal = None
 
     lines = desc.splitlines()
     N = len(lines)
@@ -285,6 +286,8 @@ def problem_sokoban(problem_name: str, desc: str):
                 empties.append((x, y))
             elif c.lower() == "s" or c == "@":
                 sokoban = (x,y)
+            elif c.lower() == "o":
+                sgoal = (x,y)
             i += 1
         n += 1
     xvalues = [x for (x,y) in walls+crates+goals+empties]
@@ -307,7 +310,7 @@ def problem_sokoban(problem_name: str, desc: str):
         {" ".join([f"(crate_at h{x} v{y})" for (x,y) in crates])}
         (sokoban_at h{sokoban[0]} v{sokoban[1]})
     )
-    (:goal (and {" ".join([f"(crate_at h{x} v{y})" for (x,y) in goals])}))
+    (:goal (and {" ".join([f"(crate_at h{x} v{y})" for (x,y) in goals])}{f" (sokoban_at h{sgoal[0]} v{sgoal[1]}" if sgoal is not None else ""}))
 )
 
 """

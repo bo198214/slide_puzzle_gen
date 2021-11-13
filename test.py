@@ -61,3 +61,33 @@ init_state = [
 target_state = {(2, 2): "tsq", (3, 2): "tsq", (2, 1): "tsq", (3, 1): "tsq"}
 
 battery("khunpan07",init_state,target_state)
+
+### or test
+
+init_state = [
+    ["tv1", "tsq", "tsq", "tv2"],
+    ["tv1", "tsq", "tsq", "tv2"],
+    [ None,  "th",  "th",  None],
+    ["tv3", "to1", "to2", "tv4"],
+    ["tv3", "to3", "to4", "tv4"]
+]
+
+target_state = {(1, 1): ["to1","to2","to3","to4"]}
+
+name = "or-khunpan01"
+domain, problem = slide_puzzle_gen.domain_problem(name, name, init_state, target_state)
+write_files(name, domain, problem)
+
+### field test
+sokoban_desc = """
+-----------
+-----#-----
+-----#-----
+-----#-----
+-----#-----
+@----#----o
+"""
+
+name = "field01"
+problem = slide_puzzle_gen.problem_sokoban(name,sokoban_desc)
+print(problem, file=open("test/" + name + '-problem.pddl', 'w'))
