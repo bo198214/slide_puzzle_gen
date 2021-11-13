@@ -79,6 +79,7 @@ domain, problem = slide_puzzle_gen.domain_problem(name, name, init_state, target
 write_files(name, domain, problem)
 
 ### field test
+### move @ to o
 sokoban_desc = """
 -----------
 -----#-----

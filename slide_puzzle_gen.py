@@ -310,7 +310,7 @@ def problem_sokoban(problem_name: str, desc: str):
         {" ".join([f"(crate_at h{x} v{y})" for (x,y) in crates])}
         (sokoban_at h{sokoban[0]} v{sokoban[1]})
     )
-    (:goal (and {" ".join([f"(crate_at h{x} v{y})" for (x,y) in goals])}{f" (sokoban_at h{sgoal[0]} v{sgoal[1]}" if sgoal is not None else ""}))
+    (:goal (and {" ".join([f"(crate_at h{x} v{y})" for (x,y) in goals])}{f" (sokoban_at h{sgoal[0]} v{sgoal[1]})" if sgoal is not None else ""}))
 )
 
 """
