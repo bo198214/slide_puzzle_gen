@@ -40,7 +40,7 @@ def battery(title,init_state,target_state, initial_tile='tsq'):
 
     name = title + "-ac-it-typing"
     domain,problem=slide_puzzle_gen.domain_problem(name,name,init_state,target_state,
-                                                   adapted_counter=True,initial_tile="tsq",typing=True)
+                                                   adapted_counter=True,initial_tile=initial_tile,typing=True)
     write_files(name,domain,problem)
 
     name = title + "-typing"

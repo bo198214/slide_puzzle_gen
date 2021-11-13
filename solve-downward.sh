@@ -4,11 +4,17 @@
 
 PLANNER_DIR=$HOME/workspace/planner/downward
 
-
-domain_name=$1
-shift
-problem_name=${1:-$domain_name}
-shift || true
+if [ -f "$1" ]
+then
+  domain_name=${1%-domain.pddl}
+  problem_name=${2%-problem.pddl}
+  shift
+  shift
+else
+  domain_name=$1
+  problem_name=$1
+  shift
+fi
 
 sas_file=$(pwd)/solve-downward/$problem_name.sas
 plan_file=$(pwd)/solve-downward/${problem_name}.txt

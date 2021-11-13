@@ -1,0 +1,3 @@
+(move-type3-n tv3 h1 v1 v2 v3)
+(move-type1-w to3 h1 h2 v1)
+; cost = 2 (unit cost)
