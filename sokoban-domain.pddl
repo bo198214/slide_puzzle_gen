@@ -1,5 +1,5 @@
 (define (domain sokoban)
-  (:requirements :strips)
+  (:requirements :strips :negative-preconditions)
   (:predicates (adjwe ?h1 ?h2) (adjsn ?v1 ?v2)
         (sokoban_at ?h ?v) (wall_at ?h ?v) (crate_at ?h ?v)
   )
