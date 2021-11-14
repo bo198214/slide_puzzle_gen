@@ -1,0 +1,1919 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /home/bo198214/workspace/planner/downward/builds/release/bin/translate/translate.py /home/bo198214/workspace/slide_puzzle_gen/khunpan/khunpan-exercise079-domain.pddl /home/bo198214/workspace/slide_puzzle_gen/khunpan/khunpan-exercise079-problem.pddl --sas-file /home/bo198214/workspace/slide_puzzle_gen/solve-downward/khunpan/khunpan-exercise079.sas
+Parsing...
+Parsing: [0.100s CPU, 0.090s wall-clock]
+Normalizing task... [0.030s CPU, 0.022s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.016s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.300s CPU, 0.299s wall-clock]
+Preparing model... [0.120s CPU, 0.127s wall-clock]
+Generated 7561 rules.
+Computing model... [3.440s CPU, 3.443s wall-clock]
+15829 relevant atoms
+294760 auxiliary atoms
+310589 final queue length
+361059 total queue pushes
+Completing instantiation... [1.300s CPU, 1.301s wall-clock]
+Instantiating: [5.280s CPU, 5.291s wall-clock]
+Computing fact groups...
+Finding invariants...
+9 initial candidates
+Finding invariants: [0.610s CPU, 0.615s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.010s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.620s CPU, 0.617s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.030s CPU, 0.048s wall-clock]
+Translating task: [0.530s CPU, 0.548s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+21 propositions removed
+Detecting unreachable propositions: [0.330s CPU, 0.320s wall-clock]
+Reordering and filtering variables...
+21 of 21 variables necessary.
+0 of 21 mutex groups necessary.
+10360 of 10360 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.080s CPU, 0.081s wall-clock]
+Translator variables: 21
+Translator derived variables: 0
+Translator facts: 231
+Translator goal facts: 4
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 10360
+Translator axioms: 0
+Translator task size: 88258
+Translator peak memory: 0 KB
+Writing output... [0.110s CPU, 0.124s wall-clock]
+Done! [7.130s CPU, 7.132s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: /home/bo198214/workspace/slide_puzzle_gen/solve-downward/khunpan/khunpan-exercise079.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/bo198214/workspace/planner/downward/builds/release/bin/downward --if-unit-cost --evaluator 'hlm=lmcount(lm_reasonable_orders_hps(lm_rhw()),pref=true)' --evaluator 'hff=ff()' --search 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)' --if-non-unit-cost --evaluator 'hlm1=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one),pref=true)' --evaluator 'hff1=ff(transform=adapt_costs(one))' --evaluator 'hlm2=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(plusone),pref=true)' --evaluator 'hff2=ff(transform=adapt_costs(plusone))' --search 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)' --always --internal-plan-file /home/bo198214/workspace/slide_puzzle_gen/solve-downward/khunpan/khunpan-exercise079.txt < /home/bo198214/workspace/slide_puzzle_gen/solve-downward/khunpan/khunpan-exercise079.sas
+[t=0s, 0 KB] reading input...
+[t=0.0625s, 0 KB] done reading input!
+[t=0.0625s, 0 KB] Initializing landmark count heuristic...
+[t=0.0625s, 0 KB] Generating landmark graph...
+[t=0.0625s, 0 KB] Building a landmark graph with reasonable orders.
+[t=0.0625s, 0 KB] Initializing Exploration...
+[t=0.078125s, 0 KB] Generating landmarks using the RPG/SAS+ approach
+Removed 0 reasonable or obedient reasonable orders
+[t=0.125s, 0 KB] Landmarks generation time: 0.0625s
+[t=0.125s, 0 KB] Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.125s, 0 KB] 14 edges
+[t=0.125s, 0 KB] approx. reasonable orders
+[t=0.125s, 0 KB] approx. obedient reasonable orders
+[t=0.125s, 0 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.125s, 0 KB] Landmarks generation time: 0.0625s
+[t=0.125s, 0 KB] Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.125s, 0 KB] 14 edges
+[t=0.125s, 0 KB] Landmark graph generation time: 0.0625s
+[t=0.125s, 0 KB] Landmark graph contains 12 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.125s, 0 KB] Landmark graph contains 14 orderings.
+[t=0.125s, 0 KB] Simplifying 36722 unary operators... done! [19964 unary operators]
+[t=0.171875s, 0 KB] time to simplify: 0.046875s
+[t=0.171875s, 0 KB] Initializing additive heuristic...
+[t=0.171875s, 0 KB] Initializing FF heuristic...
+[t=0.171875s, 0 KB] Initializing landmark count heuristic...
+[t=0.171875s, 0 KB] Generating landmark graph...
+[t=0.171875s, 0 KB] Building a landmark graph with reasonable orders.
+[t=0.171875s, 0 KB] Initializing Exploration...
+[t=0.171875s, 0 KB] Generating landmarks using the RPG/SAS+ approach
+Removed 0 reasonable or obedient reasonable orders
+[t=0.21875s, 0 KB] Landmarks generation time: 0.046875s
+[t=0.21875s, 0 KB] Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.21875s, 0 KB] 14 edges
+[t=0.21875s, 0 KB] approx. reasonable orders
+[t=0.21875s, 0 KB] approx. obedient reasonable orders
+[t=0.21875s, 0 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.21875s, 0 KB] Landmarks generation time: 0.046875s
+[t=0.21875s, 0 KB] Discovered 12 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.21875s, 0 KB] 14 edges
+[t=0.21875s, 0 KB] Landmark graph generation time: 0.046875s
+[t=0.21875s, 0 KB] Landmark graph contains 12 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.21875s, 0 KB] Landmark graph contains 14 orderings.
+[t=0.234375s, 0 KB] Simplifying 36722 unary operators... done! [19964 unary operators]
+[t=0.25s, 0 KB] time to simplify: 0.015625s
+[t=0.25s, 0 KB] Initializing additive heuristic...
+[t=0.25s, 0 KB] Initializing FF heuristic...
+[t=0.25s, 0 KB] Building successor generator...done!
+[t=0.25s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.25s, 0 KB] time for successor generation creation: 0s
+[t=0.25s, 0 KB] Variables: 21
+[t=0.25s, 0 KB] FactPairs: 231
+[t=0.25s, 0 KB] Bytes per state: 12
+[t=0.265625s, 0 KB] Building successor generator...done!
+[t=0.265625s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.265625s, 0 KB] time for successor generation creation: 0s
+[t=0.265625s, 0 KB] Variables: 21
+[t=0.265625s, 0 KB] FactPairs: 231
+[t=0.265625s, 0 KB] Bytes per state: 12
+[t=0.265625s, 0 KB] Starting search: lazy_greedy(list(hff1, hlm1), preferred = list(hff1, hlm1), cost_type = one, reopen_closed = false)
+[t=0.265625s, 0 KB] Conducting lazy best first search, (real) bound = 2147483647
+[t=0.265625s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=0.265625s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 8
+[t=0.265625s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 11
+[t=0.265625s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=0.265625s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 8
+[t=0.265625s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(one)): 11
+[t=0.265625s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 10
+[t=0.265625s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=0.265625s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 7
+[t=0.265625s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=0.265625s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 8
+[t=0.265625s, 0 KB] g=3, 8 evaluated, 7 expanded
+[t=0.265625s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 6
+[t=0.265625s, 0 KB] g=4, 16 evaluated, 15 expanded
+[t=0.296875s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 6
+[t=0.296875s, 0 KB] g=5, 121 evaluated, 120 expanded
+[t=4.75s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 5
+[t=4.75s, 0 KB] g=18, 13944 evaluated, 13943 expanded
+[t=47.7031s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 4
+[t=47.7031s, 0 KB] g=110, 144660 evaluated, 144659 expanded
+[t=102.312s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 4
+[t=102.312s, 0 KB] g=164, 310243 evaluated, 310242 expanded
+[t=102.328s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 3
+[t=102.328s, 0 KB] g=176, 310300 evaluated, 310299 expanded
+[t=102.344s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 3
+[t=102.344s, 0 KB] g=189, 310345 evaluated, 310344 expanded
+[t=102.641s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 2
+[t=102.641s, 0 KB] g=195, 311295 evaluated, 311294 expanded
+[t=102.641s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(one), pref = true): 2
+[t=102.641s, 0 KB] g=196, 311296 evaluated, 311295 expanded
+[t=124.562s, 0 KB] New best heuristic value for ff(transform = adapt_costs(one)): 1
+[t=124.562s, 0 KB] g=223, 413909 evaluated, 413908 expanded
+[t=124.562s, 0 KB] Solution found!
+[t=124.562s, 0 KB] Actual search time: 124.297s
+move-count1-prev_th-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-e th h2 h3 h4 v3 (1)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count1-prev_to3-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type2-w th h2 h3 h4 v3 (1)
+move-count1-prev_th-type1-s to3 h2 v1 v2 (1)
+move-count1-prev_to3-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-e to3 h2 h3 v1 (1)
+move-count1-prev_to3-type3-e tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-s to1 h1 v2 v3 (1)
+move-count0-prev_to1-type1-s to1 h1 v1 v2 (0)
+move-count1-prev_to1-type2-w th h1 h2 h3 v3 (1)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-n to1 h1 v1 v2 (1)
+move-count1-prev_to1-type1-n to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type2-e th h1 h2 h3 v3 (1)
+move-count1-prev_th-type1-n to1 h1 v2 v3 (1)
+move-count1-prev_to1-type3-w tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-w to4 h2 h3 v1 (1)
+move-count1-prev_to4-type1-s to3 h3 v1 v2 (1)
+move-count1-prev_to3-type2-s th h2 h3 v2 v3 (1)
+move-count1-prev_th-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v1 (1)
+move-count1-prev_to4-type1-w to2 h3 h4 v3 (1)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to3 h3 h4 v1 (1)
+move-count1-prev_to3-type2-s th h2 h3 v1 v2 (1)
+move-count1-prev_th-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v2 (0)
+move-count1-prev_to1-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to4 h1 v1 v2 (1)
+move-count1-prev_to4-type2-w th h1 h2 h3 v1 (1)
+move-count1-prev_th-type1-n to4 h1 v2 v3 (1)
+move-count1-prev_to4-type1-w to3 h3 h4 v1 (1)
+move-count1-prev_to3-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-n to1 h3 v2 v3 (1)
+move-count1-prev_to1-type1-s to4 h1 v2 v3 (1)
+move-count1-prev_to4-type1-n to3 h3 v1 v2 (1)
+move-count1-prev_to3-type2-e th h1 h2 h3 v1 (1)
+move-count1-prev_th-type1-s to4 h1 v1 v2 (1)
+move-count1-prev_to4-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-n to3 h3 v2 v3 (1)
+move-count1-prev_to3-type2-n th h2 h3 v1 v2 (1)
+move-count1-prev_th-type1-e to4 h1 h2 v1 (1)
+move-count1-prev_to4-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-e to4 h2 h3 v1 (1)
+move-count1-prev_to4-type1-w to2 h3 h4 v3 (1)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type2-s th h2 h3 v1 v2 (1)
+move-count1-prev_th-type1-s to3 h2 v2 v3 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v2 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th h1 h2 h3 v1 (1)
+move-count1-prev_th-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-n to1 h3 v3 v4 (1)
+move-count1-prev_to1-type1-n to3 h3 v2 v3 (1)
+move-count1-prev_to3-type1-n to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-n to4 h3 v1 v2 (1)
+move-count1-prev_to4-type1-n to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-w to2 h3 h4 v3 (1)
+move-count1-prev_to2-type3-s tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-e to1 h3 h4 v5 (1)
+move-count1-prev_to1-type1-s to4 h3 v1 v2 (1)
+move-count1-prev_to4-type1-s to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-w to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-n to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v2 (0)
+move-count1-prev_to4-type3-w tv4 h3 h4 v1 v2 (1)
+move-count1-prev_tv4-type3-s tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v1 v2 v3 (0)
+move-count1-prev_tv2-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-e to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-n to4 h2 v2 v3 (1)
+move-count1-prev_to4-type1-n to2 h4 v3 v4 (1)
+move-count1-prev_to2-type1-e to3 h3 h4 v3 (1)
+move-count1-prev_to3-type3-n tv4 h3 v1 v2 v3 (1)
+move-count1-prev_tv4-type2-e th h1 h2 h3 v1 (1)
+move-count1-prev_th-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v3 (1)
+move-count1-prev_to4-type3-w tv4 h2 h3 v2 v3 (1)
+move-count1-prev_tv4-type1-w to3 h3 h4 v3 (1)
+move-count1-prev_to3-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type2-e th h2 h3 h4 v1 (1)
+move-count1-prev_th-type3-s tv4 h2 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to4 h1 h2 v3 (1)
+move-count1-prev_to4-type1-s to3 h3 v2 v3 (1)
+move-count1-prev_to3-type1-e to4 h2 h3 v3 (1)
+move-count1-prev_to4-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-n tv4 h2 v1 v2 v3 (1)
+move-count1-prev_tv4-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type1-s to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-s to4 h3 v2 v3 (1)
+move-count1-prev_to4-type1-e to3 h3 h4 v1 (1)
+move-count1-prev_to3-type1-s to4 h3 v1 v2 (1)
+move-count1-prev_to4-type3-e tv4 h2 h3 v2 v3 (1)
+move-count1-prev_tv4-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv4 h3 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h3 v3 v4 v5 (0)
+move-count1-prev_tv4-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type1-w to3 h3 h4 v1 (1)
+move-count0-prev_to3-type1-n to3 h3 v1 v2 (0)
+move-count1-prev_to3-type3-s tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type3-s tv4 h3 v3 v4 v5 (1)
+move-count1-prev_tv4-type1-s to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-w to1 h3 h4 v5 (1)
+move-count1-prev_to1-type1-n to2 h4 v4 v5 (1)
+move-count1-prev_to2-type1-n to4 h4 v3 v4 (1)
+move-count1-prev_to4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to3 h3 h4 v1 (1)
+move-count1-prev_to3-type3-s tv4 h3 v2 v3 v4 (1)
+move-count1-prev_tv4-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type3-s tv4 h3 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-s to1 h3 v3 v4 (1)
+move-count1-prev_to1-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-w to1 h2 h3 v3 (1)
+move-count0-prev_to1-type1-s to1 h2 v2 v3 (0)
+move-count1-prev_to1-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type1-n to4 h4 v4 v5 (1)
+move-count1-prev_to4-type3-n tv2 h4 v2 v3 v4 (1)
+move-count1-prev_tv2-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v5 (1)
+move-count1-prev_to4-type3-n tv2 h4 v3 v4 v5 (1)
+move-count1-prev_tv2-type1-n to3 h4 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h4 v2 v3 (0)
+move-count1-prev_to3-type3-e tv4 h3 h4 v1 v2 (1)
+move-count1-prev_tv4-type1-e to1 h2 h3 v2 (1)
+move-count0-prev_to1-type1-s to1 h3 v1 v2 (0)
+move-count1-prev_to1-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v4 (0)
+move-count1-prev_to2-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-n to1 h3 v1 v2 (1)
+move-count1-prev_to1-type1-w to3 h3 h4 v3 (1)
+move-count1-prev_to3-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-w to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type1-s to4 h3 v4 v5 (1)
+move-count1-prev_to4-type1-w to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-s to4 h3 v3 v4 (1)
+move-count1-prev_to4-type3-e tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type3-e tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type1-n to3 h1 v3 v4 (1)
+move-count1-prev_to3-type1-w to2 h1 h2 v3 (1)
+move-count1-prev_to2-type3-s tv3 h2 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-n to3 h1 v4 v5 (1)
+move-count1-prev_to3-type1-n to2 h1 v3 v4 (1)
+move-count1-prev_to2-type3-n tv3 h2 v3 v4 v5 (1)
+move-count1-prev_tv3-type4-n tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type1-s to1 h3 v1 v2 (1)
+move-count1-prev_to1-type1-s to4 h3 v2 v3 (1)
+move-count1-prev_to4-type1-e to1 h3 h4 v1 (1)
+move-count1-prev_to1-type1-s to4 h3 v1 v2 (1)
+move-count1-prev_to4-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to2 h1 v3 v4 (1)
+move-count1-prev_to2-type1-s to3 h1 v4 v5 (1)
+move-count1-prev_to3-type1-s to2 h1 v2 v3 (1)
+move-count1-prev_to2-type1-s to3 h1 v3 v4 (1)
+move-count1-prev_to3-type3-w tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-w tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-e to2 h1 h2 v2 (1)
+move-count0-prev_to2-type1-n to2 h2 v2 v3 (0)
+move-count1-prev_to2-type2-n th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-w to4 h2 h3 v1 (1)
+move-count1-prev_to4-type1-w to1 h3 h4 v1 (1)
+move-count1-prev_to1-type1-w to4 h1 h2 v1 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v1 (1)
+move-count1-prev_to1-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-e to3 h1 h2 v3 (1)
+move-count1-prev_to3-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-e to3 h2 h3 v3 (1)
+move-count1-prev_to3-type2-n th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-n to4 h1 v1 v2 (1)
+move-count1-prev_to4-type1-w to1 h1 h2 v1 (1)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=124.562s, 0 KB] Plan length: 224 step(s).
+[t=124.562s, 0 KB] Plan cost: 202
+[t=124.562s, 0 KB] Expanded 413909 state(s).
+[t=124.562s, 0 KB] Reopened 0 state(s).
+[t=124.562s, 0 KB] Evaluated 413910 state(s).
+[t=124.562s, 0 KB] Evaluations: 827820
+[t=124.562s, 0 KB] Generated 1488647 state(s).
+[t=124.562s, 0 KB] Dead ends: 0 state(s).
+[t=124.562s, 0 KB] Number of registered states: 413910
+[t=124.562s, 0 KB] Int hash set load factor: 413910/1048576 = 0.394735
+[t=124.562s, 0 KB] Int hash set resizes: 20
+[t=124.562s, 0 KB] Best solution cost so far: 202
+[t=124.562s, 0 KB] Solution found - keep searching
+[t=124.562s, 0 KB] Building successor generator...done!
+[t=124.562s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=124.562s, 0 KB] time for successor generation creation: 0s
+[t=124.562s, 0 KB] Variables: 21
+[t=124.562s, 0 KB] FactPairs: 231
+[t=124.562s, 0 KB] Bytes per state: 12
+[t=124.562s, 0 KB] Starting search: lazy_greedy(list(hff2, hlm2), preferred = list(hff2, hlm2), reopen_closed = false)
+[t=124.562s, 0 KB] Conducting lazy best first search, (real) bound = 202
+[t=124.562s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=124.562s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=124.562s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=124.562s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=124.562s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=124.562s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=124.562s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=124.562s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=124.562s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=124.562s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=124.562s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=124.562s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=124.562s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=124.562s, 0 KB] g=3, 9 evaluated, 8 expanded
+[t=124.562s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=124.562s, 0 KB] g=4, 10 evaluated, 9 expanded
+[t=124.578s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=124.578s, 0 KB] g=5, 14 evaluated, 13 expanded
+[t=124.641s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 12
+[t=124.641s, 0 KB] g=9, 221 evaluated, 220 expanded
+[t=124.641s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=124.641s, 0 KB] g=10, 222 evaluated, 221 expanded
+[t=124.641s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=124.641s, 0 KB] g=12, 231 evaluated, 230 expanded
+[t=170.578s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=170.578s, 0 KB] g=80, 139190 evaluated, 139189 expanded
+[t=170.594s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=170.594s, 0 KB] g=81, 139191 evaluated, 139190 expanded
+[t=221.344s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=221.344s, 0 KB] g=85, 292238 evaluated, 292237 expanded
+[t=221.453s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=221.453s, 0 KB] g=91, 292566 evaluated, 292565 expanded
+[t=221.453s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=221.453s, 0 KB] g=92, 292568 evaluated, 292567 expanded
+[t=221.812s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 5
+[t=221.812s, 0 KB] g=103, 293811 evaluated, 293810 expanded
+[t=221.938s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=221.938s, 0 KB] g=123, 294328 evaluated, 294327 expanded
+[t=221.938s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=221.938s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=221.938s, 0 KB] g=124, 294329 evaluated, 294328 expanded
+[t=292.328s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=292.328s, 0 KB] g=181, 621427 evaluated, 621426 expanded
+[t=292.328s, 0 KB] Solution found!
+[t=292.328s, 0 KB] Actual search time: 167.766s
+move-count1-prev_th-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to3 h1 h2 v1 (1)
+move-count1-prev_to3-type1-s to1 h2 v1 v2 (1)
+move-count1-prev_to1-type2-e th h2 h3 h4 v3 (1)
+move-count1-prev_th-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to3 h1 v1 v2 (1)
+move-count1-prev_to3-type1-w to1 h1 h2 v1 (1)
+move-count1-prev_to1-type3-s tv3 h2 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th h2 h3 h4 v3 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v3 (0)
+move-count1-prev_th-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-n to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-n to4 h3 v1 v2 (1)
+move-count1-prev_to4-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type2-e th h1 h2 h3 v3 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v3 (0)
+move-count1-prev_th-type1-n to4 h3 v2 v3 (1)
+move-count1-prev_to4-type3-e tv3 h2 h3 v1 v2 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type2-s th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-w to4 h2 h3 v3 (1)
+move-count1-prev_to4-type3-n tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h1 h2 v3 (1)
+move-count1-prev_to4-type3-s tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count0-prev_tsq-type4-n tsq h2 h3 v3 v4 v5 (0)
+move-count1-prev_tsq-type1-w to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v3 (0)
+move-count1-prev_to2-type3-n tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to3 h2 h3 v1 (1)
+move-count1-prev_to3-type1-e to1 h1 h2 v1 (1)
+move-count1-prev_to1-type1-e to3 h3 h4 v1 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v1 (1)
+move-count1-prev_to1-type2-s th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-s to4 h1 v2 v3 (1)
+move-count1-prev_to4-type3-s tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type1-e to4 h1 h2 v2 (1)
+move-count1-prev_to4-type3-s tv1 h1 v2 v3 v4 (1)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv3 h3 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h3 v3 v4 v5 (0)
+move-count1-prev_tv3-type1-e to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-n to1 h3 v1 v2 (1)
+move-count1-prev_to1-type1-n to4 h2 v2 v3 (1)
+move-count1-prev_to4-type1-w to3 h3 h4 v1 (1)
+move-count1-prev_to3-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-e to4 h2 h3 v3 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v2 (1)
+move-count1-prev_to1-type1-n to3 h3 v1 v2 (1)
+move-count1-prev_to3-type1-n to1 h2 v2 v3 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v2 (1)
+move-count1-prev_to3-type2-e th h1 h2 h3 v1 (1)
+move-count1-prev_th-type3-s tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-e to3 h2 h3 v2 (1)
+move-count1-prev_to3-type1-w to4 h2 h3 v3 (1)
+move-count1-prev_to4-type3-s tv3 h3 v3 v4 v5 (1)
+move-count1-prev_tv3-type1-w to3 h2 h3 v2 (1)
+move-count1-prev_to3-type3-s tv3 h3 v2 v3 v4 (1)
+move-count1-prev_tv3-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type1-n to1 h1 v3 v4 (1)
+move-count1-prev_to1-type1-w to4 h1 h2 v3 (1)
+move-count1-prev_to4-type1-n to3 h2 v2 v3 (1)
+move-count1-prev_to3-type1-n to1 h1 v4 v5 (1)
+move-count1-prev_to1-type1-s to3 h2 v2 v3 (1)
+move-count1-prev_to3-type1-n to4 h1 v3 v4 (1)
+move-count1-prev_to4-type1-n to3 h2 v2 v3 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v3 (0)
+move-count1-prev_to3-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type1-w to2 h3 h4 v3 (1)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type2-e th h2 h3 h4 v1 (1)
+move-count1-prev_th-type1-s to2 h3 v2 v3 (1)
+move-count1-prev_to2-type3-s tv3 h2 v1 v2 v3 (1)
+move-count1-prev_tv3-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type1-n to4 h1 v4 v5 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v5 (1)
+move-count1-prev_to1-type1-n to3 h1 v3 v4 (1)
+move-count1-prev_to3-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-e to4 h1 h2 v5 (1)
+move-count1-prev_to4-type1-n to3 h1 v4 v5 (1)
+move-count1-prev_to3-type3-n tv1 h1 v2 v3 v4 (1)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-w to2 h2 h3 v2 (1)
+move-count0-prev_to2-type1-s to2 h2 v1 v2 (0)
+move-count1-prev_to2-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to4 h2 v4 v5 (1)
+move-count1-prev_to4-type1-w to1 h2 h3 v5 (1)
+move-count1-prev_to1-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-n to2 h2 v1 v2 (1)
+move-count1-prev_to2-type1-s to4 h2 v3 v4 (1)
+move-count1-prev_to4-type1-s to1 h2 v4 v5 (1)
+move-count1-prev_to1-type1-e to3 h1 h2 v5 (1)
+move-count1-prev_to3-type3-n tv1 h1 v3 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h2 h3 v3 (1)
+move-count1-prev_to4-type1-n to2 h2 v2 v3 (1)
+move-count1-prev_to2-type1-e to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-e to2 h2 h3 v3 (1)
+move-count1-prev_to2-type3-e tv3 h1 h2 v2 v3 (1)
+move-count0-prev_tv3-type3-w tv3 h1 h2 v2 v3 (0)
+move-count1-prev_tv3-type1-s to1 h2 v3 v4 (1)
+move-count0-prev_to1-type1-s to1 h2 v2 v3 (0)
+move-count1-prev_to1-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-n to2 h2 v3 v4 (1)
+move-count1-prev_to2-type1-w to4 h2 h3 v3 (1)
+move-count1-prev_to4-type4-n tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type1-s to1 h2 v1 v2 (1)
+move-count1-prev_to1-type1-s to4 h2 v2 v3 (1)
+move-count1-prev_to4-type1-w to1 h1 h2 v1 (1)
+move-count1-prev_to1-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type1-s to4 h2 v1 v2 (1)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv4 h4 v3 v4 v5 (1)
+move-count0-prev_tv4-type3-s tv4 h4 v2 v3 v4 (0)
+move-count1-prev_tv4-type3-e tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type1-e to2 h2 h3 v4 (1)
+move-count0-prev_to2-type1-n to2 h3 v4 v5 (0)
+move-count1-prev_to2-type4-n tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-n to4 h2 v1 v2 (1)
+move-count1-prev_to4-type2-w th h2 h3 h4 v1 (1)
+move-count1-prev_th-type1-e to4 h2 h3 v2 (1)
+move-count1-prev_to4-type2-e th h2 h3 h4 v1 (1)
+move-count1-prev_th-type1-e to1 h1 h2 v1 (1)
+move-count0-prev_to1-type1-n to1 h2 v1 v2 (0)
+move-count1-prev_to1-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type1-s to4 h3 v1 v2 (1)
+move-count1-prev_to4-type1-e to1 h2 h3 v2 (1)
+move-count1-prev_to1-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type1-s to1 h3 v1 v2 (1)
+move-count1-prev_to1-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to3 h2 v4 v5 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v4 (0)
+move-count1-prev_to3-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-n to1 h3 v1 v2 (1)
+move-count1-prev_to1-type2-e th h1 h2 h3 v1 (1)
+move-count1-prev_th-type1-n to1 h3 v2 v3 (1)
+move-count1-prev_to1-type2-w th h1 h2 h3 v1 (1)
+move-count1-prev_th-type1-w to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-n to4 h3 v1 v2 (0)
+move-count1-prev_to4-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-w to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-s to2 h3 v4 v5 (1)
+move-count1-prev_to2-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-w to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type3-e tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type3-e tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type1-n to1 h1 v3 v4 (1)
+move-count0-prev_to1-type1-n to1 h1 v4 v5 (0)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count0-prev_to3-type1-n to3 h1 v3 v4 (0)
+move-count1-prev_to3-type4-n tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type1-s to4 h3 v1 v2 (1)
+move-count1-prev_to4-type1-s to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type1-s to2 h3 v1 v2 (1)
+move-count1-prev_to2-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to3 h1 v3 v4 (1)
+move-count0-prev_to3-type1-s to3 h1 v2 v3 (0)
+move-count1-prev_to3-type1-s to1 h1 v4 v5 (1)
+move-count0-prev_to1-type1-s to1 h1 v3 v4 (0)
+move-count1-prev_to1-type3-w tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-w tv1 h2 h3 v4 v5 (1)
+move-count1-prev_tv1-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type2-n th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-w to2 h2 h3 v1 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v1 (1)
+move-count1-prev_to2-type1-w to4 h2 h3 v1 (1)
+move-count1-prev_to4-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to3 h2 h3 v3 (1)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-e to3 h3 h4 v3 (1)
+move-count1-prev_to3-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type2-n th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-n to4 h2 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v2 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=292.328s, 0 KB] Plan length: 214 step(s).
+[t=292.328s, 0 KB] Plan cost: 182
+[t=292.328s, 0 KB] Expanded 621427 state(s).
+[t=292.328s, 0 KB] Reopened 0 state(s).
+[t=292.328s, 0 KB] Evaluated 621428 state(s).
+[t=292.328s, 0 KB] Evaluations: 1242856
+[t=292.328s, 0 KB] Generated 2250469 state(s).
+[t=292.328s, 0 KB] Dead ends: 0 state(s).
+[t=292.328s, 0 KB] Number of registered states: 621428
+[t=292.328s, 0 KB] Int hash set load factor: 621428/1048576 = 0.59264
+[t=292.328s, 0 KB] Int hash set resizes: 20
+[t=292.328s, 0 KB] Best solution cost so far: 182
+[t=292.328s, 0 KB] Solution found - keep searching
+[t=292.328s, 0 KB] Building successor generator...done!
+[t=292.328s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=292.328s, 0 KB] time for successor generation creation: 0s
+[t=292.328s, 0 KB] Variables: 21
+[t=292.328s, 0 KB] FactPairs: 231
+[t=292.328s, 0 KB] Bytes per state: 12
+[t=292.328s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 5)
+[t=292.328s, 0 KB] Conducting lazy best first search, (real) bound = 182
+[t=292.328s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=292.328s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=292.328s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=292.328s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=292.328s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=292.328s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=292.328s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=292.328s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=292.328s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=292.328s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=292.328s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=292.328s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=292.328s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=292.328s, 0 KB] g=3, 9 evaluated, 8 expanded
+[t=292.328s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=292.328s, 0 KB] g=4, 10 evaluated, 9 expanded
+[t=292.344s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=292.344s, 0 KB] g=5, 14 evaluated, 13 expanded
+[t=292.391s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 12
+[t=292.391s, 0 KB] g=6, 204 evaluated, 203 expanded, 39 reopened
+[t=292.391s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=292.391s, 0 KB] g=7, 205 evaluated, 204 expanded, 39 reopened
+[t=292.391s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=292.391s, 0 KB] g=9, 216 evaluated, 215 expanded, 39 reopened
+[t=375.281s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=375.281s, 0 KB] g=56, 403838 evaluated, 403837 expanded, 171793 reopened
+[t=375.281s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=375.281s, 0 KB] g=57, 403839 evaluated, 403838 expanded, 171793 reopened
+[t=811.312s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=811.312s, 0 KB] g=71, 2503907 evaluated, 2503906 expanded, 1083634 reopened
+[t=811.516s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=811.516s, 0 KB] g=75, 2504680 evaluated, 2504679 expanded, 1083836 reopened
+[t=811.531s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=811.531s, 0 KB] g=80, 2504738 evaluated, 2504737 expanded, 1083843 reopened
+[t=811.953s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=811.953s, 0 KB] g=84, 2506382 evaluated, 2506381 expanded, 1084276 reopened
+[t=811.953s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 5
+[t=811.953s, 0 KB] g=85, 2506383 evaluated, 2506382 expanded, 1084276 reopened
+[t=812.359s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=812.359s, 0 KB] g=89, 2507786 evaluated, 2507785 expanded, 1084622 reopened
+[t=812.359s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=812.359s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=812.359s, 0 KB] g=90, 2507787 evaluated, 2507786 expanded, 1084622 reopened
+[t=3190.69s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=3190.69s, 0 KB] g=90, 16689449 evaluated, 16689448 expanded, 8413086 reopened
+[t=3190.69s, 0 KB] Solution found!
+[t=3190.69s, 0 KB] Actual search time: 2898.36s
+move-count1-prev_th-type2-e th h2 h3 h4 v3 (1)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type3-e tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-s to1 h1 v2 v3 (1)
+move-count0-prev_to1-type1-s to1 h1 v1 v2 (0)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count0-prev_to3-type1-s to3 h1 v2 v3 (0)
+move-count1-prev_to3-type2-w th h2 h3 h4 v3 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v3 (0)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type3-e tv3 h2 h3 v1 v2 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type2-s th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-w to4 h2 h3 v3 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v3 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v3 (0)
+move-count1-prev_to2-type3-n tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v1 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v1 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v1 (0)
+move-count1-prev_to1-type2-s th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-s to2 h2 v2 v3 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v2 (0)
+move-count1-prev_to2-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type3-w tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type1-n to4 h1 v3 v4 (1)
+move-count0-prev_to4-type1-n to4 h1 v4 v5 (0)
+move-count1-prev_to4-type1-n to2 h1 v2 v3 (1)
+move-count0-prev_to2-type1-n to2 h1 v3 v4 (0)
+move-count1-prev_to2-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h2 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h2 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type3-e tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type1-n to1 h3 v1 v2 (1)
+move-count0-prev_to1-type1-n to1 h3 v2 v3 (0)
+move-count1-prev_to1-type1-w to3 h3 h4 v1 (1)
+move-count0-prev_to3-type1-n to3 h3 v1 v2 (0)
+move-count1-prev_to3-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h2 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-w to1 h2 h3 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v5 (1)
+move-count0-prev_to4-type1-e to4 h2 h3 v5 (0)
+move-count1-prev_to4-type1-n to2 h1 v4 v5 (1)
+move-count1-prev_to2-type1-n to1 h1 v3 v4 (1)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h2 h3 v5 (1)
+move-count0-prev_to4-type1-e to4 h2 h3 v5 (0)
+move-count1-prev_to4-type1-e to2 h1 h2 v5 (1)
+move-count1-prev_to2-type1-n to1 h1 v4 v5 (1)
+move-count1-prev_to1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v1 v2 (1)
+move-count1-prev_tv1-type1-w to3 h2 h3 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to4 h3 v4 v5 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v4 (0)
+move-count1-prev_to4-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-n to3 h2 v1 v2 (1)
+move-count1-prev_to3-type1-s to4 h2 v3 v4 (1)
+move-count1-prev_to4-type1-s to2 h2 v4 v5 (1)
+move-count1-prev_to2-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type3-n tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h2 h3 v3 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v3 (0)
+move-count1-prev_to4-type1-s to2 h2 v3 v4 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v3 (0)
+move-count1-prev_to2-type1-s to1 h2 v4 v5 (1)
+move-count0-prev_to1-type1-s to1 h2 v3 v4 (0)
+move-count1-prev_to1-type3-w tv2 h2 h3 v4 v5 (1)
+move-count1-prev_tv2-type3-w tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type1-n to4 h4 v3 v4 (1)
+move-count0-prev_to4-type1-n to4 h4 v4 v5 (0)
+move-count1-prev_to4-type1-e to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-n to2 h4 v3 v4 (0)
+move-count1-prev_to2-type4-n tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type1-s to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-s to1 h2 v1 v2 (0)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-s to2 h4 v2 v3 (0)
+move-count1-prev_to2-type1-s to4 h4 v4 v5 (1)
+move-count0-prev_to4-type1-s to4 h4 v3 v4 (0)
+move-count1-prev_to4-type3-e tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type3-e tv2 h2 h3 v4 v5 (1)
+move-count1-prev_tv2-type3-e tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v2 (1)
+move-count0-prev_to2-type1-n to2 h3 v2 v3 (0)
+move-count1-prev_to2-type2-n th h3 h4 v1 v2 (1)
+move-count1-prev_th-type1-e to1 h2 h3 v1 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v1 (0)
+move-count1-prev_to1-type1-e to3 h1 h2 v1 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v1 (0)
+move-count1-prev_to3-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-w to2 h2 h3 v3 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v3 (0)
+move-count1-prev_to2-type1-w to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v3 (0)
+move-count1-prev_to4-type2-n th h3 h4 v2 v3 (1)
+move-count1-prev_th-type1-n to3 h3 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v2 (0)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=3190.69s, 0 KB] Plan length: 136 step(s).
+[t=3190.69s, 0 KB] Plan cost: 91
+[t=3190.69s, 0 KB] Expanded 16689449 state(s).
+[t=3190.69s, 0 KB] Reopened 8413086 state(s).
+[t=3190.69s, 0 KB] Evaluated 16689450 state(s).
+[t=3190.69s, 0 KB] Evaluations: 24965814
+[t=3190.69s, 0 KB] Generated 60753056 state(s).
+[t=3190.69s, 0 KB] Dead ends: 0 state(s).
+[t=3190.69s, 0 KB] Number of registered states: 8276364
+[t=3190.69s, 0 KB] Int hash set load factor: 8276364/16777216 = 0.49331
+[t=3190.69s, 0 KB] Int hash set resizes: 24
+[t=3190.69s, 0 KB] Best solution cost so far: 91
+[t=3190.69s, 0 KB] Solution found - keep searching
+[t=3194.56s, 0 KB] Building successor generator...done!
+[t=3194.56s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=3194.56s, 0 KB] time for successor generation creation: 0s
+[t=3194.56s, 0 KB] Variables: 21
+[t=3194.56s, 0 KB] FactPairs: 231
+[t=3194.56s, 0 KB] Bytes per state: 12
+[t=3194.56s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 3)
+[t=3194.56s, 0 KB] Conducting lazy best first search, (real) bound = 91
+[t=3194.56s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=3194.56s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=3194.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=3194.56s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=3194.56s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=3194.56s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=3194.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=3194.56s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=3194.56s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=3194.56s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=3194.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=3194.56s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=3194.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=3194.56s, 0 KB] g=3, 9 evaluated, 8 expanded
+[t=3194.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=3194.56s, 0 KB] g=4, 10 evaluated, 9 expanded
+[t=3194.56s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=3194.56s, 0 KB] g=5, 14 evaluated, 13 expanded
+[t=3194.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 12
+[t=3194.8s, 0 KB] g=6, 861 evaluated, 860 expanded, 161 reopened
+[t=3194.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=3194.8s, 0 KB] g=7, 862 evaluated, 861 expanded, 161 reopened
+[t=3194.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=3194.8s, 0 KB] g=9, 871 evaluated, 870 expanded, 161 reopened
+[t=3296.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=3296.56s, 0 KB] g=53, 469094 evaluated, 469093 expanded, 184992 reopened
+[t=3296.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=3296.56s, 0 KB] g=54, 469096 evaluated, 469095 expanded, 184992 reopened
+[t=3818.33s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=3818.33s, 0 KB] g=50, 3082388 evaluated, 3082387 expanded, 1342631 reopened
+[t=3818.44s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=3818.44s, 0 KB] g=55, 3082838 evaluated, 3082837 expanded, 1342777 reopened
+[t=3848.59s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=3848.59s, 0 KB] g=74, 3259441 evaluated, 3259440 expanded, 1435853 reopened
+[t=3930.55s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=3930.55s, 0 KB] g=56, 3666658 evaluated, 3666657 expanded, 1615046 reopened
+[t=3931.3s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=3931.3s, 0 KB] g=61, 3670129 evaluated, 3670128 expanded, 1616255 reopened
+[t=3963.03s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=3963.03s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=3963.03s, 0 KB] g=74, 3850868 evaluated, 3850867 expanded, 1716731 reopened
+[t=7540.55s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=7540.55s, 0 KB] g=88, 23804502 evaluated, 23804501 expanded, 12003403 reopened
+[t=7540.55s, 0 KB] Solution found!
+[t=7540.56s, 0 KB] Actual search time: 4346s
+move-count1-prev_th-type2-e th h2 h3 h4 v3 (1)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type3-e tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-s to1 h1 v2 v3 (1)
+move-count0-prev_to1-type1-s to1 h1 v1 v2 (0)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count0-prev_to3-type1-s to3 h1 v2 v3 (0)
+move-count1-prev_to3-type2-w th h2 h3 h4 v3 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v3 (0)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type3-e tv3 h2 h3 v1 v2 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type2-s th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-w to4 h2 h3 v3 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v3 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v3 (0)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-n tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-e to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v1 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v1 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v1 (0)
+move-count1-prev_to1-type2-s th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-s to2 h2 v2 v3 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v2 (0)
+move-count1-prev_to2-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type3-w tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type1-n to4 h1 v3 v4 (1)
+move-count0-prev_to4-type1-n to4 h1 v4 v5 (0)
+move-count1-prev_to4-type1-n to2 h1 v2 v3 (1)
+move-count0-prev_to2-type1-n to2 h1 v3 v4 (0)
+move-count1-prev_to2-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h2 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h2 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type3-e tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type1-n to1 h3 v1 v2 (1)
+move-count0-prev_to1-type1-n to1 h3 v2 v3 (0)
+move-count1-prev_to1-type1-w to3 h3 h4 v1 (1)
+move-count0-prev_to3-type1-n to3 h3 v1 v2 (0)
+move-count1-prev_to3-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h2 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-w to1 h2 h3 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v5 (1)
+move-count0-prev_to4-type1-e to4 h2 h3 v5 (0)
+move-count1-prev_to4-type1-n to2 h1 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h1 h2 v5 (0)
+move-count1-prev_to2-type1-n to1 h1 v3 v4 (1)
+move-count0-prev_to1-type1-n to1 h1 v4 v5 (0)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v2 v3 v4 (0)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v1 v2 (1)
+move-count1-prev_tv1-type1-w to3 h2 h3 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to4 h3 v4 v5 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v4 (0)
+move-count1-prev_to4-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-n to3 h2 v1 v2 (1)
+move-count1-prev_to3-type1-s to4 h2 v3 v4 (1)
+move-count1-prev_to4-type1-s to2 h2 v4 v5 (1)
+move-count1-prev_to2-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type3-n tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to4 h2 h3 v3 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v3 (0)
+move-count1-prev_to4-type1-s to2 h2 v3 v4 (1)
+move-count0-prev_to2-type1-e to2 h2 h3 v3 (0)
+move-count1-prev_to2-type1-s to1 h2 v4 v5 (1)
+move-count0-prev_to1-type1-s to1 h2 v3 v4 (0)
+move-count1-prev_to1-type3-w tv2 h2 h3 v4 v5 (1)
+move-count1-prev_tv2-type3-w tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type1-n to4 h4 v3 v4 (1)
+move-count0-prev_to4-type1-n to4 h4 v4 v5 (0)
+move-count1-prev_to4-type1-e to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-n to2 h4 v3 v4 (0)
+move-count1-prev_to2-type4-n tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type1-s to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type1-s to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-s to1 h2 v1 v2 (0)
+move-count1-prev_to1-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-s to2 h4 v2 v3 (0)
+move-count1-prev_to2-type1-s to4 h4 v4 v5 (1)
+move-count0-prev_to4-type1-s to4 h4 v3 v4 (0)
+move-count1-prev_to4-type3-e tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type3-e tv2 h2 h3 v4 v5 (1)
+move-count1-prev_tv2-type3-e tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-w to2 h3 h4 v2 (1)
+move-count0-prev_to2-type1-n to2 h3 v2 v3 (0)
+move-count1-prev_to2-type2-n th h3 h4 v1 v2 (1)
+move-count1-prev_th-type1-e to1 h2 h3 v1 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v1 (0)
+move-count1-prev_to1-type1-e to3 h1 h2 v1 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v1 (0)
+move-count1-prev_to3-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-w to4 h3 h4 v3 (1)
+move-count1-prev_to4-type1-w to2 h1 h2 v3 (1)
+move-count1-prev_to2-type1-w to4 h2 h3 v3 (1)
+move-count1-prev_to4-type2-n th h3 h4 v2 v3 (1)
+move-count1-prev_th-type1-n to3 h3 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v2 (0)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=7540.56s, 0 KB] Plan length: 134 step(s).
+[t=7540.56s, 0 KB] Plan cost: 89
+[t=7540.56s, 0 KB] Expanded 23804502 state(s).
+[t=7540.56s, 0 KB] Reopened 12003403 state(s).
+[t=7540.56s, 0 KB] Evaluated 23804503 state(s).
+[t=7540.56s, 0 KB] Evaluations: 35605603
+[t=7540.56s, 0 KB] Generated 86173283 state(s).
+[t=7540.56s, 0 KB] Dead ends: 0 state(s).
+[t=7540.56s, 0 KB] Number of registered states: 11801100
+[t=7540.56s, 0 KB] Int hash set load factor: 11801100/16777216 = 0.7034
+[t=7540.56s, 0 KB] Int hash set resizes: 24
+[t=7540.56s, 0 KB] Best solution cost so far: 89
+[t=7540.56s, 0 KB] Solution found - keep searching
+[t=7568.55s, 0 KB] Building successor generator...done!
+[t=7568.55s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=7568.55s, 0 KB] time for successor generation creation: 0s
+[t=7568.55s, 0 KB] Variables: 21
+[t=7568.55s, 0 KB] FactPairs: 231
+[t=7568.55s, 0 KB] Bytes per state: 12
+[t=7568.55s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 2)
+[t=7568.55s, 0 KB] Conducting lazy best first search, (real) bound = 89
+[t=7568.55s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=7568.56s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=7568.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=7568.56s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=7568.56s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=7568.56s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=7568.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=7568.56s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=7568.56s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=7568.56s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=7568.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=7568.56s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=7568.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=7568.56s, 0 KB] g=3, 9 evaluated, 8 expanded
+[t=7568.56s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=7568.56s, 0 KB] g=4, 10 evaluated, 9 expanded
+[t=7568.56s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=7568.56s, 0 KB] g=5, 14 evaluated, 13 expanded
+[t=7568.75s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 12
+[t=7568.75s, 0 KB] g=6, 503 evaluated, 502 expanded, 62 reopened
+[t=7568.75s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=7568.75s, 0 KB] g=7, 504 evaluated, 503 expanded, 62 reopened
+[t=7568.75s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=7568.75s, 0 KB] g=9, 513 evaluated, 512 expanded, 62 reopened
+[t=7691.41s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=7691.41s, 0 KB] g=47, 540034 evaluated, 540033 expanded, 201192 reopened
+[t=7691.41s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=7691.41s, 0 KB] g=48, 540035 evaluated, 540034 expanded, 201192 reopened
+[t=8375.36s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=8375.36s, 0 KB] g=58, 3970044 evaluated, 3970043 expanded, 1724761 reopened
+[t=8375.5s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=8375.5s, 0 KB] g=60, 3970611 evaluated, 3970610 expanded, 1724929 reopened
+[t=8375.52s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=8375.52s, 0 KB] g=64, 3970681 evaluated, 3970680 expanded, 1724936 reopened
+[t=8587.17s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=8587.17s, 0 KB] g=67, 5095844 evaluated, 5095843 expanded, 2266146 reopened
+[t=8587.17s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 5
+[t=8587.17s, 0 KB] g=68, 5095845 evaluated, 5095844 expanded, 2266146 reopened
+[t=8591.23s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=8591.23s, 0 KB] g=61, 5117740 evaluated, 5117739 expanded, 2276644 reopened
+[t=8755.17s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 3
+[t=8755.17s, 0 KB] g=74, 5980049 evaluated, 5980048 expanded, 2684728 reopened
+[t=8855.33s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=8855.33s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=8855.33s, 0 KB] g=73, 6410372 evaluated, 6410371 expanded, 2835260 reopened
+[t=14597.5s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=14597.5s, 0 KB] g=82, 38553530 evaluated, 38553529 expanded, 19250000 reopened
+[t=14597.5s, 0 KB] Solution found!
+[t=14597.5s, 0 KB] Actual search time: 7029s
+move-count1-prev_th-type2-e th h2 h3 h4 v3 (1)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type3-e tv3 h1 h2 v1 v2 (1)
+move-count1-prev_tv3-type1-s to1 h1 v2 v3 (1)
+move-count0-prev_to1-type1-s to1 h1 v1 v2 (0)
+move-count1-prev_to1-type1-w to3 h1 h2 v3 (1)
+move-count0-prev_to3-type1-s to3 h1 v2 v3 (0)
+move-count1-prev_to3-type2-w th h2 h3 h4 v3 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v3 (0)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type3-e tv3 h2 h3 v1 v2 (1)
+move-count1-prev_tv3-type1-e to3 h1 h2 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type2-s th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-w to4 h2 h3 v3 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v3 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v3 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v3 (0)
+move-count1-prev_to2-type3-n tv3 h3 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-n tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type1-e to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v1 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v1 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v1 (0)
+move-count1-prev_to1-type2-s th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-s to2 h2 v2 v3 (1)
+move-count0-prev_to2-type1-w to2 h1 h2 v2 (0)
+move-count1-prev_to2-type3-w tv3 h2 h3 v2 v3 (1)
+move-count1-prev_tv3-type3-w tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h4 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h4 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type1-n to4 h1 v3 v4 (1)
+move-count0-prev_to4-type1-n to4 h1 v4 v5 (0)
+move-count1-prev_to4-type1-n to2 h1 v2 v3 (1)
+move-count0-prev_to2-type1-n to2 h1 v3 v4 (0)
+move-count1-prev_to2-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h2 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h2 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h2 h3 h4 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type3-e tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type1-n to1 h3 v1 v2 (1)
+move-count0-prev_to1-type1-n to1 h3 v2 v3 (0)
+move-count1-prev_to1-type1-w to3 h3 h4 v1 (1)
+move-count0-prev_to3-type1-n to3 h3 v1 v2 (0)
+move-count1-prev_to3-type2-e th h1 h2 h3 v1 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v1 (0)
+move-count1-prev_th-type3-s tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h2 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-w to1 h2 h3 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-e to4 h1 h2 v5 (1)
+move-count0-prev_to4-type1-e to4 h2 h3 v5 (0)
+move-count1-prev_to4-type1-n to2 h1 v4 v5 (1)
+move-count0-prev_to2-type1-e to2 h1 h2 v5 (0)
+move-count1-prev_to2-type1-n to1 h1 v3 v4 (1)
+move-count0-prev_to1-type1-n to1 h1 v4 v5 (0)
+move-count1-prev_to1-type3-n tv3 h1 v1 v2 v3 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v2 v3 v4 (0)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v1 v2 (1)
+move-count1-prev_tv1-type1-w to3 h2 h3 v2 (1)
+move-count0-prev_to3-type1-s to3 h2 v1 v2 (0)
+move-count1-prev_to3-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to4 h3 v4 v5 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v4 (0)
+move-count1-prev_to4-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to4 h2 v3 v4 (1)
+move-count1-prev_to4-type1-s to2 h2 v4 v5 (1)
+move-count1-prev_to2-type1-e to1 h1 h2 v5 (1)
+move-count1-prev_to1-type3-n tv3 h1 v3 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v1 v2 v3 (1)
+move-count1-prev_tv1-type1-w to3 h1 h2 v1 (1)
+move-count1-prev_to3-type1-s to4 h2 v2 v3 (1)
+move-count0-prev_to4-type1-s to4 h2 v1 v2 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv4 h4 v3 v4 v5 (1)
+move-count0-prev_tv4-type3-s tv4 h4 v2 v3 v4 (0)
+move-count1-prev_tv4-type3-e tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type1-e to2 h2 h3 v4 (1)
+move-count1-prev_to2-type1-e to1 h2 h3 v5 (1)
+move-count1-prev_to1-type3-e tv3 h1 h2 v4 v5 (1)
+move-count1-prev_tv3-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to2 h3 v3 v4 (1)
+move-count1-prev_to2-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-s to2 h3 v2 v3 (1)
+move-count1-prev_to2-type1-s to1 h3 v3 v4 (1)
+move-count1-prev_to1-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type3-n tv4 h4 v2 v3 v4 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v3 v4 v5 (0)
+move-count1-prev_tv4-type1-e to2 h3 h4 v2 (1)
+move-count0-prev_to2-type1-n to2 h4 v2 v3 (0)
+move-count1-prev_to2-type2-n th h3 h4 v1 v2 (1)
+move-count1-prev_th-type1-e to4 h2 h3 v1 (1)
+move-count0-prev_to4-type1-e to4 h3 h4 v1 (0)
+move-count1-prev_to4-type1-e to3 h1 h2 v1 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v1 (0)
+move-count1-prev_to3-type4-s tsq h1 h2 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-w to1 h2 h3 v3 (1)
+move-count1-prev_to1-type1-w to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-w to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-w to2 h2 h3 v3 (1)
+move-count1-prev_to2-type2-n th h3 h4 v2 v3 (1)
+move-count1-prev_th-type1-n to3 h3 v1 v2 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v2 (0)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v1 v2 (1)
+[t=14597.5s, 0 KB] Plan length: 120 step(s).
+[t=14597.5s, 0 KB] Plan cost: 83
+[t=14597.5s, 0 KB] Expanded 38553530 state(s).
+[t=14597.5s, 0 KB] Reopened 19250000 state(s).
+[t=14597.5s, 0 KB] Evaluated 38553531 state(s).
+[t=14597.5s, 0 KB] Evaluations: 57857062
+[t=14597.5s, 0 KB] Generated 138817557 state(s).
+[t=14597.5s, 0 KB] Dead ends: 0 state(s).
+[t=14597.5s, 0 KB] Number of registered states: 19303531
+[t=14597.5s, 0 KB] Int hash set load factor: 19303531/33554432 = 0.57529
+[t=14597.5s, 0 KB] Int hash set resizes: 25
+[t=14597.5s, 0 KB] Best solution cost so far: 83
+[t=14597.5s, 0 KB] Solution found - keep searching
+[t=14635.9s, 0 KB] Building successor generator...done!
+[t=14635.9s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=14635.9s, 0 KB] time for successor generation creation: 0s
+[t=14635.9s, 0 KB] Variables: 21
+[t=14635.9s, 0 KB] FactPairs: 231
+[t=14635.9s, 0 KB] Bytes per state: 12
+[t=14635.9s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=14635.9s, 0 KB] Conducting lazy best first search, (real) bound = 83
+[t=14635.9s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=14635.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=14635.9s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=14635.9s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=14635.9s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=14635.9s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=14635.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=14635.9s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=14635.9s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 17
+[t=14635.9s, 0 KB] g=2, 10 evaluated, 9 expanded
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=14635.9s, 0 KB] g=3, 14 evaluated, 13 expanded
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=14635.9s, 0 KB] g=4, 15 evaluated, 14 expanded
+[t=14635.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=14635.9s, 0 KB] g=5, 23 evaluated, 22 expanded
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=14635.9s, 0 KB] g=5, 170 evaluated, 169 expanded, 8 reopened
+[t=14635.9s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=14635.9s, 0 KB] g=8, 203 evaluated, 202 expanded, 9 reopened
+[t=14745.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=14745.4s, 0 KB] g=44, 454619 evaluated, 454618 expanded, 147762 reopened
+[t=14745.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=14745.4s, 0 KB] g=45, 454621 evaluated, 454620 expanded, 147762 reopened
+[t=15213.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=15213.8s, 0 KB] g=50, 2578029 evaluated, 2578028 expanded, 970950 reopened
+[t=15214s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=15214s, 0 KB] g=55, 2578487 evaluated, 2578486 expanded, 971003 reopened
+[t=15671.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=15671.8s, 0 KB] g=62, 4660649 evaluated, 4660648 expanded, 1776202 reopened
+[t=15826.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=15826.8s, 0 KB] g=54, 5363652 evaluated, 5363651 expanded, 2046475 reopened
+[t=15888s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=15888s, 0 KB] g=57, 5641502 evaluated, 5641501 expanded, 2151544 reopened
+[t=17072.2s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=17072.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=17072.2s, 0 KB] g=67, 11127839 evaluated, 11127838 expanded, 4332228 reopened
+[t=23143.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=23143.2s, 0 KB] g=82, 45006702 evaluated, 45006701 expanded, 20798381 reopened
+[t=23396.5s, 0 KB] Solution found!
+[t=23396.5s, 0 KB] Actual search time: 8760.64s
+move-count1-prev_th-type2-w th h1 h2 h3 v3 (1)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type3-w tv4 h3 h4 v1 v2 (1)
+move-count1-prev_tv4-type1-s to2 h4 v2 v3 (1)
+move-count0-prev_to2-type1-s to2 h4 v1 v2 (0)
+move-count1-prev_to2-type1-e to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-s to4 h4 v2 v3 (0)
+move-count1-prev_to4-type2-e th h1 h2 h3 v3 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v3 (0)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type3-w tv4 h2 h3 v1 v2 (1)
+move-count1-prev_tv4-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-s to4 h3 v1 v2 (0)
+move-count1-prev_to4-type2-s th h3 h4 v2 v3 (1)
+move-count1-prev_th-type1-e to3 h2 h3 v3 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v3 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v3 (0)
+move-count1-prev_to1-type3-n tv4 h2 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h2 h3 v1 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v1 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v1 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v1 (0)
+move-count1-prev_to2-type2-s th h3 h4 v1 v2 (1)
+move-count1-prev_th-type1-s to1 h3 v2 v3 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v2 (0)
+move-count1-prev_to1-type3-e tv4 h2 h3 v2 v3 (1)
+move-count1-prev_tv4-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type1-n to3 h4 v3 v4 (1)
+move-count0-prev_to3-type1-n to3 h4 v4 v5 (0)
+move-count1-prev_to3-type1-n to1 h4 v2 v3 (1)
+move-count0-prev_to1-type1-n to1 h4 v3 v4 (0)
+move-count1-prev_to1-type3-e tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h3 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h3 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to2 h2 v1 v2 (1)
+move-count0-prev_to2-type1-n to2 h2 v2 v3 (0)
+move-count1-prev_to2-type1-e to4 h1 h2 v1 (1)
+move-count0-prev_to4-type1-n to4 h2 v1 v2 (0)
+move-count1-prev_to4-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h3 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to2 h2 h3 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to3 h3 h4 v5 (1)
+move-count0-prev_to3-type1-w to3 h2 h3 v5 (0)
+move-count1-prev_to3-type1-n to1 h4 v4 v5 (1)
+move-count0-prev_to1-type1-w to1 h3 h4 v5 (0)
+move-count1-prev_to1-type1-n to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-n to2 h4 v4 v5 (0)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v2 v3 v4 (0)
+move-count1-prev_tv4-type3-e tv2 h3 h4 v1 v2 (1)
+move-count1-prev_tv2-type1-e to4 h2 h3 v2 (1)
+move-count0-prev_to4-type1-s to4 h3 v1 v2 (0)
+move-count1-prev_to4-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to3 h2 v4 v5 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v4 (0)
+move-count1-prev_to3-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type3-n tv4 h4 v3 v4 v5 (1)
+move-count1-prev_tv4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-s to3 h3 v2 v3 (1)
+move-count0-prev_to3-type1-s to3 h3 v1 v2 (0)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv3 h1 v3 v4 v5 (1)
+move-count0-prev_tv3-type3-s tv3 h1 v2 v3 v4 (0)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type1-w to1 h2 h3 v4 (1)
+move-count1-prev_to1-type3-w tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to1 h2 v3 v4 (1)
+move-count0-prev_to1-type1-s to1 h2 v2 v3 (0)
+move-count1-prev_to1-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h2 v3 v4 (0)
+move-count1-prev_to2-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type1-w to1 h1 h2 v2 (1)
+move-count0-prev_to1-type1-n to1 h1 v2 v3 (0)
+move-count1-prev_to1-type2-n th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-w to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type1-w to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v1 (0)
+move-count1-prev_to4-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to2 h2 h3 v3 (1)
+move-count1-prev_to2-type1-e to1 h1 h2 v3 (1)
+move-count1-prev_to1-type1-e to2 h3 h4 v3 (1)
+move-count1-prev_to2-type1-e to1 h2 h3 v3 (1)
+move-count1-prev_to1-type2-n th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-n to4 h2 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v2 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=23396.5s, 0 KB] Plan length: 120 step(s).
+[t=23396.5s, 0 KB] Plan cost: 81
+[t=23396.5s, 0 KB] Expanded 47132255 state(s).
+[t=23396.5s, 0 KB] Reopened 22107676 state(s).
+[t=23396.5s, 0 KB] Evaluated 47132256 state(s).
+[t=23396.5s, 0 KB] Evaluations: 72156836
+[t=23396.5s, 0 KB] Generated 168310214 state(s).
+[t=23396.5s, 0 KB] Dead ends: 0 state(s).
+[t=23396.5s, 0 KB] Number of registered states: 25024580
+[t=23396.5s, 0 KB] Int hash set load factor: 25024580/33554432 = 0.745791
+[t=23396.5s, 0 KB] Int hash set resizes: 25
+[t=23396.5s, 0 KB] Best solution cost so far: 81
+[t=23396.5s, 0 KB] Solution found - keep searching
+[t=23397.1s, 0 KB] Building successor generator...done!
+[t=23397.1s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=23397.1s, 0 KB] time for successor generation creation: 0s
+[t=23397.1s, 0 KB] Variables: 21
+[t=23397.1s, 0 KB] FactPairs: 231
+[t=23397.1s, 0 KB] Bytes per state: 12
+[t=23397.1s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=23397.1s, 0 KB] Conducting lazy best first search, (real) bound = 81
+[t=23397.1s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=23397.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=23397.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=23397.1s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=23397.1s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=23397.1s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=23397.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=23397.1s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=23397.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=23397.1s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=23397.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=23397.1s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=23397.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 17
+[t=23397.1s, 0 KB] g=2, 10 evaluated, 9 expanded
+[t=23397.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=23397.1s, 0 KB] g=3, 14 evaluated, 13 expanded
+[t=23397.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=23397.1s, 0 KB] g=4, 15 evaluated, 14 expanded
+[t=23397.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=23397.1s, 0 KB] g=5, 23 evaluated, 22 expanded
+[t=23397.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=23397.2s, 0 KB] g=5, 170 evaluated, 169 expanded, 8 reopened
+[t=23397.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=23397.2s, 0 KB] g=8, 203 evaluated, 202 expanded, 9 reopened
+[t=23502.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=23502.6s, 0 KB] g=44, 454619 evaluated, 454618 expanded, 147762 reopened
+[t=23502.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=23502.6s, 0 KB] g=45, 454621 evaluated, 454620 expanded, 147762 reopened
+[t=23950.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=23950.9s, 0 KB] g=50, 2578029 evaluated, 2578028 expanded, 970950 reopened
+[t=23951s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=23951s, 0 KB] g=55, 2578487 evaluated, 2578486 expanded, 971003 reopened
+[t=24391.6s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=24391.6s, 0 KB] g=62, 4660649 evaluated, 4660648 expanded, 1776202 reopened
+[t=24541.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=24541.1s, 0 KB] g=54, 5363652 evaluated, 5363651 expanded, 2046475 reopened
+[t=24600.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=24600.4s, 0 KB] g=57, 5641502 evaluated, 5641501 expanded, 2151544 reopened
+[t=25747.6s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=25747.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=25747.6s, 0 KB] g=67, 11127839 evaluated, 11127838 expanded, 4332228 reopened
+[t=31717.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=31717.6s, 0 KB] g=80, 46554133 evaluated, 46554132 expanded, 21978449 reopened
+[t=31717.6s, 0 KB] Solution found!
+[t=31717.6s, 0 KB] Actual search time: 8320.45s
+move-count1-prev_th-type2-w th h1 h2 h3 v3 (1)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type3-w tv4 h3 h4 v1 v2 (1)
+move-count1-prev_tv4-type1-s to2 h4 v2 v3 (1)
+move-count0-prev_to2-type1-s to2 h4 v1 v2 (0)
+move-count1-prev_to2-type1-e to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-s to4 h4 v2 v3 (0)
+move-count1-prev_to4-type2-e th h1 h2 h3 v3 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v3 (0)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type3-w tv4 h2 h3 v1 v2 (1)
+move-count1-prev_tv4-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-s to4 h3 v1 v2 (0)
+move-count1-prev_to4-type2-s th h3 h4 v2 v3 (1)
+move-count1-prev_th-type1-e to3 h2 h3 v3 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v3 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v3 (0)
+move-count1-prev_to1-type3-n tv4 h2 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h2 h3 v1 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v1 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v1 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v1 (0)
+move-count1-prev_to2-type2-s th h3 h4 v1 v2 (1)
+move-count1-prev_th-type1-s to1 h3 v2 v3 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v2 (0)
+move-count1-prev_to1-type3-e tv4 h2 h3 v2 v3 (1)
+move-count1-prev_tv4-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type1-n to3 h4 v3 v4 (1)
+move-count0-prev_to3-type1-n to3 h4 v4 v5 (0)
+move-count1-prev_to3-type1-n to1 h4 v2 v3 (1)
+move-count0-prev_to1-type1-n to1 h4 v3 v4 (0)
+move-count1-prev_to1-type3-e tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h3 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h3 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to2 h2 v1 v2 (1)
+move-count0-prev_to2-type1-n to2 h2 v2 v3 (0)
+move-count1-prev_to2-type1-e to4 h1 h2 v1 (1)
+move-count0-prev_to4-type1-n to4 h2 v1 v2 (0)
+move-count1-prev_to4-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h3 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to2 h2 h3 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to3 h3 h4 v5 (1)
+move-count0-prev_to3-type1-w to3 h2 h3 v5 (0)
+move-count1-prev_to3-type1-n to1 h4 v4 v5 (1)
+move-count0-prev_to1-type1-w to1 h3 h4 v5 (0)
+move-count1-prev_to1-type1-n to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-n to2 h4 v4 v5 (0)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v2 v3 v4 (0)
+move-count1-prev_tv4-type3-e tv2 h3 h4 v1 v2 (1)
+move-count1-prev_tv2-type1-e to4 h2 h3 v2 (1)
+move-count0-prev_to4-type1-s to4 h3 v1 v2 (0)
+move-count1-prev_to4-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to3 h2 v4 v5 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v4 (0)
+move-count1-prev_to3-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type3-n tv4 h4 v3 v4 v5 (1)
+move-count1-prev_tv4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-s to3 h3 v2 v3 (1)
+move-count0-prev_to3-type1-s to3 h3 v1 v2 (0)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv3 h1 v3 v4 v5 (1)
+move-count0-prev_tv3-type3-s tv3 h1 v2 v3 v4 (0)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type1-w to1 h2 h3 v4 (1)
+move-count1-prev_to1-type3-w tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to1 h2 v3 v4 (1)
+move-count0-prev_to1-type1-s to1 h2 v2 v3 (0)
+move-count1-prev_to1-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h2 v3 v4 (0)
+move-count1-prev_to2-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type1-w to1 h1 h2 v2 (1)
+move-count0-prev_to1-type1-n to1 h1 v2 v3 (0)
+move-count1-prev_to1-type2-n th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-w to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type1-w to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v1 (0)
+move-count1-prev_to4-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to2 h2 h3 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type3-s tv4 h3 v3 v4 v5 (1)
+move-count0-prev_tv4-type3-n tv4 h3 v3 v4 v5 (0)
+move-count1-prev_tv4-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v3 (0)
+move-count1-prev_to1-type2-n th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-n to4 h2 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v2 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=31717.6s, 0 KB] Plan length: 122 step(s).
+[t=31717.6s, 0 KB] Plan cost: 80
+[t=31717.6s, 0 KB] Expanded 46554317 state(s).
+[t=31717.6s, 0 KB] Reopened 21978554 state(s).
+[t=31717.6s, 0 KB] Evaluated 46554318 state(s).
+[t=31717.6s, 0 KB] Evaluations: 71130082
+[t=31717.6s, 0 KB] Generated 166237816 state(s).
+[t=31717.6s, 0 KB] Dead ends: 0 state(s).
+[t=31717.6s, 0 KB] Number of registered states: 24575764
+[t=31717.6s, 0 KB] Int hash set load factor: 24575764/33554432 = 0.732415
+[t=31717.6s, 0 KB] Int hash set resizes: 25
+[t=31717.6s, 0 KB] Best solution cost so far: 80
+[t=31717.6s, 0 KB] Solution found - keep searching
+[t=31718.1s, 0 KB] Building successor generator...done!
+[t=31718.1s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=31718.1s, 0 KB] time for successor generation creation: 0s
+[t=31718.1s, 0 KB] Variables: 21
+[t=31718.1s, 0 KB] FactPairs: 231
+[t=31718.1s, 0 KB] Bytes per state: 12
+[t=31718.1s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=31718.1s, 0 KB] Conducting lazy best first search, (real) bound = 80
+[t=31718.1s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=31718.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=31718.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=31718.1s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=31718.1s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=31718.1s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=31718.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=31718.1s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=31718.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=31718.1s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=31718.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=31718.1s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=31718.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 17
+[t=31718.1s, 0 KB] g=2, 10 evaluated, 9 expanded
+[t=31718.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=31718.1s, 0 KB] g=3, 14 evaluated, 13 expanded
+[t=31718.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=31718.1s, 0 KB] g=4, 15 evaluated, 14 expanded
+[t=31718.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=31718.1s, 0 KB] g=5, 23 evaluated, 22 expanded
+[t=31718.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=31718.2s, 0 KB] g=5, 170 evaluated, 169 expanded, 8 reopened
+[t=31718.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=31718.2s, 0 KB] g=8, 203 evaluated, 202 expanded, 9 reopened
+[t=31824.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=31824.4s, 0 KB] g=44, 454619 evaluated, 454618 expanded, 147762 reopened
+[t=31824.4s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=31824.4s, 0 KB] g=45, 454621 evaluated, 454620 expanded, 147762 reopened
+[t=32273.9s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=32273.9s, 0 KB] g=50, 2578029 evaluated, 2578028 expanded, 970950 reopened
+[t=32274s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=32274s, 0 KB] g=55, 2578487 evaluated, 2578486 expanded, 971003 reopened
+[t=32716s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=32716s, 0 KB] g=62, 4660649 evaluated, 4660648 expanded, 1776202 reopened
+[t=32865.5s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=32865.5s, 0 KB] g=54, 5363652 evaluated, 5363651 expanded, 2046475 reopened
+[t=32924.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=32924.8s, 0 KB] g=57, 5641502 evaluated, 5641501 expanded, 2151544 reopened
+[t=34068.6s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=34068.6s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=34068.6s, 0 KB] g=67, 11127839 evaluated, 11127838 expanded, 4332228 reopened
+[t=39936.2s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=39936.2s, 0 KB] g=79, 46128144 evaluated, 46128143 expanded, 21850767 reopened
+[t=39936.2s, 0 KB] Solution found!
+[t=39936.2s, 0 KB] Actual search time: 8218.11s
+move-count1-prev_th-type2-w th h1 h2 h3 v3 (1)
+move-count1-prev_th-type1-n to2 h3 v2 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-n to4 h3 v1 v2 (1)
+move-count0-prev_to4-type1-n to4 h3 v2 v3 (0)
+move-count1-prev_to4-type3-w tv4 h3 h4 v1 v2 (1)
+move-count1-prev_tv4-type1-s to2 h4 v2 v3 (1)
+move-count0-prev_to2-type1-s to2 h4 v1 v2 (0)
+move-count1-prev_to2-type1-e to4 h3 h4 v3 (1)
+move-count0-prev_to4-type1-s to4 h4 v2 v3 (0)
+move-count1-prev_to4-type2-e th h1 h2 h3 v3 (1)
+move-count0-prev_th-type2-e th h2 h3 h4 v3 (0)
+move-count1-prev_th-type1-n to1 h2 v2 v3 (1)
+move-count0-prev_to1-type1-w to1 h1 h2 v3 (0)
+move-count1-prev_to1-type1-n to3 h2 v1 v2 (1)
+move-count0-prev_to3-type1-n to3 h2 v2 v3 (0)
+move-count1-prev_to3-type3-w tv4 h2 h3 v1 v2 (1)
+move-count1-prev_tv4-type1-w to4 h3 h4 v2 (1)
+move-count0-prev_to4-type1-s to4 h3 v1 v2 (0)
+move-count1-prev_to4-type2-s th h3 h4 v2 v3 (1)
+move-count1-prev_th-type1-e to3 h2 h3 v3 (1)
+move-count0-prev_to3-type1-e to3 h3 h4 v3 (0)
+move-count1-prev_to3-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v3 (0)
+move-count1-prev_to1-type3-n tv4 h2 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-n tv3 h1 v1 v2 v3 (1)
+move-count1-prev_tv3-type1-w to4 h2 h3 v1 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v1 (0)
+move-count1-prev_to4-type1-w to2 h3 h4 v1 (1)
+move-count0-prev_to2-type1-w to2 h2 h3 v1 (0)
+move-count1-prev_to2-type2-s th h3 h4 v1 v2 (1)
+move-count1-prev_th-type1-s to1 h3 v2 v3 (1)
+move-count0-prev_to1-type1-e to1 h3 h4 v2 (0)
+move-count1-prev_to1-type3-e tv4 h2 h3 v2 v3 (1)
+move-count1-prev_tv4-type3-e tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type3-s tv1 h1 v3 v4 v5 (1)
+move-count0-prev_tv1-type3-s tv1 h1 v2 v3 v4 (0)
+move-count1-prev_tv1-type4-w tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-w tv2 h3 h4 v4 v5 (1)
+move-count1-prev_tv2-type1-n to3 h4 v3 v4 (1)
+move-count0-prev_to3-type1-n to3 h4 v4 v5 (0)
+move-count1-prev_to3-type1-n to1 h4 v2 v3 (1)
+move-count0-prev_to1-type1-n to1 h4 v3 v4 (0)
+move-count1-prev_to1-type3-e tv4 h3 h4 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h3 v3 v4 v5 (1)
+move-count0-prev_tv2-type3-s tv2 h3 v2 v3 v4 (0)
+move-count1-prev_tv2-type4-e tsq h1 h2 h3 v4 v5 (1)
+move-count1-prev_tsq-type3-n tv1 h1 v2 v3 v4 (1)
+move-count0-prev_tv1-type3-n tv1 h1 v3 v4 v5 (0)
+move-count1-prev_tv1-type3-w tv3 h1 h2 v2 v3 (1)
+move-count1-prev_tv3-type1-n to2 h2 v1 v2 (1)
+move-count0-prev_to2-type1-n to2 h2 v2 v3 (0)
+move-count1-prev_to2-type1-e to4 h1 h2 v1 (1)
+move-count0-prev_to4-type1-n to4 h2 v1 v2 (0)
+move-count1-prev_to4-type2-w th h2 h3 h4 v1 (1)
+move-count0-prev_th-type2-w th h1 h2 h3 v1 (0)
+move-count1-prev_th-type3-s tv4 h4 v1 v2 v3 (1)
+move-count1-prev_tv4-type3-s tv2 h3 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to2 h2 h3 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type4-s tsq h2 h3 v3 v4 v5 (1)
+move-count1-prev_tsq-type1-w to3 h3 h4 v5 (1)
+move-count0-prev_to3-type1-w to3 h2 h3 v5 (0)
+move-count1-prev_to3-type1-n to1 h4 v4 v5 (1)
+move-count0-prev_to1-type1-w to1 h3 h4 v5 (0)
+move-count1-prev_to1-type1-n to2 h4 v3 v4 (1)
+move-count0-prev_to2-type1-n to2 h4 v4 v5 (0)
+move-count1-prev_to2-type3-n tv4 h4 v1 v2 v3 (1)
+move-count0-prev_tv4-type3-n tv4 h4 v2 v3 v4 (0)
+move-count1-prev_tv4-type3-e tv2 h3 h4 v1 v2 (1)
+move-count1-prev_tv2-type1-e to4 h2 h3 v2 (1)
+move-count0-prev_to4-type1-s to4 h3 v1 v2 (0)
+move-count1-prev_to4-type4-s tsq h2 h3 v2 v3 v4 (1)
+move-count1-prev_tsq-type1-s to3 h2 v4 v5 (1)
+move-count0-prev_to3-type1-e to3 h2 h3 v4 (0)
+move-count1-prev_to3-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type4-w tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type1-s to3 h3 v3 v4 (1)
+move-count1-prev_to3-type1-s to1 h3 v4 v5 (1)
+move-count1-prev_to1-type1-w to2 h3 h4 v5 (1)
+move-count1-prev_to2-type3-n tv4 h4 v3 v4 v5 (1)
+move-count1-prev_tv4-type3-n tv2 h4 v1 v2 v3 (1)
+move-count1-prev_tv2-type1-e to4 h3 h4 v1 (1)
+move-count1-prev_to4-type1-s to3 h3 v2 v3 (1)
+move-count0-prev_to3-type1-s to3 h3 v1 v2 (0)
+move-count1-prev_to3-type4-e tsq h1 h2 h3 v2 v3 (1)
+move-count1-prev_tsq-type3-s tv3 h1 v3 v4 v5 (1)
+move-count0-prev_tv3-type3-s tv3 h1 v2 v3 v4 (0)
+move-count1-prev_tv3-type3-w tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type1-w to2 h2 h3 v5 (1)
+move-count1-prev_to2-type1-w to1 h2 h3 v4 (1)
+move-count1-prev_to1-type3-w tv4 h3 h4 v4 v5 (1)
+move-count1-prev_tv4-type3-n tv2 h4 v2 v3 v4 (1)
+move-count0-prev_tv2-type3-n tv2 h4 v3 v4 v5 (0)
+move-count1-prev_tv2-type4-e tsq h2 h3 h4 v2 v3 (1)
+move-count1-prev_tsq-type1-s to1 h2 v3 v4 (1)
+move-count0-prev_to1-type1-s to1 h2 v2 v3 (0)
+move-count1-prev_to1-type1-s to2 h2 v4 v5 (1)
+move-count0-prev_to2-type1-s to2 h2 v3 v4 (0)
+move-count1-prev_to2-type3-e tv1 h1 h2 v4 v5 (1)
+move-count1-prev_tv1-type3-n tv3 h1 v2 v3 v4 (1)
+move-count0-prev_tv3-type3-n tv3 h1 v3 v4 v5 (0)
+move-count1-prev_tv3-type1-w to1 h1 h2 v2 (1)
+move-count0-prev_to1-type1-n to1 h1 v2 v3 (0)
+move-count1-prev_to1-type2-n th h1 h2 v1 v2 (1)
+move-count1-prev_th-type1-w to3 h2 h3 v1 (1)
+move-count0-prev_to3-type1-w to3 h1 h2 v1 (0)
+move-count1-prev_to3-type1-w to4 h3 h4 v1 (1)
+move-count0-prev_to4-type1-w to4 h2 h3 v1 (0)
+move-count1-prev_to4-type4-s tsq h3 h4 v1 v2 v3 (1)
+move-count1-prev_tsq-type1-e to2 h2 h3 v3 (1)
+move-count0-prev_to2-type1-e to2 h3 h4 v3 (0)
+move-count1-prev_to2-type1-e to1 h1 h2 v3 (1)
+move-count0-prev_to1-type1-e to1 h2 h3 v3 (0)
+move-count1-prev_to1-type2-n th h1 h2 v2 v3 (1)
+move-count1-prev_th-type1-n to4 h2 v1 v2 (1)
+move-count0-prev_to4-type1-w to4 h1 h2 v2 (0)
+move-count1-prev_to4-type4-w tsq h2 h3 h4 v1 v2 (1)
+[t=39936.2s, 0 KB] Plan length: 120 step(s).
+[t=39936.2s, 0 KB] Plan cost: 79
+[t=39936.2s, 0 KB] Expanded 46128191 state(s).
+[t=39936.2s, 0 KB] Reopened 21850791 state(s).
+[t=39936.2s, 0 KB] Evaluated 46128192 state(s).
+[t=39936.2s, 0 KB] Evaluations: 70405593
+[t=39936.2s, 0 KB] Generated 164709519 state(s).
+[t=39936.2s, 0 KB] Dead ends: 0 state(s).
+[t=39936.2s, 0 KB] Number of registered states: 24277401
+[t=39936.2s, 0 KB] Int hash set load factor: 24277401/33554432 = 0.723523
+[t=39936.2s, 0 KB] Int hash set resizes: 25
+[t=39936.2s, 0 KB] Best solution cost so far: 79
+[t=39936.2s, 0 KB] Solution found - keep searching
+[t=39936.8s, 0 KB] Building successor generator...done!
+[t=39936.8s, 0 KB] peak memory difference for successor generator creation: 0 KB
+[t=39936.8s, 0 KB] time for successor generation creation: 0s
+[t=39936.8s, 0 KB] Variables: 21
+[t=39936.8s, 0 KB] FactPairs: 231
+[t=39936.8s, 0 KB] Bytes per state: 12
+[t=39936.8s, 0 KB] Starting search: lazy_wastar(list(hff2, hlm2), preferred = list(hff2, hlm2), w = 1)
+[t=39936.8s, 0 KB] Conducting lazy best first search, (real) bound = 79
+[t=39936.8s, 0 KB] 4 initial landmarks, 4 goal landmarks
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=39936.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=39936.8s, 0 KB] g=0, 1 evaluated, 0 expanded
+[t=39936.8s, 0 KB] Initial heuristic value for ff(transform = adapt_costs(plusone)): 22
+[t=39936.8s, 0 KB] Initial heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 12
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 19
+[t=39936.8s, 0 KB] g=1, 2 evaluated, 1 expanded
+[t=39936.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 10
+[t=39936.8s, 0 KB] g=2, 4 evaluated, 3 expanded
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 18
+[t=39936.8s, 0 KB] g=2, 6 evaluated, 5 expanded
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 17
+[t=39936.8s, 0 KB] g=2, 10 evaluated, 9 expanded
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 15
+[t=39936.8s, 0 KB] g=3, 14 evaluated, 13 expanded
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 14
+[t=39936.8s, 0 KB] g=4, 15 evaluated, 14 expanded
+[t=39936.8s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 8
+[t=39936.8s, 0 KB] g=5, 23 evaluated, 22 expanded
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 11
+[t=39936.8s, 0 KB] g=5, 170 evaluated, 169 expanded, 8 reopened
+[t=39936.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 9
+[t=39936.8s, 0 KB] g=8, 203 evaluated, 202 expanded, 9 reopened
+[t=40042.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 8
+[t=40042.1s, 0 KB] g=44, 454619 evaluated, 454618 expanded, 147762 reopened
+[t=40042.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 7
+[t=40042.1s, 0 KB] g=45, 454621 evaluated, 454620 expanded, 147762 reopened
+[t=40492s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 6
+[t=40492s, 0 KB] g=50, 2578029 evaluated, 2578028 expanded, 970950 reopened
+[t=40492.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 5
+[t=40492.1s, 0 KB] g=55, 2578487 evaluated, 2578486 expanded, 971003 reopened
+[t=40933.7s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 4
+[t=40933.7s, 0 KB] g=62, 4660649 evaluated, 4660648 expanded, 1776202 reopened
+[t=41083.5s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 6
+[t=41083.5s, 0 KB] g=54, 5363652 evaluated, 5363651 expanded, 2046475 reopened
+[t=41142.8s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 4
+[t=41142.8s, 0 KB] g=57, 5641502 evaluated, 5641501 expanded, 2151544 reopened
+[t=42300.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 3
+[t=42300.1s, 0 KB] New best heuristic value for lmcount(lm_reasonable_orders_hps(lm_rhw), transform = adapt_costs(plusone), pref = true): 2
+[t=42300.1s, 0 KB] g=67, 11127839 evaluated, 11127838 expanded, 4332228 reopened
+[t=48169.1s, 0 KB] New best heuristic value for ff(transform = adapt_costs(plusone)): 2
+[t=48169.1s, 0 KB] g=78, 45578916 evaluated, 45578915 expanded, 21645583 reopened
+[t=50558.6s, 0 KB] Completely explored state space -- no solution!
+[t=50558.6s, 0 KB] Actual search time: 10621.9s
+[t=50558.6s, 0 KB] Expanded 62810942 state(s).
+[t=50558.6s, 0 KB] Reopened 32222816 state(s).
+[t=50558.6s, 0 KB] Evaluated 62810942 state(s).
+[t=50558.6s, 0 KB] Evaluations: 93399068
+[t=50558.6s, 0 KB] Generated 223528471 state(s).
+[t=50558.6s, 0 KB] Dead ends: 0 state(s).
+[t=50558.6s, 0 KB] Number of registered states: 30588126
+[t=50558.6s, 0 KB] Int hash set load factor: 30588126/67108864 = 0.455799
+[t=50558.6s, 0 KB] Int hash set resizes: 26
+[t=50558.6s, 0 KB] Best solution cost so far: 79
+[t=50558.6s, 0 KB] No solution found - keep searching
+[t=50559s, 0 KB] Actual search time: 50558.7s
+[t=50559s, 0 KB] Cumulative statistics:
+[t=50559s, 0 KB] Expanded 282708522 state(s).
+[t=50559s, 0 KB] Reopened 137826326 state(s).
+[t=50559s, 0 KB] Evaluated 282708530 state(s).
+[t=50559s, 0 KB] Evaluations: 427590734
+[t=50559s, 0 KB] Generated 1012269032 state(s).
+[t=50559s, 0 KB] Dead ends: 0 state(s).
+[t=50559s, 0 KB] Search time: 50558.7s
+[t=50559s, 0 KB] Total time: 50559s
+Solution found.
+Peak memory: 0 KB
+search exit code: 0
+

@@ -1,9 +1,16 @@
-#!/bin/bash
+#!/bin/bash -e
 
-for f in solve-downward/khunpan/khunpan-exercise[0-9][0-9][0-9].txt
+for problem in khunpan/khunpan-exercise[0-9][0-9][0-9]-problem.pddl
 do
-  fn=${f##*/}
-  n=${fn%.txt}
-  echo Validate "khunpan/${n}-"{domain,problem}.pddl "$f"
-  Validate "khunpan/${n}-"{domain,problem}.pddl "$f"
+  n=${problem%-problem.pddl}
+  domain=${n}-domain.pddl
+  plan=solve-downward/$n.txt
+  if [ -f $plan ]
+  then
+	echo Validate $domain $problem $plan
+	Validate $domain $problem $plan
+  else
+	echo Validate $domain $problem
+	Validate $domain $problem
+  fi  
 done

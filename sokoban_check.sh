@@ -1,9 +1,15 @@
-#!/bin/bash
+#!/bin/bash -e
 
-for f in solve-downward/sokoban/sokoban[0-9][0-9].txt
+for problem in sokoban/sokoban[0-9][0-9]-problem.pddl
 do
-  fn=${f##*/}
-  n=${fn%.txt}
-  echo Validate sokoban-domain.pddl "sokoban/${n}-problem.pddl" "$f"
-  Validate sokoban-domain.pddl "sokoban/${n}-problem.pddl" "$f"
+  n=${problem%-problem.pddl}
+  plan=solve-downward/$n.txt
+  if [ -f $plan ]
+  then
+	echo Validate sokoban-domain.pddl "$problem" "$plan"
+	Validate sokoban-domain.pddl "$problem" "$plan"
+  else
+	echo Validate sokoban-domain.pddl "$problem"
+	Validate sokoban-domain.pddl "$problem"
+  fi  
 done
