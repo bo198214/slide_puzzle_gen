@@ -1,0 +1,1343 @@
+1. Running translator
+Parsing... [0.020s CPU, 0.002s wall-clock]
+Instantiating...
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 57 rules.
+Computing model... [0.030s CPU, 0.047s wall-clock]
+2069 relevant atoms
+3504 auxiliary atoms
+5573 final queue length
+7370 total queue pushes
+Completing instantiation... [0.030s CPU, 0.040s wall-clock]
+Instantiating: [0.070s CPU, 0.093s wall-clock]
+Computing fact groups...
+Finding invariants... 6 initial candidates
+[0.000s CPU, 0.002s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+418 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.003s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.002s wall-clock]
+Translating task: [0.030s CPU, 0.024s wall-clock]
+0 implied effects removed
+0 effect conditions simplified
+0 implied preconditions added
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Detecting unreachable propositions...
+131 operators removed
+166 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.008s wall-clock]
+Writing translation key... [0.000s CPU, 0.002s wall-clock]
+Writing mutex key... [0.000s CPU, 0.002s wall-clock]
+Writing output... [0.000s CPU, 0.006s wall-clock]
+Done! [0.140s CPU, 0.145s wall-clock]
+2. Running preprocessor
+Building causal graph...
+The causal graph is not acyclic.
+335 variables of 335 necessary
+859 of 859 operators necessary.
+0 of 0 axiom rules necessary.
+Building domain transition graphs...
+solveable in poly time 0
+Building successor generator...
+Writing output...
+done
+
+3. Running search
+Main Planner Parameters 
+	seeds:
+		1983
+	Iterative Search: True
+
+MRW Parameters
+	Restart Type: SMART
+		Pool Size: 50
+		Activation Level: 50
+	UCB Constant Value: 1
+	Use Aras: true
+		regression graph: true
+		Aras Memory Limit: 500000
+		Aras Time Limit: 60
+	Adjusting online: true
+	Num Threads: 1
+	MRW Time Limit: 900
+
+	MRW Param 0:
+		Walk Type: MDA
+		Heuristic: FD FF
+		Step Type: STATE
+		Extending Rate: 2
+		Length Walk: 1
+		Alpha: 0.9
+		Extending Period: 0.1
+		Walk Bias Temp: 0.5
+		Num Walks: 2000
+		Jump Length: 1
+		Max Steps: 7
+		Bounding Factor: 0.9
+		Deepening: true
+		Tie-breaking: false
+		Conservative Steps: false
+		solution_bounding: none
+
+	MRW Param 1:
+		Walk Type: MHA
+		Heuristic: FD FF
+		Step Type: STATE
+		Extending Rate: 1.5
+		Length Walk: 10
+		Alpha: 0.9
+		Extending Period: 0.1
+		Walk Bias Temp: 10
+		Num Walks: 2000
+		Jump Length: 10
+		Max Steps: 7
+		Bounding Factor: 0.9
+		Deepening: true
+		Tie-breaking: false
+		Conservative Steps: false
+		solution_bounding: none
+
+	MRW Param 2:
+		Walk Type: MDA
+		Heuristic: FD FF
+		Step Type: STATE
+		Extending Rate: 1.5
+		Length Walk: 3
+		Alpha: 0.9
+		Extending Period: 0.1
+		Walk Bias Temp: 0.5
+		Num Walks: 2000
+		Jump Length: 3
+		Max Steps: 7
+		Bounding Factor: 0.9
+		Deepening: true
+		Tie-breaking: false
+		Conservative Steps: false
+		solution_bounding: none
+
+	MRW Param 3:
+		Walk Type: MHA
+		Heuristic: FD FF
+		Step Type: STATE
+		Extending Rate: 1.5
+		Length Walk: 1
+		Alpha: 0.9
+		Extending Period: 0.1
+		Walk Bias Temp: 10
+		Num Walks: 2000
+		Jump Length: 1
+		Max Steps: 7
+		Bounding Factor: 0.9
+		Deepening: true
+		Tie-breaking: false
+		Conservative Steps: false
+		solution_bounding: none
+
+WA* Params
+	Iterative WA* with deferred heuristic evaluation. Weights used in the following order: 
+		GBFS
+		5
+		1
+	Using the following heuristics: 
+		FF_SWITCH
+		LM
+	Using the following heuristics for generating preferred operators:
+		FF_SWITCH
+	Randomizing Generated States: true
+	Ignore action costs: false
+	Indefinitely loop weights: true
+	Preference Priority Reward: 1000
+	Memory Limit: 3.5e+06
+	Epsilon: 0.2
+	Init Node Expansion Limit: 100
+	Node Limit Factor: 10
+	Use Aras: true
+		regression graph: true
+		Aras Memory Limit: 200000
+		Aras Time Limit: 30
+	Bounding Type: DAS
+
+
+Simplifying transitions... done!
+Initializing HSP/FF heuristic...
+Reading invariants from file...
+done
+Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+approx. obedient reasonable orders
+Removed 0 reasonable or obedient reasonable orders
+Generated 62 landmarks, of which 4 are disjunctive
+          310 edges
+30 initial landmarks, 6 goal landmarks
+Landmarks generation time: 0.03s
+Initializing HSP/FF heuristic...
+Simplifying 2428 unary operators... done! [2428 unary operators]
+MRW ...
+Initial heuristic value from heuristic FD FF: 34
+Selecting config 3
+h: 33 walk#: 0
+h_ratio: 0.970588
+current pool size: 1
+Starting with action index 0 with h_ratio value  1
+MDA-1:0 MHA-10:0 MDA-3:0 MHA-1:1 
+Selecting config 1
+h: 33 walk#: 0
+h: 30 walk#: 69
+h: 29 walk#: 1
+h: 26 walk#: 4
+h: 21 walk#: 2
+h: 17 walk#: 0
+h: 14 walk#: 1
+h: 12 walk#: 1
+h: 11 walk#: 3
+h: 9 walk#: 6
+h_ratio: 0.264706
+current pool size: 2
+Starting with action index 0 with h_ratio value  1
+MDA-1:0 MHA-10:1 MDA-3:0 MHA-1:1 
+Selecting config 0
+h: 33 walk#: 0
+h: 22 walk#: 95
+h: 20 walk#: 2
+h: 18 walk#: 18
+h: 12 walk#: 41
+h: 9 walk#: 50
+h_ratio: 0.264706
+current pool size: 3
+Starting with action index 0 with h_ratio value  1
+MDA-1:1 MHA-10:1 MDA-3:0 MHA-1:1 
+Selecting config 2
+h: 33 walk#: 0
+h_ratio: 0.970588
+current pool size: 4
+Starting with action index 0 with h_ratio value  1
+MDA-1:1 MHA-10:1 MDA-3:1 MHA-1:1 
+Selecting config 0
+h: 33 walk#: 0
+h: 21 walk#: 188
+h: 20 walk#: 0
+h: 19 walk#: 22
+h: 17 walk#: 76
+h: 15 walk#: 129
+h: 13 walk#: 157
+h: 12 walk#: 168
+h: 9 walk#: 0
+h_ratio: 0.264706
+current pool size: 5
+Starting with action index 0 with h_ratio value  1
+MDA-1:2 MHA-10:1 MDA-3:1 MHA-1:1 
+Selecting config 1
+h: 33 walk#: 0
+h: 30 walk#: 123
+h: 29 walk#: 1
+h: 25 walk#: 2
+h: 14 walk#: 0
+h: 9 walk#: 0
+h_ratio: 0.264706
+current pool size: 6
+Starting with action index 0 with h_ratio value  1
+MDA-1:2 MHA-10:2 MDA-3:1 MHA-1:1 
+Selecting config 0
+h: 33 walk#: 0
+h: 24 walk#: 349
+h: 23 walk#: 0
+h: 22 walk#: 42
+h: 20 walk#: 112
+h: 18 walk#: 170
+h: 16 walk#: 256
+h: 15 walk#: 268
+h: 14 walk#: 296
+h: 12 walk#: 303
+h: 9 walk#: 3
+h_ratio: 0.264706
+current pool size: 7
+Starting with action index 0 with h_ratio value  1
+MDA-1:3 MHA-10:2 MDA-3:1 MHA-1:1 
+Selecting config 1
+h: 33 walk#: 2
+h: 31 walk#: 382
+h: 25 walk#: 2
+h: 19 walk#: 5
+h: 16 walk#: 2
+h: 12 walk#: 4
+h: 9 walk#: 7
+h_ratio: 0.264706
+current pool size: 8
+Starting with action index 0 with h_ratio value  1
+MDA-1:3 MHA-10:3 MDA-3:1 MHA-1:1 
+Selecting config 3
+h: 33 walk#: 0
+h: 31 walk#: 192
+h: 30 walk#: 0
+h: 28 walk#: 44
+h: 26 walk#: 67
+h: 24 walk#: 0
+h: 22 walk#: 44
+h: 20 walk#: 67
+h: 18 walk#: 0
+h: 16 walk#: 44
+h: 14 walk#: 66
+h: 12 walk#: 4
+h: 9 walk#: 51
+h_ratio: 0.264706
+current pool size: 9
+Starting with action index 0 with h_ratio value  1
+MDA-1:3 MHA-10:3 MDA-3:1 MHA-1:2 
+Selecting config 2
+h: 33 walk#: 0
+h: 14 walk#: 188
+h: 12 walk#: 1
+h: 9 walk#: 4
+h_ratio: 0.264706
+current pool size: 10
+Starting with action index 0 with h_ratio value  1
+MDA-1:3 MHA-10:3 MDA-3:2 MHA-1:2 
+Selecting config 0
+h: 33 walk#: 0
+h: 22 walk#: 707
+h: 21 walk#: 0
+h: 20 walk#: 85
+h: 19 walk#: 187
+h: 16 walk#: 210
+h: 15 walk#: 356
+h: 12 walk#: 441
+h: 9 walk#: 496
+h_ratio: 0.264706
+current pool size: 11
+Starting with action index 0 with h_ratio value  1
+MDA-1:4 MHA-10:3 MDA-3:2 MHA-1:2 
+Selecting config 1
+h: 33 walk#: 0
+h: 32 walk#: 398
+h: 30 walk#: 0
+h: 26 walk#: 2
+h: 23 walk#: 0
+h: 22 walk#: 7
+h: 20 walk#: 8
+h: 19 walk#: 1
+h: 17 walk#: 3
+h: 15 walk#: 4
+h: 12 walk#: 5
+h: 9 walk#: 10
+h_ratio: 0.264706
+current pool size: 12
+Starting with action index 0 with h_ratio value  1
+MDA-1:4 MHA-10:4 MDA-3:2 MHA-1:2 
+Selecting config 2
+h: 33 walk#: 0
+h: 32 walk#: 263
+h: 30 walk#: 0
+h: 28 walk#: 0
+h: 26 walk#: 0
+h: 20 walk#: 0
+h: 17 walk#: 1
+h: 14 walk#: 19
+h: 12 walk#: 1
+h: 9 walk#: 7
+h_ratio: 0.264706
+current pool size: 13
+Starting with action index 0 with h_ratio value  1
+MDA-1:4 MHA-10:4 MDA-3:3 MHA-1:2 
+Selecting config 3
+h: 33 walk#: 0
+h_ratio: 0.970588
+current pool size: 14
+Starting with action index 0 with h_ratio value  1
+MDA-1:4 MHA-10:4 MDA-3:3 MHA-1:3 
+Selecting config 1
+h: 33 walk#: 0
+h: 31 walk#: 1166
+h: 26 walk#: 0
+h: 24 walk#: 0
+h: 23 walk#: 3
+h: 19 walk#: 4
+h: 9 walk#: 0
+h_ratio: 0.264706
+current pool size: 15
+Starting with action index 0 with h_ratio value  1
+MDA-1:4 MHA-10:5 MDA-3:3 MHA-1:3 
+Selecting config 0
+h: 33 walk#: 0
+h: 24 walk#: 960
+h: 23 walk#: 1485
+h: 22 walk#: 1527
+h: 20 walk#: 1538
+h: 19 walk#: 2
+h: 18 walk#: 168
+h: 16 walk#: 332
+h: 12 walk#: 566
+h: 9 walk#: 858
+h_ratio: 0.264706
+current pool size: 16
+Starting with action index 0 with h_ratio value  1
+MDA-1:5 MHA-10:5 MDA-3:3 MHA-1:3 
+Selecting config 2
+h: 33 walk#: 0
+h: 24 walk#: 697
+h: 18 walk#: 1
+h: 16 walk#: 98
+h: 12 walk#: 253
+h: 9 walk#: 2
+h_ratio: 0.264706
+current pool size: 17
+Starting with action index 0 with h_ratio value  1
+MDA-1:5 MHA-10:5 MDA-3:4 MHA-1:3 
+Selecting config 0
+h: 33 walk#: 0
+h: 24 walk#: 1257
+h: 16 walk#: 1992
+h: 14 walk#: 1
+h: 12 walk#: 204
+h: 9 walk#: 442
+h_ratio: 0.264706
+current pool size: 18
+Starting with action index 0 with h_ratio value  1
+MDA-1:6 MHA-10:5 MDA-3:4 MHA-1:3 
+Selecting config 1
+h: 33 walk#: 1
+h: 30 walk#: 784
+h: 28 walk#: 0
+h: 24 walk#: 1
+h: 12 walk#: 1
+h: 11 walk#: 0
+h: 9 walk#: 16
+h_ratio: 0.264706
+current pool size: 19
+Starting with action index 0 with h_ratio value  1
+MDA-1:6 MHA-10:6 MDA-3:4 MHA-1:3 
+Selecting config 2
+h: 33 walk#: 0
+h: 20 walk#: 1379
+h: 17 walk#: 1
+h: 14 walk#: 13
+h: 12 walk#: 195
+h: 9 walk#: 569
+h_ratio: 0.264706
+current pool size: 20
+Starting with action index 0 with h_ratio value  1
+MDA-1:6 MHA-10:6 MDA-3:5 MHA-1:3 
+Selecting config 0
+h: 33 walk#: 0
+h: 28 walk#: 1420
+h: 27 walk#: 1601
+h: 19 walk#: 1673
+h: 18 walk#: 0
+h: 16 walk#: 204
+h: 12 walk#: 406
+h: 9 walk#: 663
+h_ratio: 0.264706
+current pool size: 21
+Starting with action index 0 with h_ratio value  1
+MDA-1:7 MHA-10:6 MDA-3:5 MHA-1:3 
+Selecting config 1
+h: 33 walk#: 2
+h: 30 walk#: 1170
+h: 26 walk#: 1
+h: 24 walk#: 2
+h: 18 walk#: 3
+h: 11 walk#: 0
+h: 9 walk#: 0
+h_ratio: 0.264706
+current pool size: 22
+Starting with action index 0 with h_ratio value  1
+MDA-1:7 MHA-10:7 MDA-3:5 MHA-1:3 
+Selecting config 2
+h: 33 walk#: 0
+h: 18 walk#: 1855
+h: 16 walk#: 1
+h: 12 walk#: 3
+h: 9 walk#: 222
+h_ratio: 0.264706
+current pool size: 23
+Starting with action index 0 with h_ratio value  1
+MDA-1:7 MHA-10:7 MDA-3:6 MHA-1:3 
+Selecting config 3
+h: 33 walk#: 0
+h_ratio: 0.970588
+current pool size: 24
+Starting with action index 0 with h_ratio value  1
+MDA-1:7 MHA-10:7 MDA-3:6 MHA-1:4 
+Selecting config 0
+h: 33 walk#: 0
+h: 28 walk#: 1423
+h: 19 walk#: 1564
+h: 18 walk#: 1
+h: 16 walk#: 203
+h: 12 walk#: 417
+h: 9 walk#: 661
+h_ratio: 0.264706
+current pool size: 25
+Starting with action index 0 with h_ratio value  1
+MDA-1:8 MHA-10:7 MDA-3:6 MHA-1:4 
+Selecting config 1
+h: 33 walk#: 0
+h: 30 walk#: 1300
+h: 26 walk#: 0
+h: 25 walk#: 2
+h: 18 walk#: 0
+h: 16 walk#: 1
+h: 14 walk#: 2
+h: 12 walk#: 3
+h: 9 walk#: 5
+h_ratio: 0.264706
+current pool size: 26
+Starting with action index 0 with h_ratio value  1
+MDA-1:8 MHA-10:8 MDA-3:6 MHA-1:4 
+Selecting config 2
+h: 33 walk#: 0
+h: 32 walk#: 1948
+h: 30 walk#: 1993
+h: 26 walk#: 1999
+h: 24 walk#: 2
+h: 20 walk#: 5
+h: 18 walk#: 268
+h: 14 walk#: 514
+h: 12 walk#: 0
+h: 9 walk#: 15
+h_ratio: 0.264706
+current pool size: 27
+Starting with action index 0 with h_ratio value  1
+MDA-1:8 MHA-10:8 MDA-3:7 MHA-1:4 
+Selecting config 0
+h: 33 walk#: 0
+h: 20 walk#: 1381
+h: 18 walk#: 1
+h: 16 walk#: 206
+h: 15 walk#: 415
+h: 12 walk#: 418
+h: 9 walk#: 651
+h_ratio: 0.264706
+current pool size: 28
+Starting with action index 0 with h_ratio value  1
+MDA-1:9 MHA-10:8 MDA-3:7 MHA-1:4 
+Selecting config 1
+h: 33 walk#: 0
+h: 32 walk#: 1303
+h: 31 walk#: 3
+h: 30 walk#: 4
+h: 29 walk#: 7
+h: 18 walk#: 0
+h: 14 walk#: 3
+h: 12 walk#: 6
+h: 9 walk#: 9
+h_ratio: 0.264706
+current pool size: 29
+Starting with action index 0 with h_ratio value  1
+MDA-1:9 MHA-10:9 MDA-3:7 MHA-1:4 
+Selecting config 2
+h: 33 walk#: 0
+h: 22 walk#: 1428
+h: 16 walk#: 0
+h: 14 walk#: 214
+h: 12 walk#: 450
+h: 9 walk#: 523
+h: 8 walk#: 1698
+h: 6 walk#: 2
+h_ratio: 0.176471
+current pool size: 30
+Starting with action index 0 with h_ratio value  1
+MDA-1:9 MHA-10:9 MDA-3:8 MHA-1:4 
+Selecting config 1
+h: 33 walk#: 1
+h: 31 walk#: 1457
+h: 30 walk#: 1
+h: 23 walk#: 6
+h: 19 walk#: 1
+h: 16 walk#: 11
+h: 14 walk#: 17
+h: 11 walk#: 5
+h: 9 walk#: 16
+h_ratio: 0.264706
+current pool size: 31
+Starting with action index 0 with h_ratio value  1
+MDA-1:9 MHA-10:10 MDA-3:8 MHA-1:4 
+Selecting config 0
+h: 33 walk#: 0
+h: 24 walk#: 1212
+h: 12 walk#: 1449
+h: 11 walk#: 0
+h: 9 walk#: 2
+h_ratio: 0.264706
+current pool size: 32
+Starting with action index 0 with h_ratio value  1
+MDA-1:10 MHA-10:10 MDA-3:8 MHA-1:4 
+Selecting config 2
+h: 33 walk#: 0
+h: 26 walk#: 1746
+h: 25 walk#: 1989
+h: 24 walk#: 0
+h: 20 walk#: 5
+h: 18 walk#: 224
+h: 17 walk#: 608
+h: 14 walk#: 630
+h: 13 walk#: 2
+h: 9 walk#: 6
+h_ratio: 0.264706
+current pool size: 33
+Starting with action index 0 with h_ratio value  1
+MDA-1:10 MHA-10:10 MDA-3:9 MHA-1:4 
+Selecting config 1
+h: 33 walk#: 1
+h: 31 walk#: 874
+h: 28 walk#: 10
+h: 23 walk#: 11
+h: 16 walk#: 0
+h: 12 walk#: 21
+h: 9 walk#: 7
+h_ratio: 0.264706
+current pool size: 34
+Starting with action index 0 with h_ratio value  1
+MDA-1:10 MHA-10:11 MDA-3:9 MHA-1:4 
+Selecting config 0
+h: 33 walk#: 0
+h: 31 walk#: 1380
+h: 22 walk#: 1730
+h: 20 walk#: 1947
+h: 18 walk#: 0
+h: 16 walk#: 202
+h: 12 walk#: 432
+h: 9 walk#: 695
+h_ratio: 0.264706
+current pool size: 35
+Starting with action index 0 with h_ratio value  1
+MDA-1:11 MHA-10:11 MDA-3:9 MHA-1:4 
+Selecting config 2
+h: 33 walk#: 0
+h: 32 walk#: 1635
+h: 25 walk#: 1844
+h: 24 walk#: 2
+h: 23 walk#: 3
+h: 20 walk#: 13
+h: 18 walk#: 221
+h: 17 walk#: 485
+h: 9 walk#: 743
+h_ratio: 0.264706
+current pool size: 36
+Starting with action index 0 with h_ratio value  1
+MDA-1:11 MHA-10:11 MDA-3:10 MHA-1:4 
+Selecting config 3
+h: 33 walk#: 0
+h_ratio: 0.970588
+current pool size: 37
+Starting with action index 0 with h_ratio value  1
+MDA-1:11 MHA-10:11 MDA-3:10 MHA-1:5 
+Selecting config 1
+h: 33 walk#: 0
+h: 30 walk#: 1051
+h: 29 walk#: 1096
+h: 24 walk#: 0
+h: 18 walk#: 7
+h: 9 walk#: 1
+h_ratio: 0.264706
+current pool size: 38
+Starting with action index 0 with h_ratio value  1
+MDA-1:11 MHA-10:12 MDA-3:10 MHA-1:5 
+Selecting config 0
+h: 33 walk#: 0
+h: 31 walk#: 1507
+h: 22 walk#: 1510
+h: 18 walk#: 1565
+h: 17 walk#: 1895
+h: 16 walk#: 1
+h: 15 walk#: 205
+h: 12 walk#: 429
+h: 9 walk#: 663
+h_ratio: 0.264706
+current pool size: 39
+Starting with action index 0 with h_ratio value  1
+MDA-1:12 MHA-10:12 MDA-3:10 MHA-1:5 
+Selecting config 2
+h: 33 walk#: 0
+h: 31 walk#: 1464
+h: 30 walk#: 1942
+h: 28 walk#: 2
+h: 24 walk#: 6
+h: 22 walk#: 1
+h: 21 walk#: 4
+h: 18 walk#: 24
+h: 16 walk#: 0
+h: 12 walk#: 11
+h: 9 walk#: 37
+h_ratio: 0.264706
+current pool size: 40
+Starting with action index 0 with h_ratio value  1
+MDA-1:12 MHA-10:12 MDA-3:11 MHA-1:5 
+Selecting config 1
+h: 33 walk#: 0
+h: 31 walk#: 1408
+h: 29 walk#: 2
+h: 24 walk#: 4
+h: 22 walk#: 3
+h: 20 walk#: 7
+h: 16 walk#: 8
+h: 15 walk#: 1
+h: 13 walk#: 3
+h: 12 walk#: 5
+h: 9 walk#: 13
+h_ratio: 0.264706
+current pool size: 41
+Starting with action index 0 with h_ratio value  1
+MDA-1:12 MHA-10:13 MDA-3:11 MHA-1:5 
+Selecting config 0
+h: 33 walk#: 0
+h: 32 walk#: 1184
+h: 31 walk#: 1522
+h: 27 walk#: 1861
+h: 26 walk#: 1
+h: 24 walk#: 211
+h: 20 walk#: 420
+h: 19 walk#: 635
+h: 18 walk#: 0
+h: 16 walk#: 202
+h: 15 walk#: 407
+h: 12 walk#: 414
+h: 9 walk#: 764
+h_ratio: 0.264706
+current pool size: 42
+Starting with action index 0 with h_ratio value  1
+MDA-1:13 MHA-10:13 MDA-3:11 MHA-1:5 
+Selecting config 2
+h: 33 walk#: 0
+h: 12 walk#: 1582
+h: 11 walk#: 2
+h: 9 walk#: 3
+h_ratio: 0.264706
+current pool size: 43
+Starting with action index 0 with h_ratio value  1
+MDA-1:13 MHA-10:13 MDA-3:12 MHA-1:5 
+Selecting config 1
+h: 33 walk#: 1
+h: 31 walk#: 885
+h: 30 walk#: 3
+h: 27 walk#: 4
+h: 25 walk#: 0
+h: 24 walk#: 3
+h: 23 walk#: 4
+h: 16 walk#: 0
+h: 12 walk#: 0
+h: 9 walk#: 8
+h_ratio: 0.264706
+current pool size: 44
+Starting with action index 0 with h_ratio value  1
+MDA-1:13 MHA-10:14 MDA-3:12 MHA-1:5 
+Selecting config 0
+h: 33 walk#: 0
+h: 24 walk#: 1538
+h: 22 walk#: 1564
+h: 21 walk#: 0
+h: 20 walk#: 204
+h: 18 walk#: 433
+h: 16 walk#: 667
+h: 15 walk#: 705
+h: 13 walk#: 924
+h: 9 walk#: 930
+h: 8 walk#: 1299
+h: 7 walk#: 1
+h_ratio: 0.205882
+current pool size: 45
+Starting with action index 0 with h_ratio value  1
+MDA-1:14 MHA-10:14 MDA-3:12 MHA-1:5 
+Selecting config 2
+h: 33 walk#: 0
+h: 30 walk#: 1457
+h: 28 walk#: 0
+h: 24 walk#: 4
+h: 21 walk#: 1
+h: 18 walk#: 53
+h: 16 walk#: 0
+h: 12 walk#: 3
+h: 9 walk#: 0
+h_ratio: 0.264706
+current pool size: 46
+Starting with action index 0 with h_ratio value  1
+MDA-1:14 MHA-10:14 MDA-3:13 MHA-1:5 
+Selecting config 0
+h: 33 walk#: 0
+h: 32 walk#: 1059
+h: 31 walk#: 1420
+h: 30 walk#: 1938
+h: 25 walk#: 1945
+h: 24 walk#: 1
+h: 23 walk#: 203
+h: 20 walk#: 437
+h: 19 walk#: 649
+h: 16 walk#: 660
+h: 14 walk#: 886
+h: 13 walk#: 1
+h: 12 walk#: 205
+h: 9 walk#: 415
+MRW Time Limit Reached
+Ran for 902.99s seconds
+
+
+Search iteration 0
+Current Weight: -1
+Current Node Limit: 100
+adding heuristics ...
+Initializing HSP/FF heuristic...
+Initializing landmarks count heuristic...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed greedy best-first search
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 1]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 2]
+$WA: Expanded 101 state(s) in last iteration.
+$WA: Generated 259 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 1 state(s).
+$WA: Total closed list size is 101 state(s).
+Estimated Memory Usage: 445 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 0.02s
+Total time: 903.04s
+
+
+Search iteration 1
+Current Weight: 5
+Current Node Limit: 100
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 5
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 101]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 101]
+$WA: Expanded 101 state(s) in last iteration.
+$WA: Generated 250 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 2 state(s).
+$WA: Total closed list size is 113 state(s).
+Estimated Memory Usage: 482 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 0s
+Total time: 903.06s
+
+
+Search iteration 2
+Current Weight: 1
+Current Node Limit: 100
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 1
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 113]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 113]
+$WA: Expanded 101 state(s) in last iteration.
+$WA: Generated 252 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 2 state(s).
+$WA: Total closed list size is 114 state(s).
+Estimated Memory Usage: 486 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 0s
+Total time: 903.06s
+
+
+Search iteration 3
+Current Weight: -1
+Current Node Limit: 1000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed greedy best-first search
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 114]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 114]
+$WA: Expanded 1001 state(s) in last iteration.
+$WA: Generated 2593 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 15 state(s).
+$WA: Total closed list size is 1001 state(s).
+Estimated Memory Usage: 4411 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 0.12s
+Total time: 903.18s
+
+
+Search iteration 4
+Current Weight: 5
+Current Node Limit: 1000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 5
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 1001]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 1001]
+$WA: Expanded 1001 state(s) in last iteration.
+$WA: Generated 2593 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 15 state(s).
+$WA: Total closed list size is 1133 state(s).
+Estimated Memory Usage: 4977 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 0.05s
+Total time: 903.23s
+
+
+Search iteration 5
+Current Weight: 1
+Current Node Limit: 1000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 1
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 1133]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 1133]
+$WA: Expanded 1001 state(s) in last iteration.
+$WA: Generated 2574 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 15 state(s).
+$WA: Total closed list size is 1166 state(s).
+Estimated Memory Usage: 5097 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 0.06s
+Total time: 903.29s
+
+
+Search iteration 6
+Current Weight: -1
+Current Node Limit: 10000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed greedy best-first search
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 1166]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 1166]
+$WA: Best h values: 31/32[exp: 1232, gen: 3167, dead ends: 16, closed size: 1347]
+$WA: Best h values: 29/30[exp: 1233, gen: 3169, dead ends: 16, closed size: 1348]
+$WA: Best h values: 27/28[exp: 1234, gen: 3173, dead ends: 16, closed size: 1349]
+$WA: Best h values: 25/26[exp: 1235, gen: 3175, dead ends: 16, closed size: 1350]
+$WA: Best h values: 23/24[exp: 1236, gen: 3177, dead ends: 16, closed size: 1351]
+$WA: Best h values: 21/22[exp: 1237, gen: 3180, dead ends: 16, closed size: 1352]
+$WA: Best h values: 19/20[exp: 1238, gen: 3183, dead ends: 16, closed size: 1353]
+$WA: Best h values: 17/18[exp: 1239, gen: 3185, dead ends: 16, closed size: 1354]
+$WA: Best h values: 15/16[exp: 1240, gen: 3188, dead ends: 16, closed size: 1355]
+$WA: Best h values: 13/14[exp: 1241, gen: 3190, dead ends: 16, closed size: 1356]
+$WA: Best h values: 11/14[exp: 1242, gen: 3192, dead ends: 16, closed size: 1357]
+$WA: Best h values: 9/9[exp: 1243, gen: 3196, dead ends: 16, closed size: 1358]
+$WA: Best h values: 8/9[exp: 1248, gen: 3212, dead ends: 16, closed size: 1363]
+$WA: Best h values: 7/9[exp: 1262, gen: 3252, dead ends: 16, closed size: 1377]
+$WA: Expanded 10001 state(s) in last iteration.
+$WA: Generated 26182 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 107 state(s).
+$WA: Total closed list size is 10078 state(s).
+Estimated Memory Usage: 51248 kb.
+Total Memory Usage: 1.02111e+09 kb.
+Search time: 1.3s
+Total time: 904.59s
+
+
+Search iteration 7
+Current Weight: 5
+Current Node Limit: 10000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 5
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 10078]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 10078]
+$WA: Best h values: 31/32[exp: 1228, gen: 3145, dead ends: 15, closed size: 10129]
+$WA: Best h values: 29/30[exp: 1229, gen: 3147, dead ends: 15, closed size: 10130]
+$WA: Best h values: 27/28[exp: 1230, gen: 3151, dead ends: 15, closed size: 10131]
+$WA: Best h values: 25/26[exp: 1231, gen: 3153, dead ends: 15, closed size: 10132]
+$WA: Best h values: 23/24[exp: 1232, gen: 3155, dead ends: 15, closed size: 10133]
+$WA: Best h values: 21/22[exp: 1233, gen: 3158, dead ends: 15, closed size: 10134]
+$WA: Best h values: 19/20[exp: 1234, gen: 3161, dead ends: 15, closed size: 10135]
+$WA: Best h values: 17/18[exp: 1235, gen: 3163, dead ends: 15, closed size: 10136]
+$WA: Best h values: 15/16[exp: 1236, gen: 3166, dead ends: 15, closed size: 10137]
+$WA: Best h values: 13/14[exp: 1237, gen: 3168, dead ends: 15, closed size: 10138]
+$WA: Best h values: 11/14[exp: 1238, gen: 3170, dead ends: 15, closed size: 10139]
+$WA: Best h values: 11/12[exp: 1239, gen: 3174, dead ends: 15, closed size: 10140]
+$WA: Best h values: 9/9[exp: 1241, gen: 3179, dead ends: 15, closed size: 10142]
+$WA: Best h values: 8/9[exp: 1245, gen: 3192, dead ends: 15, closed size: 10144]
+$WA: Best h values: 7/9[exp: 1262, gen: 3241, dead ends: 15, closed size: 10150]
+$WA: Expanded 10001 state(s) in last iteration.
+$WA: Generated 26322 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 82 state(s).
+$WA: Total closed list size is 14954 state(s).
+Estimated Memory Usage: 75091 kb.
+Total Memory Usage: 1.02112e+09 kb.
+Search time: 0.92s
+Total time: 905.51s
+
+
+Search iteration 8
+Current Weight: 1
+Current Node Limit: 10000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 1
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 14954]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 14954]
+$WA: Best h values: 31/32[exp: 1110, gen: 2843, dead ends: 16, closed size: 14979]
+$WA: Best h values: 29/30[exp: 1111, gen: 2845, dead ends: 16, closed size: 14980]
+$WA: Best h values: 27/28[exp: 1112, gen: 2849, dead ends: 16, closed size: 14981]
+$WA: Best h values: 25/26[exp: 1113, gen: 2851, dead ends: 16, closed size: 14982]
+$WA: Best h values: 23/24[exp: 1114, gen: 2853, dead ends: 16, closed size: 14983]
+$WA: Best h values: 21/22[exp: 1115, gen: 2856, dead ends: 16, closed size: 14984]
+$WA: Best h values: 19/20[exp: 1116, gen: 2859, dead ends: 16, closed size: 14985]
+$WA: Best h values: 17/18[exp: 1117, gen: 2861, dead ends: 16, closed size: 14986]
+$WA: Best h values: 15/16[exp: 1118, gen: 2864, dead ends: 16, closed size: 14987]
+$WA: Best h values: 13/14[exp: 1119, gen: 2866, dead ends: 16, closed size: 14988]
+$WA: Best h values: 11/14[exp: 1120, gen: 2868, dead ends: 16, closed size: 14989]
+$WA: Best h values: 11/12[exp: 1121, gen: 2872, dead ends: 16, closed size: 14990]
+$WA: Best h values: 9/9[exp: 1124, gen: 2879, dead ends: 16, closed size: 14993]
+$WA: Best h values: 8/9[exp: 1131, gen: 2901, dead ends: 16, closed size: 14999]
+$WA: Best h values: 7/9[exp: 1185, gen: 3062, dead ends: 16, closed size: 15049]
+$WA: Expanded 10001 state(s) in last iteration.
+$WA: Generated 26128 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 81 state(s).
+$WA: Total closed list size is 18113 state(s).
+Estimated Memory Usage: 89968 kb.
+Total Memory Usage: 1.02114e+09 kb.
+Search time: 0.83s
+Total time: 906.34s
+
+
+Search iteration 9
+Current Weight: -1
+Current Node Limit: 100000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed greedy best-first search
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 18113]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 18113]
+$WA: Best h values: 31/32[exp: 1191, gen: 3069, dead ends: 15, closed size: 18121]
+$WA: Best h values: 29/30[exp: 1192, gen: 3071, dead ends: 15, closed size: 18121]
+$WA: Best h values: 27/28[exp: 1193, gen: 3075, dead ends: 15, closed size: 18121]
+$WA: Best h values: 25/26[exp: 1195, gen: 3079, dead ends: 15, closed size: 18121]
+$WA: Best h values: 23/24[exp: 1196, gen: 3081, dead ends: 15, closed size: 18121]
+$WA: Best h values: 21/22[exp: 1197, gen: 3084, dead ends: 15, closed size: 18121]
+$WA: Best h values: 19/20[exp: 1198, gen: 3087, dead ends: 15, closed size: 18121]
+$WA: Best h values: 17/18[exp: 1199, gen: 3089, dead ends: 15, closed size: 18121]
+$WA: Best h values: 15/16[exp: 1200, gen: 3092, dead ends: 15, closed size: 18121]
+$WA: Best h values: 13/14[exp: 1201, gen: 3094, dead ends: 15, closed size: 18121]
+$WA: Best h values: 11/14[exp: 1202, gen: 3096, dead ends: 15, closed size: 18121]
+$WA: Best h values: 10/12[exp: 1203, gen: 3100, dead ends: 15, closed size: 18121]
+$WA: Best h values: 9/12[exp: 1220, gen: 3153, dead ends: 15, closed size: 18121]
+$WA: Best h values: 9/9[exp: 1225, gen: 3167, dead ends: 15, closed size: 18121]
+$WA: Best h values: 8/9[exp: 1229, gen: 3180, dead ends: 15, closed size: 18121]
+$WA: Best h values: 7/9[exp: 1245, gen: 3227, dead ends: 15, closed size: 18121]
+$WA: Best h values: 7/8[exp: 13753, gen: 35934, dead ends: 145, closed size: 22254]
+$WA: Best h values: 6/7[exp: 13754, gen: 35938, dead ends: 145, closed size: 22255]
+$WA: Best h values: 5/7[exp: 17719, gen: 46063, dead ends: 182, closed size: 25713]
+$WA: Best h values: 4/7[exp: 17731, gen: 46095, dead ends: 182, closed size: 25725]
+$WA: Best h values: 4/6[exp: 25179, gen: 65275, dead ends: 256, closed size: 33133]
+$WA: Best h values: 3/6[exp: 25180, gen: 65278, dead ends: 256, closed size: 33134]
+$WA: Best h values: 2/6[exp: 28534, gen: 73883, dead ends: 278, closed size: 36468]
+$WA: Best h values: 2/5[exp: 30760, gen: 79410, dead ends: 300, closed size: 38685]
+$WA: Best h values: 2/4[exp: 30761, gen: 79412, dead ends: 300, closed size: 38686]
+$WA: Best h values: 1/2[exp: 30766, gen: 79425, dead ends: 301, closed size: 38691]
+$WA: Best h values: 1/1[exp: 30767, gen: 79427, dead ends: 301, closed size: 38692]
+$WA: Expanded 100001 state(s) in last iteration.
+$WA: Generated 252798 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 763 state(s).
+$WA: Total closed list size is 107757 state(s).
+Estimated Memory Usage: 566048 kb.
+Total Memory Usage: 1.02162e+09 kb.
+Search time: 14.42s
+Total time: 920.76s
+
+
+Search iteration 10
+Current Weight: 5
+Current Node Limit: 100000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 5
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 107757]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 107757]
+$WA: Best h values: 31/32[exp: 1210, gen: 3103, dead ends: 15, closed size: 107765]
+$WA: Best h values: 29/30[exp: 1211, gen: 3105, dead ends: 15, closed size: 107765]
+$WA: Best h values: 27/28[exp: 1212, gen: 3109, dead ends: 15, closed size: 107765]
+$WA: Best h values: 25/26[exp: 1213, gen: 3111, dead ends: 15, closed size: 107765]
+$WA: Best h values: 23/24[exp: 1214, gen: 3113, dead ends: 15, closed size: 107765]
+$WA: Best h values: 21/22[exp: 1215, gen: 3116, dead ends: 15, closed size: 107765]
+$WA: Best h values: 19/20[exp: 1216, gen: 3119, dead ends: 15, closed size: 107765]
+$WA: Best h values: 17/18[exp: 1217, gen: 3121, dead ends: 15, closed size: 107765]
+$WA: Best h values: 15/16[exp: 1218, gen: 3124, dead ends: 15, closed size: 107765]
+$WA: Best h values: 13/14[exp: 1219, gen: 3126, dead ends: 15, closed size: 107765]
+$WA: Best h values: 11/14[exp: 1220, gen: 3128, dead ends: 15, closed size: 107765]
+$WA: Best h values: 11/12[exp: 1221, gen: 3132, dead ends: 15, closed size: 107765]
+$WA: Best h values: 9/9[exp: 1223, gen: 3137, dead ends: 15, closed size: 107765]
+$WA: Best h values: 8/9[exp: 1229, gen: 3157, dead ends: 15, closed size: 107765]
+$WA: Best h values: 7/9[exp: 1259, gen: 3244, dead ends: 15, closed size: 107765]
+$WA: Best h values: 7/8[exp: 18115, gen: 46768, dead ends: 87, closed size: 112518]
+$WA: Best h values: 6/7[exp: 18117, gen: 46775, dead ends: 87, closed size: 112518]
+$WA: Best h values: 5/7[exp: 18983, gen: 49080, dead ends: 90, closed size: 112869]
+$WA: Best h values: 4/7[exp: 19003, gen: 49140, dead ends: 90, closed size: 112869]
+$WA: Best h values: 4/6[exp: 30807, gen: 79502, dead ends: 127, closed size: 120706]
+$WA: Expanded 100001 state(s) in last iteration.
+$WA: Generated 258103 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 607 state(s).
+$WA: Total closed list size is 175467 state(s).
+Estimated Memory Usage: 904482 kb.
+Total Memory Usage: 1.02197e+09 kb.
+Search time: 12.14s
+Total time: 932.9s
+
+
+Search iteration 11
+Current Weight: 1
+Current Node Limit: 100000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 1
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 175467]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 175467]
+$WA: Best h values: 31/32[exp: 1154, gen: 2931, dead ends: 20, closed size: 175469]
+$WA: Best h values: 29/30[exp: 1156, gen: 2936, dead ends: 20, closed size: 175469]
+$WA: Best h values: 27/28[exp: 1157, gen: 2940, dead ends: 20, closed size: 175469]
+$WA: Best h values: 25/26[exp: 1158, gen: 2942, dead ends: 20, closed size: 175469]
+$WA: Best h values: 23/24[exp: 1159, gen: 2944, dead ends: 20, closed size: 175469]
+$WA: Best h values: 21/22[exp: 1160, gen: 2947, dead ends: 20, closed size: 175469]
+$WA: Best h values: 19/20[exp: 1161, gen: 2950, dead ends: 20, closed size: 175469]
+$WA: Best h values: 17/18[exp: 1162, gen: 2952, dead ends: 20, closed size: 175469]
+$WA: Best h values: 15/16[exp: 1163, gen: 2955, dead ends: 20, closed size: 175469]
+$WA: Best h values: 13/14[exp: 1164, gen: 2957, dead ends: 20, closed size: 175469]
+$WA: Best h values: 11/14[exp: 1166, gen: 2961, dead ends: 20, closed size: 175469]
+$WA: Best h values: 9/9[exp: 1167, gen: 2965, dead ends: 20, closed size: 175469]
+$WA: Best h values: 8/9[exp: 1172, gen: 2981, dead ends: 20, closed size: 175469]
+$WA: Best h values: 7/9[exp: 1231, gen: 3156, dead ends: 20, closed size: 175469]
+$WA: Expanded 100001 state(s) in last iteration.
+$WA: Generated 253873 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 418 state(s).
+$WA: Total closed list size is 232444 state(s).
+Estimated Memory Usage: 1162220 kb.
+Total Memory Usage: 1.02224e+09 kb.
+Search time: 12.41s
+Total time: 945.31s
+
+
+Search iteration 12
+Current Weight: -1
+Current Node Limit: 1000000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed greedy best-first search
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 232444]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 232444]
+$WA: Best h values: 31/32[exp: 1198, gen: 3077, dead ends: 17, closed size: 232446]
+$WA: Best h values: 29/30[exp: 1199, gen: 3079, dead ends: 17, closed size: 232446]
+$WA: Best h values: 27/28[exp: 1200, gen: 3083, dead ends: 17, closed size: 232446]
+$WA: Best h values: 25/26[exp: 1201, gen: 3085, dead ends: 17, closed size: 232446]
+$WA: Best h values: 23/24[exp: 1202, gen: 3087, dead ends: 17, closed size: 232446]
+$WA: Best h values: 21/22[exp: 1203, gen: 3090, dead ends: 17, closed size: 232446]
+$WA: Best h values: 19/20[exp: 1204, gen: 3093, dead ends: 17, closed size: 232446]
+$WA: Best h values: 17/18[exp: 1205, gen: 3095, dead ends: 17, closed size: 232446]
+$WA: Best h values: 15/16[exp: 1206, gen: 3098, dead ends: 17, closed size: 232446]
+$WA: Best h values: 13/14[exp: 1207, gen: 3100, dead ends: 17, closed size: 232446]
+$WA: Best h values: 11/14[exp: 1209, gen: 3104, dead ends: 17, closed size: 232446]
+$WA: Best h values: 10/12[exp: 1210, gen: 3108, dead ends: 17, closed size: 232446]
+$WA: Best h values: 9/12[exp: 1227, gen: 3161, dead ends: 17, closed size: 232446]
+$WA: Best h values: 9/9[exp: 1231, gen: 3173, dead ends: 17, closed size: 232446]
+$WA: Best h values: 8/9[exp: 1239, gen: 3199, dead ends: 17, closed size: 232446]
+$WA: Best h values: 7/9[exp: 1252, gen: 3234, dead ends: 17, closed size: 232446]
+$WA: Best h values: 7/8[exp: 16756, gen: 43414, dead ends: 178, closed size: 234917]
+$WA: Best h values: 6/7[exp: 16757, gen: 43418, dead ends: 178, closed size: 234917]
+$WA: Best h values: 5/7[exp: 16774, gen: 43467, dead ends: 178, closed size: 234919]
+$WA: Best h values: 4/7[exp: 16783, gen: 43491, dead ends: 178, closed size: 234919]
+$WA: Best h values: 3/7[exp: 24003, gen: 62293, dead ends: 240, closed size: 236614]
+$WA: Best h values: 3/6[exp: 24005, gen: 62300, dead ends: 240, closed size: 236616]
+$WA: Best h values: 2/6[exp: 27550, gen: 71468, dead ends: 264, closed size: 238125]
+$WA: Best h values: 2/4[exp: 27551, gen: 71471, dead ends: 264, closed size: 238126]
+$WA: Best h values: 2/3[exp: 27552, gen: 71474, dead ends: 264, closed size: 238127]
+$WA: Best h values: 1/3[exp: 32685, gen: 84420, dead ends: 302, closed size: 241881]
+$WA: Best h values: 1/2[exp: 35974, gen: 92430, dead ends: 348, closed size: 244767]
+$WA: Best h values: 1/1[exp: 35975, gen: 92434, dead ends: 348, closed size: 244768]
+$WA: Plan Validated
+$WA: Total time: 948.7s
+$WA: cost: 252.
+$WA: build regression graph: true
+$WA: Initial plan size: 252 Initial plan cost: 252
+$WA: After action elimination Plan size: 252 plan cost: 252
+Plan Validated
+Last complete plan has cost 252 and is not being printed
+Plan Validated
+Last complete plan has cost 252 and is not being printed
+$WA: Step: 0 n: 1000 Plan_size: 252 Plan_cost: 252 Iteration_Time: 2.96s Total_Time: 2.98s Size: 98008 Number_goals: 50 Memory usage: 119723
+$WA: Memory Usage: 200159
+$WA: Memory-limit is exceeded, estimated memory usage: 200159 KB
+$WA: Expanded 35976 state(s) in last iteration.
+$WA: Generated 92436 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 348 state(s).
+$WA: Total closed list size is 244769 state(s).
+Estimated Memory Usage: 1217851 kb.
+Total Memory Usage: 1.02247e+09 kb.
+Search time: 3.37s
+Total time: 957.04s
+
+
+Search iteration 13
+Current Weight: 5
+Current Node Limit: 1000000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: 252
+$WA: Conducting delayed WA* search with weight 5
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 244769]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 244769]
+$WA: Best h values: 31/32[exp: 1219, gen: 3130, dead ends: 15, closed size: 244769]
+$WA: Best h values: 29/30[exp: 1220, gen: 3132, dead ends: 15, closed size: 244769]
+$WA: Best h values: 27/28[exp: 1221, gen: 3136, dead ends: 15, closed size: 244769]
+$WA: Best h values: 25/26[exp: 1222, gen: 3138, dead ends: 15, closed size: 244769]
+$WA: Best h values: 23/24[exp: 1223, gen: 3140, dead ends: 15, closed size: 244769]
+$WA: Best h values: 21/22[exp: 1224, gen: 3143, dead ends: 15, closed size: 244769]
+$WA: Best h values: 19/20[exp: 1226, gen: 3149, dead ends: 15, closed size: 244769]
+$WA: Best h values: 17/18[exp: 1227, gen: 3151, dead ends: 15, closed size: 244769]
+$WA: Best h values: 15/16[exp: 1228, gen: 3154, dead ends: 15, closed size: 244769]
+$WA: Best h values: 13/14[exp: 1229, gen: 3156, dead ends: 15, closed size: 244769]
+$WA: Best h values: 11/14[exp: 1230, gen: 3158, dead ends: 15, closed size: 244769]
+$WA: Best h values: 11/12[exp: 1231, gen: 3162, dead ends: 15, closed size: 244769]
+$WA: Best h values: 9/9[exp: 1233, gen: 3166, dead ends: 15, closed size: 244769]
+$WA: Best h values: 8/9[exp: 1240, gen: 3189, dead ends: 15, closed size: 244769]
+$WA: Best h values: 7/9[exp: 1256, gen: 3235, dead ends: 15, closed size: 244769]
+$WA: Best h values: 7/8[exp: 52784, gen: 137047, dead ends: 211, closed size: 252366]
+$WA: Best h values: 6/7[exp: 52786, gen: 137054, dead ends: 211, closed size: 252366]
+$WA: Best h values: 5/7[exp: 53662, gen: 139425, dead ends: 213, closed size: 252736]
+$WA: Best h values: 4/7[exp: 53665, gen: 139432, dead ends: 213, closed size: 252736]
+$WA: Best h values: 4/6[exp: 54694, gen: 142114, dead ends: 225, closed size: 253097]
+$WA: Expanded 664300 state(s) in last iteration.
+$WA: Generated 1698546 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 4878 state(s).
+$WA: Total closed list size is 688384 state(s).
+Estimated Memory Usage: 3542030 kb.
+Total Memory Usage: 1.02469e+09 kb.
+Search time: 88.43s
+Total time: 1045.47s
+Ran out of memory. Count: 1
+
+
+Search iteration 14
+Current Weight: 1
+Current Node Limit: 1000000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: 252
+$WA: Conducting delayed WA* search with weight 1
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 688384]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 688384]
+$WA: Best h values: 31/32[exp: 1145, gen: 2916, dead ends: 19, closed size: 688385]
+$WA: Best h values: 29/30[exp: 1147, gen: 2921, dead ends: 19, closed size: 688385]
+$WA: Best h values: 27/28[exp: 1149, gen: 2928, dead ends: 19, closed size: 688385]
+$WA: Best h values: 25/26[exp: 1150, gen: 2930, dead ends: 19, closed size: 688385]
+$WA: Best h values: 23/24[exp: 1151, gen: 2932, dead ends: 19, closed size: 688385]
+$WA: Best h values: 21/22[exp: 1152, gen: 2935, dead ends: 19, closed size: 688385]
+$WA: Best h values: 19/20[exp: 1153, gen: 2938, dead ends: 19, closed size: 688385]
+$WA: Best h values: 17/18[exp: 1155, gen: 2942, dead ends: 19, closed size: 688385]
+$WA: Best h values: 15/16[exp: 1156, gen: 2945, dead ends: 19, closed size: 688385]
+$WA: Best h values: 13/14[exp: 1159, gen: 2952, dead ends: 19, closed size: 688385]
+$WA: Best h values: 11/14[exp: 1160, gen: 2954, dead ends: 19, closed size: 688385]
+$WA: Best h values: 11/12[exp: 1161, gen: 2958, dead ends: 19, closed size: 688385]
+$WA: Best h values: 9/9[exp: 1165, gen: 2968, dead ends: 19, closed size: 688385]
+$WA: Best h values: 8/9[exp: 1171, gen: 2987, dead ends: 19, closed size: 688385]
+$WA: Best h values: 7/9[exp: 1224, gen: 3139, dead ends: 19, closed size: 688385]
+$WA: Expanded 118400 state(s) in last iteration.
+$WA: Generated 300279 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 479 state(s).
+$WA: Total closed list size is 703662 state(s).
+Estimated Memory Usage: 3500114 kb.
+Total Memory Usage: 1.02465e+09 kb.
+Search time: 10.59s
+Total time: 1056.06s
+Ran out of memory. Count: 2
+
+
+Search iteration 15
+Current Weight: -1
+Current Node Limit: 1000000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed greedy best-first search
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 703662]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 703662]
+$WA: Best h values: 31/32[exp: 1166, gen: 3000, dead ends: 16, closed size: 703681]
+$WA: Best h values: 29/30[exp: 1167, gen: 3002, dead ends: 16, closed size: 703681]
+$WA: Best h values: 27/28[exp: 1168, gen: 3006, dead ends: 16, closed size: 703681]
+$WA: Best h values: 25/26[exp: 1169, gen: 3008, dead ends: 16, closed size: 703681]
+$WA: Best h values: 23/24[exp: 1170, gen: 3010, dead ends: 16, closed size: 703681]
+$WA: Best h values: 21/22[exp: 1171, gen: 3013, dead ends: 16, closed size: 703681]
+$WA: Best h values: 19/20[exp: 1172, gen: 3016, dead ends: 16, closed size: 703681]
+$WA: Best h values: 17/18[exp: 1173, gen: 3018, dead ends: 16, closed size: 703681]
+$WA: Best h values: 15/16[exp: 1174, gen: 3021, dead ends: 16, closed size: 703681]
+$WA: Best h values: 13/14[exp: 1175, gen: 3023, dead ends: 16, closed size: 703681]
+$WA: Best h values: 11/14[exp: 1176, gen: 3025, dead ends: 16, closed size: 703681]
+$WA: Best h values: 10/12[exp: 1177, gen: 3029, dead ends: 16, closed size: 703681]
+$WA: Best h values: 9/12[exp: 1195, gen: 3084, dead ends: 16, closed size: 703681]
+$WA: Best h values: 9/9[exp: 1203, gen: 3106, dead ends: 16, closed size: 703681]
+$WA: Best h values: 8/9[exp: 1209, gen: 3125, dead ends: 16, closed size: 703681]
+$WA: Best h values: 7/9[exp: 1224, gen: 3168, dead ends: 16, closed size: 703681]
+$WA: Best h values: 7/8[exp: 13559, gen: 35464, dead ends: 124, closed size: 704147]
+$WA: Best h values: 6/7[exp: 13562, gen: 35471, dead ends: 125, closed size: 704150]
+$WA: Best h values: 5/7[exp: 20250, gen: 52656, dead ends: 169, closed size: 705857]
+$WA: Best h values: 4/7[exp: 20253, gen: 52663, dead ends: 169, closed size: 705857]
+$WA: Expanded 24000 state(s) in last iteration.
+$WA: Generated 62249 state(s) in last iteration
+$WA: Total num of dead-ends in last iteration is 199 state(s).
+$WA: Total closed list size is 705987 state(s).
+Estimated Memory Usage: 3500005 kb.
+Total Memory Usage: 1.02465e+09 kb.
+Search time: 1.77s
+Total time: 1057.83s
+Ran out of memory. Count: 3
+Emptying Closed List
+
+
+Search iteration 16
+Current Weight: 5
+Current Node Limit: 1000000
+adding heuristics ...
+Adding Heuristic: Landmarks Count, using estimates
+Adding Heuristic: LAMA_FF_S, using estimates, using preferred ops
+Current Bound: -1
+$WA: Conducting delayed WA* search with weight 5
+$WA: Best h values: 32/34[exp: 1, gen: 0, dead ends: 0, closed size: 1]
+$WA: Best h values: 31/33[exp: 2, gen: 1, dead ends: 0, closed size: 2]
+$WA: Best h values: 31/32[exp: 1260, gen: 3236, dead ends: 16, closed size: 1217]
+$WA: Best h values: 29/30[exp: 1261, gen: 3238, dead ends: 16, closed size: 1218]
+$WA: Best h values: 27/28[exp: 1262, gen: 3242, dead ends: 16, closed size: 1219]
+$WA: Best h values: 25/26[exp: 1263, gen: 3244, dead ends: 16, closed size: 1220]
+$WA: Best h values: 23/24[exp: 1264, gen: 3246, dead ends: 16, closed size: 1221]
+$WA: Best h values: 21/22[exp: 1265, gen: 3249, dead ends: 16, closed size: 1222]
+$WA: Best h values: 19/20[exp: 1266, gen: 3252, dead ends: 16, closed size: 1223]
+$WA: Best h values: 17/18[exp: 1267, gen: 3254, dead ends: 16, closed size: 1224]
+$WA: Best h values: 15/16[exp: 1268, gen: 3257, dead ends: 16, closed size: 1225]
+$WA: Best h values: 13/14[exp: 1269, gen: 3259, dead ends: 16, closed size: 1226]
+$WA: Best h values: 11/14[exp: 1270, gen: 3261, dead ends: 16, closed size: 1227]
+$WA: Best h values: 9/9[exp: 1271, gen: 3265, dead ends: 16, closed size: 1228]
+$WA: Best h values: 8/9[exp: 1277, gen: 3284, dead ends: 16, closed size: 1234]
+$WA: Best h values: 7/9[exp: 1294, gen: 3335, dead ends: 16, closed size: 1251]
+$WA: Best h values: 7/8[exp: 14565, gen: 37716, dead ends: 101, closed size: 13360]
+$WA: Best h values: 6/7[exp: 14568, gen: 37727, dead ends: 101, closed size: 13363]
+$WA: Best h values: 5/7[exp: 14692, gen: 38067, dead ends: 101, closed size: 13480]
+$WA: Best h values: 4/7[exp: 14700, gen: 38089, dead ends: 101, closed size: 13488]
+$WA: Best h values: 4/6[exp: 27133, gen: 70243, dead ends: 142, closed size: 24417]

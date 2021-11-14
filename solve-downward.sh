@@ -2,7 +2,8 @@
 
 #For installing fast-downward on your computer see https://www.fast-downward.org/ObtainingAndRunningFastDownward
 
-PLANNER_DIR=$HOME/workspace/planner/downward
+PLANNER_DIR=${PLANNER_DIR:-$HOME/workspace/planner/downward}
+dir_name=solve-downward
 
 if [ -f "$1" ]
 then
@@ -16,9 +17,9 @@ else
   shift
 fi
 
-sas_file=$(pwd)/solve-downward/$problem_name.sas
-plan_file=$(pwd)/solve-downward/${problem_name}.txt
-log_file=$(pwd)/solve-downward/${problem_name}.log
+sas_file=$(pwd)/$dir_name/$problem_name.sas
+plan_file=$(pwd)/$dir_name/${problem_name}.txt
+log_file=$(pwd)/$dir_name/${problem_name}.log
 domain_file=$(pwd)/${domain_name}-domain.pddl
 problem_file=$(pwd)/${problem_name}-problem.pddl
 
