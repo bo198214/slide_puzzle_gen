@@ -1,0 +1,37 @@
+# This file is machine-generated - editing it directly is not advised
+
+[[AutoHashEquals]]
+git-tree-sha1 = "45bb6705d93be619b81451bb2006b7ee5d4e4453"
+uuid = "15f4f7f2-30c1-5605-9d31-71845cf9641f"
+version = "0.2.0"
+
+[[Julog]]
+git-tree-sha1 = "32b9dd9fd68e21433039872d1489793e49fba01c"
+uuid = "5d8bcb5e-2b2c-4a96-a2b1-d40b3d3c344f"
+version = "0.1.11"
+
+[[LibNCurses]]
+git-tree-sha1 = "ed380a2c622c1c7cb8a3a2a9734f538c8101bbe1"
+repo-rev = "master"
+repo-url = "https://github.com/zhengxwen/LibNCurses.jl"
+uuid = "43c66b4a-c48b-4637-9fde-b24f1a3e7402"
+version = "0.1.0"
+
+[[PDDL]]
+deps = ["Julog", "ParserCombinator"]
+git-tree-sha1 = "d80cee2623f6d7a05fd3e70c3a995892568fa5cf"
+uuid = "2c8894f9-daa1-498a-9e3a-26edd9623db8"
+version = "0.1.3"
+
+[[ParserCombinator]]
+deps = ["AutoHashEquals", "Printf"]
+git-tree-sha1 = "c9f6f388961719ebbdef9fcc0a2b12db214b725f"
+uuid = "fae87a5f-d1ad-5cf0-8f61-c941e1580b46"
+version = "2.1.0"
+
+[[Printf]]
+deps = ["Unicode"]
+uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[[Unicode]]
+uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
