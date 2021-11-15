@@ -40,6 +40,16 @@ scr = initscr()
 keypad(scr, true);
 noecho()
 
+goalcoordinates = []
+for fact in problem.goal.args
+    s = string(fact.name)
+    if s == "crate_at"
+        x = parse(Int64,string(fact.args[1])[2:end])
+        y = parse(Int64,string(fact.args[2])[2:end])
+        mvwaddch(scr,20-y,x,'.')
+        push!(goalcoordinates,(x,y))
+    end
+end
 
 
 # Reading from keyboard
@@ -49,17 +59,13 @@ while true
 		if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
 			x = parse(Int64,string(fact.args[1])[2:end])
 			y = parse(Int64,string(fact.args[2])[2:end])
-			mvwaddch(scr,20-y,x,' ')
+			if (x,y) in goalcoordinates
+    			mvwaddch(scr,20-y,x,'.')
+            else
+			    mvwaddch(scr,20-y,x,' ')
+			end
 		end
 	end
-    for fact in problem.goal.args
-        s = string(fact.name)
-        if s == "crate_at"
-			x = parse(Int64,string(fact.args[1])[2:end])
-			y = parse(Int64,string(fact.args[2])[2:end])
-			mvwaddch(scr,20-y,x,'.')
-        end
-    end
     sokoban = (0,0)
 	for fact in (prev_state == 0 ? state.facts : setdiff(state.facts,prev_state.facts))
 		s = string(fact.name)
