@@ -13,8 +13,6 @@
         (sokoban_at h8 v7)
     )
     (:goal (and (crate_at h2 v10) (crate_at h3 v10) (crate_at h2 v9) (crate_at h3 v9) (crate_at h2 v8) (crate_at h3 v8) (crate_at h2 v7) (crate_at h3 v7) (crate_at h2 v6) (crate_at h3 v6)))
-	;(:goal (and (crate_at h2 v6)))
-
 )
 
 

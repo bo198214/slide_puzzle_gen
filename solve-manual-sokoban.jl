@@ -6,7 +6,10 @@ println("Press q or x to leave the loop.")
 
 domain_path = "sokoban-domain.pddl"
 problem_path = ARGS[1]
-plan_file_path = ARGS[2]
+
+if length(ARGS) >= 2
+    plan_file_path = ARGS[2]
+end
 
 keymapping = Dict(
     KEY_DOWN => "-s",
@@ -26,15 +29,14 @@ problem = load_problem(problem_path)
 prev_state = 0
 state = initstate(domain,problem)
 
-# # Reading from plan file
-# println("Reading from " * plan_file_path)
-# for line in readlines(plan_file_path)
-# 	println(line)
-#     global state = execute(domain,state,parse_pddl(line))
-# end
-
-# plan_file = open(plan_file_path, append=true)
-println("Reading from stdin")
+# Reading from plan file
+if @isdefined plan_file_path
+    println("Reading from " * plan_file_path)
+    for line in readlines(plan_file_path)
+        global state = execute(domain,state,parse_pddl(line))
+    end
+    plan_file = open(plan_file_path, append=true)
+end
 
 scr = initscr()
 keypad(scr, true);
@@ -101,8 +103,9 @@ while true
 			end
 			token *= ")"
 			
-			# println("Executing " * token)
-			# println(plan_file,token)
+			if @isdefined plan_file
+			    println(plan_file,token)
+			end
 			global prev_state = state
 			global state = execute(domain,state,e)
 
@@ -112,5 +115,7 @@ while true
 	end
 end
 
-#close(plan_file)
+if @isdefined plan_file
+    close(plan_file)
+end
 endwin()
