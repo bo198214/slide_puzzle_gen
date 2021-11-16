@@ -1,3 +1,4 @@
+#!/usr/bin/env julia
 using PDDL, REPL, LibNCurses
 
 
@@ -120,7 +121,11 @@ while true
             if s == "wall_at"
                 mvwaddch(scr,yoff-y,x,'#')
             elseif s == "crate_at"
-                mvwaddch(scr,yoff-y,x,'$')
+                if (x,y) in goalcoordinates
+                    mvwaddch(scr,yoff-y,x,'*')
+                else
+                    mvwaddch(scr,yoff-y,x,'$')
+                end
             elseif s == "sokoban_at"
                 sokoban = (yoff-y,x)
             end

@@ -300,14 +300,20 @@ def problem_sokoban(problem_name: str, desc: str):
             y = N - n + 1
             if c.lower() == "w" or c == "#":
                 walls.append((x,y))
-            elif c.lower() == "c" or c == "*" or c == '$':
+            elif c == "c" or c == '$':
                 crates.append((x,y))
+            elif c == "C" or c == "*":  # crate is situated on a goal
+                crates.append((x,y))
+                goals.append((x,y))
             elif c.lower() == "x" or c == '.':
                 goals.append((x, y))
             elif c == " " or c == '-':
                 empties.append((x, y))
-            elif c.lower() == "s" or c == "@":
+            elif c == "s" or c == "@":
                 sokoban = (x,y)
+            elif c == "S" or c == "+": # sokoban is situated on a goal
+                sokoban = (x,y)
+                goals.append((x,y))
             elif c.lower() == "o":
                 sgoal = (x,y)
             i += 1
