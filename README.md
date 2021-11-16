@@ -92,6 +92,11 @@ The characters have the following meaning:
 * `+` is the sokoban standing on a goal tile
 * `.` is an unoccupied crate goal tile
 * `-` or ` ` is empty floor
+* `o` sokoban goal tile (needed for mazes)
+
+Just as a side note: You can use the sokoban generator also for creating mazes.
+A maze is a sokoban game just without crates (and having a sokoban goal tile).
+You can find an example of a maze in `gen-test.py`.
 
 ## Interactive plan replay or solution finding (needs Julia programming language installed)
 There are two tools included which allow to (re)play the game in ASCII graphics.
