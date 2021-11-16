@@ -4,7 +4,7 @@ import os.path
 from subprocess import check_call, check_output
 import slide_puzzle_gen
 
-#VAL_DIR='/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin'
+
 def write_files(name,domain,problem):
     domain_file = "test/" + name + '-domain.pddl'
     problem_file = "test/" + name + '-problem.pddl'
@@ -13,6 +13,7 @@ def write_files(name,domain,problem):
     plan_files = glob.glob('solve-downward/test/' + name + '.txt.*')
     try:
         check_output(["Parser", domain_file, problem_file])
+        print(problem_file + " ok.")
     except Exception as e:
         print(e)
 
@@ -23,6 +24,7 @@ def write_files(name,domain,problem):
                 print(plan_file + " ok.")
             except Exception as e:
                 print(e)
+
 
 def battery(title,init_state,target_state, initial_tile='tsq'):
     name = title
