@@ -1,11 +1,14 @@
-# Slide Puzzle PDDL generator in Python
+# Slide Puzzle & Sokoban PDDL generator in Python
 
 The initial idea for this slide puzzle generator came from dealing with Khun Pan - an ancient one person game from Thailand. 
 This game is very intricate, so really worth solving it with a planner.
 So the outcome is this PDDL generator which can be used for any slide puzzles (e.g. also the 15puzzle, or 8puzzle).
+Also a Sokoban PDDL creator is included.
 
-The library to use is the slide_puzzle_gen.py file it contains only one function `domain_problem`.
-Usage could be 
+The library to use is the slide_puzzle_gen.py.
+It contains the function `domain_problem` and `sokoban_problem`.
+
+## Slide Puzzle generator
 ```
 import slide_puzzle_gen
 
@@ -57,3 +60,50 @@ but here we just require the tile "tsq" to occupy the middle of the lowest two r
 
 If you specify an array of tiles instead of a single tile it is considered as "or", i.e.
 `(1,1): [ 'to1' , 'to2' ]` would mean that "to1" *or* "to2" is expected to be on (1,1) for example.
+
+## Sokoban Generator
+
+For sokoban we use a fixed domain, which is contained in the file `sokoban-domain.pddl`.
+A typical usage could look like this:
+```
+level01 = """
+----#####
+----#---#
+----#$--#
+--###--$##
+--#--$-$-#
+###-#-##-#---######
+#---#-##-#####--..#
+#-$--$----------..#
+#####-###-#@##--..#
+----#-----#########
+----#######
+"""
+name = "sokoban01"
+problem = slide_puzzle_gen.problem_sokoban(name, level01)
+print(problem, file=open("sokoban/" + name + '-problem.pddl', 'w'))
+```
+
+The characters have the following meaning: 
+* `#` is wall
+* `$` is a crate,
+* `*` is a crate placed on a goal tile
+* `@` is the sokoban itself
+* `+` is the sokoban standing on a goal tile
+* `.` is an unoccupied crate goal tile
+* `-` or ` ` is empty floor
+
+## Interactive plan replay or solution finding (needs Julia programming language installed)
+There are two tools included which allow to (re)play the game in ASCII graphics.
+
+`./solve-manual-sokoban.jl <sokoban problem file> [<plan file>] replay`
+
+not yet finished is
+
+`./solve-manual-slide-puzzle.jl <domain file> <problem file> [<plan file>] replay`
+
+These Julia programs use ncurses, so if they crash your terminal may be left cluttered
+and you have to start a new terminal.
+You can record your own session in the provided plan file. 
+If the plan file (exists and) contains actions they will be executed before it starts
+to record your own moves. Start the programs without arguments will give you a short help message.
