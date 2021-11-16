@@ -59,12 +59,12 @@ yoff = ymax + 1
 
 # Reading from plan file
 if @isdefined plan_file_path
-    if play
-        actions = readlines(plan_file_path)
-    else
+    actions = filter(a -> ! startswith(a,";"),readlines(plan_file_path))
+    if ! play
         if isfile(plan_file_path)
             println("Reading from " * plan_file_path)
-            for line in readlines(plan_file_path)
+            for line in actions
+                startswith(line,";") && continue
                 global state = execute(domain,state,parse_pddl(line))
             end
         end
