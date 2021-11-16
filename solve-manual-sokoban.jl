@@ -37,6 +37,26 @@ problem = load_problem(problem_path)
 prev_state = 0
 state = initstate(domain,problem)
 
+coord(s) = parse(Int64,string(s)[2:end])
+coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
+
+# calculating xmax ymax
+xcoords = []
+ycoords = []
+for fact in state.facts
+    s = string(fact.name)
+    if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
+        (x,y) = coords(fact)
+        push!(xcoords,x)
+        push!(ycoords,y)
+    end
+end
+xmax = max(xcoords...)
+xmin = min(xcoords...)
+ymax = max(ycoords...)
+ymin = min(ycoords...)
+yoff = ymax + 1
+
 # Reading from plan file
 if @isdefined plan_file_path
     if play
@@ -61,9 +81,6 @@ scr = initscr()
 keypad(scr, true);
 noecho()
 
-coord(s) = parse(Int64,string(s)[2:end])
-coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
-
 goalcoordinates = []
 goalsokoban = 0
 
@@ -71,12 +88,12 @@ for fact in problem.goal.args
     s = string(fact.name)
     if s == "crate_at"
         (x,y) = coords(fact)
-        mvwaddch(scr,20-y,x,'.')
+        mvwaddch(scr,yoff-y,x,'.')
         push!(goalcoordinates,(x,y))
     elseif s == "sokoban_at"
         (x,y) = coords(fact)
         global goalsokoban = (x,y)
-        mvwaddch(scr,20-y,x,'o')
+        mvwaddch(scr,yoff-y,x,'o')
     end
 end
 
@@ -87,11 +104,11 @@ while true
         if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
             (x,y) = coords(fact)
             if (x,y) in goalcoordinates
-                mvwaddch(scr,20-y,x,'.')
+                mvwaddch(scr,yoff-y,x,'.')
             elseif goalsokoban != 0 && (x,y) == goalsokoban
-                mvwaddch(scr,20-y,x,'o')
+                mvwaddch(scr,yoff-y,x,'o')
             else
-                mvwaddch(scr,20-y,x,' ')
+                mvwaddch(scr,yoff-y,x,' ')
             end
         end
     end
@@ -101,11 +118,11 @@ while true
         if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
             (x,y) = coords(fact)
             if s == "wall_at"
-                mvwaddch(scr,20-y,x,'#')
+                mvwaddch(scr,yoff-y,x,'#')
             elseif s == "crate_at"
-                mvwaddch(scr,20-y,x,'$')
+                mvwaddch(scr,yoff-y,x,'$')
             elseif s == "sokoban_at"
-                sokoban = (20-y,x)
+                sokoban = (yoff-y,x)
             end
         end
     end
