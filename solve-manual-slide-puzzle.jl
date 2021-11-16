@@ -1,12 +1,12 @@
 #!/usr/bin/env julia
 using PDDL, REPL, LibNCurses
 
-if length(ARGS) == 0
-    println("""You need to specify at least 1 argument: the Sokoban problem file.
-The Sokoban domain file is assumed to be sokoban-domain.pddl
-A second argument could be a plan file.
-If there is a third argument then the plan file will be replayed.
-Without a third argument the actions of the plan file are executed (if the plan file exists)
+
+if length(ARGS) <= 1
+    println("""You need to specify at least 2 arguments: the domain and the problem file.
+A third argument could be a plan file.
+If there is a fourth argument then the plan file will be replayed.
+Without a fourth argument the actions of the plan file are executed (if the plan file exists)
 and after that your own actions are recorded in this file.
 """)
     exit(1)
@@ -14,32 +14,28 @@ end
 
 println("Press q or x to leave the loop.")
 
-domain_path = "sokoban-domain.pddl"
-problem_path = ARGS[1]
+domain_path = ARGS[1]
+problem_path = ARGS[2]
 
-if length(ARGS) >= 2
-    plan_file_path = ARGS[2]
+if length(ARGS) >= 3
+    plan_file_path = ARGS[3]
 else
     println("No plan file specified, not recording.")
 end
 
 play = false
-if length(ARGS) >= 3
+if length(ARGS) >= 4
     play = true
     println("Re-playing " * plan_file_path)
 else
-    println("type w,e,s,n or use the cursor keys to move the sokoban")
+    println("press the character of the tile then use a cursor key to move the tile")
 end
 
 keymapping = Dict(
     KEY_DOWN => "-s",
-    Int('s') => "-s",
     KEY_UP => "-n",
-    Int('n') => "-n",
     KEY_LEFT => "-w",
-    Int('w') => "-w",
     KEY_RIGHT => "-e",
-    Int('e') => "-e"
 )
 
 println("Loading game ...")
@@ -49,15 +45,22 @@ prev_state = 0
 state = initstate(domain,problem)
 
 coord(s) = parse(Int64,string(s)[2:end])
-coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
+coords2(fact) = (coord(fact.args[1]),coord(fact.args[2]))
+coords3(fact) = (coord(fact.args[2]),coord(fact.args[3]))
 
 # calculating xmax ymax
 xcoords = []
 ycoords = []
+tiles = []
 for fact in state.facts
     s = string(fact.name)
-    if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
-        (x,y) = coords(fact)
+    if s == "at"
+        (x,y) = coords3(fact)
+        push!(tiles,string(fact.args[1]))
+        push!(xcoords,x)
+        push!(ycoords,y)
+    elseif s == "empty"
+        (x,y) = coords2(fact)
         push!(xcoords,x)
         push!(ycoords,y)
     end
@@ -67,6 +70,11 @@ xmin = min(xcoords...)
 ymax = max(ycoords...)
 ymin = min(ycoords...)
 yoff = ymax + 1
+
+sort!(tiles)
+start_charn = Int('1') - 1
+num_from_tile(tile) = begin for i in 1:length(tiles); if tile == tiles[i]; return i+start_charn; end; end; return -1; end
+tile_from_num(c) = tiles[c-start_charn]
 
 # Reading from plan file
 if @isdefined plan_file_path
@@ -110,38 +118,17 @@ end
 
 # Reading from keyboard
 while true
-    for fact in (prev_state == 0 ? [] : setdiff(prev_state.facts,state.facts))
-        s = string(fact.name)
-        if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
-            (x,y) = coords(fact)
-            if (x,y) in goalcoordinates
-                mvwaddch(scr,yoff-y,x,'.')
-            elseif goalsokoban != 0 && (x,y) == goalsokoban
-                mvwaddch(scr,yoff-y,x,'o')
-            else
-                mvwaddch(scr,yoff-y,x,' ')
-            end
-        end
-    end
-    sokoban = (0,0)
     for fact in (prev_state == 0 ? state.facts : setdiff(state.facts,prev_state.facts))
         s = string(fact.name)
-        if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
-            (x,y) = coords(fact)
-            if s == "wall_at"
-                mvwaddch(scr,yoff-y,x,'#')
-            elseif s == "crate_at"
-                if (x,y) in goalcoordinates
-                    mvwaddch(scr,yoff-y,x,'*')
-                else
-                    mvwaddch(scr,yoff-y,x,'$')
-                end
-            elseif s == "sokoban_at"
-                sokoban = (yoff-y,x)
-            end
+        if s == "at"
+            tile = string(fact.args[1])
+            (x,y) = coords3(fact)
+            mvwaddch(scr,yoff-y,x,num_from_tile(tile))
+        elseif s == "empty"
+            (x,y) = coords2(fact)
+            mvwaddch(scr,yoff-y,x,' ')
         end
     end
-    wmove(scr,sokoban[1],sokoban[2])
     a = available(domain,state)
     # for e in a
     #    print(string(e.name)*" ")
@@ -159,6 +146,7 @@ while true
             break
         end
     else
+        tile = tile_from_num(dn)
         part = get(keymapping,dn, "nix")
         for e in a
             if occursin(part,string(e.name))
