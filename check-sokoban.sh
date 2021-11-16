@@ -9,13 +9,15 @@ do
   for solver in solve-*
   do
     if ! [ -d "$solver" ]; then continue; fi
-    plan=$solver/$n.txt
-    if [ -f $plan ]
-    then
-	  echo Validate sokoban-domain.pddl "$problem" "$plan"
-	  Validate sokoban-domain.pddl "$problem" "$plan"
-	  found_plan=1
-	fi
+    for plan in $solver/$n.txt $solver/$n.txt.*
+    do
+      if [ -f $plan ]
+      then
+        echo Validate sokoban-domain.pddl "$problem" "$plan"
+        Validate sokoban-domain.pddl "$problem" "$plan"
+        found_plan=1
+      fi
+    done
   done
   if [ -z "$found_plan" ]
   then

@@ -1,4 +1,3 @@
 *.sas
-*.txt.[0-9]
 /.idea/
 __pycache__/
