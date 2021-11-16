@@ -12,7 +12,7 @@
         (crate_at h9 v15) (crate_at h11 v15) (crate_at h16 v15) (crate_at h8 v14) (crate_at h16 v14) (crate_at h7 v13) (crate_at h15 v13) (crate_at h4 v10) (crate_at h6 v10) (crate_at h3 v9) (crate_at h7 v9) (crate_at h4 v8) (crate_at h5 v8) (crate_at h7 v7) (crate_at h5 v6) (crate_at h4 v5)
         (sokoban_at h3 v10)
     )
-    (:goal (and (crate_at h8 v16) (crate_at h9 v16) (crate_at h7 v15) (crate_at h8 v15) (crate_at h6 v14) (crate_at h7 v14) (crate_at h9 v14) (crate_at h5 v13) (crate_at h6 v13) (crate_at h8 v13) (crate_at h5 v12) (crate_at h6 v12) (crate_at h7 v12)))
+    (:goal (and (crate_at h8 v16) (crate_at h9 v16) (crate_at h7 v15) (crate_at h8 v15) (crate_at h9 v15) (crate_at h6 v14) (crate_at h7 v14) (crate_at h8 v14) (crate_at h9 v14) (crate_at h5 v13) (crate_at h6 v13) (crate_at h7 v13) (crate_at h8 v13) (crate_at h5 v12) (crate_at h6 v12) (crate_at h7 v12)))
 )
 
 
