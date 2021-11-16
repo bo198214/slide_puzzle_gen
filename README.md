@@ -66,6 +66,8 @@ If you specify an array of tiles instead of a single tile it is considered as "o
 For sokoban we use a fixed domain, which is contained in the file `sokoban-domain.pddl`.
 A typical usage could look like this:
 ```
+import slide_puzzle_gen
+
 level01 = """
 ----#####
 ----#---#
