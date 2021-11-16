@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-for problem in khunpan/khunpan-exercise[0-9][0-9][0-9]-problem.pddl
+for problem in  khunpan/khunpan-droid[0-9][0-9]-problem.pddl khunpan/khunpan-exercise[0-9][0-9][0-9]-problem.pddl
 do
   n=${problem%-problem.pddl}
  
