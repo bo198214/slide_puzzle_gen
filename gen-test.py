@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import slide_puzzle_gen
-
+import glob
+import os.path
 from subprocess import check_call, check_output
+import slide_puzzle_gen
 
 #VAL_DIR='/Users/bo198214/workspace/planner/VAL/build/macos64/Release/bin'
 def write_files(name,domain,problem):
@@ -9,13 +10,19 @@ def write_files(name,domain,problem):
     problem_file = "test/" + name + '-problem.pddl'
     print(domain, file=open(domain_file, 'w'))
     print(problem, file=open(problem_file, 'w'))
-    plan_file = 'solve-downward/test/' + name + '.txt'
-    #"$HOME/workspace/planner/VAL/build/macos64/Release/bin/Validate"
+    plan_files = glob.glob('solve-downward/test/' + name + '.txt.*')
     try:
-        check_output(["Parser", domain_file,problem_file])
-        check_output(["Validate", domain_file,problem_file,plan_file])
+        check_output(["Parser", domain_file, problem_file])
     except Exception as e:
         print(e)
+
+    for plan_file in ['solve-downward/test/' + name + '.txt']+plan_files:
+        if os.path.isfile(plan_file):
+            try:
+                check_output(["Validate", domain_file,problem_file,plan_file])
+                print(plan_file + " ok.")
+            except Exception as e:
+                print(e)
 
 def battery(title,init_state,target_state, initial_tile='tsq'):
     name = title
