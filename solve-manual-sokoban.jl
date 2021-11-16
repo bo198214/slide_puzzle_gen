@@ -65,28 +65,36 @@ coord(s) = parse(Int64,string(s)[2:end])
 coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
 
 goalcoordinates = []
+goalsokoban = 0
+
 for fact in problem.goal.args
     s = string(fact.name)
     if s == "crate_at"
         (x,y) = coords(fact)
         mvwaddch(scr,20-y,x,'.')
         push!(goalcoordinates,(x,y))
+    elseif s == "sokoban_at"
+        (x,y) = coords(fact)
+        global goalsokoban = (x,y)
+        mvwaddch(scr,20-y,x,'o')
     end
 end
 
 # Reading from keyboard
 while true
-	for fact in (prev_state == 0 ? [] : setdiff(prev_state.facts,state.facts))
-		s = string(fact.name)
-		if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
-			(x,y) = coords(fact)
-			if (x,y) in goalcoordinates
-    			mvwaddch(scr,20-y,x,'.')
+    for fact in (prev_state == 0 ? [] : setdiff(prev_state.facts,state.facts))
+        s = string(fact.name)
+        if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
+            (x,y) = coords(fact)
+            if (x,y) in goalcoordinates
+                mvwaddch(scr,20-y,x,'.')
+            elseif goalsokoban != 0 && (x,y) == goalsokoban
+                mvwaddch(scr,20-y,x,'o')
             else
-			    mvwaddch(scr,20-y,x,' ')
-			end
-		end
-	end
+                mvwaddch(scr,20-y,x,' ')
+            end
+        end
+    end
     sokoban = (0,0)
 	for fact in (prev_state == 0 ? state.facts : setdiff(state.facts,prev_state.facts))
 		s = string(fact.name)
