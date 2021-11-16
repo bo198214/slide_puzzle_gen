@@ -96,11 +96,11 @@ The characters have the following meaning:
 ## Interactive plan replay or solution finding (needs Julia programming language installed)
 There are two tools included which allow to (re)play the game in ASCII graphics.
 
-`./solve-manual-sokoban.jl <sokoban problem file> [<plan file>] replay`
+`./solve-manual-sokoban.jl <sokoban problem file> [<plan file>] [replay]`
 
 not yet finished is
 
-`./solve-manual-slide-puzzle.jl <domain file> <problem file> [<plan file>] replay`
+`./solve-manual-slide-puzzle.jl <domain file> <problem file> [<plan file>] [replay]`
 
 These Julia programs use ncurses, so if they crash your terminal may be left cluttered
 and you have to start a new terminal.
