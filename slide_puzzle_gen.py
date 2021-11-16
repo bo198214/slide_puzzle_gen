@@ -156,7 +156,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
         {" ".join(["(at ?t ?x%d ?y%d)" % (x,y) for (x,y) in sorted(tile_type)])}
         {" ".join(["(adjwe ?x%d ?x%d)"%(xca[i],xca[i]+1) for i in adjix])}
         {" ".join(["(adjsn ?y%d ?y%d)"%(yca[i],yca[i]+1) for i in adjiy])}
-        {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in added])}"""
+        {" ".join(["(empty ?x%d ?y%d)"%(x,y) for (x,y) in sorted(added)])}"""
         if adapted_counter:
             res += counter_condition
         res += f"""

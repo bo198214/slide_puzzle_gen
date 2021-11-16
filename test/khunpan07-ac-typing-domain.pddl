@@ -2339,7 +2339,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
@@ -2354,7 +2354,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to1) (prev ?t)
     )
    :effect (and 
@@ -2397,7 +2397,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev to1) (not (prev ?t))))
     )
    :effect (and 
@@ -2412,7 +2412,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to1) (prev ?t)
     )
    :effect (and 
@@ -2455,7 +2455,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
@@ -2470,7 +2470,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to2) (prev ?t)
     )
    :effect (and 
@@ -2513,7 +2513,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev to2) (not (prev ?t))))
     )
    :effect (and 
@@ -2528,7 +2528,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to2) (prev ?t)
     )
    :effect (and 
@@ -2571,7 +2571,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
@@ -2586,7 +2586,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to3) (prev ?t)
     )
    :effect (and 
@@ -2629,7 +2629,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev to3) (not (prev ?t))))
     )
    :effect (and 
@@ -2644,7 +2644,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to3) (prev ?t)
     )
    :effect (and 
@@ -2687,7 +2687,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
@@ -2702,7 +2702,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev to4) (prev ?t)
     )
    :effect (and 
@@ -2745,7 +2745,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev to4) (not (prev ?t))))
     )
    :effect (and 
@@ -2760,7 +2760,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev to4) (prev ?t)
     )
    :effect (and 
@@ -2803,7 +2803,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
@@ -2818,7 +2818,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tsq) (prev ?t)
     )
    :effect (and 
@@ -2861,7 +2861,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev tsq) (not (prev ?t))))
     )
    :effect (and 
@@ -2876,7 +2876,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tsq) (prev ?t)
     )
    :effect (and 
@@ -2919,7 +2919,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
@@ -2934,7 +2934,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv1) (prev ?t)
     )
    :effect (and 
@@ -2977,7 +2977,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev tv1) (not (prev ?t))))
     )
    :effect (and 
@@ -2992,7 +2992,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv1) (prev ?t)
     )
    :effect (and 
@@ -3035,7 +3035,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev tv2) (not (prev ?t))))
     )
    :effect (and 
@@ -3050,7 +3050,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv2) (prev ?t)
     )
    :effect (and 
@@ -3093,7 +3093,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev tv2) (not (prev ?t))))
     )
    :effect (and 
@@ -3108,7 +3108,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv2) (prev ?t)
     )
    :effect (and 
@@ -3151,7 +3151,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev tv3) (not (prev ?t))))
     )
    :effect (and 
@@ -3166,7 +3166,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv3) (prev ?t)
     )
    :effect (and 
@@ -3209,7 +3209,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev tv3) (not (prev ?t))))
     )
    :effect (and 
@@ -3224,7 +3224,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv3) (prev ?t)
     )
    :effect (and 
@@ -3267,7 +3267,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
@@ -3282,7 +3282,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv4) (prev ?t)
     )
    :effect (and 
@@ -3325,7 +3325,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev tv4) (not (prev ?t))))
     )
    :effect (and 
@@ -3340,7 +3340,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv4) (prev ?t)
     )
    :effect (and 
@@ -3383,7 +3383,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (or (prev init) (and (prev tv5) (not (prev ?t))))
     )
    :effect (and 
@@ -3398,7 +3398,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2)
         (adjsn ?y0 ?y1) (adjsn ?y1 ?y2)
-        (empty ?x2 ?y0) (empty ?x1 ?y0)
+        (empty ?x1 ?y0) (empty ?x2 ?y0)
         (prev tv5) (prev ?t)
     )
    :effect (and 
@@ -3441,7 +3441,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (or (prev init) (and (prev tv5) (not (prev ?t))))
     )
    :effect (and 
@@ -3456,7 +3456,7 @@
         (at ?t ?x1 ?y1) (at ?t ?x1 ?y2) (at ?t ?x2 ?y1) (at ?t ?x2 ?y2)
         (adjwe ?x1 ?x2) (adjwe ?x2 ?x3)
         (adjsn ?y1 ?y2)
-        (empty ?x3 ?y2) (empty ?x3 ?y1)
+        (empty ?x3 ?y1) (empty ?x3 ?y2)
         (prev tv5) (prev ?t)
     )
    :effect (and 
