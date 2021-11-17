@@ -37,6 +37,7 @@ keymapping = Dict(
     KEY_LEFT => "-w",
     KEY_RIGHT => "-e",
 )
+characters = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 println("Loading game ...")
 domain = load_domain(domain_path)
@@ -51,12 +52,12 @@ coords3(fact) = (coord(fact.args[2]),coord(fact.args[3]))
 # calculating xmax ymax
 xcoords = []
 ycoords = []
-tiles = []
+tile_set = Set()
 for fact in state.facts
     s = string(fact.name)
     if s == "at"
         (x,y) = coords3(fact)
-        push!(tiles,string(fact.args[1]))
+        push!(tile_set,string(fact.args[1]))
         push!(xcoords,x)
         push!(ycoords,y)
     elseif s == "empty"
@@ -71,13 +72,19 @@ ymax = max(ycoords...)
 ymin = min(ycoords...)
 yoff = ymax + 1
 
+tiles = [tile for tile in tile_set]
 sort!(tiles)
-start_charn = Int('1') - 1
-num_from_tile(tile) = begin for i in 1:length(tiles); if tile == tiles[i]; return i+start_charn; end; end; return -1; end
-tile_from_num(c) = tiles[c-start_charn]
+start_charn = Int('0') - 1
+tile_index(tile) = begin for i in 1:length(tiles); if tile == tiles[i]; return i; end; end; return -1; end
+char_index(c) = begin for i in 1:length(characters); if c == characters[i]; return i; end; end; return -1; end
+num_from_tile(tile) = Int(characters[tile_index(tile)])
+tile_from_num(c) = tiles[char_index(Char(c))]
+#print(tiles)
+#print([num_from_tile(tile) for tile in tiles])
+#exit()
 
 # Reading from plan file
-if @isdefined plan_file_path
+if @isdefined(plan_file_path)
     actions = filter(a -> ! startswith(a,";"),readlines(plan_file_path))
     if ! play
         if isfile(plan_file_path)
@@ -146,33 +153,38 @@ while true
             break
         end
     else
-        tile = tile_from_num(dn)
-        part = get(keymapping,dn, "nix")
-        for e in a
-            if occursin(part,string(e.name))
+        try
+            tile = tile_from_num(dn)
+            move_ch = getch()
+            part = get(keymapping, move_ch, "nix")
+            for e in a
+                #println(plan_file,tile," ",string(e.args[1])," ",part," ",string(e.name)," ",tile == string(e.args[1]),endswith(part,string(e.name)))
+                if tile == string(e.args[1]) && endswith(string(e.name),part)
+                    token = "(" * string(e.name)
+                    for arg in e.args
+                        token *= " " * string(arg)
+                    end
+                    token *= ")"
 
-                token = "(" * string(e.name)
-                for arg in e.args
-                    token *= " " * string(arg)
+                    if @isdefined(plan_file)
+                        println(plan_file,token)
+                    end
+                    global prev_state = state
+                    global state = execute(domain,state,e)
+
+                    found_action = true
+                    break
                 end
-                token *= ")"
-
-                if @isdefined plan_file
-                    println(plan_file,token)
-                end
-                global prev_state = state
-                global state = execute(domain,state,e)
-
-                found_action = true
-                break
             end
+        catch e
+            continue
         end
     end
 end
 
 endwin()
 
-if @isdefined plan_file
+if @isdefined(plan_file)
     println("Writing " * plan_file_path)
     close(plan_file)
 end

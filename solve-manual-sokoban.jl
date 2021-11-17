@@ -69,7 +69,7 @@ ymin = min(ycoords...)
 yoff = ymax + 1
 
 # Reading from plan file
-if @isdefined plan_file_path
+if @isdefined(plan_file_path)
     actions = filter(a -> ! startswith(a,";"),readlines(plan_file_path))
     if ! play
         if isfile(plan_file_path)
@@ -161,7 +161,7 @@ while true
     else
         part = get(keymapping,dn, "nix")
         for e in a
-            if occursin(part,string(e.name))
+            if endswith(string(e.name),part)
 
                 token = "(" * string(e.name)
                 for arg in e.args
@@ -169,7 +169,7 @@ while true
                 end
                 token *= ")"
 
-                if @isdefined plan_file
+                if @isdefined(plan_file)
                     println(plan_file,token)
                 end
                 global prev_state = state
@@ -184,7 +184,7 @@ end
 
 endwin()
 
-if @isdefined plan_file
+if @isdefined(plan_file)
     println("Writing " * plan_file_path)
     close(plan_file)
 end
