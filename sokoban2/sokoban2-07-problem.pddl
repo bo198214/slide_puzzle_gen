@@ -1,0 +1,16 @@
+(define (problem sokoban2-07)
+    (:domain sokoban)
+    (:objects
+        xy-10-11 xy-11-11 xy-6-10 xy-4-9 xy-10-8 xy-3-7 xy-3-6 xy-5-6 xy-7-6 xy-3-4 xy-4-4 xy-10-7 xy-11-7 xy-9-6 xy-10-6 xy-11-6 xy-9-5 xy-10-5 xy-11-5 xy-9-4 xy-10-4 xy-11-4 xy-1-13 xy-2-13 xy-3-13 xy-4-13 xy-5-13 xy-6-13 xy-7-13 xy-1-12 xy-9-12 xy-10-12 xy-11-12 xy-3-11 xy-5-11 xy-9-11 xy-12-11 xy-2-10 xy-3-10 xy-4-10 xy-5-10 xy-7-10 xy-8-10 xy-9-10 xy-10-10 xy-11-10 xy-12-10 xy-2-9 xy-3-9 xy-5-9 xy-6-9 xy-10-9 xy-11-9 xy-12-9 xy-4-8 xy-2-7 xy-4-7 xy-5-7 xy-9-7 xy-2-6 xy-4-6 xy-6-6 xy-8-6 xy-2-5 xy-3-5 xy-4-5 xy-5-5 xy-2-4 xy-5-4 xy-7-4 xy-2-3 xy-3-3 xy-7-3 xy-6-11
+	)
+    (:init
+        (adjwe xy-2-3 xy-3-3) (adjwe xy-2-4 xy-3-4) (adjwe xy-2-5 xy-3-5) (adjwe xy-2-6 xy-3-6) (adjwe xy-2-7 xy-3-7) (adjwe xy-2-9 xy-3-9) (adjwe xy-2-10 xy-3-10) (adjwe xy-3-4 xy-4-4) (adjwe xy-3-5 xy-4-5) (adjwe xy-3-6 xy-4-6) (adjwe xy-3-7 xy-4-7) (adjwe xy-3-9 xy-4-9) (adjwe xy-3-10 xy-4-10) (adjwe xy-4-4 xy-5-4) (adjwe xy-4-5 xy-5-5) (adjwe xy-4-6 xy-5-6) (adjwe xy-4-7 xy-5-7) (adjwe xy-4-9 xy-5-9) (adjwe xy-4-10 xy-5-10) (adjwe xy-5-6 xy-6-6) (adjwe xy-5-9 xy-6-9) (adjwe xy-5-10 xy-6-10) (adjwe xy-5-11 xy-6-11) (adjwe xy-6-6 xy-7-6) (adjwe xy-6-10 xy-7-10) (adjwe xy-7-6 xy-8-6) (adjwe xy-7-10 xy-8-10) (adjwe xy-8-6 xy-9-6) (adjwe xy-8-10 xy-9-10) (adjwe xy-9-4 xy-10-4) (adjwe xy-9-5 xy-10-5) (adjwe xy-9-6 xy-10-6) (adjwe xy-9-7 xy-10-7) (adjwe xy-9-10 xy-10-10) (adjwe xy-9-11 xy-10-11) (adjwe xy-9-12 xy-10-12) (adjwe xy-10-4 xy-11-4) (adjwe xy-10-5 xy-11-5) (adjwe xy-10-6 xy-11-6) (adjwe xy-10-7 xy-11-7) (adjwe xy-10-9 xy-11-9) (adjwe xy-10-10 xy-11-10) (adjwe xy-10-11 xy-11-11) (adjwe xy-10-12 xy-11-12) (adjwe xy-11-9 xy-12-9) (adjwe xy-11-10 xy-12-10) (adjwe xy-11-11 xy-12-11)
+        (adjsn xy-1-12 xy-1-13) (adjsn xy-2-3 xy-2-4) (adjsn xy-2-4 xy-2-5) (adjsn xy-2-5 xy-2-6) (adjsn xy-2-6 xy-2-7) (adjsn xy-2-9 xy-2-10) (adjsn xy-3-3 xy-3-4) (adjsn xy-3-4 xy-3-5) (adjsn xy-3-5 xy-3-6) (adjsn xy-3-6 xy-3-7) (adjsn xy-3-9 xy-3-10) (adjsn xy-3-10 xy-3-11) (adjsn xy-4-4 xy-4-5) (adjsn xy-4-5 xy-4-6) (adjsn xy-4-6 xy-4-7) (adjsn xy-4-7 xy-4-8) (adjsn xy-4-8 xy-4-9) (adjsn xy-4-9 xy-4-10) (adjsn xy-5-4 xy-5-5) (adjsn xy-5-5 xy-5-6) (adjsn xy-5-6 xy-5-7) (adjsn xy-5-9 xy-5-10) (adjsn xy-5-10 xy-5-11) (adjsn xy-6-9 xy-6-10) (adjsn xy-6-10 xy-6-11) (adjsn xy-7-3 xy-7-4) (adjsn xy-9-4 xy-9-5) (adjsn xy-9-5 xy-9-6) (adjsn xy-9-6 xy-9-7) (adjsn xy-9-10 xy-9-11) (adjsn xy-9-11 xy-9-12) (adjsn xy-10-4 xy-10-5) (adjsn xy-10-5 xy-10-6) (adjsn xy-10-6 xy-10-7) (adjsn xy-10-7 xy-10-8) (adjsn xy-10-8 xy-10-9) (adjsn xy-10-9 xy-10-10) (adjsn xy-10-10 xy-10-11) (adjsn xy-10-11 xy-10-12) (adjsn xy-11-4 xy-11-5) (adjsn xy-11-5 xy-11-6) (adjsn xy-11-6 xy-11-7) (adjsn xy-11-9 xy-11-10) (adjsn xy-11-10 xy-11-11) (adjsn xy-11-11 xy-11-12) (adjsn xy-12-9 xy-12-10) (adjsn xy-12-10 xy-12-11)
+
+        (crate_at xy-10-11) (crate_at xy-11-11) (crate_at xy-6-10) (crate_at xy-4-9) (crate_at xy-10-8) (crate_at xy-3-7) (crate_at xy-3-6) (crate_at xy-5-6) (crate_at xy-7-6) (crate_at xy-3-4) (crate_at xy-4-4)
+        (sokoban_at xy-6-11)
+    )
+    (:goal (and (crate_at xy-10-7) (crate_at xy-11-7) (crate_at xy-9-6) (crate_at xy-10-6) (crate_at xy-11-6) (crate_at xy-9-5) (crate_at xy-10-5) (crate_at xy-11-5) (crate_at xy-9-4) (crate_at xy-10-4) (crate_at xy-11-4)))
+)
+
+

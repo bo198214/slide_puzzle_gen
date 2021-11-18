@@ -1801,6 +1801,6 @@ levels["90X"] = """
 # Title: 90X
 
 for title in sorted(levels.keys()):
-    name = "sokoban" + title
-    problem = slide_puzzle_gen.problem_sokoban(name, levels[title])
-    print(problem, file=open("sokoban/" + name + '-problem.pddl', 'w'))
+    name = "sokoban2-" + title
+    problem = slide_puzzle_gen.problem_sokoban2(name, levels[title])
+    print(problem, file=open("sokoban2/" + name + '-problem.pddl', 'w'))

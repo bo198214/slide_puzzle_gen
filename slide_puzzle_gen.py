@@ -342,3 +342,78 @@ def problem_sokoban(problem_name: str, desc: str):
 )
 
 """
+
+def problem_sokoban2(problem_name: str, desc: str):
+    sokoban = None
+    walls = []
+    crates = []
+    empties = []
+    goals = []
+    sgoal = None
+
+    lines = desc.splitlines()
+    N = len(lines)
+    n = 1
+    for line in lines:
+        if line == "":
+            continue
+        i = 1
+        for c in line:
+            x = i
+            y = N - n + 1
+            if c.lower() == "w" or c == "#":
+                walls.append((x,y))
+            elif c == "c" or c == '$':
+                crates.append((x,y))
+            elif c == "C" or c == "*":  # crate is situated on a goal
+                crates.append((x,y))
+                goals.append((x,y))
+            elif c.lower() == "x" or c == '.':
+                goals.append((x, y))
+            elif c == " " or c == '-':
+                empties.append((x, y))
+            elif c == "s" or c == "@":
+                sokoban = (x,y)
+            elif c == "S" or c == "+": # sokoban is situated on a goal
+                sokoban = (x,y)
+                goals.append((x,y))
+            elif c.lower() == "o":
+                sgoal = (x,y)
+            i += 1
+        n += 1
+    non_walls = crates+goals+empties+[sokoban]
+    xvalues = [x for (x,y) in walls+non_walls]
+    yvalues = [y for (x,y) in walls+non_walls]
+    xmin=min(xvalues)
+    xmax=max(xvalues)
+    ymin=min(yvalues)
+    ymax=max(yvalues)
+    xy_sn = []
+    xy_we = []
+    for x in range(xmin,xmax):
+        for y in range(ymin,ymax):
+            if (x,y) in walls:
+                continue
+            if (x,y) not in non_walls:
+                continue
+            if (x+1,y) not in walls and (x+1,y) in non_walls:
+                xy_we.append( (x,y) )
+            if (x,y+1) not in walls and (x,y+1) in non_walls:
+                xy_sn.append( (x,y) )
+
+    return f"""(define (problem {problem_name})
+    (:domain sokoban)
+    (:objects
+        {" ".join([f"xy-{x}-{y}" for (x,y) in non_walls])}
+	)
+    (:init
+        {" ".join([f"(adjwe xy-{x}-{y} xy-{x+1}-{y})" for (x,y) in xy_we])}
+        {" ".join([f"(adjsn xy-{x}-{y} xy-{x}-{y+1})" for (x,y) in xy_sn])}
+
+        {" ".join([f"(crate_at xy-{x}-{y})" for (x,y) in crates])}
+        (sokoban_at xy-{sokoban[0]}-{sokoban[1]})
+    )
+    (:goal (and {" ".join([f"(crate_at xy-{x}-{y})" for (x,y) in goals])}{f" (sokoban_at xy-{sgoal[0]}-{sgoal[1]})" if sgoal is not None else ""}))
+)
+
+"""

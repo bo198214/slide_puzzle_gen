@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-for problem in sokoban/sokoban[0-9][0-9]-problem.pddl sokoban/sokoban-dh1-[0-9][0-9]-problem.pddl
+for problem in sokoban2/sokoban2-[0-9][0-9]-problem.pddl sokoban/sokoban[0-9][0-9]-problem.pddl sokoban/sokoban-dh1-[0-9][0-9]-problem.pddl
 do
   n=${problem%-problem.pddl}
   echo Parser sokoban-domain.pddl $problem
