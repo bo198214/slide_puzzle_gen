@@ -93,7 +93,7 @@ The characters have the following meaning:
 * `@` is the sokoban itself
 * `+` is the sokoban standing on a goal tile
 * `.` is an unoccupied crate goal tile
-* `-` or ` ` is empty floor
+* `-` or ` ` or `_` is empty floor
 * `o` sokoban goal tile (needed for mazes)
 
 Just as a side note: You can use the sokoban generator also for creating mazes.
@@ -103,12 +103,13 @@ You can find an example of a maze in `gen-test.py`.
 ## Interactive plan replay or solution finding (needs Julia programming language installed)
 There are two tools included which allow to (re)play the game in ASCII graphics.
 
-`./solve-manual-sokoban.jl <sokoban problem file> [<plan file>] [replay]`
+`julia --project=. solve-manual-sokoban.jl <sokoban problem file> [<plan file>] [replay]`
 
-`./solve-manual-slide-puzzle.jl <domain file> <problem file> [<plan file>] [replay]`
+`julia --project=. solve-manual-slide-puzzle.jl --help`
 
-These Julia programs use ncurses, so if they crash your terminal may be left cluttered
-and you have to start a new terminal.
+These Julia programs use ncurses, so if they crash your terminal may be left cluttered.
+In this case you can do `stty sane`.
+
 You can record your own session in the provided plan file. 
 If the plan file (exists and) contains actions they will be executed before it starts
 to record your own moves. Start the programs without arguments will give you a short help message.
