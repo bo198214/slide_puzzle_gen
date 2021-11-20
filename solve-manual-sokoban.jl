@@ -123,12 +123,12 @@ coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
 # calculating xmax ymax
 xcoords = []
 ycoords = []
-for fact in state.facts
-    s = string(fact.name)
-    if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
-        (x,y) = coords(fact)
-        push!(xcoords,x)
-        push!(ycoords,y)
+for o in problem.objects
+    s = string(o)
+    if startswith(s,"v")
+        push!(ycoords,coord(s))
+    elseif startswith(s,"h")
+        push!(xcoords,coord(s))
     end
 end
 xmax = max(xcoords...)
