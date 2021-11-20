@@ -1,31 +1,89 @@
 #!/usr/bin/env julia
-using PDDL, REPL, LibNCurses
+using PDDL, REPL, LibNCurses, ArgParse
 
-if length(ARGS) == 0
-    println("""You need to specify at least 1 argument: the Sokoban problem file.
-The Sokoban domain file is assumed to be sokoban-domain.pddl
-A second argument could be a plan file.
-If there is a third argument then the plan file will be replayed.
-Without a third argument the actions of the plan file are executed (if the plan file exists)
-and after that your own actions are recorded in this file.
-""")
-    exit(1)
+function parsed_args()
+	settings = ArgParseSettings(
+		description="""
+	This program is to interactively find a plan for the given Sokoban problem. Per default the domain file "sokoban-domain.pddl" is used,
+	but the only assumption is that the actions ends in -n (north), -w (west), -e, -s (unfortunately different from the sokoban standard notation
+	which is lrduLRDU).
+
+	You can save your plan if you specified a plan file after -w.
+	You can use that option also to continue a started session, because it executes all actions that it finds in the plan, before
+	turning control to you.
+	You can also convert Sokoban moves (lrduLRDU) into PDDL actions (its move-n, move-s, move-w, move-e and push-n, push-s, push-w, push-e in sokoban-domain.pddl).
+""",
+		commands_are_required = false
+	)
+	@add_arg_table settings begin
+		"--domain-file"
+			help = "The path to the domain file"
+			default = "sokoban-domain.pddl"
+		"problem_file"
+			help = "The path to the problem file"
+			required = true
+		"-n", "--no-recording"
+			action = :command
+		"-r", "--replay-file"
+			help = "Use the given file to replay the plan. Press space to advance step by step in the plan."
+			action = :command
+		"--execute-append-file", "-w"
+			help = "Use the same file for first executing it's actions and the append your actions."
+			action = :command
+		"convert-sp"
+			help = "Convert from sokoban actions to pddl actions"
+			action = :command
+		"convert-ps"
+			help = "Convert from pddl actions to sokoban actions"
+			action = :command
+	end
+	@add_arg_table settings["replay-file"] begin
+		"plan-file"
+			help="The plan file"
+		"--pddl"
+			help="Save the actions in PDDL format"
+		"--sokoban"
+			help="Save the actions in Sokoban format (lrdu for moving, LRDU for pushing)"
+	end
+	@add_arg_table settings["execute-append-file"] begin
+		"plan-file"
+			help="The plan file"
+		"--pddl"
+			help="Save the actions in PDDL format"
+		"--sokoban"
+			help="Save the actions in Sokoban format (lrdu for moving, LRDU for pushing)"
+	end
+	@add_arg_table settings["convert-sp"] begin
+		"sokoban-file"
+		"pddl-file"
+	end
+	@add_arg_table settings["convert-ps"] begin
+		"pddl-file"
+		"sokoban-file"
+	end
+	args = parse_args(ARGS, settings)
+	return args
 end
 
-println("Press q or x to leave the loop.")
+args = parsed_args()
 
-domain_path = "sokoban-domain.pddl"
-problem_path = ARGS[1]
+domain_path = args["domain-file"]
+problem_path = args["problem_file"]
+play = false
 
-if length(ARGS) >= 2
-    plan_file_path = ARGS[2]
+if args["%COMMAND%"] == "replay-file"
+    plan_file_path = args["replay-file"]["plan-file"]
+	play = true
+	println("Press space to advance one step. Press q or x to leave the loop.")
+elseif args["%COMMAND%"] == "execute-append-file"
+    plan_file_path = args["execute-append-file"]["plan-file"]
+	println("Press q (not saving the plan file) or x (saving the plan file) to leave the loop.")
 else
     println("No plan file specified, not recording.")
+	println("Press q or x to leave the loop.")
 end
 
-play = false
-if length(ARGS) >= 3
-    play = true
+if play
     println("Re-playing " * plan_file_path)
 else
     println("type w,e,s,n or use the cursor keys to move the sokoban")
