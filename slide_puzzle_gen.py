@@ -231,16 +231,16 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
                     for direction in ['s','n','e','w']:
                         name = "prev_"+tile_name+"-"+tile_type_name
                         res += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          f"""
+                                      f"""
         {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}""" % tile_name,
-                                          f"""
+                                      f"""
         {"(not (prev init)) " if initial_tile is None else ""}(not (prev %s)) (prev ?t) (increase (total-cost) 1)""" % tile_name,
-                                          )
+                                      )
                         res += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          """
+                                      """
         (prev %s) (prev ?t)""" % tile_name,
-                                          "",
-                                          )
+                                      "",
+                                      )
         res += """
 )
 """
@@ -288,12 +288,10 @@ def problem_sokoban(problem_name: str, desc: str):
     goals = []
     sgoal = None
 
-    lines = desc.splitlines()
+    lines = [line for line in desc.splitlines() if not line == ""]
     N = len(lines)
     n = 1
     for line in lines:
-        if line == "":
-            continue
         i = 1
         for c in line:
             x = i
@@ -311,7 +309,7 @@ def problem_sokoban(problem_name: str, desc: str):
                 empties.append((x, y))
             elif c == "@":
                 sokoban = (x,y)
-            elif c == "+": # sokoban is situated on a goal
+            elif c == "+":  # sokoban is situated on a goal
                 sokoban = (x,y)
                 goals.append((x,y))
             elif c == "o":
