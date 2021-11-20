@@ -231,6 +231,9 @@ while true
     #    print(string(e.name)*" ")
     # end
     # println()
+    if satisfy(domain,state,problem.goal)
+        mvwaddstr(scr,0,0,"YOU WON!")
+    end
     global dn = getch()
     if dn == Int('x') || dn == Int('q')
         break
