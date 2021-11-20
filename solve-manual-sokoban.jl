@@ -40,6 +40,7 @@ function parsed_args()
 	@add_arg_table settings["replay-file"] begin
 		"plan-file"
 			help="The plan file"
+			required = true
 		"--pddl"
 			help="Save the actions in PDDL format"
 		"--sokoban"
@@ -48,19 +49,25 @@ function parsed_args()
 	@add_arg_table settings["execute-append-file"] begin
 		"plan-file"
 			help="The plan file"
+			required = true
 		"--pddl"
 			help="Save the actions in PDDL format"
 		"--sokoban"
 			help="Save the actions in Sokoban format (lrdu for moving, LRDU for pushing)"
 	end
-	@add_arg_table settings["convert-sp"] begin
-		"sokoban-file"
-		"pddl-file"
-	end
-	@add_arg_table settings["convert-ps"] begin
-		"pddl-file"
-		"sokoban-file"
-	end
+# TODO
+# 	@add_arg_table settings["convert-sp"] begin
+# 		"sokoban-file"
+# 		    required = true
+# 		"pddl-file"
+# 		    required = true
+# 	end
+# 	@add_arg_table settings["convert-ps"] begin
+# 		"pddl-file"
+# 		    required = true
+# 		"sokoban-file"
+# 		    required = true
+# 	end
 	args = parse_args(ARGS, settings)
 	return args
 end
