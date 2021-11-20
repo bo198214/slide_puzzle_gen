@@ -4,7 +4,7 @@
         h1 h2 - xloc
         v1 - yloc
         tile1 - type1
-	)
+    )
     (:init 
         (adjwe h1 h2)
         

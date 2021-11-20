@@ -1,45 +1,114 @@
 #!/usr/bin/env julia
-using PDDL, REPL, LibNCurses
+using PDDL, REPL, LibNCurses, ArgParse
 
-if length(ARGS) == 0
-    println("""You need to specify at least 1 argument: the Sokoban problem file.
-The Sokoban domain file is assumed to be sokoban-domain.pddl
-A second argument could be a plan file.
-If there is a third argument then the plan file will be replayed.
-Without a third argument the actions of the plan file are executed (if the plan file exists)
-and after that your own actions are recorded in this file.
-""")
-    exit(1)
+function parsed_args()
+	settings = ArgParseSettings(
+		description="""
+	This program is to interactively find a plan for the given Sokoban problem. Per default the domain file "sokoban-domain.pddl" is used,
+	but the only assumption is that the actions ends in -n (north), -w (west), -e, -s (unfortunately different from the sokoban standard notation
+	which is lrduLRDU).
+
+	You can save your plan if you specified a plan file after -w.
+	You can use that option also to continue a started session, because it executes all actions that it finds in the plan, before
+	turning control to you.
+	You can also convert Sokoban moves (lrduLRDU) into PDDL actions (its move-n, move-s, move-w, move-e and push-n, push-s, push-w, push-e in sokoban-domain.pddl).
+""",
+		commands_are_required = false
+	)
+	@add_arg_table settings begin
+		"--domain-file"
+			help = "The path to the domain file"
+			default = "sokoban-domain.pddl"
+		"problem_file"
+			help = "The path to the problem file"
+			required = true
+		"-n", "--no-recording"
+			action = :command
+		"-r", "--replay-file"
+			help = "Use the given file to replay the plan. Press space to advance step by step in the plan."
+			action = :command
+		"--execute-append-file", "-w"
+			help = "Use the same file for first executing it's actions and the append your actions."
+			action = :command
+		"convert-sp"
+			help = "Convert from sokoban actions to pddl actions"
+			action = :command
+		"convert-ps"
+			help = "Convert from pddl actions to sokoban actions"
+			action = :command
+	end
+	@add_arg_table settings["replay-file"] begin
+		"plan-file"
+			help="The plan file"
+			required = true
+		"--pddl"
+			help="Save the actions in PDDL format"
+		"--sokoban"
+			help="Save the actions in Sokoban format (lrdu for moving, LRDU for pushing)"
+	end
+	@add_arg_table settings["execute-append-file"] begin
+		"plan-file"
+			help="The plan file"
+			required = true
+		"--pddl"
+			help="Save the actions in PDDL format"
+		"--sokoban"
+			help="Save the actions in Sokoban format (lrdu for moving, LRDU for pushing)"
+	end
+# TODO
+# 	@add_arg_table settings["convert-sp"] begin
+# 		"sokoban-file"
+# 		    required = true
+# 		"pddl-file"
+# 		    required = true
+# 	end
+# 	@add_arg_table settings["convert-ps"] begin
+# 		"pddl-file"
+# 		    required = true
+# 		"sokoban-file"
+# 		    required = true
+# 	end
+	args = parse_args(ARGS, settings)
+	return args
 end
 
-println("Press q or x to leave the loop.")
+args = parsed_args()
 
-domain_path = "sokoban-domain.pddl"
-problem_path = ARGS[1]
+domain_path = args["domain-file"]
+problem_path = args["problem_file"]
+play = false
 
-if length(ARGS) >= 2
-    plan_file_path = ARGS[2]
+if args["%COMMAND%"] == "replay-file"
+    plan_file_path = args["replay-file"]["plan-file"]
+	play = true
+	println("Press space to advance one step. Press q or x to leave the loop.")
+elseif args["%COMMAND%"] == "execute-append-file"
+    plan_file_path = args["execute-append-file"]["plan-file"]
+	println("Press q (not saving the plan file) or x (saving the plan file) to leave the loop.")
 else
     println("No plan file specified, not recording.")
+	println("Press q or x to leave the loop.")
 end
 
-play = false
-if length(ARGS) >= 3
-    play = true
+if play
     println("Re-playing " * plan_file_path)
 else
-    println("type w,e,s,n or use the cursor keys to move the sokoban")
+    println("Use lrudLRUD or the cursor keys to move the sokoban and push crates.")
 end
 
 keymapping = Dict(
     KEY_DOWN => "-s",
-    Int('s') => "-s",
+    Int('d') => "-s",
+    Int('D') => "-s",
     KEY_UP => "-n",
-    Int('n') => "-n",
+    Int('u') => "-n",
+    Int('U') => "-n",
     KEY_LEFT => "-w",
-    Int('w') => "-w",
+    Int('l') => "-w",
+    Int('L') => "-w",
     KEY_RIGHT => "-e",
-    Int('e') => "-e"
+    Int('r') => "-e",
+    Int('R') => "-e",
 )
 
 println("Loading game ...")
@@ -54,12 +123,11 @@ coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
 # calculating xmax ymax
 xcoords = []
 ycoords = []
-for fact in state.facts
-    s = string(fact.name)
-    if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
-        (x,y) = coords(fact)
-        push!(xcoords,x)
-        push!(ycoords,y)
+for s in string.(problem.objects)
+    if startswith(s,"v")
+        push!(ycoords,coord(s))
+    elseif startswith(s,"h")
+        push!(xcoords,coord(s))
     end
 end
 xmax = max(xcoords...)
@@ -91,6 +159,14 @@ scr = initscr()
 #echo -e '\e[0q' #stops blinking works also with numbers 0..6
 keypad(scr, true);
 noecho()
+start_color()
+WALL_COLOR = 1
+init_pair(WALL_COLOR, COLOR_WHITE, COLOR_WHITE)
+GOAL_COLOR = 2
+init_pair(GOAL_COLOR, COLOR_WHITE, COLOR_RED)
+SOKOBAN_GOAL_COLOR = 3
+init_pair(SOKOBAN_GOAL_COLOR, COLOR_WHITE, COLOR_CYAN)
+
 
 goalcoordinates = []
 goalsokoban = 0
@@ -99,15 +175,20 @@ for fact in problem.goal.args
     s = string(fact.name)
     if s == "crate_at"
         (x,y) = coords(fact)
-        mvwaddch(scr,yoff-y,x,'.')
+        attron(COLOR_PAIR(GOAL_COLOR));
+        mvwaddch(scr,yoff-y,x,' ')
+        attroff(COLOR_PAIR(GOAL_COLOR));
         push!(goalcoordinates,(x,y))
     elseif s == "sokoban_at"
         (x,y) = coords(fact)
         global goalsokoban = (x,y)
-        mvwaddch(scr,yoff-y,x,'o')
+        attron(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
+        mvwaddch(scr,yoff-y,x,' ')
+        attroff(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
     end
 end
 
+dn = nothing
 # Reading from keyboard
 while true
     for fact in (prev_state == 0 ? [] : setdiff(prev_state.facts,state.facts))
@@ -115,9 +196,13 @@ while true
         if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
             (x,y) = coords(fact)
             if (x,y) in goalcoordinates
-                mvwaddch(scr,yoff-y,x,'.')
+                attron(COLOR_PAIR(GOAL_COLOR));
+                mvwaddch(scr,yoff-y,x,' ')
+                attroff(COLOR_PAIR(GOAL_COLOR));
             elseif goalsokoban != 0 && (x,y) == goalsokoban
-                mvwaddch(scr,yoff-y,x,'o')
+                attron(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
+                mvwaddch(scr,yoff-y,x,' ')
+                attroff(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
             else
                 mvwaddch(scr,yoff-y,x,' ')
             end
@@ -129,10 +214,15 @@ while true
         if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
             (x,y) = coords(fact)
             if s == "wall_at"
+                attron(COLOR_PAIR(WALL_COLOR));
                 mvwaddch(scr,yoff-y,x,'#')
+                attroff(COLOR_PAIR(WALL_COLOR));
             elseif s == "crate_at"
                 if (x,y) in goalcoordinates
-                    mvwaddch(scr,yoff-y,x,'*')
+                    attron(COLOR_PAIR(GOAL_COLOR));
+                    mvwaddch(scr,yoff-y,x,'$')
+                    attroff(COLOR_PAIR(GOAL_COLOR));
+                    #mvwaddch(scr,yoff-y,x,'*')
                 else
                     mvwaddch(scr,yoff-y,x,'$')
                 end
@@ -147,7 +237,10 @@ while true
     #    print(string(e.name)*" ")
     # end
     # println()
-    dn = getch()
+    if satisfy(domain,state,problem.goal)
+        mvwaddstr(scr,0,0,"YOU WON!")
+    end
+    global dn = getch()
     if dn == Int('x') || dn == Int('q')
         break
     end
@@ -184,7 +277,7 @@ end
 
 endwin()
 
-if @isdefined(plan_file)
+if @isdefined(plan_file) && dn == 'x'
     println("Writing " * plan_file_path)
     close(plan_file)
 end

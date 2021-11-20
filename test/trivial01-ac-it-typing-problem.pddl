@@ -3,7 +3,7 @@
     (:objects 
         h1 h2 - xloc
         v1 - yloc
-	)
+    )
     (:init 
         (adjwe h1 h2)
         

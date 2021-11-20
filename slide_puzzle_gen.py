@@ -231,16 +231,16 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
                     for direction in ['s','n','e','w']:
                         name = "prev_"+tile_name+"-"+tile_type_name
                         res += action("count1-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          f"""
+                                      f"""
         {"(or (prev init) (and " if initial_tile is None else ""}(prev %s) (not (prev ?t)){"))" if initial_tile is None else ""}""" % tile_name,
-                                          f"""
+                                      f"""
         {"(not (prev init)) " if initial_tile is None else ""}(not (prev %s)) (prev ?t) (increase (total-cost) 1)""" % tile_name,
-                                          )
+                                      )
                         res += action("count0-"+name, tile_type_name, tile_types[tile_type_name], direction,
-                                          """
+                                      """
         (prev %s) (prev ?t)""" % tile_name,
-                                          "",
-                                          )
+                                      "",
+                                      )
         res += """
 )
 """
@@ -256,7 +256,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
             res += f"""
         {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}"""
         res += f"""
-	)
+    )
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjsn v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
@@ -288,33 +288,31 @@ def problem_sokoban(problem_name: str, desc: str):
     goals = []
     sgoal = None
 
-    lines = desc.splitlines()
+    lines = [line for line in desc.splitlines() if not line == ""]
     N = len(lines)
     n = 1
     for line in lines:
-        if line == "":
-            continue
         i = 1
         for c in line:
             x = i
             y = N - n + 1
             if c.lower() == "w" or c == "#":
                 walls.append((x,y))
-            elif c == "c" or c == '$':
+            elif c == '$':
                 crates.append((x,y))
-            elif c == "C" or c == "*":  # crate is situated on a goal
+            elif c == "*":  # crate is situated on a goal
                 crates.append((x,y))
                 goals.append((x,y))
-            elif c.lower() == "x" or c == '.':
+            elif c == '.':
                 goals.append((x, y))
-            elif c == " " or c == '-':
+            elif c == " " or c == '-' or c == '_':
                 empties.append((x, y))
-            elif c == "s" or c == "@":
+            elif c == "@":
                 sokoban = (x,y)
-            elif c == "S" or c == "+": # sokoban is situated on a goal
+            elif c == "+":  # sokoban is situated on a goal
                 sokoban = (x,y)
                 goals.append((x,y))
-            elif c.lower() == "o":
+            elif c == "o":
                 sgoal = (x,y)
             i += 1
         n += 1
@@ -329,7 +327,7 @@ def problem_sokoban(problem_name: str, desc: str):
     (:objects
         {" ".join(["h%d"%i for i in range(xmin,xmax+1)])}
         {" ".join(["v%d"%i for i in range(ymin,ymax+1)])}
-	)
+    )
     (:init
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(xmin,xmax)])}
         {" ".join(["(adjsn v%d v%d)"%(i,i+1) for i in range(ymin,ymax)])}

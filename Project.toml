@@ -1,3 +1,4 @@
 [deps]
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
 LibNCurses = "43c66b4a-c48b-4637-9fde-b24f1a3e7402"
 PDDL = "2c8894f9-daa1-498a-9e3a-26edd9623db8"
