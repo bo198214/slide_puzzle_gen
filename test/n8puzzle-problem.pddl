@@ -4,7 +4,7 @@
         h1 h2 h3
         v1 v2 v3
         tile1 tile2 tile3 tile4 tile5 tile6 tile7 tile8
-	)
+    )
     (:init 
         (adjwe h1 h2) (adjwe h2 h3)
         (adjsn v1 v2) (adjsn v2 v3)

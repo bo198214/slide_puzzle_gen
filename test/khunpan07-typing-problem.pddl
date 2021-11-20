@@ -4,7 +4,7 @@
         h1 h2 h3 h4 - xloc
         v1 v2 v3 v4 v5 - yloc
         to1 - type1 to2 - type1 to3 - type1 to4 - type1 tsq - type3 tv1 - type2 tv2 - type2 tv3 - type2 tv4 - type2 tv5 - type2
-	)
+    )
     (:init 
         (adjwe h1 h2) (adjwe h2 h3) (adjwe h3 h4)
         (adjsn v1 v2) (adjsn v2 v3) (adjsn v3 v4) (adjsn v4 v5)

@@ -3,7 +3,7 @@
     (:objects 
         h1 h2
         v1
-	)
+    )
     (:init 
         (adjwe h1 h2)
         

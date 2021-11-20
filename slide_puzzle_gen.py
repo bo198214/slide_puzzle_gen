@@ -256,7 +256,7 @@ def domain_problem(domain_name, problem_name, init_state, target_state,
             res += f"""
         {" ".join([f"{tile_name}{' - '+tiles_type_name[tile_name] if typing else ''}" for tile_name in tile_names()])}"""
         res += f"""
-	)
+    )
     (:init 
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(1,xdim)])}
         {" ".join(["(adjsn v%d v%d)"%(i,i+1) for i in range(1,ydim)])}
@@ -300,21 +300,21 @@ def problem_sokoban(problem_name: str, desc: str):
             y = N - n + 1
             if c.lower() == "w" or c == "#":
                 walls.append((x,y))
-            elif c == "c" or c == '$':
+            elif c == '$':
                 crates.append((x,y))
-            elif c == "C" or c == "*":  # crate is situated on a goal
+            elif c == "*":  # crate is situated on a goal
                 crates.append((x,y))
                 goals.append((x,y))
-            elif c.lower() == "x" or c == '.':
+            elif c == '.':
                 goals.append((x, y))
-            elif c == " " or c == '-':
+            elif c == " " or c == '-' or c == '_':
                 empties.append((x, y))
-            elif c == "s" or c == "@":
+            elif c == "@":
                 sokoban = (x,y)
-            elif c == "S" or c == "+": # sokoban is situated on a goal
+            elif c == "+": # sokoban is situated on a goal
                 sokoban = (x,y)
                 goals.append((x,y))
-            elif c.lower() == "o":
+            elif c == "o":
                 sgoal = (x,y)
             i += 1
         n += 1
@@ -329,7 +329,7 @@ def problem_sokoban(problem_name: str, desc: str):
     (:objects
         {" ".join(["h%d"%i for i in range(xmin,xmax+1)])}
         {" ".join(["v%d"%i for i in range(ymin,ymax+1)])}
-	)
+    )
     (:init
         {" ".join(["(adjwe h%d h%d)"%(i,i+1) for i in range(xmin,xmax)])}
         {" ".join(["(adjsn v%d v%d)"%(i,i+1) for i in range(ymin,ymax)])}

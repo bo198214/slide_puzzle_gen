@@ -4,7 +4,7 @@
         h1 h2 h3 h4
         v1 v2 v3 v4 v5
         th to1 to2 to3 to4 tsq tv1 tv2 tv3 tv4
-	)
+    )
     (:init 
         (adjwe h1 h2) (adjwe h2 h3) (adjwe h3 h4)
         (adjsn v1 v2) (adjsn v2 v3) (adjsn v3 v4) (adjsn v4 v5)
