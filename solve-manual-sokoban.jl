@@ -123,8 +123,7 @@ coords(fact) = (coord(fact.args[1]),coord(fact.args[2]))
 # calculating xmax ymax
 xcoords = []
 ycoords = []
-for o in problem.objects
-    s = string(o)
+for s in string.(problem.objects)
     if startswith(s,"v")
         push!(ycoords,coord(s))
     elseif startswith(s,"h")
