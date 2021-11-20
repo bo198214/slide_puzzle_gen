@@ -86,18 +86,22 @@ end
 if play
     println("Re-playing " * plan_file_path)
 else
-    println("type w,e,s,n or use the cursor keys to move the sokoban")
+    println("Use lrudLRUD or the cursor keys to move the sokoban and push crates.")
 end
 
 keymapping = Dict(
     KEY_DOWN => "-s",
-    Int('s') => "-s",
+    Int('d') => "-s",
+    Int('D') => "-s",
     KEY_UP => "-n",
-    Int('n') => "-n",
+    Int('u') => "-n",
+    Int('U') => "-n",
     KEY_LEFT => "-w",
-    Int('w') => "-w",
+    Int('l') => "-w",
+    Int('L') => "-w",
     KEY_RIGHT => "-e",
-    Int('e') => "-e"
+    Int('r') => "-e",
+    Int('R') => "-e",
 )
 
 println("Loading game ...")
@@ -149,6 +153,14 @@ scr = initscr()
 #echo -e '\e[0q' #stops blinking works also with numbers 0..6
 keypad(scr, true);
 noecho()
+start_color()
+WALL_COLOR = 1
+init_pair(WALL_COLOR, COLOR_WHITE, COLOR_WHITE)
+GOAL_COLOR = 2
+init_pair(GOAL_COLOR, COLOR_WHITE, COLOR_RED)
+SOKOBAN_GOAL_COLOR = 3
+init_pair(SOKOBAN_GOAL_COLOR, COLOR_WHITE, COLOR_CYAN)
+
 
 goalcoordinates = []
 goalsokoban = 0
@@ -157,15 +169,20 @@ for fact in problem.goal.args
     s = string(fact.name)
     if s == "crate_at"
         (x,y) = coords(fact)
-        mvwaddch(scr,yoff-y,x,'.')
+        attron(COLOR_PAIR(GOAL_COLOR));
+        mvwaddch(scr,yoff-y,x,' ')
+        attroff(COLOR_PAIR(GOAL_COLOR));
         push!(goalcoordinates,(x,y))
     elseif s == "sokoban_at"
         (x,y) = coords(fact)
         global goalsokoban = (x,y)
-        mvwaddch(scr,yoff-y,x,'o')
+        attron(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
+        mvwaddch(scr,yoff-y,x,' ')
+        attroff(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
     end
 end
 
+dn = nothing
 # Reading from keyboard
 while true
     for fact in (prev_state == 0 ? [] : setdiff(prev_state.facts,state.facts))
@@ -173,9 +190,13 @@ while true
         if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
             (x,y) = coords(fact)
             if (x,y) in goalcoordinates
-                mvwaddch(scr,yoff-y,x,'.')
+                attron(COLOR_PAIR(GOAL_COLOR));
+                mvwaddch(scr,yoff-y,x,' ')
+                attroff(COLOR_PAIR(GOAL_COLOR));
             elseif goalsokoban != 0 && (x,y) == goalsokoban
-                mvwaddch(scr,yoff-y,x,'o')
+                attron(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
+                mvwaddch(scr,yoff-y,x,' ')
+                attroff(COLOR_PAIR(SOKOBAN_GOAL_COLOR));
             else
                 mvwaddch(scr,yoff-y,x,' ')
             end
@@ -187,10 +208,15 @@ while true
         if s == "wall_at" || s == "crate_at" || s == "sokoban_at"
             (x,y) = coords(fact)
             if s == "wall_at"
+                attron(COLOR_PAIR(WALL_COLOR));
                 mvwaddch(scr,yoff-y,x,'#')
+                attroff(COLOR_PAIR(WALL_COLOR));
             elseif s == "crate_at"
                 if (x,y) in goalcoordinates
-                    mvwaddch(scr,yoff-y,x,'*')
+                    attron(COLOR_PAIR(GOAL_COLOR));
+                    mvwaddch(scr,yoff-y,x,'$')
+                    attroff(COLOR_PAIR(GOAL_COLOR));
+                    #mvwaddch(scr,yoff-y,x,'*')
                 else
                     mvwaddch(scr,yoff-y,x,'$')
                 end
@@ -205,7 +231,7 @@ while true
     #    print(string(e.name)*" ")
     # end
     # println()
-    dn = getch()
+    global dn = getch()
     if dn == Int('x') || dn == Int('q')
         break
     end
@@ -242,7 +268,7 @@ end
 
 endwin()
 
-if @isdefined(plan_file)
+if @isdefined(plan_file) && dn == 'x'
     println("Writing " * plan_file_path)
     close(plan_file)
 end
